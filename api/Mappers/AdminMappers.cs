@@ -3,31 +3,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using api.DTOs.Admin;
+using api.Helpers;
 using api.Models;
 
 namespace api.Mappers
 {
     public static class AdminMappers
     {
-        public static User ToUser(this AdminDTO dto)
-        {
-            return new User
-            {
-                UserID = dto.UserID,
-                FirstName = dto.FirstName,
-                LastName = dto.LastName,
-                PhoneNumber = dto.PhoneNumber,
-                Role = dto.Role,
-                RollOrEmpNo = dto.RollOrEmpNo,
-                Specification = dto.Specification,
-                Username = dto.Username,
-                PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password),
-                JoinDate = DateTime.UtcNow,
-                UpdatedAt = dto.UpdatedAt,
-                Status = dto.Status
+        // public static User ToUser(this AdminDTO dto)
+        // {
+        //     return new User
+        //     {
+        //         UserID = dto.UserID,
+        //         FirstName = dto.FirstName,
+        //         LastName = dto.LastName,
+        //         PhoneNumber = dto.PhoneNumber,
+        //         Role = dto.Role,
+        //         RollOrEmpNo = dto.RollOrEmpNo,
+        //         Specification = dto.Specification,
+        //         Username = dto.Username,
+        //         PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password),
+        //         JoinDate = DateTime.UtcNow,
+        //         UpdatedAt = dto.UpdatedAt,
+        //         Status = dto.Status
                 
-            };
-        }
+        //     };
+        // }
 
         public static AdminDTO ToAdminDTO(this User user){
             return new AdminDTO{
@@ -40,7 +41,7 @@ namespace api.Mappers
                 Specification = user.Specification,
                 Username = user.Username,
                 Password = user.PasswordHash,
-                JoinDate = DateTime.UtcNow,
+                JoinDate = user.JoinDate,
                 UpdatedAt = user.UpdatedAt,
                 Status = user.Status
             };
@@ -54,9 +55,9 @@ namespace api.Mappers
                 LastName = dto.LastName,
                 PhoneNumber = dto.PhoneNumber,
                 Role = dto.Role,
-                RollOrEmpNo = dto.RollOrEmpNo,
+                RollOrEmpNo = RollOrEmpNoGenerator.GenerateRollOrEmpNo("admin"),
                 Specification = dto.Specification,
-                Username = dto.Username,
+                Username = UsernameGenerator.GenerateUsername(dto.FirstName, dto.LastName),
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password),
                 JoinDate = DateTime.UtcNow,
                 Status = dto.Status
@@ -72,12 +73,12 @@ namespace api.Mappers
                 LastName = dto.LastName,
                 PhoneNumber = dto.PhoneNumber,
                 Role = dto.Role,
-                RollOrEmpNo = dto.RollOrEmpNo,
+                // RollOrEmpNo = dto.RollOrEmpNo,
                 Specification = dto.Specification,
-                JoinDate = dto.JoinDate,
+                // JoinDate = dto.JoinDate,
                 UpdatedAt = DateTime.UtcNow, // Set updated time here
                 Status = dto.Status,
-                Username = dto.Username
+                // Username = dto.Username
             };
 
             if (!string.IsNullOrWhiteSpace(dto.Password))

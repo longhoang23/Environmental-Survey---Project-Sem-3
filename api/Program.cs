@@ -1,6 +1,10 @@
 using System.Text.Json.Serialization;
 using api.Data;
 using api.Repositories.Admin;
+using api.Repositories.Class;
+using api.Repositories.Section;
+using api.Repositories.Staff;
+using api.Repositories.Student;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,6 +21,12 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => {
 });
 
 builder.Services.AddScoped<IAdminRepository, AdminRepository>();
+builder.Services.AddScoped<IKlassRepository, KlassRepository>();
+builder.Services.AddScoped<ISectionRepository, SectionRepository>();
+builder.Services.AddScoped<IStaffRepository, StaffRepository>();
+builder.Services.AddScoped<IStudentRepository, StudentRepository>();
+
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

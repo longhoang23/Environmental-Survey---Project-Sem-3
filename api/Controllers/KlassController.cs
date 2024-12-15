@@ -1,108 +1,82 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+using api.DTOs.Class;
+using api.Mappers;
+using api.Repositories.Class;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using api.Data;
-using api.Models;
 
 namespace api.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class KlassController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IKlassRepository _klassRepository;
 
-        public KlassController(ApplicationDbContext context)
+        public KlassController(IKlassRepository klassRepository)
         {
-            _context = context;
+            _klassRepository = klassRepository;
         }
 
-        // GET: api/Klass
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Class>>> GetClasses()
+        [HttpGet("all")]
+        public async Task<IActionResult> GetAllClasses()
         {
-            return await _context.Classes.ToListAsync();
+            var classes = await _klassRepository.GetAllClassesAsync();
+            // Map each Klass entity to KlassDTO
+            var klassDTOs = classes.Select(k => k.ToClass()).ToList();
+            return Ok(klassDTOs);
         }
 
-        // GET: api/Klass/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Class>> GetClass(int id)
+        [HttpGet("{classId}")]
+        public async Task<IActionResult> GetClassById(int classId)
         {
-            var @class = await _context.Classes.FindAsync(id);
+            var klass = await _klassRepository.GetClassByIdAsync(classId);
+            if (klass == null) 
+                return NotFound("Class not found.");
 
-            if (@class == null)
-            {
-                return NotFound();
-            }
-
-            return @class;
+            var klassDTO = klass.ToClass();
+            return Ok(klassDTO);
         }
 
-        // PUT: api/Klass/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutClass(int id, Class @class)
+        [HttpPost("create")]
+        public async Task<IActionResult> CreateClass([FromBody] CreateKlassDTO createKlassDTO)
         {
-            if (id != @class.ClassId)
-            {
-                return BadRequest();
-            }
+            if (!ModelState.IsValid) 
+                return BadRequest(ModelState);
 
-            _context.Entry(@class).State = EntityState.Modified;
+            var newClass = createKlassDTO.ToCreateClassResponse();
+            var createdClass = await _klassRepository.CreateClassAsync(newClass);
+            var klassDTO = createdClass.ToClass();
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ClassExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
+            return CreatedAtAction(nameof(GetClassById), new { classId = klassDTO.ClassId }, klassDTO);
         }
 
-        // POST: api/Klass
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public async Task<ActionResult<Class>> PostClass(Class @class)
+        [HttpPut("update/{classId}")]
+        public async Task<IActionResult> UpdateClass(int classId, [FromBody] UpdateKlassDTO updateKlassDTO)
         {
-            _context.Classes.Add(@class);
-            await _context.SaveChangesAsync();
+            if (!ModelState.IsValid) 
+                return BadRequest(ModelState);
 
-            return CreatedAtAction("GetClass", new { id = @class.ClassId }, @class);
+            var classToUpdate = updateKlassDTO.ToUpdateClassResponse();
+            var updatedClass = await _klassRepository.UpdateClassAsync(classToUpdate, classId);
+
+            if (updatedClass == null) 
+                return NotFound("Class not found.");
+
+            var klassDTO = updatedClass.ToClass();
+            return Ok(klassDTO);
         }
 
-        // DELETE: api/Klass/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteClass(int id)
+        [HttpDelete("delete/{classId}")]
+        public async Task<IActionResult> DeleteClass(int classId)
         {
-            var @class = await _context.Classes.FindAsync(id);
-            if (@class == null)
-            {
-                return NotFound();
-            }
+            var deletedClass = await _klassRepository.DeleteClassAsync(classId);
+            if (deletedClass == null) 
+                return NotFound("Class not found.");
 
-            _context.Classes.Remove(@class);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
-        }
-
-        private bool ClassExists(int id)
-        {
-            return _context.Classes.Any(e => e.ClassId == id);
+            return Ok("Class deleted successfully.");
         }
     }
 }

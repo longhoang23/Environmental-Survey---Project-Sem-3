@@ -5,20 +5,20 @@ using System.Threading.Tasks;
 using api.Enums.Role;
 using api.Enums.Status;
 
-namespace api.DTOs.Admin
+namespace api.DTOs.Student
 {
-    public class UpdateAdminDTO
+    public class CreateStudentDTO
     {
-        public string FirstName { get; set; } = null!;
+         public string FirstName { get; set; } = null!;
         public string LastName { get; set; } = null!;
         public string PhoneNumber { get; set; } = null!;
         
-        public UserRole Role { get; set; } = UserRole.Admin;
+        public UserRole Role { get; set; } = UserRole.Student;
 
         // public string RollOrEmpNo { get; set; } = null!;
+        public int? KlassId {get; set;}
         public string? Specification { get; set; }
         public UserStatus Status {get; set;} = UserStatus.Active;
-        // public DateTime? JoinDate { get; set; }
 
         // public string Username { get; set; } = null!;
         public string Password { get; set; } = null!;

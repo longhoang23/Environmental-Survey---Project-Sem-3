@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using api.Enums.Role;
 using api.Enums.Status;
 
-namespace api.DTOs.Admin
+namespace api.DTOs.Staff
 {
-    public class AdminDTO
+    public class StaffDTO
     {
         public int UserID { get; set; }
 
@@ -15,9 +15,10 @@ namespace api.DTOs.Admin
         public string LastName { get; set; } = null!;
         public string PhoneNumber { get; set; } = null!;
         
-        public UserRole Role { get; set; } = UserRole.Admin;
+        public UserRole Role { get; set; } = UserRole.Staff;
 
         public string RollOrEmpNo { get; set; } = null!;
+        public int? SectionId { get; set; }
 
         public string? Specification { get; set; }
 
@@ -30,4 +31,5 @@ namespace api.DTOs.Admin
 
         public string Password { get; set; } = null!;
     }
+    
 }

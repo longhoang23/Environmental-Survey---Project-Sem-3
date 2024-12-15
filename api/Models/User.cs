@@ -32,8 +32,8 @@ namespace api.Models
         [Required]
         [MaxLength(50)]
         public string RollOrEmpNo { get; set; } = null!;
-
-        public int? ClassId { get; set; }
+        
+        public int? KlassId { get; set; }
         public int? SectionId { get; set; }
 
         [MaxLength(100)]
@@ -56,7 +56,7 @@ namespace api.Models
 
         // Foreign Keys
         [ForeignKey("ClassId")]
-        public Class? Class { get; set; }
+        public Klass? Klass { get; set; }
 
         [ForeignKey("SectionId")]
         public Section? Section { get; set; }

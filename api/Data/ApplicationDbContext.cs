@@ -15,7 +15,7 @@ namespace api.Data
         }
 
         public DbSet<User> Users {get; set;}
-        public DbSet<Class> Classes {get; set;}
+        public DbSet<Klass> Klasses {get; set;}
         public DbSet<Competition> Competitions {get; set;}
         public DbSet<FAQ> FAQs {get; set;}
         public DbSet<Participation> Participations {get; set;}

@@ -22,24 +22,6 @@ namespace api.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("api.Models.Class", b =>
-                {
-                    b.Property<int>("ClassId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ClassId"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.HasKey("ClassId");
-
-                    b.ToTable("Classes");
-                });
-
             modelBuilder.Entity("api.Models.Competition", b =>
                 {
                     b.Property<int>("CompetitionID")
@@ -98,6 +80,24 @@ namespace api.Migrations
                     b.HasKey("FAQID");
 
                     b.ToTable("FAQs");
+                });
+
+            modelBuilder.Entity("api.Models.Klass", b =>
+                {
+                    b.Property<int>("KlassId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("KlassId"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("KlassId");
+
+                    b.ToTable("Classes");
                 });
 
             modelBuilder.Entity("api.Models.Participation", b =>
@@ -346,6 +346,9 @@ namespace api.Migrations
                     b.Property<DateTime?>("JoinDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int?>("KlassId")
+                        .HasColumnType("int");
+
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -512,7 +515,7 @@ namespace api.Migrations
 
             modelBuilder.Entity("api.Models.User", b =>
                 {
-                    b.HasOne("api.Models.Class", "Class")
+                    b.HasOne("api.Models.Klass", "Klass")
                         .WithMany("Users")
                         .HasForeignKey("ClassId");
 
@@ -520,12 +523,12 @@ namespace api.Migrations
                         .WithMany("Users")
                         .HasForeignKey("SectionId");
 
-                    b.Navigation("Class");
+                    b.Navigation("Klass");
 
                     b.Navigation("Section");
                 });
 
-            modelBuilder.Entity("api.Models.Class", b =>
+            modelBuilder.Entity("api.Models.Klass", b =>
                 {
                     b.Navigation("Users");
                 });
