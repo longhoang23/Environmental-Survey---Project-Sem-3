@@ -335,9 +335,6 @@ namespace api.Migrations
                     b.Property<DateTime?>("AdmissionDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("ClassId")
-                        .HasColumnType("int");
-
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -394,7 +391,7 @@ namespace api.Migrations
 
                     b.HasKey("UserID");
 
-                    b.HasIndex("ClassId");
+                    b.HasIndex("KlassId");
 
                     b.HasIndex("SectionId");
 
@@ -517,7 +514,7 @@ namespace api.Migrations
                 {
                     b.HasOne("api.Models.Klass", "Klass")
                         .WithMany("Users")
-                        .HasForeignKey("ClassId");
+                        .HasForeignKey("KlassId");
 
                     b.HasOne("api.Models.Section", "Section")
                         .WithMany("Users")

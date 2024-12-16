@@ -55,7 +55,7 @@ namespace api.Models
         public string PasswordHash { get; set; } = null!;
 
         // Foreign Keys
-        [ForeignKey("ClassId")]
+        [ForeignKey("KlassId")]
         public Klass? Klass { get; set; }
 
         [ForeignKey("SectionId")]

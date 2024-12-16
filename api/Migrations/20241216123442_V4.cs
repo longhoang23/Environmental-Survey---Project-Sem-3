@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace api.Migrations
 {
     /// <inheritdoc />
-    public partial class V2 : Migration
+    public partial class V4 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -83,15 +83,14 @@ namespace api.Migrations
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Status = table.Column<int>(type: "int", maxLength: 10, nullable: false),
                     Username = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    PasswordHash = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    ClassId = table.Column<int>(type: "int", nullable: true)
+                    PasswordHash = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.UserID);
                     table.ForeignKey(
-                        name: "FK_Users_Classes_ClassId",
-                        column: x => x.ClassId,
+                        name: "FK_Users_Classes_KlassId",
+                        column: x => x.KlassId,
                         principalTable: "Classes",
                         principalColumn: "KlassId");
                     table.ForeignKey(
@@ -350,9 +349,9 @@ namespace api.Migrations
                 column: "CreatedBy");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Users_ClassId",
+                name: "IX_Users_KlassId",
                 table: "Users",
-                column: "ClassId");
+                column: "KlassId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Users_SectionId",

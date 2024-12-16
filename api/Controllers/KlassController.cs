@@ -25,7 +25,7 @@ namespace api.Controllers
         {
             var classes = await _klassRepository.GetAllClassesAsync();
             // Map each Klass entity to KlassDTO
-            var klassDTOs = classes.Select(k => k.ToClass()).ToList();
+            var klassDTOs = classes.Select(k => k.ToClassDTO()).ToList();
             return Ok(klassDTOs);
         }
 
@@ -36,7 +36,7 @@ namespace api.Controllers
             if (klass == null) 
                 return NotFound("Class not found.");
 
-            var klassDTO = klass.ToClass();
+            var klassDTO = klass.ToClassDTO();
             return Ok(klassDTO);
         }
 
@@ -48,9 +48,9 @@ namespace api.Controllers
 
             var newClass = createKlassDTO.ToCreateClassResponse();
             var createdClass = await _klassRepository.CreateClassAsync(newClass);
-            var klassDTO = createdClass.ToClass();
+            var klassDTO = createdClass.ToClassDTO();
 
-            return CreatedAtAction(nameof(GetClassById), new { classId = klassDTO.ClassId }, klassDTO);
+            return CreatedAtAction(nameof(GetClassById), new { classId = klassDTO.KlassId }, klassDTO);
         }
 
         [HttpPut("update/{classId}")]
@@ -65,7 +65,7 @@ namespace api.Controllers
             if (updatedClass == null) 
                 return NotFound("Class not found.");
 
-            var klassDTO = updatedClass.ToClass();
+            var klassDTO = updatedClass.ToClassDTO();
             return Ok(klassDTO);
         }
 

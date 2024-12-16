@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using api.DTOs.Class;
+using api.Enums.Role;
 using api.Models;
 
 namespace api.Mappers
 {
     public static class KlassMappers
     {
-        public static KlassDTO ToClass(this Klass klass){
+        public static KlassDTO ToClassDTO(this Klass klass){
             return new KlassDTO {
-                ClassId = klass.KlassId,
+                KlassId = klass.KlassId,
                 Name = klass.Name,
-                
+                StudentDTOs = klass.Users?.Where(u => u.Role == UserRole.Student).Select(s => s.ToStudentDTO()).ToList()
             };
         }
 

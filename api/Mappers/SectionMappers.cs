@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using api.DTOs.Section;
+using api.Enums.Role;
 using api.Models;
 
 namespace api.Mappers
@@ -13,6 +14,7 @@ namespace api.Mappers
             return new SectionDTO {
                 SectionId = section.SectionId,
                 Name = section.Name,
+                StaffDTOs = section.Users?.Where(u => u.Role == UserRole.Staff).Select(s => s.ToStaffDTO()).ToList()
             };
         }
 

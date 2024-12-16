@@ -34,7 +34,7 @@ namespace api.Mappers
                 LastName = createStudentDTO.LastName,
                 PhoneNumber = createStudentDTO.PhoneNumber,
                 Role = createStudentDTO.Role,
-                RollOrEmpNo = RollOrEmpNoGenerator.GenerateRollOrEmpNo("staff"),
+                RollOrEmpNo = RollOrEmpNoGenerator.GenerateRollOrEmpNo("student"),
                 KlassId = createStudentDTO.KlassId,
                 Specification = createStudentDTO.Specification,
                 Username = UsernameGenerator.GenerateUsername(createStudentDTO.FirstName, createStudentDTO.LastName),
