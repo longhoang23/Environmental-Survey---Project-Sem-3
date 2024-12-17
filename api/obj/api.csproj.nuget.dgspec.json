@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Project\\EnviromentalSurveyPortal\\Environmental-Survey---Project-Sem-3\\api\\api.csproj": {}
+    "D:\\Codes\\Aptech_learning\\eProject\\eProject3\\Environmental-Survey---Project-Sem-3\\api\\api.csproj": {}
   },
   "projects": {
-    "D:\\Project\\EnviromentalSurveyPortal\\Environmental-Survey---Project-Sem-3\\api\\api.csproj": {
+    "D:\\Codes\\Aptech_learning\\eProject\\eProject3\\Environmental-Survey---Project-Sem-3\\api\\api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Project\\EnviromentalSurveyPortal\\Environmental-Survey---Project-Sem-3\\api\\api.csproj",
+        "projectUniqueName": "D:\\Codes\\Aptech_learning\\eProject\\eProject3\\Environmental-Survey---Project-Sem-3\\api\\api.csproj",
         "projectName": "api",
-        "projectPath": "D:\\Project\\EnviromentalSurveyPortal\\Environmental-Survey---Project-Sem-3\\api\\api.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\Project\\EnviromentalSurveyPortal\\Environmental-Survey---Project-Sem-3\\api\\obj\\",
+        "projectPath": "D:\\Codes\\Aptech_learning\\eProject\\eProject3\\Environmental-Survey---Project-Sem-3\\api\\api.csproj",
+        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+        "outputPath": "D:\\Codes\\Aptech_learning\\eProject\\eProject3\\Environmental-Survey---Project-Sem-3\\api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -50,6 +50,10 @@
               "target": "Package",
               "version": "[4.0.3, )"
             },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[8.0.10, )"
@@ -67,6 +71,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.11, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -92,7 +100,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

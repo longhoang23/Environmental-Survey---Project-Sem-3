@@ -2,6 +2,7 @@ using System.Text.Json.Serialization;
 using api.Data;
 using api.Repositories.Admin;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,10 +12,15 @@ builder.Services.AddControllers().AddJsonOptions(options =>
     {
         // Serialize enums as strings
         options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+    }).AddNewtonsoftJson(options => 
+    {
+        options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
     });;
+    
 builder.Services.AddDbContext<ApplicationDbContext>(options => {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+
 
 builder.Services.AddScoped<IAdminRepository, AdminRepository>();
 builder.Services.AddEndpointsApiExplorer();
