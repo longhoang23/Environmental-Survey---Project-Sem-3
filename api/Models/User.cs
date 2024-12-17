@@ -62,8 +62,8 @@ namespace api.Models
         public Section? Section { get; set; }
 
         // Navigation Properties
-        public ICollection<Survey> SurveysCreated { get; set; } = new List<Survey>();
-        public ICollection<Participation> Participations { get; set; } = new List<Participation>();
-        public ICollection<Seminar> SeminarsConducted { get; set; } = new List<Seminar>();
+        public ICollection<Survey>? SurveysCreated { get; set; } = new List<Survey>();
+        public ICollection<Participation>? Participations { get; set; } = new List<Participation>();
+        public ICollection<Seminar>? SeminarsConducted { get; set; } = new List<Seminar>();
     }
 }

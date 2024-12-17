@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using api.Data;
 
@@ -11,9 +12,11 @@ using api.Data;
 namespace api.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241216124315_V5")]
+    partial class V5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -404,12 +407,12 @@ namespace api.Migrations
                             FirstName = "Super",
                             JoinDate = new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Admin",
-                            PasswordHash = "$2a$11$tN8y/b.mEo7F.QZxHLq7sucu3YfjyyjERF3HWm7gNnAuxaO71Tg5a",
+                            PasswordHash = "$2a$11$dm/2E0Bj1QgwMs6k6GYTeO3X6VwTNoDCyuOU0oF3EDkSCdhfEJeEG",
                             PhoneNumber = "0001112222",
                             Role = 1,
                             RollOrEmpNo = "EMP1001",
                             Status = 2,
-                            UpdatedAt = new DateTime(2024, 12, 16, 12, 54, 31, 356, DateTimeKind.Utc).AddTicks(1469),
+                            UpdatedAt = new DateTime(2024, 12, 16, 12, 43, 14, 568, DateTimeKind.Utc).AddTicks(6943),
                             Username = "superadmin"
                         },
                         new
@@ -418,12 +421,12 @@ namespace api.Migrations
                             FirstName = "System",
                             JoinDate = new DateTime(2023, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Administrator",
-                            PasswordHash = "$2a$11$yJcKVQ68M1nU1bbryWmsyutJc1ExwEILJxATjaeasBds96DY1sZai",
+                            PasswordHash = "$2a$11$NEcS9XH3XkQlhzXu.L4gWugbiuABWKysL5LmWo4AxbbUO03hoPFUK",
                             PhoneNumber = "0001113333",
                             Role = 1,
                             RollOrEmpNo = "EMP1002",
                             Status = 2,
-                            UpdatedAt = new DateTime(2024, 12, 16, 12, 54, 31, 524, DateTimeKind.Utc).AddTicks(8636),
+                            UpdatedAt = new DateTime(2024, 12, 16, 12, 43, 14, 777, DateTimeKind.Utc).AddTicks(2433),
                             Username = "sysadmin"
                         },
                         new
@@ -432,12 +435,12 @@ namespace api.Migrations
                             FirstName = "Head",
                             JoinDate = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Admin",
-                            PasswordHash = "$2a$11$x3sE8b4asUCgdHgoqcKXS.BfORZ26RwMJ2hwaNGUvtvG8WDEPYRcm",
+                            PasswordHash = "$2a$11$O.zGAIvZyJxf91rlom64ZecEDmP0xQsBpxhml9TOwjQykno0EFJju",
                             PhoneNumber = "0001114444",
                             Role = 1,
                             RollOrEmpNo = "EMP1003",
                             Status = 2,
-                            UpdatedAt = new DateTime(2024, 12, 16, 12, 54, 31, 692, DateTimeKind.Utc).AddTicks(1321),
+                            UpdatedAt = new DateTime(2024, 12, 16, 12, 43, 14, 930, DateTimeKind.Utc).AddTicks(9841),
                             Username = "headadmin"
                         });
                 });

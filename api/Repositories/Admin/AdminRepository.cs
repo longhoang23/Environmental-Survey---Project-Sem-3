@@ -114,6 +114,7 @@ namespace api.Repositories.Admin
         {
             return await _context.Users
                 .Where(u => u.Role == UserRole.Admin)
+                .Include(u => u.SeminarsConducted)
                 .ToListAsync();
         }
 

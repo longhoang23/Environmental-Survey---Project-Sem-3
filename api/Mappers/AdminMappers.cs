@@ -43,7 +43,8 @@ namespace api.Mappers
                 Password = user.PasswordHash,
                 JoinDate = user.JoinDate,
                 UpdatedAt = user.UpdatedAt,
-                Status = user.Status
+                Status = user.Status,
+                SeminarsConducted = user.SeminarsConducted?.Select(s => s.ToSeminarDTO()).ToList()
             };
         }
         

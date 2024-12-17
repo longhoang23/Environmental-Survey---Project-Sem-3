@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using api.DTOs.Seminar;
 using api.Enums.Role;
 using api.Enums.Status;
 
@@ -29,5 +30,6 @@ namespace api.DTOs.Admin
         public string Username { get; set; } = null!;
 
         public string Password { get; set; } = null!;
+        public ICollection<SeminarDTO>? SeminarsConducted { get; set; } = new List<SeminarDTO>();
     }
 }
