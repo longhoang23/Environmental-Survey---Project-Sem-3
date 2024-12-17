@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using api.DTOs.Admin;
 using api.Mappers;
 using api.Repositories.Admin;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api.Controllers

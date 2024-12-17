@@ -13,7 +13,7 @@ namespace api.Models
         [MaxLength(200)]
         public string Title { get; set; } = null!;
 
-        public string? Description { get; set; }
+        public string? Description { get; set; }//Can put date of competition in here
         [MaxLength(200)]
         public string? PrizeDetails { get; set; }
         public int? Winner1 { get; set; }

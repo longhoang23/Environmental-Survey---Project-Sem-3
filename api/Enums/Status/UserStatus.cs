@@ -2,9 +2,9 @@ namespace api.Enums.Status
 {
     public enum UserStatus
     {
-        Pending = 0,
-        Active = 1,
-        Inactive = 2,
-        Deleted = 3
+        Pending = 1,
+        Active = 2,
+        Decline = 3,
+  
     }
 }

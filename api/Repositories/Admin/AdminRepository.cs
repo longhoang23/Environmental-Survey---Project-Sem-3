@@ -81,12 +81,12 @@ namespace api.Repositories.Admin
             existingUser.LastName = updatedUser.LastName;
             existingUser.PhoneNumber = updatedUser.PhoneNumber;
             existingUser.Role = updatedUser.Role;
-            existingUser.RollOrEmpNo = updatedUser.RollOrEmpNo;
+            // existingUser.RollOrEmpNo = updatedUser.RollOrEmpNo;
             existingUser.Specification = updatedUser.Specification;
-            existingUser.JoinDate = updatedUser.JoinDate;
+            // existingUser.JoinDate = updatedUser.JoinDate;
             existingUser.UpdatedAt = DateTime.UtcNow;
             existingUser.Status = updatedUser.Status;
-            existingUser.Username = updatedUser.Username;
+            // existingUser.Username = updatedUser.Username;
             // You can handle password updates similarly, hashing it before assignment:
             if (!string.IsNullOrEmpty(updatedUser.PasswordHash))
             {
@@ -114,6 +114,7 @@ namespace api.Repositories.Admin
         {
             return await _context.Users
                 .Where(u => u.Role == UserRole.Admin)
+                .Include(u => u.SeminarsConducted)
                 .ToListAsync();
         }
 

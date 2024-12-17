@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace api.Migrations
 {
     /// <inheritdoc />
-    public partial class V1 : Migration
+    public partial class V4 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,13 +15,13 @@ namespace api.Migrations
                 name: "Classes",
                 columns: table => new
                 {
-                    ClassId = table.Column<int>(type: "int", nullable: false)
+                    KlassId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Classes", x => x.ClassId);
+                    table.PrimaryKey("PK_Classes", x => x.KlassId);
                 });
 
             migrationBuilder.CreateTable(
@@ -75,7 +75,7 @@ namespace api.Migrations
                     PhoneNumber = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
                     Role = table.Column<int>(type: "int", maxLength: 20, nullable: false),
                     RollOrEmpNo = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    ClassId = table.Column<int>(type: "int", nullable: true),
+                    KlassId = table.Column<int>(type: "int", nullable: true),
                     SectionId = table.Column<int>(type: "int", nullable: true),
                     Specification = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     AdmissionDate = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -89,10 +89,10 @@ namespace api.Migrations
                 {
                     table.PrimaryKey("PK_Users", x => x.UserID);
                     table.ForeignKey(
-                        name: "FK_Users_Classes_ClassId",
-                        column: x => x.ClassId,
+                        name: "FK_Users_Classes_KlassId",
+                        column: x => x.KlassId,
                         principalTable: "Classes",
-                        principalColumn: "ClassId");
+                        principalColumn: "KlassId");
                     table.ForeignKey(
                         name: "FK_Users_Sections_SectionId",
                         column: x => x.SectionId,
@@ -349,9 +349,9 @@ namespace api.Migrations
                 column: "CreatedBy");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Users_ClassId",
+                name: "IX_Users_KlassId",
                 table: "Users",
-                column: "ClassId");
+                column: "KlassId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Users_SectionId",
