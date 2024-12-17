@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Project\\EnviromentalSurveyPortal\\Environmental-Survey---Project-Sem-3\\api\\api.csproj": {}
+    "D:\\DestokDev\\eProject3\\Environmental-Survey---Project-Sem-3\\api\\api.csproj": {}
   },
   "projects": {
-    "D:\\Project\\EnviromentalSurveyPortal\\Environmental-Survey---Project-Sem-3\\api\\api.csproj": {
+    "D:\\DestokDev\\eProject3\\Environmental-Survey---Project-Sem-3\\api\\api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Project\\EnviromentalSurveyPortal\\Environmental-Survey---Project-Sem-3\\api\\api.csproj",
+        "projectUniqueName": "D:\\DestokDev\\eProject3\\Environmental-Survey---Project-Sem-3\\api\\api.csproj",
         "projectName": "api",
-        "projectPath": "D:\\Project\\EnviromentalSurveyPortal\\Environmental-Survey---Project-Sem-3\\api\\api.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\Project\\EnviromentalSurveyPortal\\Environmental-Survey---Project-Sem-3\\api\\obj\\",
+        "projectPath": "D:\\DestokDev\\eProject3\\Environmental-Survey---Project-Sem-3\\api\\api.csproj",
+        "packagesPath": "C:\\Users\\anhdu\\.nuget\\packages\\",
+        "outputPath": "D:\\DestokDev\\eProject3\\Environmental-Survey---Project-Sem-3\\api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\anhdu\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -92,7 +92,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
