@@ -3,6 +3,7 @@ using System.Text.Json.Serialization;
 using api.Data;
 using api.Repositories.Admin;
 using api.Repositories.Class;
+using api.Repositories.Competitions;
 using api.Repositories.Section;
 using api.Repositories.Seminar;
 using api.Repositories.Staff;
@@ -33,6 +34,7 @@ builder.Services.AddScoped<ISectionRepository, SectionRepository>();
 builder.Services.AddScoped<IStaffRepository, StaffRepository>();
 builder.Services.AddScoped<IStudentRepository, StudentRepository>();
 builder.Services.AddScoped<ISeminarRepository, SeminarRepository>();
+builder.Services.AddScoped<ICompetitionRepository,CompetitionRepository>();
 
 builder.Services.AddCors(options =>
 {
