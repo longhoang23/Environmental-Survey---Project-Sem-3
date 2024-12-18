@@ -22,24 +22,6 @@ namespace api.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("api.Models.Class", b =>
-                {
-                    b.Property<int>("ClassId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ClassId"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.HasKey("ClassId");
-
-                    b.ToTable("Classes");
-                });
-
             modelBuilder.Entity("api.Models.Competition", b =>
                 {
                     b.Property<int>("CompetitionID")
@@ -98,6 +80,24 @@ namespace api.Migrations
                     b.HasKey("FAQID");
 
                     b.ToTable("FAQs");
+                });
+
+            modelBuilder.Entity("api.Models.Klass", b =>
+                {
+                    b.Property<int>("KlassId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("KlassId"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("KlassId");
+
+                    b.ToTable("Classes");
                 });
 
             modelBuilder.Entity("api.Models.Participation", b =>
@@ -335,9 +335,6 @@ namespace api.Migrations
                     b.Property<DateTime?>("AdmissionDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("ClassId")
-                        .HasColumnType("int");
-
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -345,6 +342,9 @@ namespace api.Migrations
 
                     b.Property<DateTime?>("JoinDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<int?>("KlassId")
+                        .HasColumnType("int");
 
                     b.Property<string>("LastName")
                         .IsRequired()
@@ -391,11 +391,55 @@ namespace api.Migrations
 
                     b.HasKey("UserID");
 
-                    b.HasIndex("ClassId");
+                    b.HasIndex("KlassId");
 
                     b.HasIndex("SectionId");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            UserID = 1,
+                            FirstName = "Super",
+                            JoinDate = new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastName = "Admin",
+                            PasswordHash = "$2a$11$tN8y/b.mEo7F.QZxHLq7sucu3YfjyyjERF3HWm7gNnAuxaO71Tg5a",
+                            PhoneNumber = "0001112222",
+                            Role = 1,
+                            RollOrEmpNo = "EMP1001",
+                            Status = 2,
+                            UpdatedAt = new DateTime(2024, 12, 16, 12, 54, 31, 356, DateTimeKind.Utc).AddTicks(1469),
+                            Username = "superadmin"
+                        },
+                        new
+                        {
+                            UserID = 2,
+                            FirstName = "System",
+                            JoinDate = new DateTime(2023, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastName = "Administrator",
+                            PasswordHash = "$2a$11$yJcKVQ68M1nU1bbryWmsyutJc1ExwEILJxATjaeasBds96DY1sZai",
+                            PhoneNumber = "0001113333",
+                            Role = 1,
+                            RollOrEmpNo = "EMP1002",
+                            Status = 2,
+                            UpdatedAt = new DateTime(2024, 12, 16, 12, 54, 31, 524, DateTimeKind.Utc).AddTicks(8636),
+                            Username = "sysadmin"
+                        },
+                        new
+                        {
+                            UserID = 3,
+                            FirstName = "Head",
+                            JoinDate = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastName = "Admin",
+                            PasswordHash = "$2a$11$x3sE8b4asUCgdHgoqcKXS.BfORZ26RwMJ2hwaNGUvtvG8WDEPYRcm",
+                            PhoneNumber = "0001114444",
+                            Role = 1,
+                            RollOrEmpNo = "EMP1003",
+                            Status = 2,
+                            UpdatedAt = new DateTime(2024, 12, 16, 12, 54, 31, 692, DateTimeKind.Utc).AddTicks(1321),
+                            Username = "headadmin"
+                        });
                 });
 
             modelBuilder.Entity("api.Models.Competition", b =>
@@ -512,20 +556,20 @@ namespace api.Migrations
 
             modelBuilder.Entity("api.Models.User", b =>
                 {
-                    b.HasOne("api.Models.Class", "Class")
+                    b.HasOne("api.Models.Klass", "Klass")
                         .WithMany("Users")
-                        .HasForeignKey("ClassId");
+                        .HasForeignKey("KlassId");
 
                     b.HasOne("api.Models.Section", "Section")
                         .WithMany("Users")
                         .HasForeignKey("SectionId");
 
-                    b.Navigation("Class");
+                    b.Navigation("Klass");
 
                     b.Navigation("Section");
                 });
 
-            modelBuilder.Entity("api.Models.Class", b =>
+            modelBuilder.Entity("api.Models.Klass", b =>
                 {
                     b.Navigation("Users");
                 });

@@ -7,6 +7,6 @@ namespace api.DTOs.Participation
 {
     public class UpdateParticipationDTO
     {
-
+        
     }
 }

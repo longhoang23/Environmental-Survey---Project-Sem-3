@@ -7,6 +7,6 @@ namespace api.Repositories.Participation
 {
     public class ParticipationRepository
     {
-
+        
     }
 }

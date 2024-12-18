@@ -32,8 +32,8 @@ namespace api.Models
         [Required]
         [MaxLength(50)]
         public string RollOrEmpNo { get; set; } = null!;
-
-        public int? ClassId { get; set; }
+        
+        public int? KlassId { get; set; }
         public int? SectionId { get; set; }
 
         [MaxLength(100)]
@@ -55,15 +55,15 @@ namespace api.Models
         public string PasswordHash { get; set; } = null!;
 
         // Foreign Keys
-        [ForeignKey("ClassId")]
-        public Class? Class { get; set; }
+        [ForeignKey("KlassId")]
+        public Klass? Klass { get; set; }
 
         [ForeignKey("SectionId")]
         public Section? Section { get; set; }
 
         // Navigation Properties
-        public ICollection<Survey> SurveysCreated { get; set; } = new List<Survey>();
-        public ICollection<Participation> Participations { get; set; } = new List<Participation>();
-        public ICollection<Seminar> SeminarsConducted { get; set; } = new List<Seminar>();
+        public ICollection<Survey>? SurveysCreated { get; set; } = new List<Survey>();
+        public ICollection<Participation>? Participations { get; set; } = new List<Participation>();
+        public ICollection<Seminar>? SeminarsConducted { get; set; } = new List<Seminar>();
     }
 }

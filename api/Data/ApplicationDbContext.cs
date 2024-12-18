@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using api.Enums.Role;
+using api.Enums.Status;
 using api.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,7 +17,7 @@ namespace api.Data
         }
 
         public DbSet<User> Users {get; set;}
-        public DbSet<Class> Classes {get; set;}
+        public DbSet<Klass> Klasses {get; set;}
         public DbSet<Competition> Competitions {get; set;}
         public DbSet<FAQ> FAQs {get; set;}
         public DbSet<Participation> Participations {get; set;}
@@ -73,6 +75,51 @@ namespace api.Data
         .WithMany(s => s.Participations)
         .HasForeignKey(p => p.SurveyID)
         .OnDelete(DeleteBehavior.Cascade);
+
+         modelBuilder.Entity<User>().HasData(
+                new User
+                {
+                    UserID = 1,
+                    FirstName = "Super",
+                    LastName = "Admin",
+                    PhoneNumber = "0001112222",
+                    Role = UserRole.Admin,
+                    RollOrEmpNo = "EMP1001",
+                    Status = UserStatus.Active,
+                    Username = "superadmin",
+                    PasswordHash = BCrypt.Net.BCrypt.HashPassword("Admin123"),  // hashed password
+                    JoinDate = new DateTime(2023, 01, 01),
+                    UpdatedAt = DateTime.UtcNow
+                },
+                new User
+                {
+                    UserID = 2,
+                    FirstName = "System",
+                    LastName = "Administrator",
+                    PhoneNumber = "0001113333",
+                    Role = UserRole.Admin,
+                    RollOrEmpNo = "EMP1002",
+                    Status = UserStatus.Active,
+                    Username = "sysadmin",
+                    PasswordHash = BCrypt.Net.BCrypt.HashPassword("Admin123"),  
+                    JoinDate = new DateTime(2023, 02, 01),
+                    UpdatedAt = DateTime.UtcNow
+                },
+                new User
+                {
+                    UserID = 3,
+                    FirstName = "Head",
+                    LastName = "Admin",
+                    PhoneNumber = "0001114444",
+                    Role = UserRole.Admin,
+                    RollOrEmpNo = "EMP1003",
+                    Status = UserStatus.Active,
+                    Username = "headadmin",
+                    PasswordHash = BCrypt.Net.BCrypt.HashPassword("Admin123"), 
+                    JoinDate = new DateTime(2023, 03, 01),
+                    UpdatedAt = DateTime.UtcNow
+                }
+            );
 }
 
     }
