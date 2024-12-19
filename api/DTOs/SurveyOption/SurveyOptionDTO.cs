@@ -15,6 +15,6 @@ namespace api.DTOs.Survey
 
         public int Score { get; set; } = 0;
 
-        public SurveyQuestionDTO Question { get; set; } = null!;
+        public SurveyQuestionDTO? Question { get; set; } = null!;
     }
 }
