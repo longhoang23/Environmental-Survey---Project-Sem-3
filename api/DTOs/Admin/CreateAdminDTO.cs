@@ -15,11 +15,10 @@ namespace api.DTOs.Admin
         
         public UserRole Role { get; set; } = UserRole.Admin;
 
-        public string RollOrEmpNo { get; set; } = null!;
+        // public string RollOrEmpNo { get; set; } = null!;
         public string? Specification { get; set; }
-        public UserStatus Status {get; set;} = UserStatus.Pending;
+        public UserStatus Status {get; set;} = UserStatus.Active;
 
-        public string Username { get; set; } = null!;
         public string Password { get; set; } = null!;
     }
 }

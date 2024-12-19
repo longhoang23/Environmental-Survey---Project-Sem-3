@@ -7,6 +7,8 @@ namespace api.DTOs.Participation
 {
     public class UpdateParticipationDTO
     {
-
+        public DateTime ParticipationDate { get; set; } // Optionally update participation date
+        public int? TotalScore { get; set; } // Optional score update
+        public string? Feedback { get; set; } // Optional feedback update
     }
 }

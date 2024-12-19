@@ -9,16 +9,37 @@ namespace api.Mappers
 {
     public static class ParticipationMappers
     {
-        public static Participation ToParticipation(CreateParticipationDTO dto)
-    {
-        return new Participation
+        public static ParticipationDTO ToParticipationDTO(this Participation participation)
         {
-            UserID = dto.UserID,
-            SurveyID = dto.SurveyID,
-            ParticipationDate = dto.ParticipationDate ?? DateTime.Now,
-            TotalScore = dto.TotalScore,
-            Feedback = dto.Feedback
-        };
-    }
+            return new ParticipationDTO
+            {
+                ParticipationID = participation.ParticipationID,
+                UserID = participation.UserID,
+                SurveyID = participation.SurveyID,
+                ParticipationDate = participation.ParticipationDate,
+                TotalScore = participation.TotalScore,
+                Feedback = participation.Feedback
+            };
+        }
+
+        public static Participation ToCreateParticipationResponse(this CreateParticipationDTO createParticipationDTO)
+        {
+            return new Participation
+            {
+                ParticipationDate = createParticipationDTO.ParticipationDate,
+                TotalScore = createParticipationDTO.TotalScore,
+                Feedback = createParticipationDTO.Feedback
+            };
+        }
+
+        public static Participation ToUpdateParticipation(this UpdateParticipationDTO updateParticipationDTO)
+        {
+            return new Participation
+            {
+                ParticipationDate = updateParticipationDTO.ParticipationDate,
+                TotalScore = updateParticipationDTO.TotalScore,
+                Feedback = updateParticipationDTO.Feedback
+            };
+        }
     }
 }

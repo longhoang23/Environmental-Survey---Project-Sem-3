@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace api.Repositories.Participation
+namespace api.DTOs.Section
 {
-    public interface IParticipationRepository
+    public class CreateSectionDTO
     {
+        public string Name { get; set; } = null!;
 
     }
 }
