@@ -7,12 +7,8 @@ namespace api.DTOs.Participation
 {
     public class CreateParticipationDTO
     {
-<<<<<<< HEAD
-        public DateTime ParticipationDate { get; set; } = DateTime.Now; // Default to current time
-        public int? TotalScore { get; set; } // Optional score
-        public string? Feedback { get; set; } // Optional feedback
-=======
-        
->>>>>>> 10d5e6d04ad989a6f36b5471497a06dc55215500
+        public DateTime ParticipationDate { get; set; } // Optionally update participation date
+        public int? TotalScore { get; set; } // Optional score update
+        public string? Feedback { get; set; } // Optional feedback update
     }
 }

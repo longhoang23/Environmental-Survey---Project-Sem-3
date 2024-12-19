@@ -13,7 +13,6 @@ namespace api.Controllers
     [Route("api/[controller]")]
     public class ParticipationController : ControllerBase
     {
-<<<<<<< HEAD
         private readonly IParticipationRepository _participationRepository;
 
         public ParticipationController(IParticipationRepository participationRepository)
@@ -78,8 +77,5 @@ namespace api.Controllers
 
             return Ok("Participation deleted successfully.");
         }
-=======
-        
->>>>>>> 10d5e6d04ad989a6f36b5471497a06dc55215500
     }
 }

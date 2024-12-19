@@ -2,12 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using api.DTOs.Participation;
+using api.Models;
+
 
 namespace api.Mappers
 {
-    public class ParticipationMappers
+    public static class ParticipationMappers
     {
-<<<<<<< HEAD
         public static ParticipationDTO ToParticipationDTO(this Participation participation)
         {
             return new ParticipationDTO
@@ -40,8 +42,5 @@ namespace api.Mappers
                 Feedback = updateParticipationDTO.Feedback
             };
         }
-=======
-        
->>>>>>> 10d5e6d04ad989a6f36b5471497a06dc55215500
     }
 }
