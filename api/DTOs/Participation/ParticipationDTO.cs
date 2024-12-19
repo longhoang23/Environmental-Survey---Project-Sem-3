@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace api.DTOs.Participation
 {
-   public class ParticipationDTO
+    public class ParticipationDTO
     {
         public int ParticipationID { get; set; }
         public int UserID { get; set;}

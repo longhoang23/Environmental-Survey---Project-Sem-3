@@ -1,8 +1,12 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "BMgN1+cGRr0=",
+=======
+  "dgSpecHash": "o//Bu30rirQ=",
+>>>>>>> 10d5e6d04ad989a6f36b5471497a06dc55215500
   "success": true,
-  "projectFilePath": "D:\\DestokDev\\eProject3\\Environmental-Survey---Project-Sem-3\\api\\api.csproj",
+  "projectFilePath": "D:\\Web Khảo Sát\\Environmental-Survey---Project-Sem-3\\api\\api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\anhdu\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\anhdu\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

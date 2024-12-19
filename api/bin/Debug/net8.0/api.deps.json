@@ -944,6 +944,7 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
       "System.Formats.Asn1/8.0.1": {
         "runtime": {
           "lib/net8.0/System.Formats.Asn1.dll": {
@@ -957,6 +958,10 @@
       "System.Formats.Asn1/8.0.1": {},
       "System.IdentityModel.Tokens.Jwt/7.1.2": {
 >>>>>>> origin/main
+=======
+      "System.Formats.Asn1/8.0.1": {},
+      "System.IdentityModel.Tokens.Jwt/7.1.2": {
+>>>>>>> 10d5e6d04ad989a6f36b5471497a06dc55215500
         "dependencies": {
           "Microsoft.IdentityModel.JsonWebTokens": "7.1.2",
           "Microsoft.IdentityModel.Tokens": "7.1.2"

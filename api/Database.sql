@@ -1,3 +1,4 @@
+Create Database
 CREATE DATABASE EnvironmentalSurveyPortal;
 
 -- Use the newly created database
