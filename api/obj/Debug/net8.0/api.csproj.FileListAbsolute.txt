@@ -290,7 +290,6 @@ D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.genruntimeconfig.cache
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\ref\api.dll
 <<<<<<< HEAD
-<<<<<<< HEAD
 D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\appsettings.Development.json
 D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\appsettings.json
 D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\api.exe
@@ -439,7 +438,6 @@ D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0
 D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.genruntimeconfig.cache
 D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\ref\api.dll
 =======
-=======
 >>>>>>> 10d5e6d04ad989a6f36b5471497a06dc55215500
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
@@ -451,9 +449,7 @@ D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.AspNetCore.JsonPatch.dll
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
-<<<<<<< HEAD
 >>>>>>> origin/main
-=======
 D:\Web Khảo Sát\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\appsettings.Development.json
 D:\Web Khảo Sát\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\appsettings.json
 D:\Web Khảo Sát\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\api.staticwebassets.endpoints.json
@@ -613,4 +609,3 @@ D:\Web Khảo Sát\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\ref
 D:\Web Khảo Sát\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.pdb
 D:\Web Khảo Sát\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.genruntimeconfig.cache
 D:\Web Khảo Sát\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\ref\api.dll
->>>>>>> 10d5e6d04ad989a6f36b5471497a06dc55215500

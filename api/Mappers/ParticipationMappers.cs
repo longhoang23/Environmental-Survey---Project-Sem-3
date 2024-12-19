@@ -27,6 +27,8 @@ namespace api.Mappers
         {
             return new Participation
             {
+                UserID = createParticipationDTO.UserID,
+                SurveyID = createParticipationDTO.SurveyID,
                 ParticipationDate = createParticipationDTO.ParticipationDate,
                 TotalScore = createParticipationDTO.TotalScore,
                 Feedback = createParticipationDTO.Feedback
@@ -37,6 +39,8 @@ namespace api.Mappers
         {
             return new Participation
             {
+                UserID = updateParticipationDTO.UserID,
+                SurveyID = updateParticipationDTO.SurveyID,
                 ParticipationDate = updateParticipationDTO.ParticipationDate,
                 TotalScore = updateParticipationDTO.TotalScore,
                 Feedback = updateParticipationDTO.Feedback
