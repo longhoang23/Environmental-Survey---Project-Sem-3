@@ -4648,19 +4648,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\anhdu\\.nuget\\packages\\": {}
+    "C:\\Users\\anhdu\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\DestokDev\\eProject3\\Environmental-Survey---Project-Sem-3\\api\\api.csproj",
+      "projectUniqueName": "D:\\Web Khảo Sát\\Environmental-Survey---Project-Sem-3\\api\\api.csproj",
       "projectName": "api",
-      "projectPath": "D:\\DestokDev\\eProject3\\Environmental-Survey---Project-Sem-3\\api\\api.csproj",
+      "projectPath": "D:\\Web Khảo Sát\\Environmental-Survey---Project-Sem-3\\api\\api.csproj",
       "packagesPath": "C:\\Users\\anhdu\\.nuget\\packages\\",
-      "outputPath": "D:\\DestokDev\\eProject3\\Environmental-Survey---Project-Sem-3\\api\\obj\\",
+      "outputPath": "D:\\Web Khảo Sát\\Environmental-Survey---Project-Sem-3\\api\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
         "C:\\Users\\anhdu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4668,7 +4673,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -4686,7 +4690,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net8.0": {
@@ -4754,16 +4759,8 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file D:\\DestokDev\\eProject3\\Environmental-Survey---Project-Sem-3\\api\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }
