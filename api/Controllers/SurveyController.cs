@@ -53,7 +53,7 @@ namespace api.Controllers.Surveys
             var createdSurvey = await _surveyRepository.AddSurvey(survey);
             var surveyDTO = createdSurvey.ToSurveyDTO();
 
-            return CreatedAtAction(nameof(GetSurveyById), new { id = createSurveyDto.SurveyID }, surveyDTO);
+            return CreatedAtAction(nameof(GetSurveyById), new { id = createdSurvey.SurveyID }, surveyDTO);
         }
 
         // PUT: api/surveys/{id}

@@ -8,7 +8,6 @@ namespace api.DTOs.Survey
 {
     public class CreateSurveyDTO
     {
-        public int SurveyID { get; set; }
         public string Title { get; set; } = null!;
         public string? Description { get; set; }
         public string TargetAudience { get; set; } = null!;
