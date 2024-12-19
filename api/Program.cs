@@ -10,7 +10,11 @@ using api.Repositories.Staff;
 using api.Repositories.Student;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using Microsoft.IdentityModel.Tokens;
+using api.Repositories.SurveyRepo;
+using api.Repositories.SurveyOptionRepo;
+using api.Repositories.SurveyQuestionRepo;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,10 +27,15 @@ builder.Services.AddControllers().AddNewtonsoftJson(options =>
     {
         // Serialize enums as strings
         options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
-    });
+    }).AddNewtonsoftJson(options => 
+    {
+        options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+    });;
+    
 builder.Services.AddDbContext<ApplicationDbContext>(options => {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+builder.Services.AddControllers();
 
 builder.Services.AddScoped<IAdminRepository, AdminRepository>();
 builder.Services.AddScoped<IKlassRepository, KlassRepository>();
@@ -35,6 +44,11 @@ builder.Services.AddScoped<IStaffRepository, StaffRepository>();
 builder.Services.AddScoped<IStudentRepository, StudentRepository>();
 builder.Services.AddScoped<ISeminarRepository, SeminarRepository>();
 builder.Services.AddScoped<ICompetitionRepository,CompetitionRepository>();
+
+builder.Services.AddScoped<ISurveyRepository,SurveyRepository>();
+builder.Services.AddScoped<ISurveyOptionRepository,SurveyOptionRepository>();
+builder.Services.AddScoped<ISurveyQuestionRepository,SurveyQuestionRepository>();
+
 
 builder.Services.AddCors(options =>
 {
