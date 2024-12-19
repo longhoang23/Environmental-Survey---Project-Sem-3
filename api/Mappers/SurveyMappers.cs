@@ -20,34 +20,39 @@ namespace api.Mappers
                 StartDate = survey.StartDate,
                 EndDate = survey.EndDate,
                 IsActive = survey.IsActive,
-                SurveyQuestions = survey.SurveyQuestions.Select(o => o.ToSurveyQuestionDTO()).ToList(),
+                SurveyQuestions = survey.SurveyQuestions?.Select(o => o.ToSurveyQuestionDTO()).ToList(),
                 //Participations = survey.Participations.ToList()
             };
         }
-        
-        public static SurveyOptionDTO ToSurveyOptionDTO(this SurveyOption surveyOption)
+
+        public static Survey toCreateSurveyDTO(this CreateSurveyDTO createSurveyDTO)
         {
-            return new SurveyOptionDTO
+            return new Survey
             {
-                OptionID = surveyOption.OptionID,
-                QuestionID = surveyOption.QuestionID,
-                OptionText = surveyOption.OptionText,
-                Score = surveyOption.Score
+                Title = createSurveyDTO.Title,
+                Description = createSurveyDTO.Description,
+                TargetAudience = createSurveyDTO.TargetAudience,
+                StartDate = createSurveyDTO.StartDate,
+                EndDate = createSurveyDTO.EndDate,
+                CreatedBy = createSurveyDTO.CreatedBy,
+                IsActive = createSurveyDTO.IsActive,
+                //Creator = createSurveyDTO.Creator
             };
         }
 
-        public static SurveyQuestionDTO ToSurveyQuestionDTO(this SurveyQuestion surveyQuestion)
+        public static Survey ToUpdatedSurvey(this UpdateSurveyDTO updateSurveyDTO)
         {
-            return new SurveyQuestionDTO
+            var survey = new Survey
             {
-                QuestionID = surveyQuestion.QuestionID,
-                SurveyID = surveyQuestion.SurveyID,
-                QuestionText = surveyQuestion.QuestionText,
-                QuestionType = surveyQuestion.QuestionType,
-                Options = surveyQuestion.Options.Select(o => o.ToSurveyOptionDTO()).ToList()
+                Title = updateSurveyDTO.Title,
+                Description = updateSurveyDTO.Description,
+                TargetAudience = updateSurveyDTO.TargetAudience,
+                StartDate = updateSurveyDTO.StartDate,
+                EndDate = updateSurveyDTO.EndDate,
+                IsActive = updateSurveyDTO.IsActive
             };
+            return survey;
         }
-
 
     }
 }

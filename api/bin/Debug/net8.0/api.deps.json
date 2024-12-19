@@ -9,13 +9,9 @@
       "api/1.0.0": {
         "dependencies": {
           "BCrypt.Net-Next": "4.0.3",
-<<<<<<< HEAD
-          "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "8.0.0",
-=======
           "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.11",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.11",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "8.0.11",
->>>>>>> 5a6db717e67c8b13e82bd9fd386ef4c27f6d9c92
           "Microsoft.AspNetCore.OpenApi": "8.0.10",
           "Microsoft.EntityFrameworkCore": "8.0.11",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.11",
@@ -78,9 +74,6 @@
           }
         }
       },
-<<<<<<< HEAD
-      "Microsoft.AspNetCore.JsonPatch/8.0.0": {
-=======
       "Microsoft.AspNetCore.Authentication.JwtBearer/8.0.11": {
         "dependencies": {
           "Microsoft.IdentityModel.Protocols.OpenIdConnect": "7.1.2"
@@ -124,23 +117,12 @@
         }
       },
       "Microsoft.AspNetCore.JsonPatch/8.0.11": {
->>>>>>> 5a6db717e67c8b13e82bd9fd386ef4c27f6d9c92
         "dependencies": {
           "Microsoft.CSharp": "4.7.0",
           "Newtonsoft.Json": "13.0.3"
         },
         "runtime": {
           "lib/net8.0/Microsoft.AspNetCore.JsonPatch.dll": {
-<<<<<<< HEAD
-            "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.23.53112"
-          }
-        }
-      },
-      "Microsoft.AspNetCore.Mvc.NewtonsoftJson/8.0.0": {
-        "dependencies": {
-          "Microsoft.AspNetCore.JsonPatch": "8.0.0",
-=======
             "assemblyVersion": "8.0.11.0",
             "fileVersion": "8.0.1124.52116"
           }
@@ -149,19 +131,13 @@
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson/8.0.11": {
         "dependencies": {
           "Microsoft.AspNetCore.JsonPatch": "8.0.11",
->>>>>>> 5a6db717e67c8b13e82bd9fd386ef4c27f6d9c92
           "Newtonsoft.Json": "13.0.3",
           "Newtonsoft.Json.Bson": "1.0.2"
         },
         "runtime": {
           "lib/net8.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll": {
-<<<<<<< HEAD
-            "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.23.53112"
-=======
             "assemblyVersion": "8.0.11.0",
             "fileVersion": "8.0.1124.52116"
->>>>>>> 5a6db717e67c8b13e82bd9fd386ef4c27f6d9c92
           }
         }
       },
@@ -731,13 +707,7 @@
       },
       "Microsoft.IdentityModel.Tokens/7.1.2": {
         "dependencies": {
-<<<<<<< HEAD
-          "Microsoft.CSharp": "4.7.0",
-          "Microsoft.IdentityModel.Logging": "6.35.0",
-          "System.Security.Cryptography.Cng": "5.0.0"
-=======
           "Microsoft.IdentityModel.Logging": "7.1.2"
->>>>>>> 5a6db717e67c8b13e82bd9fd386ef4c27f6d9c92
         },
         "runtime": {
           "lib/net8.0/Microsoft.IdentityModel.Tokens.dll": {
@@ -973,7 +943,6 @@
           }
         }
       },
-<<<<<<< HEAD
       "System.Formats.Asn1/8.0.1": {
         "runtime": {
           "lib/net8.0/System.Formats.Asn1.dll": {
@@ -982,11 +951,7 @@
           }
         }
       },
-      "System.IdentityModel.Tokens.Jwt/6.35.0": {
-=======
-      "System.Formats.Asn1/8.0.1": {},
       "System.IdentityModel.Tokens.Jwt/7.1.2": {
->>>>>>> 5a6db717e67c8b13e82bd9fd386ef4c27f6d9c92
         "dependencies": {
           "Microsoft.IdentityModel.JsonWebTokens": "7.1.2",
           "Microsoft.IdentityModel.Tokens": "7.1.2"
@@ -1141,21 +1106,6 @@
       "path": "humanizer.core/2.14.1",
       "hashPath": "humanizer.core.2.14.1.nupkg.sha512"
     },
-<<<<<<< HEAD
-    "Microsoft.AspNetCore.JsonPatch/8.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-klQdb/9+j0u8MDjoqHEgDCPz8GRhfsbRVvZIM3glFqjs8uY7S1hS9RvKZuz8o4dS9NsEpFp4Jccd8CQuIYHK0g==",
-      "path": "microsoft.aspnetcore.jsonpatch/8.0.0",
-      "hashPath": "microsoft.aspnetcore.jsonpatch.8.0.0.nupkg.sha512"
-    },
-    "Microsoft.AspNetCore.Mvc.NewtonsoftJson/8.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-/e5+eBvY759xiZJO+y1lHi4VzXqbDzTJSyCtKpaj3Ko2JAFQjiCOJ0ZHk2i4g4HpoSdXmzEXQsjr6dUX9U0/JA==",
-      "path": "microsoft.aspnetcore.mvc.newtonsoftjson/8.0.0",
-      "hashPath": "microsoft.aspnetcore.mvc.newtonsoftjson.8.0.0.nupkg.sha512"
-=======
     "Microsoft.AspNetCore.Authentication.JwtBearer/8.0.11": {
       "type": "package",
       "serviceable": true,
@@ -1197,7 +1147,6 @@
       "sha512": "sha512-XcfFd8e0g2M0mcAKVNgoHJtWYJfKrPntHhgqiZ1Ci37i3AEJbM0GHIa715i0UPSksiKmDxsJWXnM3rg8keF/Zg==",
       "path": "microsoft.aspnetcore.mvc.newtonsoftjson/8.0.11",
       "hashPath": "microsoft.aspnetcore.mvc.newtonsoftjson.8.0.11.nupkg.sha512"
->>>>>>> 5a6db717e67c8b13e82bd9fd386ef4c27f6d9c92
     },
     "Microsoft.AspNetCore.OpenApi/8.0.10": {
       "type": "package",

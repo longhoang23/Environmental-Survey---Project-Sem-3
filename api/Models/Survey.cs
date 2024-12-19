@@ -36,10 +36,7 @@ namespace api.Models
         public User Creator { get; set; } = null!;
 
         // Navigation Properties
-        [JsonIgnore]
         public ICollection<SurveyQuestion>? SurveyQuestions { get; set; } = new List<SurveyQuestion>();
-
-        [JsonIgnore]
         public ICollection<Participation>? Participations { get; set; } = new List<Participation>();
     }
 }

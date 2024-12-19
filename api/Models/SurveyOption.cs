@@ -22,6 +22,6 @@ namespace api.Models
     public int Score { get; set; } = 0;
 
     // Navigation Property
-    public SurveyQuestion Question { get; set; } = null!;
+    public SurveyQuestion? Question { get; set; } = null!;
     }
 }

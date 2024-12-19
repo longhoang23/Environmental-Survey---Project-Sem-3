@@ -10,14 +10,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace api.Repositories.SurveyRepo
 {
-    public interface ISurveyRepository{
-        Task<IEnumerable<SurveyDTO>> GetAllAsync();
-        Task<SurveyDTO?> GetByIdAsync(int id);
-        Task AddAsync(SurveyDTO surveyDto);
-        Task UpdateAsync(int id, SurveyDTO updatedSurveyDto);
-        Task DeleteAsync(int id);
-    } 
-
     public class SurveyRepository : ISurveyRepository
     {
         private readonly ApplicationDbContext _context;
@@ -27,62 +19,54 @@ namespace api.Repositories.SurveyRepo
             _context = context;
         }
 
-        public async Task<IEnumerable<SurveyDTO>> GetAllAsync()
+        public async Task<IEnumerable<Survey>> GetAllSurvey()
         {
-            var surveys = await _context.Surveys
+            return await _context.Surveys
                 .Include(s => s.SurveyQuestions)
+                
                 .Include(s => s.Participations)
                 .ToListAsync();
-
-            return surveys.Select(s => s.ToSurveyDTO());
         }
 
-        public async Task<SurveyDTO?> GetByIdAsync(int id)
+        public async Task<Survey?> GetSurveyById(int id)
         {
-            var survey = await _context.Surveys
+            return await _context.Surveys
                 .Include(s => s.SurveyQuestions)
                 .Include(s => s.Participations)
                 .FirstOrDefaultAsync(s => s.SurveyID == id);
-
-            return survey?.ToSurveyDTO();
         }
 
-        public async Task AddAsync(SurveyDTO surveyDto)
+        public async Task<Survey> AddSurvey(Survey survey)
         {
-            var survey = new Survey
-            {
-                Title = surveyDto.Title,
-                Description = surveyDto.Description,
-                TargetAudience = surveyDto.TargetAudience,
-                StartDate = surveyDto.StartDate,
-                EndDate = surveyDto.EndDate,
-                IsActive = surveyDto.IsActive
-            };
-
             await _context.Surveys.AddAsync(survey);
             await _context.SaveChangesAsync();
+            return survey;
         }
 
-        public async Task UpdateAsync(int id, SurveyDTO updatedSurveyDto)
+        public async Task<Survey?> UpdateSurvey(int id, Survey updateSurvey)
+    {
+        var existingSurvey = await _context.Surveys
+            .FirstOrDefaultAsync(s => s.SurveyID == id);
+
+        if (existingSurvey != null)
         {
-            var existingSurvey = await _context.Surveys
-                .FirstOrDefaultAsync(s => s.SurveyID == id);
+            existingSurvey.Title = updateSurvey.Title;
+            existingSurvey.Description = updateSurvey.Description;
+            existingSurvey.TargetAudience = updateSurvey.TargetAudience;
+            existingSurvey.StartDate = updateSurvey.StartDate;
+            existingSurvey.EndDate = updateSurvey.EndDate;
+            existingSurvey.IsActive = updateSurvey.IsActive;
 
-            if (existingSurvey != null)
-            {
-                existingSurvey.Title = updatedSurveyDto.Title;
-                existingSurvey.Description = updatedSurveyDto.Description;
-                existingSurvey.TargetAudience = updatedSurveyDto.TargetAudience;
-                existingSurvey.StartDate = updatedSurveyDto.StartDate;
-                existingSurvey.EndDate = updatedSurveyDto.EndDate;
-                existingSurvey.IsActive = updatedSurveyDto.IsActive;
+            _context.Surveys.Update(existingSurvey);
+            await _context.SaveChangesAsync();
 
-                _context.Surveys.Update(existingSurvey);
-                await _context.SaveChangesAsync();
-            }
+            return existingSurvey;
         }
+        return null;
+    }
 
-        public async Task DeleteAsync(int id)
+
+        public async Task<Survey?> DeleteSurvey(int id)
         {
             var survey = await _context.Surveys
                 .FirstOrDefaultAsync(s => s.SurveyID == id);
@@ -91,7 +75,10 @@ namespace api.Repositories.SurveyRepo
             {
                 _context.Surveys.Remove(survey);
                 await _context.SaveChangesAsync();
+                return survey;
             }
+            return null;
         }
+
     }
 }
