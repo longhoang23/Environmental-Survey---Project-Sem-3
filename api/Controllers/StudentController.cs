@@ -5,12 +5,14 @@ using System.Threading.Tasks;
 using api.DTOs.Student;
 using api.Mappers;
 using api.Repositories.Student;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize(Roles = "Admin")]
     public class StudentController : ControllerBase
     {
         private readonly IStudentRepository _studentRepository;
@@ -21,9 +23,9 @@ namespace api.Controllers
         }
 
         [HttpGet("all")]
-        public async Task<IActionResult> GetAllStudents()
+        public async Task<IActionResult> GetAllStudents([FromQuery] int? klassId, [FromQuery] string? klassName, [FromQuery] string? firstName, [FromQuery] string? rollOrEmpNo)
         {
-            var students = await _studentRepository.GetAllStudentsAsync();
+            var students = await _studentRepository.GetAllStudentsAsync(klassId, klassName, firstName, rollOrEmpNo);
             var studentDTOs = students.Select(s => s.ToStudentDTO()).ToList();
             return Ok(studentDTOs);
         }
