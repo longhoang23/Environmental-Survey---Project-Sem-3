@@ -58,7 +58,7 @@ namespace api.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var updatedParticipationEntity = updateParticipationDTO.ToUpdateParticipation();
+            var updatedParticipationEntity = updateParticipationDTO.ToUpdateParticipationResponse();
             var updatedParticipation = await _participationRepository.UpdateParticipationAsync(updatedParticipationEntity, participationId);
 
             if (updatedParticipation == null)
