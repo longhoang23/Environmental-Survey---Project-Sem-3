@@ -28,6 +28,7 @@ namespace api.Data
         public DbSet<Survey> Surveys {get; set;}
         public DbSet<SurveyQuestion> SurveyQuestions {get; set;}
         public DbSet<SurveyOption> SurveyOptions {get; set;}
+        public DbSet<RegistrationRequest> RegistrationRequests {get; set;}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
 {

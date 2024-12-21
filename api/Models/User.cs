@@ -44,7 +44,7 @@ namespace api.Models
 
         [Required]
         [MaxLength(10)]
-         public UserStatus Status { get; set; } = UserStatus.Pending;
+        public UserStatus Status { get; set; } = UserStatus.NotRequested;
 
         [Required]
         [MaxLength(50)]
@@ -65,5 +65,6 @@ namespace api.Models
         public ICollection<Survey>? SurveysCreated { get; set; } = new List<Survey>();
         public ICollection<Participation>? Participations { get; set; } = new List<Participation>();
         public ICollection<Seminar>? SeminarsConducted { get; set; } = new List<Seminar>();
+        public ICollection<RegistrationRequest> RegistrationRequests {get; set;} = new List<RegistrationRequest>();
     }
 }

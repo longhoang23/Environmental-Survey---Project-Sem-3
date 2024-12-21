@@ -25,7 +25,7 @@ namespace api.DTOs.Student
         public DateTime? AdmissionDate { get; set; }
         public DateTime? UpdatedAt { get; set; }
 
-        public UserStatus Status { get; set; } = UserStatus.Active;
+        public UserStatus Status { get; set; }
 
         public string Username { get; set; } = null!;
 

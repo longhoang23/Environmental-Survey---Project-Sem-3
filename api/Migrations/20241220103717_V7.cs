@@ -3,10 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace api.Migrations
 {
     /// <inheritdoc />
-    public partial class V4 : Migration
+    public partial class V7 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -134,6 +136,34 @@ namespace api.Migrations
                         principalTable: "Users",
                         principalColumn: "UserID",
                         onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "RegistrationRequests",
+                columns: table => new
+                {
+                    RegistrationRequestId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    RollOrEmpNo = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ClassId = table.Column<int>(type: "int", nullable: true),
+                    SectionId = table.Column<int>(type: "int", nullable: true),
+                    Specification = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AdmissionDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    JoinDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    RequestedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RegistrationRequests", x => x.RegistrationRequestId);
+                    table.ForeignKey(
+                        name: "FK_RegistrationRequests_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "UserID",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -288,6 +318,16 @@ namespace api.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
+            migrationBuilder.InsertData(
+                table: "Users",
+                columns: new[] { "UserID", "AdmissionDate", "FirstName", "JoinDate", "KlassId", "LastName", "PasswordHash", "PhoneNumber", "Role", "RollOrEmpNo", "SectionId", "Specification", "Status", "UpdatedAt", "Username" },
+                values: new object[,]
+                {
+                    { 1, null, "Super", new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Admin", "$2a$11$VqEvgxu5duqlECfuVUMSzuOh6eiFvrHi8k7rCfsyXhWnPpuOE.1Ge", "0001112222", 1, "EMP1001", null, null, 2, new DateTime(2024, 12, 20, 10, 37, 16, 729, DateTimeKind.Utc).AddTicks(1351), "superadmin" },
+                    { 2, null, "System", new DateTime(2023, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Administrator", "$2a$11$jGdDs9/0OXNLLEEST2bJYuS6ssk12Q.Q41xdiD3d4VpWyUuwq6j86", "0001113333", 1, "EMP1002", null, null, 2, new DateTime(2024, 12, 20, 10, 37, 16, 935, DateTimeKind.Utc).AddTicks(9507), "sysadmin" },
+                    { 3, null, "Head", new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Admin", "$2a$11$W6MyGIadWhHmHhXwoTZfYeQaKI2RYp0pCFombfQ6xiGqwBHjpZxEm", "0001114444", 1, "EMP1003", null, null, 2, new DateTime(2024, 12, 20, 10, 37, 17, 88, DateTimeKind.Utc).AddTicks(9756), "headadmin" }
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Competitions_Winner1",
                 table: "Competitions",
@@ -312,6 +352,11 @@ namespace api.Migrations
                 name: "IX_Participations_UserID",
                 table: "Participations",
                 column: "UserID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_RegistrationRequests_UserId",
+                table: "RegistrationRequests",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Responses_OptionID",
@@ -367,6 +412,9 @@ namespace api.Migrations
 
             migrationBuilder.DropTable(
                 name: "FAQs");
+
+            migrationBuilder.DropTable(
+                name: "RegistrationRequests");
 
             migrationBuilder.DropTable(
                 name: "Responses");
