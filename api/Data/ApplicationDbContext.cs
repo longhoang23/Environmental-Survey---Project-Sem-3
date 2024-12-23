@@ -36,6 +36,21 @@ namespace api.Data
             modelBuilder.Entity<User>()
                 .Property(u => u.Role)
                 .HasConversion<int>(); // Ensures Role is stored as an integer in the DB.
+
+            // Survey and SurveyQuestion relationship
+            modelBuilder.Entity<Survey>()
+                .HasMany(s => s.SurveyQuestions)
+                .WithOne(q => q.Survey)
+                .HasForeignKey(q => q.SurveyID)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // Survey and Participation relationship
+            modelBuilder.Entity<Survey>()
+                .HasMany(s => s.Participations)
+                .WithOne(p => p.Survey)
+                .HasForeignKey(p => p.SurveyID)
+                .OnDelete(DeleteBehavior.Cascade);
+
             // Competition to User relationships
             modelBuilder.Entity<Competition>()
                 .HasOne(c => c.FirstPlace)
@@ -76,20 +91,6 @@ namespace api.Data
                 .WithMany(s => s.Participations)
                 .HasForeignKey(p => p.SurveyID)
                 .OnDelete(DeleteBehavior.Cascade);
-
-                // Survey and SurveyQuestion relationship
-                modelBuilder.Entity<Survey>()
-                    .HasMany(s => s.SurveyQuestions)
-                    .WithOne(q => q.Survey)
-                    .HasForeignKey(q => q.SurveyID)
-                    .OnDelete(DeleteBehavior.Cascade);
-
-                // Survey and Participation relationship
-                modelBuilder.Entity<Survey>()
-                    .HasMany(s => s.Participations)
-                    .WithOne(p => p.Survey)
-                    .HasForeignKey(p => p.SurveyID)
-                    .OnDelete(DeleteBehavior.Cascade);
 
                 modelBuilder.Entity<User>().HasData(
                         new User
