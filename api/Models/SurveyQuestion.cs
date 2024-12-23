@@ -25,6 +25,6 @@ namespace api.Models
         public Survey Survey { get; set; } = null!;
 
         // Navigation Properties
-        public ICollection<SurveyOption> Options { get; set; } = new List<SurveyOption>();
+        public ICollection<SurveyOption>? Options { get; set; } = new List<SurveyOption>();
     }
 }
