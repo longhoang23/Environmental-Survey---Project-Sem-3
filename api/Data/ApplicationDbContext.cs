@@ -44,13 +44,6 @@ namespace api.Data
                 .HasForeignKey(q => q.SurveyID)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            // Survey and Participation relationship
-            modelBuilder.Entity<Survey>()
-                .HasMany(s => s.Participations)
-                .WithOne(p => p.Survey)
-                .HasForeignKey(p => p.SurveyID)
-                .OnDelete(DeleteBehavior.Cascade);
-
             // Competition to User relationships
             modelBuilder.Entity<Competition>()
                 .HasOne(c => c.FirstPlace)
@@ -64,22 +57,32 @@ namespace api.Data
                 .HasForeignKey(c => c.Winner2)
                 .OnDelete(DeleteBehavior.Restrict);
 
-                modelBuilder.Entity<Competition>()
+            modelBuilder.Entity<Competition>()
                 .HasOne(c => c.ThirdPlace)
                 .WithMany()
                 .HasForeignKey(c => c.Winner3)
                 .OnDelete(DeleteBehavior.Restrict);
-                modelBuilder.Entity<Participation>()
+
+            // Survey and Participation relationship
+            modelBuilder.Entity<Survey>()
+                .HasMany(s => s.Participations)
+                .WithOne(p => p.Survey)
+                .HasForeignKey(p => p.SurveyID)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Participation>()
                 .HasOne(p => p.User)
                 .WithMany()
                 .HasForeignKey(p => p.UserID)
                 .OnDelete(DeleteBehavior.Restrict);
-                modelBuilder.Entity<Response>()
+
+            modelBuilder.Entity<Response>()
                 .HasOne(r => r.Question)
                 .WithMany() // or WithOne()
                 .HasForeignKey(r => r.QuestionID)
                 .OnDelete(DeleteBehavior.Restrict); // Change from Cascade to Restrict or NoAction
-                modelBuilder.Entity<Participation>()
+
+            modelBuilder.Entity<Participation>()
                 .HasOne(p => p.User)
                 .WithMany(u => u.Participations)
                 .HasForeignKey(p => p.UserID)
@@ -137,6 +140,5 @@ namespace api.Data
                         }
                     );
         }
-
     }
 }
