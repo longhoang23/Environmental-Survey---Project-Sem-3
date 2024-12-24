@@ -72,7 +72,7 @@ namespace api.Data
 
             modelBuilder.Entity<Participation>()
                 .HasOne(p => p.User)
-                .WithMany()
+                .WithMany(u => u.Participations)
                 .HasForeignKey(p => p.UserID)
                 .OnDelete(DeleteBehavior.Restrict);
 

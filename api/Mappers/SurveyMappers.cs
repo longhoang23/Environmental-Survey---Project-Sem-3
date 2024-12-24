@@ -25,13 +25,7 @@ namespace api.Mappers
                 EndDate = survey.EndDate,
                 IsActive = survey.IsActive,
                 SurveyQuestions = survey.SurveyQuestions?.Select(o => o.ToSurveyQuestionDTO()).ToList() as ICollection<SurveyQuestionDTO>,
-                Participations = survey.Participations
-                ?.Select(p => new ParticipationDTO
-                {
-                    ParticipationID = p.ParticipationID,
-                    SurveyID = p.SurveyID,
-                    // Add other fields if needed
-                }).ToList()
+                Participations = survey.Participations?.Select(p => p.ToParticipationDTO()).ToList() as ICollection<ParticipationDTO>
             };
         }
 

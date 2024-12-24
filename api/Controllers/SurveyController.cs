@@ -25,6 +25,7 @@ namespace api.Controllers.Surveys
         public async Task<IActionResult> GetAllSurveys()
         {
             var surveys = await _surveyRepository.GetAllSurveysAsync(); // Updated to new async method
+            
             var surveyDTOs = surveys.Select(s => s.ToSurveyDTO()).ToList();
             return Ok(surveyDTOs);
         }

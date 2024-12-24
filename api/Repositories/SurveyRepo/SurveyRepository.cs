@@ -19,11 +19,13 @@ namespace api.Repositories.SurveyRepo
 
         public async Task<IEnumerable<Survey>> GetAllSurveysAsync()
         {
-            return await _context.Surveys
-                .Include(s => s.Participations) // Include Participations
-                .ThenInclude(p => p.User) // Optionally include User if needed
-                .Include(s => s.SurveyQuestions) // Include SurveyQuestions
+            
+           var surveys = await _context.Surveys
+                .Include(s => s.Participations)
+                    .ThenInclude(p => p.User)
+                .Include(s => s.SurveyQuestions)
                 .ToListAsync();
+            return surveys;
         }
 
         public async Task<Survey?> GetSurveyByIdAsync(int id)
