@@ -18,7 +18,7 @@ namespace api.DTOs.Student
         // public string RollOrEmpNo { get; set; } = null!;
         public int? KlassId {get; set;}
         public string? Specification { get; set; }
-        public UserStatus Status {get; set;} = UserStatus.Active;
+        public UserStatus Status {get; set;} = UserStatus.NotRequested;
 
         // public string Username { get; set; } = null!;
         public string Password { get; set; } = null!;

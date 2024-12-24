@@ -8,6 +8,11 @@ using api.Repositories.Section;
 using api.Repositories.Seminar;
 using api.Repositories.Staff;
 using api.Repositories.Student;
+using api.Repositories.Participations;
+using api.Repositories.Responses;
+using api.Repositories.SurveyRepo;
+using api.Repositories.SurveyOptionRepo;
+using api.Repositories.SurveyQuestionRepo;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -35,6 +40,13 @@ builder.Services.AddScoped<IStaffRepository, StaffRepository>();
 builder.Services.AddScoped<IStudentRepository, StudentRepository>();
 builder.Services.AddScoped<ISeminarRepository, SeminarRepository>();
 builder.Services.AddScoped<ICompetitionRepository,CompetitionRepository>();
+builder.Services.AddScoped<IParticipationRepository, ParticipationRepository>();
+builder.Services.AddScoped<IResponseRepository, ResponseRepository>();
+
+
+builder.Services.AddScoped<ISurveyRepository,SurveyRepository>();
+builder.Services.AddScoped<ISurveyOptionRepository,SurveyOptionRepository>();
+builder.Services.AddScoped<ISurveyQuestionRepository,SurveyQuestionRepository>();
 
 builder.Services.AddCors(options =>
 {
@@ -78,9 +90,9 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseCors("AllowSpecificOrigins");
 app.MapControllers();
-
-app.UseAuthorization();
 app.UseAuthentication();
+app.UseAuthorization();
+
 
 app.Run();
 

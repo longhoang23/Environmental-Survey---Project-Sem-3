@@ -12,8 +12,8 @@ using api.Data;
 namespace api.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241216125432_V6")]
-    partial class V6
+    [Migration("20241220103717_V7")]
+    partial class V7
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -133,6 +133,54 @@ namespace api.Migrations
                     b.HasIndex("UserID");
 
                     b.ToTable("Participations");
+                });
+
+            modelBuilder.Entity("api.Models.RegistrationRequest", b =>
+                {
+                    b.Property<int>("RegistrationRequestId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RegistrationRequestId"));
+
+                    b.Property<DateTime?>("AdmissionDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("ClassId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("JoinDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("RequestedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("RollOrEmpNo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("SectionId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Specification")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("RegistrationRequestId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("RegistrationRequests");
                 });
 
             modelBuilder.Entity("api.Models.Response", b =>
@@ -407,12 +455,12 @@ namespace api.Migrations
                             FirstName = "Super",
                             JoinDate = new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Admin",
-                            PasswordHash = "$2a$11$tN8y/b.mEo7F.QZxHLq7sucu3YfjyyjERF3HWm7gNnAuxaO71Tg5a",
+                            PasswordHash = "$2a$11$VqEvgxu5duqlECfuVUMSzuOh6eiFvrHi8k7rCfsyXhWnPpuOE.1Ge",
                             PhoneNumber = "0001112222",
                             Role = 1,
                             RollOrEmpNo = "EMP1001",
                             Status = 2,
-                            UpdatedAt = new DateTime(2024, 12, 16, 12, 54, 31, 356, DateTimeKind.Utc).AddTicks(1469),
+                            UpdatedAt = new DateTime(2024, 12, 20, 10, 37, 16, 729, DateTimeKind.Utc).AddTicks(1351),
                             Username = "superadmin"
                         },
                         new
@@ -421,12 +469,12 @@ namespace api.Migrations
                             FirstName = "System",
                             JoinDate = new DateTime(2023, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Administrator",
-                            PasswordHash = "$2a$11$yJcKVQ68M1nU1bbryWmsyutJc1ExwEILJxATjaeasBds96DY1sZai",
+                            PasswordHash = "$2a$11$jGdDs9/0OXNLLEEST2bJYuS6ssk12Q.Q41xdiD3d4VpWyUuwq6j86",
                             PhoneNumber = "0001113333",
                             Role = 1,
                             RollOrEmpNo = "EMP1002",
                             Status = 2,
-                            UpdatedAt = new DateTime(2024, 12, 16, 12, 54, 31, 524, DateTimeKind.Utc).AddTicks(8636),
+                            UpdatedAt = new DateTime(2024, 12, 20, 10, 37, 16, 935, DateTimeKind.Utc).AddTicks(9507),
                             Username = "sysadmin"
                         },
                         new
@@ -435,12 +483,12 @@ namespace api.Migrations
                             FirstName = "Head",
                             JoinDate = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Admin",
-                            PasswordHash = "$2a$11$x3sE8b4asUCgdHgoqcKXS.BfORZ26RwMJ2hwaNGUvtvG8WDEPYRcm",
+                            PasswordHash = "$2a$11$W6MyGIadWhHmHhXwoTZfYeQaKI2RYp0pCFombfQ6xiGqwBHjpZxEm",
                             PhoneNumber = "0001114444",
                             Role = 1,
                             RollOrEmpNo = "EMP1003",
                             Status = 2,
-                            UpdatedAt = new DateTime(2024, 12, 16, 12, 54, 31, 692, DateTimeKind.Utc).AddTicks(1321),
+                            UpdatedAt = new DateTime(2024, 12, 20, 10, 37, 17, 88, DateTimeKind.Utc).AddTicks(9756),
                             Username = "headadmin"
                         });
                 });
@@ -484,6 +532,17 @@ namespace api.Migrations
                         .IsRequired();
 
                     b.Navigation("Survey");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("api.Models.RegistrationRequest", b =>
+                {
+                    b.HasOne("api.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("User");
                 });
@@ -549,7 +608,7 @@ namespace api.Migrations
             modelBuilder.Entity("api.Models.SurveyQuestion", b =>
                 {
                     b.HasOne("api.Models.Survey", "Survey")
-                        .WithMany("Questions")
+                        .WithMany("SurveyQuestions")
                         .HasForeignKey("SurveyID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -586,7 +645,7 @@ namespace api.Migrations
                 {
                     b.Navigation("Participations");
 
-                    b.Navigation("Questions");
+                    b.Navigation("SurveyQuestions");
                 });
 
             modelBuilder.Entity("api.Models.SurveyQuestion", b =>

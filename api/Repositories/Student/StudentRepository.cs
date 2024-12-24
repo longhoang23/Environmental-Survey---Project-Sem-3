@@ -32,11 +32,34 @@ namespace api.Repositories.Student
                 .FirstOrDefaultAsync(u => u.UserID == userId && u.Role == UserRole.Student);
         }
 
-        public async Task<IEnumerable<User>> GetAllStudentsAsync()
+        public async Task<IEnumerable<User>> GetAllStudentsAsync(int? klassId = null, string? klassName = null, string? firstName = null, string? rollOrEmpNo = null)
         {
-            return await _context.Users
-                .Where(u => u.Role == UserRole.Student)
-                .ToListAsync();
+            var query = _context.Users
+                .Include(u => u.Klass) // Include Klass for joining to search for klassName
+                .Where(u => u.Role == UserRole.Student) // Filter by student role
+                .AsQueryable();
+
+            if (klassId.HasValue)
+            {
+                query = query.Where(u => u.KlassId == klassId.Value);
+            }
+
+            if (!string.IsNullOrWhiteSpace(klassName))
+            {
+                query = query.Where(u => u.Klass != null && u.Klass.Name.Contains(klassName));
+            }
+
+            if (!string.IsNullOrWhiteSpace(firstName))
+            {
+                query = query.Where(u => u.FirstName.Contains(firstName));
+            }
+
+            if (!string.IsNullOrWhiteSpace(rollOrEmpNo))
+            {
+                query = query.Where(u => u.RollOrEmpNo.Contains(rollOrEmpNo));
+            }
+
+            return await query.ToListAsync();
         }
 
         public async Task<User?> UpdateStudentAsync(User updatedUser, int userId)

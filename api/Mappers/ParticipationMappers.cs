@@ -35,7 +35,7 @@ namespace api.Mappers
             };
         }
 
-        public static Participation ToUpdateParticipation(this UpdateParticipationDTO updateParticipationDTO)
+        public static Participation ToUpdateParticipationResponse(this UpdateParticipationDTO updateParticipationDTO)
         {
             return new Participation
             {

@@ -5,23 +5,22 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace api.Models
-{
+namespace api.Models {
     public class SurveyOption
     {
-    [Key]
-    public int OptionID { get; set; }
+        [Key]
+        public int OptionID { get; set; }
 
-    [ForeignKey("Question")]
-    public int QuestionID { get; set; }
+        [ForeignKey("Question")]
+        public int QuestionID { get; set; }
 
-    [Required]
-    [MaxLength(300)]
-    public string OptionText { get; set; } = null!;
+        [Required]
+        [MaxLength(300)]
+        public string OptionText { get; set; } = null!;
 
-    public int Score { get; set; } = 0;
+        public int Score { get; set; } = 0;
 
-    // Navigation Property
-    public SurveyQuestion Question { get; set; } = null!;
+        // Navigation Property
+        public SurveyQuestion? Question { get; set; } = null!;
     }
 }
