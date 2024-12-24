@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace api.Repositories.SurveyOptionRepo
 {
-     public class SurveyOptionRepository : ISurveyOptionRepository
+    public class SurveyOptionRepository : ISurveyOptionRepository
     {
         private readonly ApplicationDbContext _context;
 
@@ -17,28 +17,28 @@ namespace api.Repositories.SurveyOptionRepo
             _context = context;
         }
 
-        public async Task<IEnumerable<SurveyOption>> GetAllSurveyOptions()
+        public async Task<IEnumerable<SurveyOption>> GetAllSurveyOptionsAsync()
         {
             return await _context.SurveyOptions
-                .Include(so => so.Question)
+                .Include(so => so.Question) // Include related Question if needed
                 .ToListAsync();
         }
 
-        public async Task<SurveyOption?> GetSurveyOptionById(int id)
+        public async Task<SurveyOption?> GetSurveyOptionByIdAsync(int id)
         {
             return await _context.SurveyOptions
-                .Include(so => so.Question)
+                .Include(so => so.Question) // Include related Question if needed
                 .FirstOrDefaultAsync(so => so.OptionID == id);
         }
 
-        public async Task<SurveyOption?> AddSurveyOption(SurveyOption surveyOption)
+        public async Task<SurveyOption?> AddSurveyOptionAsync(SurveyOption surveyOption)
         {
             await _context.SurveyOptions.AddAsync(surveyOption);
             await _context.SaveChangesAsync();
             return surveyOption;
         }
 
-        public async Task<SurveyOption?> UpdateSurveyOption(int id, SurveyOption updateSurveyOption)
+        public async Task<SurveyOption?> UpdateSurveyOptionAsync(int id, SurveyOption updateSurveyOption)
         {
             var existingOption = await _context.SurveyOptions
                 .FirstOrDefaultAsync(so => so.OptionID == id);
@@ -57,7 +57,7 @@ namespace api.Repositories.SurveyOptionRepo
             return null;
         }
 
-        public async Task<SurveyOption?> DeleteSurveyOption(int id)
+        public async Task<SurveyOption?> DeleteSurveyOptionAsync(int id)
         {
             var surveyOption = await _context.SurveyOptions
                 .FirstOrDefaultAsync(so => so.OptionID == id);

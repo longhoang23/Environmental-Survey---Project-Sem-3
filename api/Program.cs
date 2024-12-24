@@ -9,6 +9,7 @@ using api.Repositories.Seminar;
 using api.Repositories.Staff;
 using api.Repositories.Student;
 using api.Repositories.Participations;
+using api.Repositories.Responses;
 using api.Repositories.SurveyRepo;
 using api.Repositories.SurveyOptionRepo;
 using api.Repositories.SurveyQuestionRepo;
@@ -40,6 +41,8 @@ builder.Services.AddScoped<IStudentRepository, StudentRepository>();
 builder.Services.AddScoped<ISeminarRepository, SeminarRepository>();
 builder.Services.AddScoped<ICompetitionRepository,CompetitionRepository>();
 builder.Services.AddScoped<IParticipationRepository, ParticipationRepository>();
+builder.Services.AddScoped<IResponseRepository, ResponseRepository>();
+
 
 builder.Services.AddScoped<ISurveyRepository,SurveyRepository>();
 builder.Services.AddScoped<ISurveyOptionRepository,SurveyOptionRepository>();

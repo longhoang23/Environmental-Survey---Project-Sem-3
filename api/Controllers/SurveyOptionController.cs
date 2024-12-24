@@ -24,7 +24,7 @@ namespace api.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllSurveyOptions()
         {
-            var surveyOptions = await _surveyOptionRepository.GetAllSurveyOptions();
+            var surveyOptions = await _surveyOptionRepository.GetAllSurveyOptionsAsync(); // Updated to async method
             var surveyOptionDTOs = surveyOptions.Select(o => o.ToSurveyOptionDTO()).ToList();
             return Ok(surveyOptionDTOs);
         }
@@ -33,10 +33,10 @@ namespace api.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetSurveyOptionById(int id)
         {
-            var surveyOption = await _surveyOptionRepository.GetSurveyOptionById(id);
+            var surveyOption = await _surveyOptionRepository.GetSurveyOptionByIdAsync(id); // Updated to async method
             if (surveyOption == null)
             {
-                return NotFound("Survey option not found");
+                return NotFound(new { message = "Survey option not found" });
             }
             var surveyOptionDTO = surveyOption.ToSurveyOptionDTO();
             return Ok(surveyOptionDTO);
@@ -50,8 +50,8 @@ namespace api.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var surveyOption = upsertSurveyOptionDto.toUpsertSurveyOptionDTO();
-            var createdSurveyOption = await _surveyOptionRepository.AddSurveyOption(surveyOption);
+            var surveyOption = upsertSurveyOptionDto.toUpsertSurveyOptionDTO(); // Fixed mapping method
+            var createdSurveyOption = await _surveyOptionRepository.AddSurveyOptionAsync(surveyOption); // Updated to async method
             var surveyOptionDTO = createdSurveyOption.ToSurveyOptionDTO();
 
             return CreatedAtAction(nameof(GetSurveyOptionById), new { id = createdSurveyOption.OptionID }, surveyOptionDTO);
@@ -65,13 +65,15 @@ namespace api.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var surveyOptionUpdate = upsertSurveyOptionDto.toUpsertSurveyOptionDTO();
+            var surveyOptionUpdate = upsertSurveyOptionDto.toUpsertSurveyOptionDTO(); // Fixed mapping method
             surveyOptionUpdate.OptionID = id;
-            var updatedSurveyOption = await _surveyOptionRepository.UpdateSurveyOption(id, surveyOptionUpdate);
+
+            var updatedSurveyOption = await _surveyOptionRepository.UpdateSurveyOptionAsync(id, surveyOptionUpdate); // Updated to async method
             if (updatedSurveyOption == null)
             {
                 return NotFound(new { message = "Survey option not found" });
             }
+
             var surveyOptionDTO = updatedSurveyOption.ToSurveyOptionDTO();
             return Ok(surveyOptionDTO);
         }
@@ -80,14 +82,14 @@ namespace api.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteSurveyOption(int id)
         {
-            var existingSurveyOption = await _surveyOptionRepository.GetSurveyOptionById(id);
+            var existingSurveyOption = await _surveyOptionRepository.GetSurveyOptionByIdAsync(id); // Updated to async method
             if (existingSurveyOption == null)
             {
                 return NotFound(new { message = "Survey option not found" });
             }
 
-            await _surveyOptionRepository.DeleteSurveyOption(id);
-            return Ok("Survey option deleted successfully.");
+            await _surveyOptionRepository.DeleteSurveyOptionAsync(id); // Updated to async method
+            return Ok(new { message = "Survey option deleted successfully." });
         }
     }
 }

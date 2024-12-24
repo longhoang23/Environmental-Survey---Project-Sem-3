@@ -17,28 +17,28 @@ namespace api.Repositories.SurveyQuestionRepo
             _context = context;
         }
 
-        public async Task<IEnumerable<SurveyQuestion>> GetAllSurveyQuestions()
+        public async Task<IEnumerable<SurveyQuestion>> GetAllSurveyQuestionsAsync()
         {
             return await _context.SurveyQuestions
                 .Include(q => q.Options)
                 .ToListAsync();
         }
 
-        public async Task<SurveyQuestion?> GetSurveyQuestionById(int id)
+        public async Task<SurveyQuestion?> GetSurveyQuestionByIdAsync(int id)
         {
             return await _context.SurveyQuestions
                 .Include(q => q.Options)
                 .FirstOrDefaultAsync(q => q.QuestionID == id);
         }
 
-        public async Task<SurveyQuestion?> AddSurveyQuestion(SurveyQuestion surveyQuestion)
+        public async Task<SurveyQuestion?> AddSurveyQuestionAsync(SurveyQuestion surveyQuestion)
         {
             await _context.SurveyQuestions.AddAsync(surveyQuestion);
             await _context.SaveChangesAsync();
             return surveyQuestion;
         }
 
-        public async Task<SurveyQuestion?> UpdateSurveyQuestion(int id, SurveyQuestion updateSurveyQuestion)
+        public async Task<SurveyQuestion?> UpdateSurveyQuestionAsync(int id, SurveyQuestion updateSurveyQuestion)
         {
             var existingQuestion = await _context.SurveyQuestions
                 .FirstOrDefaultAsync(q => q.QuestionID == id);
@@ -57,7 +57,7 @@ namespace api.Repositories.SurveyQuestionRepo
             return null;
         }
 
-        public async Task<SurveyQuestion?> DeleteSurveyQuestion(int id)
+        public async Task<SurveyQuestion?> DeleteSurveyQuestionAsync(int id)
         {
             var surveyQuestion = await _context.SurveyQuestions
                 .FirstOrDefaultAsync(q => q.QuestionID == id);

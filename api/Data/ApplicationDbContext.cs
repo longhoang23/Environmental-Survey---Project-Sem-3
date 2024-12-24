@@ -82,19 +82,20 @@ namespace api.Data
                 .HasForeignKey(r => r.QuestionID)
                 .OnDelete(DeleteBehavior.Restrict); // Change from Cascade to Restrict or NoAction
 
+           // Configure Participation -> Survey relationship
             modelBuilder.Entity<Participation>()
-                .HasOne(p => p.User)
-                .WithMany(u => u.Participations)
-                .HasForeignKey(p => p.UserID)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            // Configure Participation -> Survey relationship
-                modelBuilder.Entity<Participation>()
                 .HasOne(p => p.Survey)
                 .WithMany(s => s.Participations)
                 .HasForeignKey(p => p.SurveyID)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            // Configure Participation -> User relationship
+            modelBuilder.Entity<Participation>()
+                .HasOne(p => p.User)
+                .WithMany(u => u.Participations)
+                .HasForeignKey(p => p.UserID)
+                .OnDelete(DeleteBehavior.Restrict);
+                
                 modelBuilder.Entity<User>().HasData(
                         new User
                         {
