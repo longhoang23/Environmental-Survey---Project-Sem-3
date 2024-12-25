@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using api.Data;
 using api.DTOs.Participation;
+using api.Enums.Status;
 using api.Mappers;
 using api.Repositories.Participations;
 using Microsoft.AspNetCore.Mvc;
@@ -14,10 +16,12 @@ namespace api.Controllers
     public class ParticipationController : ControllerBase
     {
         private readonly IParticipationRepository _participationRepository;
+        private readonly ApplicationDbContext _context;
 
-        public ParticipationController(IParticipationRepository participationRepository)
+        public ParticipationController(IParticipationRepository participationRepository, ApplicationDbContext context)
         {
             _participationRepository = participationRepository;
+            _context = context;
         }
 
         [HttpGet("all")]
@@ -46,6 +50,16 @@ namespace api.Controllers
                 return BadRequest(ModelState);
 
             var participationEntity = createParticipationDTO.ToCreateParticipationResponse();
+
+            var user = await _context.Users.FindAsync(participationEntity.UserID);
+            if (user == null)
+                return NotFound("User not found.");
+
+            // 3. Validate user status
+            if (user.Status != UserStatus.Active)
+                return BadRequest("User is not active. Participation cannot be created.");
+
+
             var createdParticipation = await _participationRepository.CreateParticipationAsync(participationEntity);
             var participationDTO = createdParticipation.ToParticipationDTO();
 

@@ -96,50 +96,250 @@ namespace api.Data
                 .HasForeignKey(p => p.UserID)
                 .OnDelete(DeleteBehavior.Restrict);
                 
-                modelBuilder.Entity<User>().HasData(
-                        new User
-                        {
-                            UserID = 1,
-                            FirstName = "Super",
-                            LastName = "Admin",
-                            PhoneNumber = "0001112222",
-                            Role = UserRole.Admin,
-                            RollOrEmpNo = "EMP1001",
-                            Status = UserStatus.Active,
-                            Username = "superadmin",
-                            PasswordHash = BCrypt.Net.BCrypt.HashPassword("Admin123"),  // hashed password
-                            JoinDate = new DateTime(2023, 01, 01),
-                            UpdatedAt = DateTime.UtcNow
-                        },
-                        new User
-                        {
-                            UserID = 2,
-                            FirstName = "System",
-                            LastName = "Administrator",
-                            PhoneNumber = "0001113333",
-                            Role = UserRole.Admin,
-                            RollOrEmpNo = "EMP1002",
-                            Status = UserStatus.Active,
-                            Username = "sysadmin",
-                            PasswordHash = BCrypt.Net.BCrypt.HashPassword("Admin123"),  
-                            JoinDate = new DateTime(2023, 02, 01),
-                            UpdatedAt = DateTime.UtcNow
-                        },
-                        new User
-                        {
-                            UserID = 3,
-                            FirstName = "Head",
-                            LastName = "Admin",
-                            PhoneNumber = "0001114444",
-                            Role = UserRole.Admin,
-                            RollOrEmpNo = "EMP1003",
-                            Status = UserStatus.Active,
-                            Username = "headadmin",
-                            PasswordHash = BCrypt.Net.BCrypt.HashPassword("Admin123"), 
-                            JoinDate = new DateTime(2023, 03, 01),
-                            UpdatedAt = DateTime.UtcNow
-                        }
-                    );
+            modelBuilder.Entity<User>().HasData(
+                    new User
+                    {
+                        UserID = 1,
+                        FirstName = "Super",
+                        LastName = "Admin",
+                        PhoneNumber = "0001112222",
+                        Role = UserRole.Admin,
+                        RollOrEmpNo = "EMP1001",
+                        Status = UserStatus.Active,
+                        Username = "superadmin",
+                        PasswordHash = BCrypt.Net.BCrypt.HashPassword("Admin123"),  // hashed password
+                        JoinDate = new DateTime(2023, 01, 01),
+                        UpdatedAt = DateTime.UtcNow
+                    },
+                    new User
+                    {
+                        UserID = 2,
+                        FirstName = "System",
+                        LastName = "Administrator",
+                        PhoneNumber = "0001113333",
+                        Role = UserRole.Admin,
+                        RollOrEmpNo = "EMP1002",
+                        Status = UserStatus.Active,
+                        Username = "sysadmin",
+                        PasswordHash = BCrypt.Net.BCrypt.HashPassword("Admin123"),  
+                        JoinDate = new DateTime(2023, 02, 01),
+                        UpdatedAt = DateTime.UtcNow
+                    },
+                    new User
+                    {
+                        UserID = 3,
+                        FirstName = "Head",
+                        LastName = "Admin",
+                        PhoneNumber = "0001114444",
+                        Role = UserRole.Admin,
+                        RollOrEmpNo = "EMP1003",
+                        Status = UserStatus.Active,
+                        Username = "headadmin",
+                        PasswordHash = BCrypt.Net.BCrypt.HashPassword("Admin123"), 
+                        JoinDate = new DateTime(2023, 03, 01),
+                        UpdatedAt = DateTime.UtcNow
+                    }
+                );
+            modelBuilder.Entity<Klass>().HasData(
+                new Klass
+                {
+                    KlassId = 1, // Ensure no conflicts with existing IDs
+                    Name = "C2304L"
+                },
+                new Klass
+                {
+                    KlassId = 2,
+                    Name = "C2222L"
+                },
+                new Klass
+                {
+                    KlassId = 3,
+                    Name = "C1234X"
+                }
+            );
+
+            modelBuilder.Entity<Section>().HasData(
+                new Section
+                {
+                    SectionId = 1, // Ensure no conflicts with existing IDs
+                    Name = "Section A"
+                },
+                new Section
+                {
+                    SectionId = 2,
+                    Name = "Section B"
+                },
+                new Section
+                {
+                    SectionId = 3,
+                    Name = "Section C"
+                }
+            );
+
+            modelBuilder.Entity<User>().HasData(
+                new User
+                {
+                    UserID = 101,
+                    FirstName = "John",
+                    LastName = "Doe",
+                    PhoneNumber = "1234567890",
+                    Role = UserRole.Student,
+                    RollOrEmpNo = "student111111",
+                    KlassId = 1, // Example KlassId
+                    Specification = "Computer Science",
+                    AdmissionDate = new DateTime(2023, 01, 10),
+                    UpdatedAt = DateTime.UtcNow,
+                    Status = UserStatus.NotRequested,
+                    Username = "john.doe",
+                    PasswordHash = BCrypt.Net.BCrypt.HashPassword("password123")
+                },
+                new User
+                {
+                    UserID = 102,
+                    FirstName = "Jane",
+                    LastName = "Smith",
+                    PhoneNumber = "9876543210",
+                    Role = UserRole.Student,
+                    RollOrEmpNo = "student123456",
+                    KlassId = 1,
+                    Specification = "Mathematics",
+                    AdmissionDate = new DateTime(2023, 02, 15),
+                    UpdatedAt = DateTime.UtcNow,
+                    Status = UserStatus.NotRequested,
+                    Username = "jane.smith",
+                    PasswordHash = BCrypt.Net.BCrypt.HashPassword("password123")
+                },
+                new User
+                {
+                    UserID = 103,
+                    FirstName = "Alice",
+                    LastName = "Johnson",
+                    PhoneNumber = "4567891230",
+                    Role = UserRole.Student,
+                    RollOrEmpNo = "student135790",
+                    KlassId = 2,
+                    Specification = "Physics",
+                    AdmissionDate = new DateTime(2023, 03, 20),
+                    UpdatedAt = DateTime.UtcNow,
+                    Status = UserStatus.NotRequested,
+                    Username = "alice.johnson",
+                    PasswordHash = BCrypt.Net.BCrypt.HashPassword("password123")
+                },
+                new User
+                {
+                    UserID = 104,
+                    FirstName = "Bob",
+                    LastName = "Brown",
+                    PhoneNumber = "3216549870",
+                    Role = UserRole.Student,
+                    RollOrEmpNo = "student987654",
+                    KlassId = 2,
+                    Specification = "Chemistry",
+                    AdmissionDate = new DateTime(2023, 04, 25),
+                    UpdatedAt = DateTime.UtcNow,
+                    Status = UserStatus.NotRequested,
+                    Username = "bob.brown",
+                    PasswordHash = BCrypt.Net.BCrypt.HashPassword("password123")
+                },
+                new User
+                {
+                    UserID = 105,
+                    FirstName = "Charlie",
+                    LastName = "White",
+                    PhoneNumber = "6543217890",
+                    Role = UserRole.Student,
+                    RollOrEmpNo = "student234567",
+                    KlassId = 3,
+                    Specification = "Biology",
+                    AdmissionDate = new DateTime(2023, 05, 30),
+                    UpdatedAt = DateTime.UtcNow,
+                    Status = UserStatus.NotRequested,
+                    Username = "charlie.white",
+                    PasswordHash = BCrypt.Net.BCrypt.HashPassword("password123")
+                }
+            );
+            modelBuilder.Entity<User>().HasData(
+                new User
+                {
+                    UserID = 201,
+                    FirstName = "Alice",
+                    LastName = "Brown",
+                    PhoneNumber = "1122334455",
+                    Role = UserRole.Staff,
+                    RollOrEmpNo = "STAFF001",
+                    SectionId = 1, // Example SectionId
+                    Specification = "IT Support",
+                    JoinDate = new DateTime(2022, 01, 15),
+                    UpdatedAt = DateTime.UtcNow,
+                    Status = UserStatus.Active,
+                    Username = "alice.brown",
+                    PasswordHash = BCrypt.Net.BCrypt.HashPassword("password123")
+                },
+                new User
+                {
+                    UserID = 202,
+                    FirstName = "Bob",
+                    LastName = "Johnson",
+                    PhoneNumber = "2233445566",
+                    Role = UserRole.Staff,
+                    RollOrEmpNo = "STAFF002",
+                    SectionId = 2,
+                    Specification = "Library Manager",
+                    JoinDate = new DateTime(2022, 02, 20),
+                    UpdatedAt = DateTime.UtcNow,
+                    Status = UserStatus.Active,
+                    Username = "bob.johnson",
+                    PasswordHash = BCrypt.Net.BCrypt.HashPassword("password123")
+                },
+                new User
+                {
+                    UserID = 203,
+                    FirstName = "Charlie",
+                    LastName = "Smith",
+                    PhoneNumber = "3344556677",
+                    Role = UserRole.Staff,
+                    RollOrEmpNo = "STAFF003",
+                    SectionId = 3,
+                    Specification = "Accounts Manager",
+                    JoinDate = new DateTime(2022, 03, 10),
+                    UpdatedAt = DateTime.UtcNow,
+                    Status = UserStatus.Active,
+                    Username = "charlie.smith",
+                    PasswordHash = BCrypt.Net.BCrypt.HashPassword("password123")
+                },
+                new User
+                {
+                    UserID = 204,
+                    FirstName = "Diana",
+                    LastName = "White",
+                    PhoneNumber = "4455667788",
+                    Role = UserRole.Staff,
+                    RollOrEmpNo = "STAFF004",
+                    SectionId = 1,
+                    Specification = "HR Specialist",
+                    JoinDate = new DateTime(2022, 04, 05),
+                    UpdatedAt = DateTime.UtcNow,
+                    Status = UserStatus.Active,
+                    Username = "diana.white",
+                    PasswordHash = BCrypt.Net.BCrypt.HashPassword("password123")
+                },
+                new User
+                {
+                    UserID = 205,
+                    FirstName = "Evan",
+                    LastName = "Green",
+                    PhoneNumber = "5566778899",
+                    Role = UserRole.Staff,
+                    RollOrEmpNo = "STAFF005",
+                    SectionId = 2,
+                    Specification = "Security Officer",
+                    JoinDate = new DateTime(2022, 05, 25),
+                    UpdatedAt = DateTime.UtcNow,
+                    Status = UserStatus.Active,
+                    Username = "evan.green",
+                    PasswordHash = BCrypt.Net.BCrypt.HashPassword("password123")
+                }
+            );
         }
     }
 }
