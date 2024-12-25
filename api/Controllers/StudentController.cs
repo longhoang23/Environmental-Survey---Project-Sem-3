@@ -12,7 +12,7 @@ namespace api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize(Roles = "Admin")]
+    // [Authorize(Roles = "Admin")]
     public class StudentController : ControllerBase
     {
         private readonly IStudentRepository _studentRepository;

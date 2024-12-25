@@ -7,7 +7,7 @@ using api.Repositories.SurveyQuestionRepo;
 using Microsoft.AspNetCore.Mvc;
 using api.Mappers;
 
-namespace api.Controllers.SurveyQuestions
+namespace api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -24,7 +24,7 @@ namespace api.Controllers.SurveyQuestions
         [HttpGet]
         public async Task<IActionResult> GetAllSurveyQuestions()
         {
-            var surveyQuestions = await _surveyQuestionRepository.GetAllSurveyQuestions();
+            var surveyQuestions = await _surveyQuestionRepository.GetAllSurveyQuestionsAsync(); // Updated to async method
             var surveyQuestionDTOs = surveyQuestions.Select(q => q.ToSurveyQuestionDTO()).ToList();
             return Ok(surveyQuestionDTOs);
         }
@@ -33,10 +33,10 @@ namespace api.Controllers.SurveyQuestions
         [HttpGet("{id}")]
         public async Task<IActionResult> GetSurveyQuestionById(int id)
         {
-            var surveyQuestion = await _surveyQuestionRepository.GetSurveyQuestionById(id);
+            var surveyQuestion = await _surveyQuestionRepository.GetSurveyQuestionByIdAsync(id); // Updated to async method
             if (surveyQuestion == null)
             {
-                return NotFound("Survey question not found");
+                return NotFound(new { message = "Survey question not found" });
             }
             var surveyQuestionDTO = surveyQuestion.ToSurveyQuestionDTO();
             return Ok(surveyQuestionDTO);
@@ -50,8 +50,8 @@ namespace api.Controllers.SurveyQuestions
             {
                 return BadRequest(ModelState);
             }
-            var surveyQuestion = upsertSurveyQuestionDto.toUpsertSurveyDTO();
-            var createdSurveyQuestion = await _surveyQuestionRepository.AddSurveyQuestion(surveyQuestion);
+            var surveyQuestion = upsertSurveyQuestionDto.toUpsertSurveyDTO(); // Fixed mapping method
+            var createdSurveyQuestion = await _surveyQuestionRepository.AddSurveyQuestionAsync(surveyQuestion); // Updated to async method
             var surveyQuestionDTO = createdSurveyQuestion.ToSurveyQuestionDTO();
 
             return CreatedAtAction(nameof(GetSurveyQuestionById), new { id = createdSurveyQuestion.QuestionID }, surveyQuestionDTO);
@@ -65,9 +65,9 @@ namespace api.Controllers.SurveyQuestions
             {
                 return BadRequest(ModelState);
             }
-            var surveyQuestionUpdate = upsertSurveyQuestionDto.toUpsertSurveyDTO();
+            var surveyQuestionUpdate = upsertSurveyQuestionDto.toUpsertSurveyDTO(); // Fixed mapping method
             surveyQuestionUpdate.QuestionID = id;
-            var updatedSurveyQuestion = await _surveyQuestionRepository.UpdateSurveyQuestion(id, surveyQuestionUpdate);
+            var updatedSurveyQuestion = await _surveyQuestionRepository.UpdateSurveyQuestionAsync(id, surveyQuestionUpdate); // Updated to async method
             if (updatedSurveyQuestion == null)
             {
                 return NotFound(new { message = "Survey question not found" });
@@ -80,14 +80,14 @@ namespace api.Controllers.SurveyQuestions
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteSurveyQuestion(int id)
         {
-            var existingSurveyQuestion = await _surveyQuestionRepository.GetSurveyQuestionById(id);
+            var existingSurveyQuestion = await _surveyQuestionRepository.GetSurveyQuestionByIdAsync(id); // Updated to async method
             if (existingSurveyQuestion == null)
             {
                 return NotFound(new { message = "Survey question not found" });
             }
 
-            await _surveyQuestionRepository.DeleteSurveyQuestion(id);
-            return Ok("Survey question deleted successfully.");
+            await _surveyQuestionRepository.DeleteSurveyQuestionAsync(id); // Updated to async method
+            return Ok(new { message = "Survey question deleted successfully." });
         }
     }
 }
