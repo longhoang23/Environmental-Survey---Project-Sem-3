@@ -1,9 +1,10 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import KlassList from './Klass/KlassList.jsx'
-import AddKlass from './Klass/AddKlass.jsx'
-import UpdateKlass from './Klass/UpdateKlass.jsx'
+import KlassList from './pages/Klass/KlassList'
+import AddKlass from './pages/Klass/AddKlass'
+import UpdateKlass from './pages/Klass/UpdateKlass'
+
 
 
 const router = createBrowserRouter([
