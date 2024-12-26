@@ -1,9 +1,9 @@
 import { useState } from "react";
 import axios from "axios";
-
+import { useNavigate } from "react-router-dom";
 const RegisterForm = () => {
   const apiUrl = import.meta.env.VITE_PUBLIC_URL;
-
+  const navigate = useNavigate();
   const [register, setRegister] = useState({
     firstName: "",
     lastName: "",
@@ -42,6 +42,8 @@ const RegisterForm = () => {
     try {
       const response = await axios.post(`${apiUrl}/User/register`, register);
       alert("Registration successful: " + response.data);
+      navigate("/");
+      
     } catch (error) {
       console.error("Error during registration:", error);
       setErrors((prev) => ({
