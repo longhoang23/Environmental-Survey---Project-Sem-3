@@ -8,10 +8,10 @@ namespace api.Repositories.SurveyOptionRepo
 {
     public interface ISurveyOptionRepository
     {
-        Task<IEnumerable<SurveyOption>> GetAllSurveyOptions();
-        Task<SurveyOption?> GetSurveyOptionById(int id);
-        Task<SurveyOption?> AddSurveyOption(SurveyOption surveyOption);
-        Task<SurveyOption?> UpdateSurveyOption(int id, SurveyOption updateSurveyOption);
-        Task<SurveyOption?> DeleteSurveyOption(int id);
+        Task<IEnumerable<SurveyOption>> GetAllSurveyOptionsAsync();
+        Task<SurveyOption?> GetSurveyOptionByIdAsync(int id);
+        Task<SurveyOption?> AddSurveyOptionAsync(SurveyOption surveyOption);
+        Task<SurveyOption?> UpdateSurveyOptionAsync(int id, SurveyOption updateSurveyOption);
+        Task<SurveyOption?> DeleteSurveyOptionAsync(int id);
     }
 }

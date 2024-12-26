@@ -18,7 +18,7 @@ namespace api.Mappers
                 SurveyID = surveyQuestion.SurveyID,
                 QuestionText = surveyQuestion.QuestionText,
                 QuestionType = surveyQuestion.QuestionType,
-                Options = surveyQuestion.Options.Select(o => o.ToSurveyOptionDTO()).ToList()
+                Options = surveyQuestion.Options?.Select(o => o.ToSurveyOptionDTO()).ToList()
             };
         }
 

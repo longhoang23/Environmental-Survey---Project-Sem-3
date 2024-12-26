@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using api.DTOs.Survey;
+using api.DTOs.SurveyOption;
+using api.DTOs.SurveyQuestion;
+using api.DTOs.Participation;
+
 using api.Models;
 
 namespace api.Mappers
@@ -20,8 +24,8 @@ namespace api.Mappers
                 StartDate = survey.StartDate,
                 EndDate = survey.EndDate,
                 IsActive = survey.IsActive,
-                SurveyQuestions = survey.SurveyQuestions?.Select(o => o.ToSurveyQuestionDTO()).ToList(),
-                //Participations = survey.Participations.ToList()
+                SurveyQuestions = survey.SurveyQuestions?.Select(o => o.ToSurveyQuestionDTO()).ToList() as ICollection<SurveyQuestionDTO>,
+                Participations = survey.Participations?.Select(p => p.ToParticipationDTO()).ToList() as ICollection<ParticipationDTO>
             };
         }
 

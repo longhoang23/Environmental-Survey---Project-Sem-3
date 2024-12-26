@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using api.Models;
+using api.DTOs.SurveyQuestion;
+using api.DTOs.Participation;
 
 namespace api.DTOs.Survey
 {
@@ -23,6 +25,6 @@ namespace api.DTOs.Survey
         public bool IsActive { get; set; } = true;
         
         public ICollection<SurveyQuestionDTO>? SurveyQuestions { get; set; } = new List<SurveyQuestionDTO>();
-        public ICollection<Participation>? Participations { get; set; } = new List<Participation>();
+        public ICollection<ParticipationDTO>? Participations { get; set; } = new List<ParticipationDTO>();
     }
 }

@@ -2,17 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using api.DTOs.Survey;
 using api.Models;
 
 namespace api.Repositories.SurveyRepo
 {
     public interface ISurveyRepository
     {
-        Task<IEnumerable<Survey>> GetAllSurvey();
-        Task<Survey?> GetSurveyById(int id);
-        Task<Survey?> AddSurvey(Survey survey);
-        Task<Survey?> UpdateSurvey(int id, Survey updateSurvey);
-        Task<Survey?> DeleteSurvey(int id);
+        Task<IEnumerable<Survey>> GetAllSurveysAsync();
+        Task<Survey?> GetSurveyByIdAsync(int id);
+        Task<Survey?> AddSurveyAsync(Survey survey);
+        Task<Survey?> UpdateSurveyAsync(int id, Survey updateSurvey);
+        Task<Survey?> DeleteSurveyAsync(int id);
     }
 }

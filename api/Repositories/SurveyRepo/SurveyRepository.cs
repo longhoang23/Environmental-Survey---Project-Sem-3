@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using api.Data;
-using api.DTOs.Survey;
-using api.Mappers;
 using api.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,54 +17,57 @@ namespace api.Repositories.SurveyRepo
             _context = context;
         }
 
-        public async Task<IEnumerable<Survey>> GetAllSurvey()
+        public async Task<IEnumerable<Survey>> GetAllSurveysAsync()
         {
-            return await _context.Surveys
-                .Include(s => s.SurveyQuestions)
-                
+            
+           var surveys = await _context.Surveys
                 .Include(s => s.Participations)
+                    .ThenInclude(p => p.User)
+                .Include(s => s.SurveyQuestions)
                 .ToListAsync();
+            return surveys;
         }
 
-        public async Task<Survey?> GetSurveyById(int id)
+        public async Task<Survey?> GetSurveyByIdAsync(int id)
         {
             return await _context.Surveys
                 .Include(s => s.SurveyQuestions)
                 .Include(s => s.Participations)
+                .ThenInclude(p => p.User) // Optionally include User
                 .FirstOrDefaultAsync(s => s.SurveyID == id);
         }
 
-        public async Task<Survey> AddSurvey(Survey survey)
+        public async Task<Survey?> AddSurveyAsync(Survey survey)
         {
             await _context.Surveys.AddAsync(survey);
             await _context.SaveChangesAsync();
             return survey;
         }
 
-        public async Task<Survey?> UpdateSurvey(int id, Survey updateSurvey)
-    {
-        var existingSurvey = await _context.Surveys
-            .FirstOrDefaultAsync(s => s.SurveyID == id);
-
-        if (existingSurvey != null)
+        public async Task<Survey?> UpdateSurveyAsync(int id, Survey updateSurvey)
         {
-            existingSurvey.Title = updateSurvey.Title;
-            existingSurvey.Description = updateSurvey.Description;
-            existingSurvey.TargetAudience = updateSurvey.TargetAudience;
-            existingSurvey.StartDate = updateSurvey.StartDate;
-            existingSurvey.EndDate = updateSurvey.EndDate;
-            existingSurvey.IsActive = updateSurvey.IsActive;
+            var existingSurvey = await _context.Surveys
+                .FirstOrDefaultAsync(s => s.SurveyID == id);
 
-            _context.Surveys.Update(existingSurvey);
-            await _context.SaveChangesAsync();
+            if (existingSurvey != null)
+            {
+                existingSurvey.Title = updateSurvey.Title;
+                existingSurvey.Description = updateSurvey.Description;
+                existingSurvey.TargetAudience = updateSurvey.TargetAudience;
+                existingSurvey.StartDate = updateSurvey.StartDate;
+                existingSurvey.EndDate = updateSurvey.EndDate;
+                existingSurvey.IsActive = updateSurvey.IsActive;
 
-            return existingSurvey;
+                _context.Surveys.Update(existingSurvey);
+                await _context.SaveChangesAsync();
+
+                return existingSurvey;
+            }
+
+            return null;
         }
-        return null;
-    }
 
-
-        public async Task<Survey?> DeleteSurvey(int id)
+        public async Task<Survey?> DeleteSurveyAsync(int id)
         {
             var survey = await _context.Surveys
                 .FirstOrDefaultAsync(s => s.SurveyID == id);
@@ -77,8 +78,8 @@ namespace api.Repositories.SurveyRepo
                 await _context.SaveChangesAsync();
                 return survey;
             }
+
             return null;
         }
-
     }
 }
