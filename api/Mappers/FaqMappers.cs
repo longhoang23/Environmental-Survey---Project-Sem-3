@@ -1,13 +1,15 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using api.DTOs.FAQ;
+using System.Threading.Tasks;
+using api.DTOs.Faq;
 using api.Models;
 
 namespace api.Mappers
 {
     public static class FaqMappers
     {
-        public static FaqDTO ToFaqDTO(this FAQs faq)
+        public static FaqDTO ToFaqDTO(this FAQ faq)
         {
             return new FaqDTO
             {
@@ -17,9 +19,9 @@ namespace api.Mappers
             };
         }
 
-        public static FAQs ToCreateFaq(this UpsertFaqDTO upsertFaqDTO)
+        public static FAQ ToUpsertFaqDTO(this UpsertFaqDTO upsertFaqDTO)
         {
-            return new FAQs
+            return new FAQ
             {
                 Question = upsertFaqDTO.Question,
                 Answer = upsertFaqDTO.Answer
