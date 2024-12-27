@@ -1,96 +1,79 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams, useNavigate } from "react-router-dom";
-import { getAuthHeaders } from "../../Services/userAuth";
-const UpdateStudent = () => {
+import { useNavigate } from "react-router-dom";
+
+const AddStaff = () => {
   const apiUrl = import.meta.env.VITE_PUBLIC_URL; // e.g. http://localhost:5169/api
-  const { id } = useParams(); // e.g. /admin/update-student/:id
   const navigate = useNavigate();
 
-  // Student object, with "status" defaulting to "0" (NotRequested) if blank
-  const [student, setStudent] = useState({
+  // Staff object based on your JSON structure
+  const [staff, setStaff] = useState({
     firstName: "",
     lastName: "",
     phoneNumber: "",
-    role: "Student",
-    klassId: 0,
+    role: "Staff",       // Default to "Staff"
+    sectionId: 0,
     specification: "",
-    status: "",
+    status: "",          // Could be an empty string initially
     password: ""
   });
 
-  const [klasses, setKlasses] = useState([]); // for <select> of classes
+  // We'll fetch the sections to populate a <select>
+  const [sections, setSections] = useState([]);
+  const [loadingSections, setLoadingSections] = useState(true);
+
+  // For overall request status
   const [loading, setLoading] = useState(false);
-  const [loadingClasses, setLoadingClasses] = useState(true);
   const [error, setError] = useState(null);
 
-  // 1. Fetch classes + existing student data on mount
+  // 1. Fetch sections on mount
   useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-
+    const fetchSections = async () => {
       try {
-        // Load classes
-        const klassResponse = await axios.get(`${apiUrl}/Klass/all`);
-        setKlasses(klassResponse.data);
-
-        // Load student
-        const studentResponse = await axios.get(`${apiUrl}/Student/${id}`, {
-          headers: getAuthHeaders(),
-        });
-        if (studentResponse.status === 200) {
-          // Fill in the form
-          setStudent(studentResponse.data);
-        } else {
-          setError("Failed to load student data.");
-        }
+        const response = await axios.get(`${apiUrl}/Section/all`);
+        setSections(response.data);
       } catch (err) {
-        console.error("Error fetching data:", err);
-        setError("Failed to load data.");
+        console.error("Error fetching sections:", err);
+        setError("Failed to load sections.");
       } finally {
-        setLoading(false);
-        setLoadingClasses(false);
+        setLoadingSections(false);
       }
     };
+    fetchSections();
+  }, [apiUrl]);
 
-    fetchData();
-  }, [apiUrl, id]);
-
-  // 2. Handle submit -> PUT to update
+  // 2. Handle form submit -> POST staff
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError(null);
 
     try {
-      // Adjust if your endpoint is different (e.g., /Student/update/{id})
-      const response = await axios.put(`${apiUrl}/Student/update/${id}`, student, {
-        headers: getAuthHeaders(),
+      // Adjust the endpoint if your API is different, e.g. /Staff
+      const response = await axios.post(`${apiUrl}/Staff/create`, staff, {
+        headers: {
+          "Content-Type": "application/json",
+        },
       });
-      if (response.status === 200) {
-        alert("Student updated successfully!");
-        navigate("/admin/student-list");
+      if (response.status === 200 || response.status === 201) {
+        alert("Staff created successfully!");
+        navigate("/admin/staff-list"); // Go back to the staff list route
       }
     } catch (err) {
-      console.error("Error updating student:", err);
-      setError("Failed to update student. Please try again.");
+      console.error("Error creating staff:", err);
+      setError("Failed to create staff. Please try again.");
     } finally {
       setLoading(false);
     }
   };
 
-  if (loadingClasses) {
-    return <div>Loading data...</div>;
-  }
-
-  if (error) {
-    return <div className="text-red-500">{error}</div>;
+  if (loadingSections) {
+    return <div>Loading sections...</div>;
   }
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h2 className="text-2xl font-bold mb-4">Update Student (ID: {id})</h2>
-
+      <h2 className="text-2xl font-bold mb-4">Add Staff</h2>
       <form
         onSubmit={handleSubmit}
         className="max-w-md mx-auto space-y-4 bg-white p-6 shadow-md rounded"
@@ -103,10 +86,11 @@ const UpdateStudent = () => {
           <input
             id="firstName"
             type="text"
-            value={student.firstName || ""}
-            onChange={(e) => setStudent({ ...student, firstName: e.target.value })}
+            value={staff.firstName}
+            onChange={(e) => setStaff({ ...staff, firstName: e.target.value })}
             required
             className="border p-2 rounded"
+            placeholder="Enter first name"
           />
         </div>
 
@@ -118,10 +102,11 @@ const UpdateStudent = () => {
           <input
             id="lastName"
             type="text"
-            value={student.lastName || ""}
-            onChange={(e) => setStudent({ ...student, lastName: e.target.value })}
+            value={staff.lastName}
+            onChange={(e) => setStaff({ ...staff, lastName: e.target.value })}
             required
             className="border p-2 rounded"
+            placeholder="Enter last name"
           />
         </div>
 
@@ -133,14 +118,15 @@ const UpdateStudent = () => {
           <input
             id="phoneNumber"
             type="text"
-            value={student.phoneNumber || ""}
-            onChange={(e) => setStudent({ ...student, phoneNumber: e.target.value })}
+            value={staff.phoneNumber}
+            onChange={(e) => setStaff({ ...staff, phoneNumber: e.target.value })}
             required
             className="border p-2 rounded"
+            placeholder="Enter phone number"
           />
         </div>
 
-        {/* Role (read-only) */}
+        {/* Role (read-only: Staff) */}
         <div className="flex flex-col">
           <label htmlFor="role" className="font-semibold mb-1">
             Role
@@ -148,34 +134,33 @@ const UpdateStudent = () => {
           <input
             id="role"
             type="text"
-            value={student.role || ""}
-            onChange={(e) => setStudent({ ...student, role: e.target.value })}
+            value={staff.role}
             readOnly
             className="border p-2 rounded bg-gray-100 cursor-not-allowed"
           />
         </div>
 
-        {/* KlassId as <select> */}
+        {/* sectionId as <select> */}
         <div className="flex flex-col">
-          <label htmlFor="klassId" className="font-semibold mb-1">
-            Class
+          <label htmlFor="sectionId" className="font-semibold mb-1">
+            Section
           </label>
           <select
-            id="klassId"
-            value={student.klassId || 0}
-            onChange={(e) => setStudent({ ...student, klassId: parseInt(e.target.value) })}
+            id="sectionId"
+            value={staff.sectionId}
+            onChange={(e) => setStaff({ ...staff, sectionId: parseInt(e.target.value) })}
             className="border p-2 rounded"
           >
-            <option value={0}>-- Select Class --</option>
-            {klasses.map((k) => (
-              <option key={k.klassId} value={k.klassId}>
-                {k.name}
+            <option value={0}>-- Select Section --</option>
+            {sections.map((section) => (
+              <option key={section.sectionId} value={section.sectionId}>
+                {section.name}
               </option>
             ))}
           </select>
         </div>
 
-        {/* Specification */}
+        {/* specification */}
         <div className="flex flex-col">
           <label htmlFor="specification" className="font-semibold mb-1">
             Specification
@@ -183,23 +168,25 @@ const UpdateStudent = () => {
           <input
             id="specification"
             type="text"
-            value={student.specification || ""}
-            onChange={(e) => setStudent({ ...student, specification: e.target.value })}
+            value={staff.specification}
+            onChange={(e) => setStaff({ ...staff, specification: e.target.value })}
             className="border p-2 rounded"
+            placeholder="e.g. IT Support"
           />
         </div>
 
-        {/* Status as <select> from your enum */}
+        {/* Status as <select> */}
         <div className="flex flex-col">
           <label htmlFor="status" className="font-semibold mb-1">
             Status
           </label>
           <select
             id="status"
-            value={student.status || 0} 
-            onChange={(e) => setStudent({ ...student, status: parseInt(e.target.value) })}
+            value={staff.status || 0} 
+            onChange={(e) => setStaff({ ...staff, status: parseInt(e.target.value) })}
             className="border p-2 rounded"
           >
+            {/* <option>-- Select Section --</option> */}
             <option value={0}>NotRequested</option>
             <option value={1}>Pending</option>
             <option value={2}>Active</option>
@@ -215,22 +202,22 @@ const UpdateStudent = () => {
           <input
             id="password"
             type="text"
-            value={student.password || ""}
-            onChange={(e) => setStudent({ ...student, password: e.target.value })}
+            value={staff.password}
+            onChange={(e) => setStaff({ ...staff, password: e.target.value })}
+            required
             className="border p-2 rounded"
-            placeholder="Enter new password if changing"
+            placeholder="Enter password"
           />
         </div>
 
-        {/* Submit */}
         {loading ? (
-          <p className="text-blue-500 font-semibold">Updating student...</p>
+          <p className="text-blue-500 font-semibold">Creating staff...</p>
         ) : (
           <button
             type="submit"
             className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
           >
-            Update Student
+            Add Staff
           </button>
         )}
 
@@ -240,4 +227,4 @@ const UpdateStudent = () => {
   );
 };
 
-export default UpdateStudent;
+export default AddStaff;

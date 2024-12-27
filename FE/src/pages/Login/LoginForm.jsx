@@ -58,7 +58,7 @@ const LoginForm = () => {
       alert("Đăng nhập thành công!");
     } catch (err) {
       debugger;
-      setError("Đăng nhập thất bại, vui lòng thử lại!");
+      setError("Your username or password is wrong! Or your account is not activated!");
       console.error("Lỗi đăng nhập:", err);
     } finally {
       setLoading(false);
