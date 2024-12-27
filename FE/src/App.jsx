@@ -10,6 +10,10 @@ import AdminList from "./pages/Admin/AdminList";
 import AdminDetail from "./pages/Admin/AdminDetail";
 import AddAdmin from "./pages/Admin/AddAdmin";
 import UpdateAdmin from "./pages/Admin/UpdateAdmin";
+import StudentList from "./pages/Student/StudentList";
+import AddStudent from "./pages/Student/AddStudent";
+import StudentDetail from "./pages/Student/StudentDetail";
+import UpdateStudent from "./pages/Student/UpdateStudent";
 
 
 function App() {
@@ -30,7 +34,13 @@ function App() {
           <Route path="/admin/admin-list" element={<AdminList />} />
           <Route path="/admin/add-admin" element={<AddAdmin />} />
           <Route path="/admin/update-admin/:id" element={<UpdateAdmin />} />
-          <Route path="/admin/detail/:id" element={<AdminDetail />} />
+          <Route path="/admin/admin-detail/:id" element={<AdminDetail />} />
+
+          <Route path="/admin/student-list" element={<StudentList />} />
+          <Route path="/admin/add-student" element={<AddStudent />} />
+          <Route path="/admin/student-detail/:id" element={<StudentDetail />} />
+          <Route path="/admin/update-student/:id" element={<UpdateStudent />} />
+
         </Routes>
       </Router>
     </>

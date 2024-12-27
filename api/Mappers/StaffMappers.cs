@@ -37,7 +37,7 @@ namespace api.Mappers
                 RollOrEmpNo = RollOrEmpNoGenerator.GenerateRollOrEmpNo("staff"),
                 SectionId = createStaffDTO.SectionId,
                 Specification = createStaffDTO.Specification,
-                Username = UsernameGenerator.GenerateUsername(createStaffDTO.FirstName, createStaffDTO.LastName),
+                Username = UsernameGenerator.GenerateUsername(createStaffDTO.FirstName, createStaffDTO.LastName) + UsernameGenerator.Generate4Digits(),
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword(createStaffDTO.Password),
                 JoinDate = DateTime.UtcNow,
                 Status = createStaffDTO.Status 
