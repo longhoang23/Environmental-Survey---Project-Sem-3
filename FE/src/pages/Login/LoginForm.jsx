@@ -41,7 +41,7 @@ const LoginForm = () => {
       // Lưu token và thông tin người dùng vào localStorage
       localStorage.setItem("token", token);
       localStorage.setItem("user", JSON.stringify(user));
-
+      window.dispatchEvent(new Event("user-changed"));
       debugger;
       const role = user.role;
 
@@ -58,11 +58,16 @@ const LoginForm = () => {
       alert("Đăng nhập thành công!");
     } catch (err) {
       debugger;
-      setError("Đăng nhập thất bại, vui lòng thử lại!");
+      setError("Incorrect User name or Password!");
       console.error("Lỗi đăng nhập:", err);
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleLoginSuccess = (loggedInUser) => {
+    localStorage.setItem("user", JSON.stringify(loggedInUser));
+    window.dispatchEvent(new Event("user-changed"));
   };
 
   return (

@@ -10,7 +10,8 @@ import AdminList from "./pages/Admin/AdminList";
 import AdminDetail from "./pages/Admin/AdminDetail";
 import AddAdmin from "./pages/Admin/AddAdmin";
 import UpdateAdmin from "./pages/Admin/UpdateAdmin";
-
+// import Navbar from "./components/Navbar";
+// import UserRequests from "./components/UserRequests";
 
 function App() {
   return (
