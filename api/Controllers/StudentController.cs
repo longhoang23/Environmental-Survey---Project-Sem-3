@@ -55,6 +55,7 @@ namespace api.Controllers
         }
 
         [HttpPut("update/{userId}")]
+        [Authorize(Roles ="Admin")]
         public async Task<IActionResult> UpdateStudent(int userId, [FromBody] UpdateStudentDTO updateStudentDTO)
         {
             if (!ModelState.IsValid)

@@ -38,10 +38,10 @@ const StudentDetail = () => {
   // Display the student fields
   return (
     <div className="container mx-auto px-4 py-8">
-      <h2 className="text-3xl font-bold mb-4">
+      <h2 className="text-3xl font-bold mb-4 text-center">
         Student Detail (ID: {student.userID})
       </h2>
-      <div className="bg-white shadow-md rounded-lg p-6 max-w-xl">
+      <div className="bg-white shadow-md rounded-lg p-6 max-w-xl mx-auto">
         <p>
           <strong>First Name:</strong> {student.firstName}
         </p>
