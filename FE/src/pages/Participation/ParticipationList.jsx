@@ -65,7 +65,7 @@ const ParticipationList = () => {
               <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">User ID</th>
               <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Survey ID</th>
               <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Date</th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Actions</th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">FeedBack</th>
             </tr>
           </thead>
           <tbody>
