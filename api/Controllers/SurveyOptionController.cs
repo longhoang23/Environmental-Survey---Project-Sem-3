@@ -21,7 +21,7 @@ namespace api.Controllers
         }
 
         // GET: api/surveyoptions
-        [HttpGet]
+        [HttpGet("all")]
         public async Task<IActionResult> GetAllSurveyOptions()
         {
             var surveyOptions = await _surveyOptionRepository.GetAllSurveyOptionsAsync(); // Updated to async method
@@ -43,7 +43,7 @@ namespace api.Controllers
         }
 
         // POST: api/surveyoptions
-        [HttpPost]
+        [HttpPost("create")]
         public async Task<IActionResult> CreateSurveyOption([FromBody] UpsertSurveyOptionDTO upsertSurveyOptionDto)
         {
             if (!ModelState.IsValid)
@@ -58,7 +58,7 @@ namespace api.Controllers
         }
 
         // PUT: api/surveyoptions/{id}
-        [HttpPut("{id}")]
+        [HttpPut("update/{id}")]
         public async Task<IActionResult> UpdateSurveyOption(int id, [FromBody] UpsertSurveyOptionDTO upsertSurveyOptionDto)
         {
             if (!ModelState.IsValid)
@@ -79,7 +79,7 @@ namespace api.Controllers
         }
 
         // DELETE: api/surveyoptions/{id}
-        [HttpDelete("{id}")]
+        [HttpDelete("delete/{id}")]
         public async Task<IActionResult> DeleteSurveyOption(int id)
         {
             var existingSurveyOption = await _surveyOptionRepository.GetSurveyOptionByIdAsync(id); // Updated to async method

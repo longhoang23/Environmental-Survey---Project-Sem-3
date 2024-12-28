@@ -10,6 +10,10 @@ import AdminList from "./pages/Admin/AdminList";
 import AdminDetail from "./pages/Admin/AdminDetail";
 import AddAdmin from "./pages/Admin/AddAdmin";
 import UpdateAdmin from "./pages/Admin/UpdateAdmin";
+import SurveyList from "./pages/Survey/SurveyList";
+import AddSurvey from "./pages/Survey/AddSurvey";
+import UpdateSurvey from "./pages/Survey/UpdateSurvey";
+import SurveyQList from "./pages/SurveyOption/SurveyQuestionList";
 
 
 function App() {
@@ -31,6 +35,12 @@ function App() {
           <Route path="/admin/add-admin" element={<AddAdmin />} />
           <Route path="/admin/update-admin/:id" element={<UpdateAdmin />} />
           <Route path="/admin/detail/:id" element={<AdminDetail />} />
+
+          <Route path="/admin/surveys" element={<SurveyList />} />
+          <Route path="/admin/add-survey" element={<AddSurvey />} />
+          <Route path="/admin/update-survey/:id" element={<UpdateSurvey />} />
+
+          <Route path="/admin/questions" element={<SurveyQList />} />
         </Routes>
       </Router>
     </>
