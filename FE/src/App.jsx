@@ -26,6 +26,9 @@ import AddOption from "./pages/SurveyOption/AddSurveyOption";
 import UpdateOption from "./pages/SurveyOption/UpdateSurveyOption";
 import SurveyOptionDetail from "./pages/SurveyOption/SurveyOptionDetail";
 
+import FaqList from "./pages/Faq/FaqList";
+import AddFaq from "./pages/Faq/AddFaq";
+import UpdateFaq from "./pages/Faq/UpdateFaq";
 
 import StudentList from "./pages/Student/StudentList";
 import AddStudent from "./pages/Student/AddStudent";
@@ -43,6 +46,7 @@ import CompetitionList from "./pages/Competition/CompetitionList";
 import CompetitionDetail from "./pages/Competition/CompetitionDetail";
 import AddCompetition from "./pages/Competition/AddCompetition";
 import UpdateCompetition from "./pages/Competition/UpdateCompetition";
+
 
 
 
@@ -67,22 +71,25 @@ function App() {
           <Route path="/admin/add-admin" element={<AddAdmin />} />
           <Route path="/admin/update-admin/:id" element={<UpdateAdmin />} />
           <Route path="/admin/detail/:id" element={<AdminDetail />} />
-
+          {/* Survey */}
           <Route path="/admin/surveys" element={<SurveyList />} />
           <Route path="/admin/add-survey" element={<AddSurvey />} />
           <Route path="/admin/update-survey/:id" element={<UpdateSurvey />} />
           <Route path="/admin/survey-detail/:id" element={<SurveyDetail />} />
-
+          {/* SurveyQuestion */}
           <Route path="/admin/questions" element={<QuestionList />} />
           <Route path="/admin/add-question" element={<AddQuestion />} />
           <Route path="/admin/update-question/:id" element={<UpdateQuestion />} />
           <Route path="/admin/question-detail/:id" element={<SurveyQuestionDetail />} />
-
-
+          {/* SurveyOption */}
           <Route path="/admin/options" element={<OptionList />} />
           <Route path="/admin/add-option" element={<AddOption />} />
           <Route path="/admin/update-option/:id" element={<UpdateOption />} />
           <Route path="/admin/option-detail/:id" element={<SurveyOptionDetail />} />
+          {/* Faq */}
+          <Route path="/admin/faqs" element={<FaqList />} />
+          <Route path="/admin/add-faq" element={<AddFaq />} />
+          <Route path="/admin/update-faq/:id" element={<UpdateFaq />} />
 
           <Route path="/admin/staff-list" element={<StaffList />} />
           <Route path="/admin/staff-detail/:id" element={<StaffDetail />} />

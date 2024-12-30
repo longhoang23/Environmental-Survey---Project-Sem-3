@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using api.DTOs.Competition;
 using api.Mappers;
 using api.Repositories.Competitions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api.Controllers
@@ -40,6 +41,7 @@ namespace api.Controllers
         }
 
         [HttpPost("create")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> CreateCompetition([FromBody] CreateCompetitionDTO createCompetitionDTO)
         {
             if (!ModelState.IsValid)
@@ -53,6 +55,7 @@ namespace api.Controllers
         }
 
         [HttpPut("update/{competitionId}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateCompetition(int competitionId, [FromBody] UpdateCompetitionDTO updateCompetitionDTO)
         {
             if (!ModelState.IsValid)
@@ -69,6 +72,7 @@ namespace api.Controllers
         }
 
         [HttpDelete("delete/{competitionId}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteCompetition(int competitionId)
         {
             var deleted = await _competitionRepository.DeleteCompetitionAsync(competitionId);

@@ -5,6 +5,7 @@ using api.DTOs.Faq;
 using api.Mappers;
 using api.Models;
 using api.Repositories.FaqRepo;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api.Controllers
@@ -43,6 +44,7 @@ namespace api.Controllers
 
         // POST: api/faqs/create
         [HttpPost("create")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> CreateFaq([FromBody] UpsertFaqDTO createFaqDTO)
         {
             if (!ModelState.IsValid)
@@ -57,6 +59,7 @@ namespace api.Controllers
 
         // PUT: api/faqs/update/{id}
         [HttpPut("update/{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateFaq(int id, [FromBody] UpsertFaqDTO updateFaqDTO)
         {
             if (!ModelState.IsValid)
@@ -75,6 +78,7 @@ namespace api.Controllers
 
         // DELETE: api/faqs/delete/{id}
         [HttpDelete("delete/{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteFaq(int id)
         {
             var existingFaq = await _faqRepository.GetFaqById(id);
