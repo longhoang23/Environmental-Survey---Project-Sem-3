@@ -49,18 +49,21 @@ namespace api.Data
                 .HasOne(c => c.FirstPlace)
                 .WithMany()
                 .HasForeignKey(c => c.Winner1)
+                .IsRequired(false) // Allow null for Winner1
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Competition>()
                 .HasOne(c => c.SecondPlace)
                 .WithMany()
                 .HasForeignKey(c => c.Winner2)
+                .IsRequired(false) // Allow null for Winner2
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Competition>()
                 .HasOne(c => c.ThirdPlace)
                 .WithMany()
                 .HasForeignKey(c => c.Winner3)
+                .IsRequired(false) // Allow null for Winner3
                 .OnDelete(DeleteBehavior.Restrict);
 
             // Survey and Participation relationship
