@@ -38,7 +38,7 @@ const SurveyOList = () => {
   };
 
   useEffect(() => {
-    const fetchSurvey = async () => {
+    const fetchOption = async () => {
       try {
         const response = await axios.get(`${apiUrl}/SurveyOption/all`);
         setSurveyOption(response.data);
@@ -48,7 +48,7 @@ const SurveyOList = () => {
         setLoading(false);
       }
     };
-    fetchSurvey();
+    fetchOption();
   }, [apiUrl]);
 
   if (loading) {

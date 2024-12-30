@@ -6,6 +6,7 @@ using api.DTOs.Survey;
 using api.Repositories.SurveyRepo;
 using Microsoft.AspNetCore.Mvc;
 using api.Mappers;
+using Microsoft.AspNetCore.Authorization;
 
 namespace api.Controllers
 {
@@ -46,6 +47,7 @@ namespace api.Controllers
 
         // POST: api/surveys
         [HttpPost("create")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> CreateSurvey([FromBody] CreateSurveyDTO createSurveyDto)
         {
             if (!ModelState.IsValid)
@@ -62,6 +64,7 @@ namespace api.Controllers
 
         // PUT: api/surveys/{id}
         [HttpPut("update/{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateSurvey(int id, [FromBody] UpdateSurveyDTO updateSurveyDto)
         {
             if (!ModelState.IsValid)
@@ -84,6 +87,7 @@ namespace api.Controllers
 
         // DELETE: api/surveys/{id}
         [HttpDelete("delete/{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteSurvey(int id)
         {
             var existingSurvey = await _surveyRepository.GetSurveyByIdAsync(id); // Updated to new async method
