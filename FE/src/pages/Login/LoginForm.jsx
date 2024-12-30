@@ -31,18 +31,16 @@ const LoginForm = () => {
 
       console.log(response.data);
 
-      debugger;
       const { token, user } = response.data;
       console.log(user);
 
-      debugger;
       console.log(token);
 
       // Lưu token và thông tin người dùng vào localStorage
       localStorage.setItem("token", token);
       localStorage.setItem("user", JSON.stringify(user));
-      window.dispatchEvent(new Event("user-changed"));
-      debugger;
+      handleLoginSuccess(user);
+
       const role = user.role;
 
       if (role == "1") {

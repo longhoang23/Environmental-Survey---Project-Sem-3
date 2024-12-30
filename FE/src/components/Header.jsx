@@ -70,22 +70,8 @@ const Header = () => {
             <li>
               <span className="text-xl">
                 Hello, {firstName} (
-                {role === 1 ? "Admin" : role === 2 ? "Student" : "Staff"})
+                {role === 1 ? "Admin" : role === 2 ? "Staff" : "Student"})
               </span>
-            </li>
-            <li>
-              <Link
-                to="/login"
-                onClick={() => {
-                  localStorage.removeItem("user"); // Xóa thông tin user khi logout
-                  setUser(null); // Cập nhật lại state khi logout
-                  window.dispatchEvent(new Event("user-changed"));
-                  window.location.href = "/login"; // Điều hướng tới trang login khi đăng xuất
-                }}
-                className="hover:text-gray-300 text-xl"
-              >
-                Logout
-              </Link>
             </li>
           </ul>
         </nav>
