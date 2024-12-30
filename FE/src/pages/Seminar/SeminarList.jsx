@@ -88,6 +88,12 @@ const SeminarList = () => {
                   <td className="px-4 py-2 text-sm text-gray-700">{seminar.date ? seminar.date.slice(0, 10) : ""}</td>
                   {/* <td className="px-4 py-2 text-sm text-gray-700">{seminar.description}</td> */}
                   <td className="px-4 py-2 text-sm">
+                  <button
+                      onClick={() => handleDetailButton(seminar.seminarID)}
+                      className="ml-2 px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none"
+                    >
+                      View Details
+                    </button>
                     <button
                       onClick={() => handleUpdateButton(seminar.seminarID)}
                       className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none"
@@ -100,12 +106,7 @@ const SeminarList = () => {
                     >
                       Delete
                     </button>
-                    <button
-                      onClick={() => handleDetailButton(seminar.seminarID)}
-                      className="ml-2 px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none"
-                    >
-                      View Details
-                    </button>
+                    
                   </td>
                 </tr>
               ))

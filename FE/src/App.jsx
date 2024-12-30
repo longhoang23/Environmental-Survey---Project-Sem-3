@@ -10,12 +10,23 @@ import AdminList from "./pages/Admin/AdminList";
 import AdminDetail from "./pages/Admin/AdminDetail";
 import AddAdmin from "./pages/Admin/AddAdmin";
 import UpdateAdmin from "./pages/Admin/UpdateAdmin";
-<<<<<<< HEAD
+//Survey
 import SurveyList from "./pages/Survey/SurveyList";
 import AddSurvey from "./pages/Survey/AddSurvey";
 import UpdateSurvey from "./pages/Survey/UpdateSurvey";
-import SurveyQList from "./pages/SurveyOption/SurveyQuestionList";
-=======
+import SurveyDetail from "./pages/Survey/SurveyDetail";
+
+import QuestionList from "./pages/SurveyQuestion/SurveyQuestionList";
+import AddQuestion from "./pages/SurveyQuestion/AddQuestion";
+import UpdateQuestion from "./pages/SurveyQuestion/UpdateQuestion";
+import SurveyQuestionDetail from "./pages/SurveyQuestion/SurveyQuestionDetail";
+
+import OptionList from "./pages/SurveyOption/SurveyOptionList";
+import AddOption from "./pages/SurveyOption/AddSurveyOption";
+import UpdateOption from "./pages/SurveyOption/UpdateSurveyOption";
+import SurveyOptionDetail from "./pages/SurveyOption/SurveyOptionDetail";
+
+
 import StudentList from "./pages/Student/StudentList";
 import AddStudent from "./pages/Student/AddStudent";
 import StudentDetail from "./pages/Student/StudentDetail";
@@ -32,7 +43,8 @@ import CompetitionList from "./pages/Competition/CompetitionList";
 import CompetitionDetail from "./pages/Competition/CompetitionDetail";
 import AddCompetition from "./pages/Competition/AddCompetition";
 import UpdateCompetition from "./pages/Competition/UpdateCompetition";
->>>>>>> e375a4d706cdf798d064c170fe4f81c67c82f0be
+
+
 
 
 function App() {
@@ -54,16 +66,23 @@ function App() {
           <Route path="/admin/admin-detail/:id" element={<AdminDetail />} />
           <Route path="/admin/add-admin" element={<AddAdmin />} />
           <Route path="/admin/update-admin/:id" element={<UpdateAdmin />} />
-<<<<<<< HEAD
           <Route path="/admin/detail/:id" element={<AdminDetail />} />
 
           <Route path="/admin/surveys" element={<SurveyList />} />
           <Route path="/admin/add-survey" element={<AddSurvey />} />
           <Route path="/admin/update-survey/:id" element={<UpdateSurvey />} />
+          <Route path="/admin/survey-detail/:id" element={<SurveyDetail />} />
 
-          <Route path="/admin/questions" element={<SurveyQList />} />
-=======
+          <Route path="/admin/questions" element={<QuestionList />} />
+          <Route path="/admin/add-question" element={<AddQuestion />} />
+          <Route path="/admin/update-question/:id" element={<UpdateQuestion />} />
+          <Route path="/admin/question-detail/:id" element={<SurveyQuestionDetail />} />
 
+
+          <Route path="/admin/options" element={<OptionList />} />
+          <Route path="/admin/add-option" element={<AddOption />} />
+          <Route path="/admin/update-option/:id" element={<UpdateOption />} />
+          <Route path="/admin/option-detail/:id" element={<SurveyOptionDetail />} />
 
           <Route path="/admin/staff-list" element={<StaffList />} />
           <Route path="/admin/staff-detail/:id" element={<StaffDetail />} />
@@ -87,7 +106,6 @@ function App() {
           <Route path="update-competition/:id" element={<UpdateCompetition />} />
 
 
->>>>>>> e375a4d706cdf798d064c170fe4f81c67c82f0be
         </Routes>
       </Router>
     </>

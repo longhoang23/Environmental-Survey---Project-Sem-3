@@ -2,44 +2,49 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const SurveyQList = () => {
-  const [surveyQuestions, setSurveyQuestion] = useState([]);
+const SurveyOList = () => {
+  const [surveyOptions, setSurveyOption] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const apiUrl = import.meta.env.VITE_PUBLIC_URL;
   const navigate = useNavigate();
 
   const handleAddButton = () => {
-    navigate("/admin/add-survey");
+    navigate("/admin/add-option");
   };
 
+  const handleDetailButton = (id) => {
+    navigate(`/admin/option-detail/${id}`);
+  };
+
+
   const handleUpdateButton = (id) => {
-    navigate(`/admin/update-survey/${id}`);
+    navigate(`/admin/update-option/${id}`);
   };
 
   const handleDeleteButton = async (id) => {
     const confirmDelete = window.confirm(`Do you want to delete id: ${id}`);
     if (!confirmDelete) return;
     try {
-      const response = await axios.delete(`${apiUrl}/SurveyQuestion/delete/${id}`);
+      const response = await axios.delete(`${apiUrl}/SurveyOption/delete/${id}`);
       if (response.status === 200) {
-        setSurveyQuestion(surveyQuestions.filter((surveyQ) => surveyQ.questionID !== id));
-        alert("Survey Question deleted successfully!");
+        setSurveyOption(surveyOptions.filter((surveyO) => surveyO.optionID !== id));
+        alert("Survey Option deleted successfully!");
       }
     } catch (error) {
-      console.error("There was an error deleting the Survey Question:", error);
-      alert("Failed to delete Survey Question");
+      console.error("There was an error deleting the Survey Option:", error);
+      alert("Failed to delete Survey Option");
     }
   };
 
   useEffect(() => {
     const fetchSurvey = async () => {
       try {
-        const response = await axios.get(`${apiUrl}/SurveyQuestion/all`);
-        setSurveyQuestion(response.data);
+        const response = await axios.get(`${apiUrl}/SurveyOption/all`);
+        setSurveyOption(response.data);
         setLoading(false);
       } catch (err) {
-        setError("Failed to load Survey Question");
+        setError("Failed to load Survey Option");
         setLoading(false);
       }
     };
@@ -56,22 +61,22 @@ const SurveyQList = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold text-center mb-6">Survey Question List</h1>
+      <h1 className="text-3xl font-bold text-center mb-6">Survey Option List</h1>
       <div className="overflow-x-auto bg-white rounded-lg shadow-md">
         <table className="min-w-full table-auto">
           <thead className="bg-gray-100">
             <tr>
               <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
-                QuestionID
+                Option ID
               </th>
               <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
-                SurveyID
+                Question ID
               </th>
               <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
-                Question Text
+                Option Text
               </th>
               <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
-                Question Type
+                Score
               </th>
               <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
                 Action
@@ -79,30 +84,36 @@ const SurveyQList = () => {
             </tr>
           </thead>
           <tbody>
-            {surveyQuestions.length > 0 ? (
-              surveyQuestions.map((surveyQ) => (
-                <tr key={surveyQ.questionID} className="border-b hover:bg-gray-50">
+            {surveyOptions.length > 0 ? (
+              surveyOptions.map((surveyO) => (
+                <tr key={surveyO.optionID} className="border-b hover:bg-gray-50">
                   <td className="px-4 py-2 text-sm text-gray-700">
-                    {surveyQ.questionID}
+                    {surveyO.optionID}
                   </td>
                   <td className="px-4 py-2 text-sm text-gray-700">
-                    {surveyQ.surveyID}
+                    {surveyO.questionID}
                   </td>
                   <td className="px-4 py-2 text-sm text-gray-700">
-                    {surveyQ.questionText}
+                    {surveyO.optionText}
                   </td>
                   <td className="px-4 py-2 text-sm text-gray-700">
-                    {surveyQ.questionType}
+                    {surveyO.score}
                   </td>
                   <td className="px-4 py-2 text-sm">
                     <button
-                      onClick={() => handleUpdateButton(surveyQ.questionID)}
+                      onClick={() => handleDetailButton(surveyO.optionID)}
+                      className="ml-2 px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none"
+                    >
+                      View Details
+                    </button>
+                    <button
+                      onClick={() => handleUpdateButton(surveyO.questionID)}
                       className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none"
                     >
                       Update
                     </button>
                     <button
-                      onClick={() => handleDeleteButton(surveyQ.questionID)}
+                      onClick={() => handleDeleteButton(surveyO.questionID)}
                       className="ml-2 px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none"
                     >
                       Delete
@@ -113,7 +124,7 @@ const SurveyQList = () => {
             ) : (
               <tr>
                 <td colSpan="3" className="text-center py-4 text-gray-500">
-                  No Survey Question Available
+                  No Survey Option Available
                 </td>
               </tr>
             )}
@@ -125,11 +136,11 @@ const SurveyQList = () => {
           onClick={handleAddButton}
           className="px-6 py-3 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none"
         >
-          Add Survey Question
+          Add Survey Option
         </button>
       </div>
     </div>
   );
 };
 
-export default SurveyQList;
+export default SurveyOList;

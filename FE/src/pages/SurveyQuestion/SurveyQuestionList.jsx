@@ -2,48 +2,49 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const SurveyList = () => {
-  const [surveys, setSurvey] = useState([]);
+const SurveyQList = () => {
+  const [surveyQuestions, setSurveyQuestion] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const apiUrl = import.meta.env.VITE_PUBLIC_URL;
   const navigate = useNavigate();
 
   const handleAddButton = () => {
-    navigate("/admin/add-survey");
+    navigate("/admin/add-question");
   };
 
   const handleDetailButton = (id) => {
-    navigate(`/admin/survey-detail/${id}`);
+    navigate(`/admin/question-detail/${id}`);
   };
 
+
   const handleUpdateButton = (id) => {
-    navigate(`/admin/update-survey/${id}`);
+    navigate(`/admin/update-question/${id}`);
   };
 
   const handleDeleteButton = async (id) => {
     const confirmDelete = window.confirm(`Do you want to delete id: ${id}`);
     if (!confirmDelete) return;
     try {
-      const response = await axios.delete(`${apiUrl}/Survey/delete/${id}`);
+      const response = await axios.delete(`${apiUrl}/SurveyQuestion/delete/${id}`);
       if (response.status === 200) {
-        setSurvey(surveys.filter((survey) => survey.surveyID !== id));
-        alert("Survey deleted successfully!");
+        setSurveyQuestion(surveyQuestions.filter((surveyQ) => surveyQ.questionID !== id));
+        alert("Survey Question deleted successfully!");
       }
     } catch (error) {
-      console.error("There was an error deleting the Survey:", error);
-      alert("Failed to delete Survey");
+      console.error("There was an error deleting the Survey Question:", error);
+      alert("Failed to delete Survey Question");
     }
   };
 
   useEffect(() => {
     const fetchSurvey = async () => {
       try {
-        const response = await axios.get(`${apiUrl}/Survey/all`);
-        setSurvey(response.data);
+        const response = await axios.get(`${apiUrl}/SurveyQuestion/all`);
+        setSurveyQuestion(response.data);
         setLoading(false);
       } catch (err) {
-        setError("Failed to load Survey");
+        setError("Failed to load Survey Question");
         setLoading(false);
       }
     };
@@ -60,31 +61,22 @@ const SurveyList = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold text-center mb-6">Survey List</h1>
+      <h1 className="text-3xl font-bold text-center mb-6">Survey Question List</h1>
       <div className="overflow-x-auto bg-white rounded-lg shadow-md">
         <table className="min-w-full table-auto">
           <thead className="bg-gray-100">
             <tr>
               <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
+                QuestionID
+              </th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
                 SurveyID
               </th>
               <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
-                Title
+                Question Text
               </th>
               <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
-                Description
-              </th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
-                Target Audience
-              </th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
-                Start Date
-              </th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
-                End Date
-              </th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
-                Is active
+                Question Type
               </th>
               <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
                 Action
@@ -92,45 +84,36 @@ const SurveyList = () => {
             </tr>
           </thead>
           <tbody>
-            {surveys.length > 0 ? (
-              surveys.map((survey) => (
-                <tr key={survey.surveyID} className="border-b hover:bg-gray-50">
+            {surveyQuestions.length > 0 ? (
+              surveyQuestions.map((surveyQ) => (
+                <tr key={surveyQ.questionID} className="border-b hover:bg-gray-50">
                   <td className="px-4 py-2 text-sm text-gray-700">
-                    {survey.surveyID}
+                    {surveyQ.questionID}
                   </td>
                   <td className="px-4 py-2 text-sm text-gray-700">
-                    {survey.title}
+                    {surveyQ.surveyID}
                   </td>
                   <td className="px-4 py-2 text-sm text-gray-700">
-                    {survey.description}
+                    {surveyQ.questionText}
                   </td>
                   <td className="px-4 py-2 text-sm text-gray-700">
-                    {survey.targetAudience}
-                  </td>
-                  <td className="px-4 py-2 text-sm text-gray-700">
-                    {survey.startDate}
-                  </td>
-                  <td className="px-4 py-2 text-sm text-gray-700">
-                    {survey.endDate}
-                  </td>
-                  <td className="px-4 py-2 text-sm text-gray-700">
-                    {survey.isActive == true ? "true" : "false"}
+                    {surveyQ.questionType}
                   </td>
                   <td className="px-4 py-2 text-sm">
                     <button
-                      onClick={() => handleDetailButton(survey.surveyID)}
+                      onClick={() => handleDetailButton(surveyQ.questionID)}
                       className="ml-2 px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none"
                     >
                       View Details
                     </button>
                     <button
-                      onClick={() => handleUpdateButton(survey.surveyID)}
+                      onClick={() => handleUpdateButton(surveyQ.questionID)}
                       className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none"
                     >
                       Update
                     </button>
                     <button
-                      onClick={() => handleDeleteButton(survey.surveyID)}
+                      onClick={() => handleDeleteButton(surveyQ.questionID)}
                       className="ml-2 px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none"
                     >
                       Delete
@@ -141,7 +124,7 @@ const SurveyList = () => {
             ) : (
               <tr>
                 <td colSpan="3" className="text-center py-4 text-gray-500">
-                  No Survey Available
+                  No Survey Question Available
                 </td>
               </tr>
             )}
@@ -153,11 +136,11 @@ const SurveyList = () => {
           onClick={handleAddButton}
           className="px-6 py-3 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none"
         >
-          Add Survey
+          Add Survey Question
         </button>
       </div>
     </div>
   );
 };
 
-export default SurveyList;
+export default SurveyQList;
