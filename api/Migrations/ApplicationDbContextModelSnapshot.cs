@@ -295,7 +295,7 @@ namespace api.Migrations
                     b.ToTable("Seminars");
                 });
 
-            modelBuilder.Entity("api.Models.Support", b =>
+             modelBuilder.Entity("api.Models.Support", b =>
                 {
                     b.Property<int>("SupportID")
                         .ValueGeneratedOnAdd()
@@ -486,12 +486,12 @@ namespace api.Migrations
                             FirstName = "Super",
                             JoinDate = new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Admin",
-                            PasswordHash = "$2a$11$ujppE8BWMBsFhAa7lfRCVOwgYjTyStYixZj7Fo9VxSIn0R.iRuese",
+                            PasswordHash = "$2a$11$g.PDD7MQ5kiHKC2fRVBQt.afel75X7/djRRnDq4Mgp.dIb/MVmut.",
                             PhoneNumber = "0001112222",
                             Role = 1,
                             RollOrEmpNo = "EMP1001",
                             Status = 2,
-                            UpdatedAt = new DateTime(2024, 12, 28, 10, 32, 40, 698, DateTimeKind.Utc).AddTicks(812),
+                            UpdatedAt = new DateTime(2024, 12, 30, 8, 57, 45, 518, DateTimeKind.Utc).AddTicks(4474),
                             Username = "superadmin"
                         },
                         new
@@ -500,12 +500,12 @@ namespace api.Migrations
                             FirstName = "System",
                             JoinDate = new DateTime(2023, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Administrator",
-                            PasswordHash = "$2a$11$NXAxTDuPQGusxnr1WRKmJee3E0V/xo0iCSQq4aInq6bywHgqjORDG",
+                            PasswordHash = "$2a$11$9tNvMPWWYfg1.0y.9aBJy.1VcRUrjpb7HrRAak8stZfP.9USrRsu2",
                             PhoneNumber = "0001113333",
                             Role = 1,
                             RollOrEmpNo = "EMP1002",
                             Status = 2,
-                            UpdatedAt = new DateTime(2024, 12, 28, 10, 32, 40, 816, DateTimeKind.Utc).AddTicks(8825),
+                            UpdatedAt = new DateTime(2024, 12, 30, 8, 57, 45, 647, DateTimeKind.Utc).AddTicks(1500),
                             Username = "sysadmin"
                         },
                         new
@@ -514,12 +514,12 @@ namespace api.Migrations
                             FirstName = "Head",
                             JoinDate = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Admin",
-                            PasswordHash = "$2a$11$nv5NG6rV9chANyJmpHbhVuW1kI3LUiEwdu0901AYkdDjYNj4hA7d6",
+                            PasswordHash = "$2a$11$siTWlaHIXeFlmYQDMRbxa.EDeElsvjuNP/toI6ON5Pco6WlGK5RwS",
                             PhoneNumber = "0001114444",
                             Role = 1,
                             RollOrEmpNo = "EMP1003",
                             Status = 2,
-                            UpdatedAt = new DateTime(2024, 12, 28, 10, 32, 40, 934, DateTimeKind.Utc).AddTicks(8282),
+                            UpdatedAt = new DateTime(2024, 12, 30, 8, 57, 45, 774, DateTimeKind.Utc).AddTicks(4619),
                             Username = "headadmin"
                         },
                         new
@@ -529,13 +529,13 @@ namespace api.Migrations
                             FirstName = "John",
                             KlassId = 1,
                             LastName = "Doe",
-                            PasswordHash = "$2a$11$vLsdnznf8yGrGC.xNSCq0OJUOLANgqyq9d6sFHbykjgl8ET39a66C",
+                            PasswordHash = "$2a$11$szhrGhZ9C8BTYZnj1Px4ueBpNoAEkuxc7b1iUrr74tfdmpgo9xIy6",
                             PhoneNumber = "1234567890",
                             Role = 3,
                             RollOrEmpNo = "student111111",
                             Specification = "Computer Science",
                             Status = 0,
-                            UpdatedAt = new DateTime(2024, 12, 28, 10, 32, 40, 934, DateTimeKind.Utc).AddTicks(8721),
+                            UpdatedAt = new DateTime(2024, 12, 30, 8, 57, 45, 774, DateTimeKind.Utc).AddTicks(5005),
                             Username = "john.doe"
                         },
                         new
@@ -545,13 +545,13 @@ namespace api.Migrations
                             FirstName = "Jane",
                             KlassId = 1,
                             LastName = "Smith",
-                            PasswordHash = "$2a$11$zgd3JFr7b3kht0v9/yMrruAWpwLhp1TYi3msX9C4jIx76VHQPMa.m",
+                            PasswordHash = "$2a$11$I4M1nac1/OQQ3yQWkXrhBuAVRIF/H5buP.U98z5DRj6A4rgWMdU7C",
                             PhoneNumber = "9876543210",
                             Role = 3,
                             RollOrEmpNo = "student123456",
                             Specification = "Mathematics",
                             Status = 0,
-                            UpdatedAt = new DateTime(2024, 12, 28, 10, 32, 41, 51, DateTimeKind.Utc).AddTicks(9704),
+                            UpdatedAt = new DateTime(2024, 12, 30, 8, 57, 45, 906, DateTimeKind.Utc).AddTicks(7604),
                             Username = "jane.smith"
                         },
                         new
@@ -561,13 +561,13 @@ namespace api.Migrations
                             FirstName = "Alice",
                             KlassId = 2,
                             LastName = "Johnson",
-                            PasswordHash = "$2a$11$wpvkdZHU5w6WgI6ohrujwejUsBfo4OlabL4t72arZyi.Fnqr57lhy",
+                            PasswordHash = "$2a$11$spKBRWoDEqU.Q7Fclb9vfeQrspSADjAJfricAK5oAw.l14aghLEYS",
                             PhoneNumber = "4567891230",
                             Role = 3,
                             RollOrEmpNo = "student135790",
                             Specification = "Physics",
                             Status = 0,
-                            UpdatedAt = new DateTime(2024, 12, 28, 10, 32, 41, 168, DateTimeKind.Utc).AddTicks(5430),
+                            UpdatedAt = new DateTime(2024, 12, 30, 8, 57, 46, 37, DateTimeKind.Utc).AddTicks(2191),
                             Username = "alice.johnson"
                         },
                         new
@@ -577,13 +577,13 @@ namespace api.Migrations
                             FirstName = "Bob",
                             KlassId = 2,
                             LastName = "Brown",
-                            PasswordHash = "$2a$11$zJE8GtDPV1BHVw0yu4tKYOArJUJUt476s4/m.cWsxGtVGLgktkUU6",
+                            PasswordHash = "$2a$11$1nifYKJfiXLLdG8BPJ/PO.UtWzc/nzQsK.pEMi.A9gq/HfH18Vtlu",
                             PhoneNumber = "3216549870",
                             Role = 3,
                             RollOrEmpNo = "student987654",
                             Specification = "Chemistry",
                             Status = 0,
-                            UpdatedAt = new DateTime(2024, 12, 28, 10, 32, 41, 281, DateTimeKind.Utc).AddTicks(9406),
+                            UpdatedAt = new DateTime(2024, 12, 30, 8, 57, 46, 165, DateTimeKind.Utc).AddTicks(2423),
                             Username = "bob.brown"
                         },
                         new
@@ -593,13 +593,13 @@ namespace api.Migrations
                             FirstName = "Charlie",
                             KlassId = 3,
                             LastName = "White",
-                            PasswordHash = "$2a$11$bJNB6/tXzVSnYsflKS4cmuzN40cgPf.kS9G.mvh29U05.5WhZoWpe",
+                            PasswordHash = "$2a$11$GUt/GwJe884C.ZulVs8gtOpeBo0g7NIoILzQ7xyDs7JCXugFRkCwO",
                             PhoneNumber = "6543217890",
                             Role = 3,
                             RollOrEmpNo = "student234567",
                             Specification = "Biology",
                             Status = 0,
-                            UpdatedAt = new DateTime(2024, 12, 28, 10, 32, 41, 394, DateTimeKind.Utc).AddTicks(8834),
+                            UpdatedAt = new DateTime(2024, 12, 30, 8, 57, 46, 292, DateTimeKind.Utc).AddTicks(8568),
                             Username = "charlie.white"
                         },
                         new
@@ -608,14 +608,14 @@ namespace api.Migrations
                             FirstName = "Alice",
                             JoinDate = new DateTime(2022, 1, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Brown",
-                            PasswordHash = "$2a$11$wRoXi3EqwELGbIFfJx5gdujdFZB2ylVm8PQVzsbsCkw0jzOjSeS.K",
+                            PasswordHash = "$2a$11$ouumZP8y7nLZhhRMCTV0UebrpZTULAnHnB78CRnfBk6o.F9SNllnq",
                             PhoneNumber = "1122334455",
                             Role = 2,
                             RollOrEmpNo = "STAFF001",
                             SectionId = 1,
                             Specification = "IT Support",
                             Status = 2,
-                            UpdatedAt = new DateTime(2024, 12, 28, 10, 32, 41, 507, DateTimeKind.Utc).AddTicks(8633),
+                            UpdatedAt = new DateTime(2024, 12, 30, 8, 57, 46, 422, DateTimeKind.Utc).AddTicks(5323),
                             Username = "alice.brown"
                         },
                         new
@@ -624,14 +624,14 @@ namespace api.Migrations
                             FirstName = "Bob",
                             JoinDate = new DateTime(2022, 2, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Johnson",
-                            PasswordHash = "$2a$11$8fuJqeKNB4rotjP0IKHuVO4WSohtOXl8VrL8sdD5dge2HwisSkYeS",
+                            PasswordHash = "$2a$11$71Is3Uyiy6kcndVgIGoQp.mjIux6TZmzHaRfjFvkBFv6ZHC.xlXYi",
                             PhoneNumber = "2233445566",
                             Role = 2,
                             RollOrEmpNo = "STAFF002",
                             SectionId = 2,
                             Specification = "Library Manager",
                             Status = 2,
-                            UpdatedAt = new DateTime(2024, 12, 28, 10, 32, 41, 623, DateTimeKind.Utc).AddTicks(5204),
+                            UpdatedAt = new DateTime(2024, 12, 30, 8, 57, 46, 551, DateTimeKind.Utc).AddTicks(1611),
                             Username = "bob.johnson"
                         },
                         new
@@ -640,14 +640,14 @@ namespace api.Migrations
                             FirstName = "Charlie",
                             JoinDate = new DateTime(2022, 3, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Smith",
-                            PasswordHash = "$2a$11$qKY8eiZunpYGvz6m4PbpseY9fV8fKqepvzLiadJfp8F7aVN4NKDdq",
+                            PasswordHash = "$2a$11$dHwQ49a.saxHYQ3Qc.Yd0OT0wGptEX9hbq9WKegcRMULul3jLabQW",
                             PhoneNumber = "3344556677",
                             Role = 2,
                             RollOrEmpNo = "STAFF003",
                             SectionId = 3,
                             Specification = "Accounts Manager",
                             Status = 2,
-                            UpdatedAt = new DateTime(2024, 12, 28, 10, 32, 41, 733, DateTimeKind.Utc).AddTicks(9505),
+                            UpdatedAt = new DateTime(2024, 12, 30, 8, 57, 46, 678, DateTimeKind.Utc).AddTicks(8423),
                             Username = "charlie.smith"
                         },
                         new
@@ -656,14 +656,14 @@ namespace api.Migrations
                             FirstName = "Diana",
                             JoinDate = new DateTime(2022, 4, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "White",
-                            PasswordHash = "$2a$11$sftD7rp.4.FCT1af4iEQqu4fRmquImha7oqjtLB7aulGoWEuF8SZe",
+                            PasswordHash = "$2a$11$67uSaSjFO76woLJJZas1oeRHemXNA24m8DP3iOTrMBAtACqxJB8Ia",
                             PhoneNumber = "4455667788",
                             Role = 2,
                             RollOrEmpNo = "STAFF004",
                             SectionId = 1,
                             Specification = "HR Specialist",
                             Status = 2,
-                            UpdatedAt = new DateTime(2024, 12, 28, 10, 32, 41, 848, DateTimeKind.Utc).AddTicks(2206),
+                            UpdatedAt = new DateTime(2024, 12, 30, 8, 57, 46, 809, DateTimeKind.Utc).AddTicks(4419),
                             Username = "diana.white"
                         },
                         new
@@ -672,14 +672,14 @@ namespace api.Migrations
                             FirstName = "Evan",
                             JoinDate = new DateTime(2022, 5, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Green",
-                            PasswordHash = "$2a$11$y46gEj8AbPr9rF6Jy5d0oORbqeWSz9QqIkGRWIipUy4qi9Q13zjrO",
+                            PasswordHash = "$2a$11$KElNxBORLTpVGVMKr10UReKwgFQs8ApdjtvDoWexzuhE9/jRK4qMW",
                             PhoneNumber = "5566778899",
                             Role = 2,
                             RollOrEmpNo = "STAFF005",
                             SectionId = 2,
                             Specification = "Security Officer",
                             Status = 2,
-                            UpdatedAt = new DateTime(2024, 12, 28, 10, 32, 41, 965, DateTimeKind.Utc).AddTicks(1262),
+                            UpdatedAt = new DateTime(2024, 12, 30, 8, 57, 46, 941, DateTimeKind.Utc).AddTicks(1440),
                             Username = "evan.green"
                         });
                 });

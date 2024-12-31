@@ -17,6 +17,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using api.Repositories.FaqRepo;
+using api.Repositories.Supports;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -50,6 +51,7 @@ builder.Services.AddScoped<ISurveyOptionRepository,SurveyOptionRepository>();
 builder.Services.AddScoped<ISurveyQuestionRepository,SurveyQuestionRepository>();
 
 builder.Services.AddScoped<IFaqRepository,FaqRepository>();
+builder.Services.AddScoped<ISupportRepository, SupportRepository>();
 
 
 builder.Services.AddCors(options =>
