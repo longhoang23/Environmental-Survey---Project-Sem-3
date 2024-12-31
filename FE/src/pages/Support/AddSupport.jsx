@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const AddSupport = () => {
-  const apiUrl = import.meta.env.VITE_PUBLIC_URL; // Your API base URL
+  const apiUrl = import.meta.env.VITE_PUBLIC_URL;
   const navigate = useNavigate();
 
   const [support, setSupport] = useState({
-    contactInfo: "",
+    contactInfo: ""
   });
 
   const [loading, setLoading] = useState(false);
@@ -22,7 +22,7 @@ const AddSupport = () => {
       const response = await axios.post(`${apiUrl}/Support/create`, support);
       if (response.status === 200 || response.status === 201) {
         alert("Support created successfully!");
-        navigate("/support-list");
+        navigate("/support/list");
       }
     } catch (err) {
       console.error("Error creating support:", err);

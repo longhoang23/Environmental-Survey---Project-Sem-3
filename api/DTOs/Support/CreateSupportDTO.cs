@@ -8,5 +8,6 @@ namespace api.DTOs.Support
     public class CreateSupportDTO
     {
         public string ContactInfo { get; set; }
+        
     }
 }
