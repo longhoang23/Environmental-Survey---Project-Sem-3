@@ -57,6 +57,5 @@ namespace api.Mappers
             };
             return survey;
         }
-
     }
 }
