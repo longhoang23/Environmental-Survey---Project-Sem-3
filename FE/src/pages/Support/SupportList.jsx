@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const SupportList = () => {
-  const apiUrl = import.meta.env.VITE_PUBLIC_URL; // API base URL
+  const apiUrl = import.meta.env.VITE_PUBLIC_URL; // e.g., http://localhost:5169/api
   const [supports, setSupports] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -26,7 +26,7 @@ const SupportList = () => {
       try {
         const response = await axios.delete(`${apiUrl}/Support/delete/${id}`);
         if (response.status === 200) {
-          setSupports(supports.filter((s) => s.supportID !== id));
+          setSupports(supports.filter((p) => p.supportID !== id));
           alert("Support deleted successfully!");
         }
       } catch (err) {
@@ -63,7 +63,6 @@ const SupportList = () => {
             <tr>
               <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">ID</th>
               <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Contact Info</th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -95,7 +94,7 @@ const SupportList = () => {
               ))
             ) : (
               <tr>
-                <td colSpan="3" className="text-center py-4 text-gray-500">
+                <td colSpan="5" className="text-center py-4 text-gray-500">
                   No supports available.
                 </td>
               </tr>

@@ -18,7 +18,7 @@ namespace api.Mappers
             };
         }
 
-        public static Support toCreateSupportDTO(this CreateSupportDTO createSupportDTO)
+        public static Support toCreateSupportResponse(this CreateSupportDTO createSupportDTO)
         {
             return new Support
             {
@@ -26,7 +26,7 @@ namespace api.Mappers
             };
         }
 
-        public static Support ToUpdatedSupport(this UpdateSupportDTO updateSupportDTO)
+        public static Support ToUpdateSupportResponse(this UpdateSupportDTO updateSupportDTO)
         {
             return new Support
             {

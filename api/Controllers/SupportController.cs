@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using api.Data;
-using Microsoft.AspNetCore.Mvc;
-using api.Repositories.Supports;
 using api.DTOs.Support;
-using api.Models;
 using api.Mappers;
+using api.Repositories.Supports;
+using Microsoft.AspNetCore.Mvc;
 
 namespace api.Controllers
 {
@@ -16,91 +15,70 @@ namespace api.Controllers
     public class SupportController : ControllerBase
     {
         private readonly ISupportRepository _supportRepository;
+        private readonly ApplicationDbContext _context;
 
-        public SupportController(ISupportRepository supportRepository)
+        public SupportController(ISupportRepository supportRepository, ApplicationDbContext context)
         {
             _supportRepository = supportRepository;
+            _context = context;
         }
 
-        // GET: api/Support
-        [HttpGet]
+        [HttpGet("all")]
         public async Task<IActionResult> GetAllSupports()
         {
             var supports = await _supportRepository.GetAllSupportsAsync();
-            return Ok(supports.Select(s => s.ToSupportDTO()));
+            var supportDTOs = supports.Select(s => s.ToSupportDTO()).ToList();
+            return Ok(supportDTOs);
         }
 
-        // GET: api/Support/{id}
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetSupportById(int id)
+        [HttpGet("{supportId}")]
+        public async Task<IActionResult> GetSupportById(int supportId)
         {
-            var support = await _supportRepository.GetSupportByIdAsync(id);
+            var support = await _supportRepository.GetSupportByIdAsync(supportId);
             if (support == null)
-            {
-                return NotFound(new { Message = $"Support with ID {id} not found." });
-            }
+                return NotFound("Support not found.");
 
-            return Ok(support.ToSupportDTO());
+            var supportDTO = support.ToSupportDTO();
+            return Ok(supportDTO);
         }
 
-        // POST: api/Support
-        [HttpPost]
+        [HttpPost("create")]
         public async Task<IActionResult> CreateSupport([FromBody] CreateSupportDTO createSupportDTO)
         {
             if (!ModelState.IsValid)
-            {
                 return BadRequest(ModelState);
-            }
 
-            var newSupport = createSupportDTO.toCreateSupportDTO();
-            var createdSupport = await _supportRepository.CreateSupportAsync(newSupport);
+            var supportEntity = createSupportDTO.toCreateSupportResponse();
+            var createdSupport = await _supportRepository.CreateSupportAsync(supportEntity);
+            var supportDTO = createdSupport.ToSupportDTO();
 
-            return CreatedAtAction(nameof(GetSupportById), new { id = createdSupport.SupportID }, createdSupport.ToSupportDTO());
+            return CreatedAtAction(nameof(GetSupportById), new { supportId = supportDTO.SupportID }, supportDTO);
         }
 
-        // PUT: api/Support/{id}
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateSupport(int id, [FromBody] UpdateSupportDTO updateSupportDTO)
+        [HttpPut("update/{supportId}")]
+        public async Task<IActionResult> UpdateSupport(int supportId, [FromBody] UpdateSupportDTO updateSupportDTO)
         {
             if (!ModelState.IsValid)
-            {
                 return BadRequest(ModelState);
-            }
 
-            var supportExists = await _supportRepository.SupportExistsAsync(id);
-            if (!supportExists)
-            {
-                return NotFound(new { Message = $"Support with ID {id} not found." });
-            }
+            var updatedSupportEntity = updateSupportDTO.ToUpdateSupportResponse();
+            var updatedSupport = await _supportRepository.UpdateSupportAsync(updatedSupportEntity, supportId);
 
-            var updatedSupport = updateSupportDTO.ToUpdatedSupport();
-            var result = await _supportRepository.UpdateSupportAsync(updatedSupport, id);
+            if (updatedSupport == null)
+                return NotFound("Participation not found or could not be updated.");
 
-            if (result == null)
-            {
-                return StatusCode(500, new { Message = "An error occurred while updating the support." });
-            }
-
-            return Ok(result.ToSupportDTO());
+            var supportDTO = updatedSupport.ToSupportDTO();
+            return Ok(supportDTO);
         }
 
-        // DELETE: api/Support/{id}
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteSupport(int id)
+        [HttpDelete("delete/{supportId}")]
+        public async Task<IActionResult> DeleteSupport(int supportId)
         {
-            var supportExists = await _supportRepository.SupportExistsAsync(id);
-            if (!supportExists)
-            {
-                return NotFound(new { Message = $"Support with ID {id} not found." });
-            }
-
-            var deletedSupport = await _supportRepository.DeleteSupportAsync(id);
+            var deletedSupport = await _supportRepository.DeleteSupportAsync(supportId);
             if (deletedSupport == null)
-            {
-                return StatusCode(500, new { Message = "An error occurred while deleting the support." });
-            }
+                return NotFound("Support not found.");
 
-            return Ok(deletedSupport.ToSupportDTO());
+            return Ok("Support deleted successfully.");
         }
     }
 }
