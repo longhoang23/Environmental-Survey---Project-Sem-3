@@ -4648,11 +4648,16 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\DELL\\.nuget\\packages\\": {}
+=======
+    "C:\\Users\\ADMIN\\.nuget\\packages\\": {}
+>>>>>>> 9ca9659f86fe45e62509f2bac77721e5adf0d058
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "D:\\Lập trình\\Aptech\\Project\\Project 3\\Source code\\Environmental-Survey---Project-Sem-3\\api\\api.csproj",
       "projectName": "api",
       "projectPath": "D:\\Lập trình\\Aptech\\Project\\Project 3\\Source code\\Environmental-Survey---Project-Sem-3\\api\\api.csproj",
@@ -4661,6 +4666,16 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+      "projectUniqueName": "D:\\Codes\\Aptech_learning\\eProject\\eProject3\\Environmental-Survey---Project-Sem-3\\api\\api.csproj",
+      "projectName": "api",
+      "projectPath": "D:\\Codes\\Aptech_learning\\eProject\\eProject3\\Environmental-Survey---Project-Sem-3\\api\\api.csproj",
+      "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+      "outputPath": "D:\\Codes\\Aptech_learning\\eProject\\eProject3\\Environmental-Survey---Project-Sem-3\\api\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 9ca9659f86fe45e62509f2bac77721e5adf0d058
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

@@ -98,7 +98,7 @@ namespace api.Controllers
             return Ok(pendingRequests);
         }
         [HttpPost("admin/approve/{userId}")]
-        // [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> ApproveUser(int userId)
         {
             var user = await _context.Users.FindAsync(userId);
@@ -115,7 +115,7 @@ namespace api.Controllers
         }
 
         [HttpPost("admin/decline/{userId}")]
-        // [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeclineUser(int userId)
         {
             var user = await _context.Users.FindAsync(userId);

@@ -98,6 +98,23 @@ namespace api.Migrations
                     b.HasKey("KlassId");
 
                     b.ToTable("Classes");
+
+                    b.HasData(
+                        new
+                        {
+                            KlassId = 1,
+                            Name = "C2304L"
+                        },
+                        new
+                        {
+                            KlassId = 2,
+                            Name = "C2222L"
+                        },
+                        new
+                        {
+                            KlassId = 3,
+                            Name = "C1234X"
+                        });
                 });
 
             modelBuilder.Entity("api.Models.Participation", b =>
@@ -227,6 +244,23 @@ namespace api.Migrations
                     b.HasKey("SectionId");
 
                     b.ToTable("Sections");
+
+                    b.HasData(
+                        new
+                        {
+                            SectionId = 1,
+                            Name = "Section A"
+                        },
+                        new
+                        {
+                            SectionId = 2,
+                            Name = "Section B"
+                        },
+                        new
+                        {
+                            SectionId = 3,
+                            Name = "Section C"
+                        });
                 });
 
             modelBuilder.Entity("api.Models.Seminar", b =>
@@ -452,12 +486,12 @@ namespace api.Migrations
                             FirstName = "Super",
                             JoinDate = new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Admin",
-                            PasswordHash = "$2a$11$VqEvgxu5duqlECfuVUMSzuOh6eiFvrHi8k7rCfsyXhWnPpuOE.1Ge",
+                            PasswordHash = "$2a$11$ujppE8BWMBsFhAa7lfRCVOwgYjTyStYixZj7Fo9VxSIn0R.iRuese",
                             PhoneNumber = "0001112222",
                             Role = 1,
                             RollOrEmpNo = "EMP1001",
                             Status = 2,
-                            UpdatedAt = new DateTime(2024, 12, 20, 10, 37, 16, 729, DateTimeKind.Utc).AddTicks(1351),
+                            UpdatedAt = new DateTime(2024, 12, 28, 10, 32, 40, 698, DateTimeKind.Utc).AddTicks(812),
                             Username = "superadmin"
                         },
                         new
@@ -466,12 +500,12 @@ namespace api.Migrations
                             FirstName = "System",
                             JoinDate = new DateTime(2023, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Administrator",
-                            PasswordHash = "$2a$11$jGdDs9/0OXNLLEEST2bJYuS6ssk12Q.Q41xdiD3d4VpWyUuwq6j86",
+                            PasswordHash = "$2a$11$NXAxTDuPQGusxnr1WRKmJee3E0V/xo0iCSQq4aInq6bywHgqjORDG",
                             PhoneNumber = "0001113333",
                             Role = 1,
                             RollOrEmpNo = "EMP1002",
                             Status = 2,
-                            UpdatedAt = new DateTime(2024, 12, 20, 10, 37, 16, 935, DateTimeKind.Utc).AddTicks(9507),
+                            UpdatedAt = new DateTime(2024, 12, 28, 10, 32, 40, 816, DateTimeKind.Utc).AddTicks(8825),
                             Username = "sysadmin"
                         },
                         new
@@ -480,13 +514,173 @@ namespace api.Migrations
                             FirstName = "Head",
                             JoinDate = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Admin",
-                            PasswordHash = "$2a$11$W6MyGIadWhHmHhXwoTZfYeQaKI2RYp0pCFombfQ6xiGqwBHjpZxEm",
+                            PasswordHash = "$2a$11$nv5NG6rV9chANyJmpHbhVuW1kI3LUiEwdu0901AYkdDjYNj4hA7d6",
                             PhoneNumber = "0001114444",
                             Role = 1,
                             RollOrEmpNo = "EMP1003",
                             Status = 2,
-                            UpdatedAt = new DateTime(2024, 12, 20, 10, 37, 17, 88, DateTimeKind.Utc).AddTicks(9756),
+                            UpdatedAt = new DateTime(2024, 12, 28, 10, 32, 40, 934, DateTimeKind.Utc).AddTicks(8282),
                             Username = "headadmin"
+                        },
+                        new
+                        {
+                            UserID = 101,
+                            AdmissionDate = new DateTime(2023, 1, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "John",
+                            KlassId = 1,
+                            LastName = "Doe",
+                            PasswordHash = "$2a$11$vLsdnznf8yGrGC.xNSCq0OJUOLANgqyq9d6sFHbykjgl8ET39a66C",
+                            PhoneNumber = "1234567890",
+                            Role = 3,
+                            RollOrEmpNo = "student111111",
+                            Specification = "Computer Science",
+                            Status = 0,
+                            UpdatedAt = new DateTime(2024, 12, 28, 10, 32, 40, 934, DateTimeKind.Utc).AddTicks(8721),
+                            Username = "john.doe"
+                        },
+                        new
+                        {
+                            UserID = 102,
+                            AdmissionDate = new DateTime(2023, 2, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Jane",
+                            KlassId = 1,
+                            LastName = "Smith",
+                            PasswordHash = "$2a$11$zgd3JFr7b3kht0v9/yMrruAWpwLhp1TYi3msX9C4jIx76VHQPMa.m",
+                            PhoneNumber = "9876543210",
+                            Role = 3,
+                            RollOrEmpNo = "student123456",
+                            Specification = "Mathematics",
+                            Status = 0,
+                            UpdatedAt = new DateTime(2024, 12, 28, 10, 32, 41, 51, DateTimeKind.Utc).AddTicks(9704),
+                            Username = "jane.smith"
+                        },
+                        new
+                        {
+                            UserID = 103,
+                            AdmissionDate = new DateTime(2023, 3, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Alice",
+                            KlassId = 2,
+                            LastName = "Johnson",
+                            PasswordHash = "$2a$11$wpvkdZHU5w6WgI6ohrujwejUsBfo4OlabL4t72arZyi.Fnqr57lhy",
+                            PhoneNumber = "4567891230",
+                            Role = 3,
+                            RollOrEmpNo = "student135790",
+                            Specification = "Physics",
+                            Status = 0,
+                            UpdatedAt = new DateTime(2024, 12, 28, 10, 32, 41, 168, DateTimeKind.Utc).AddTicks(5430),
+                            Username = "alice.johnson"
+                        },
+                        new
+                        {
+                            UserID = 104,
+                            AdmissionDate = new DateTime(2023, 4, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Bob",
+                            KlassId = 2,
+                            LastName = "Brown",
+                            PasswordHash = "$2a$11$zJE8GtDPV1BHVw0yu4tKYOArJUJUt476s4/m.cWsxGtVGLgktkUU6",
+                            PhoneNumber = "3216549870",
+                            Role = 3,
+                            RollOrEmpNo = "student987654",
+                            Specification = "Chemistry",
+                            Status = 0,
+                            UpdatedAt = new DateTime(2024, 12, 28, 10, 32, 41, 281, DateTimeKind.Utc).AddTicks(9406),
+                            Username = "bob.brown"
+                        },
+                        new
+                        {
+                            UserID = 105,
+                            AdmissionDate = new DateTime(2023, 5, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Charlie",
+                            KlassId = 3,
+                            LastName = "White",
+                            PasswordHash = "$2a$11$bJNB6/tXzVSnYsflKS4cmuzN40cgPf.kS9G.mvh29U05.5WhZoWpe",
+                            PhoneNumber = "6543217890",
+                            Role = 3,
+                            RollOrEmpNo = "student234567",
+                            Specification = "Biology",
+                            Status = 0,
+                            UpdatedAt = new DateTime(2024, 12, 28, 10, 32, 41, 394, DateTimeKind.Utc).AddTicks(8834),
+                            Username = "charlie.white"
+                        },
+                        new
+                        {
+                            UserID = 201,
+                            FirstName = "Alice",
+                            JoinDate = new DateTime(2022, 1, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastName = "Brown",
+                            PasswordHash = "$2a$11$wRoXi3EqwELGbIFfJx5gdujdFZB2ylVm8PQVzsbsCkw0jzOjSeS.K",
+                            PhoneNumber = "1122334455",
+                            Role = 2,
+                            RollOrEmpNo = "STAFF001",
+                            SectionId = 1,
+                            Specification = "IT Support",
+                            Status = 2,
+                            UpdatedAt = new DateTime(2024, 12, 28, 10, 32, 41, 507, DateTimeKind.Utc).AddTicks(8633),
+                            Username = "alice.brown"
+                        },
+                        new
+                        {
+                            UserID = 202,
+                            FirstName = "Bob",
+                            JoinDate = new DateTime(2022, 2, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastName = "Johnson",
+                            PasswordHash = "$2a$11$8fuJqeKNB4rotjP0IKHuVO4WSohtOXl8VrL8sdD5dge2HwisSkYeS",
+                            PhoneNumber = "2233445566",
+                            Role = 2,
+                            RollOrEmpNo = "STAFF002",
+                            SectionId = 2,
+                            Specification = "Library Manager",
+                            Status = 2,
+                            UpdatedAt = new DateTime(2024, 12, 28, 10, 32, 41, 623, DateTimeKind.Utc).AddTicks(5204),
+                            Username = "bob.johnson"
+                        },
+                        new
+                        {
+                            UserID = 203,
+                            FirstName = "Charlie",
+                            JoinDate = new DateTime(2022, 3, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastName = "Smith",
+                            PasswordHash = "$2a$11$qKY8eiZunpYGvz6m4PbpseY9fV8fKqepvzLiadJfp8F7aVN4NKDdq",
+                            PhoneNumber = "3344556677",
+                            Role = 2,
+                            RollOrEmpNo = "STAFF003",
+                            SectionId = 3,
+                            Specification = "Accounts Manager",
+                            Status = 2,
+                            UpdatedAt = new DateTime(2024, 12, 28, 10, 32, 41, 733, DateTimeKind.Utc).AddTicks(9505),
+                            Username = "charlie.smith"
+                        },
+                        new
+                        {
+                            UserID = 204,
+                            FirstName = "Diana",
+                            JoinDate = new DateTime(2022, 4, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastName = "White",
+                            PasswordHash = "$2a$11$sftD7rp.4.FCT1af4iEQqu4fRmquImha7oqjtLB7aulGoWEuF8SZe",
+                            PhoneNumber = "4455667788",
+                            Role = 2,
+                            RollOrEmpNo = "STAFF004",
+                            SectionId = 1,
+                            Specification = "HR Specialist",
+                            Status = 2,
+                            UpdatedAt = new DateTime(2024, 12, 28, 10, 32, 41, 848, DateTimeKind.Utc).AddTicks(2206),
+                            Username = "diana.white"
+                        },
+                        new
+                        {
+                            UserID = 205,
+                            FirstName = "Evan",
+                            JoinDate = new DateTime(2022, 5, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastName = "Green",
+                            PasswordHash = "$2a$11$y46gEj8AbPr9rF6Jy5d0oORbqeWSz9QqIkGRWIipUy4qi9Q13zjrO",
+                            PhoneNumber = "5566778899",
+                            Role = 2,
+                            RollOrEmpNo = "STAFF005",
+                            SectionId = 2,
+                            Specification = "Security Officer",
+                            Status = 2,
+                            UpdatedAt = new DateTime(2024, 12, 28, 10, 32, 41, 965, DateTimeKind.Utc).AddTicks(1262),
+                            Username = "evan.green"
                         });
                 });
 
@@ -536,7 +730,7 @@ namespace api.Migrations
             modelBuilder.Entity("api.Models.RegistrationRequest", b =>
                 {
                     b.HasOne("api.Models.User", "User")
-                        .WithMany()
+                        .WithMany("RegistrationRequests")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -653,6 +847,8 @@ namespace api.Migrations
             modelBuilder.Entity("api.Models.User", b =>
                 {
                     b.Navigation("Participations");
+
+                    b.Navigation("RegistrationRequests");
 
                     b.Navigation("SeminarsConducted");
 

@@ -37,7 +37,7 @@ namespace api.Mappers
                 RollOrEmpNo = RollOrEmpNoGenerator.GenerateRollOrEmpNo("student"),
                 KlassId = createStudentDTO.KlassId,
                 Specification = createStudentDTO.Specification,
-                Username = UsernameGenerator.GenerateUsername(createStudentDTO.FirstName, createStudentDTO.LastName),
+                Username = UsernameGenerator.GenerateUsername(createStudentDTO.FirstName, createStudentDTO.LastName) + UsernameGenerator.Generate4Digits(),
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword(createStudentDTO.Password),
                 AdmissionDate = DateTime.UtcNow,
                 Status = createStudentDTO.Status 

@@ -58,7 +58,7 @@ namespace api.Mappers
                 Role = dto.Role,
                 RollOrEmpNo = RollOrEmpNoGenerator.GenerateRollOrEmpNo("admin"),
                 Specification = dto.Specification,
-                Username = UsernameGenerator.GenerateUsername(dto.FirstName, dto.LastName),
+                Username = UsernameGenerator.GenerateUsername(dto.FirstName, dto.LastName) + UsernameGenerator.Generate4Digits(),
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password),
                 JoinDate = DateTime.UtcNow,
                 Status = dto.Status

@@ -6,8 +6,9 @@ using api.DTOs.Survey;
 using api.Repositories.SurveyRepo;
 using Microsoft.AspNetCore.Mvc;
 using api.Mappers;
+using Microsoft.AspNetCore.Authorization;
 
-namespace api.Controllers.Surveys
+namespace api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -21,7 +22,7 @@ namespace api.Controllers.Surveys
         }
 
         // GET: api/surveys
-        [HttpGet]
+        [HttpGet("all")]
         public async Task<IActionResult> GetAllSurveys()
         {
             var surveys = await _surveyRepository.GetAllSurveysAsync(); // Updated to new async method
@@ -45,7 +46,8 @@ namespace api.Controllers.Surveys
         }
 
         // POST: api/surveys
-        [HttpPost]
+        [HttpPost("create")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> CreateSurvey([FromBody] CreateSurveyDTO createSurveyDto)
         {
             if (!ModelState.IsValid)
@@ -61,7 +63,8 @@ namespace api.Controllers.Surveys
         }
 
         // PUT: api/surveys/{id}
-        [HttpPut("{id}")]
+        [HttpPut("update/{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateSurvey(int id, [FromBody] UpdateSurveyDTO updateSurveyDto)
         {
             if (!ModelState.IsValid)
@@ -83,7 +86,8 @@ namespace api.Controllers.Surveys
         }
 
         // DELETE: api/surveys/{id}
-        [HttpDelete("{id}")]
+        [HttpDelete("delete/{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteSurvey(int id)
         {
             var existingSurvey = await _surveyRepository.GetSurveyByIdAsync(id); // Updated to new async method

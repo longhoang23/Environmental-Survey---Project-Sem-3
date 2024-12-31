@@ -56,7 +56,11 @@ const LoginForm = () => {
       alert("Đăng nhập thành công!");
     } catch (err) {
       debugger;
+<<<<<<< HEAD
       setError("Incorrect User name or Password!");
+=======
+      setError("Your username or password is wrong! Or your account is not activated!");
+>>>>>>> 9ca9659f86fe45e62509f2bac77721e5adf0d058
       console.error("Lỗi đăng nhập:", err);
     } finally {
       setLoading(false);
