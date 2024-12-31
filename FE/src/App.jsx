@@ -10,6 +10,26 @@ import AdminList from "./pages/Admin/AdminList";
 import AdminDetail from "./pages/Admin/AdminDetail";
 import AddAdmin from "./pages/Admin/AddAdmin";
 import UpdateAdmin from "./pages/Admin/UpdateAdmin";
+//Survey
+import SurveyList from "./pages/Survey/SurveyList";
+import AddSurvey from "./pages/Survey/AddSurvey";
+import UpdateSurvey from "./pages/Survey/UpdateSurvey";
+import SurveyDetail from "./pages/Survey/SurveyDetail";
+
+import QuestionList from "./pages/SurveyQuestion/SurveyQuestionList";
+import AddQuestion from "./pages/SurveyQuestion/AddQuestion";
+import UpdateQuestion from "./pages/SurveyQuestion/UpdateQuestion";
+import SurveyQuestionDetail from "./pages/SurveyQuestion/SurveyQuestionDetail";
+
+import OptionList from "./pages/SurveyOption/SurveyOptionList";
+import AddOption from "./pages/SurveyOption/AddSurveyOption";
+import UpdateOption from "./pages/SurveyOption/UpdateSurveyOption";
+import SurveyOptionDetail from "./pages/SurveyOption/SurveyOptionDetail";
+
+import FaqList from "./pages/Faq/FaqList";
+import AddFaq from "./pages/Faq/AddFaq";
+import UpdateFaq from "./pages/Faq/UpdateFaq";
+
 import StudentList from "./pages/Student/StudentList";
 import AddStudent from "./pages/Student/AddStudent";
 import StudentDetail from "./pages/Student/StudentDetail";
@@ -39,6 +59,9 @@ import SupportDetail from "./pages/Support/SupportDetail";
 import AddSupport from "./pages/Support/AddSupport";
 import UpdateSupport from "./pages/Support/UpdateSupport";
 
+
+
+
 function App() {
   return (
     <>
@@ -58,7 +81,26 @@ function App() {
           <Route path="/admin/admin-detail/:id" element={<AdminDetail />} />
           <Route path="/admin/add-admin" element={<AddAdmin />} />
           <Route path="/admin/update-admin/:id" element={<UpdateAdmin />} />
-
+          <Route path="/admin/detail/:id" element={<AdminDetail />} />
+          {/* Survey */}
+          <Route path="/admin/surveys" element={<SurveyList />} />
+          <Route path="/admin/add-survey" element={<AddSurvey />} />
+          <Route path="/admin/update-survey/:id" element={<UpdateSurvey />} />
+          <Route path="/admin/survey-detail/:id" element={<SurveyDetail />} />
+          {/* SurveyQuestion */}
+          <Route path="/admin/questions" element={<QuestionList />} />
+          <Route path="/admin/add-question" element={<AddQuestion />} />
+          <Route path="/admin/update-question/:id" element={<UpdateQuestion />} />
+          <Route path="/admin/question-detail/:id" element={<SurveyQuestionDetail />} />
+          {/* SurveyOption */}
+          <Route path="/admin/options" element={<OptionList />} />
+          <Route path="/admin/add-option" element={<AddOption />} />
+          <Route path="/admin/update-option/:id" element={<UpdateOption />} />
+          <Route path="/admin/option-detail/:id" element={<SurveyOptionDetail />} />
+          {/* Faq */}
+          <Route path="/admin/faqs" element={<FaqList />} />
+          <Route path="/admin/add-faq" element={<AddFaq />} />
+          <Route path="/admin/update-faq/:id" element={<UpdateFaq />} />
 
           <Route path="/admin/staff-list" element={<StaffList />} />
           <Route path="/admin/staff-detail/:id" element={<StaffDetail />} />
