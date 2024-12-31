@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import { getAuthHeaders } from "../../Services/userAuth"; // Assuming you have this utility
 const AddSurvey = () => {
   const apiUrl = import.meta.env.VITE_PUBLIC_URL;
   const [survey, setSurvey] = useState({
@@ -20,9 +20,9 @@ const AddSurvey = () => {
     e.preventDefault();
     try {
       const response = await axios.post(`${apiUrl}/Survey/create`, survey, {
-        headers: {
-          "Content-Type": "application/json",
-        },
+        
+          headers: getAuthHeaders(),
+        
       });
 
       // Check success response (could be 201 Created or 200 OK)
