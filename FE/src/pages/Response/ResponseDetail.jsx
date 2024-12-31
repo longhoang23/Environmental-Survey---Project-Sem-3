@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const ResponseDetail = () => {
-  const { id } = useParams(); // Response ID
-  const apiUrl = import.meta.env.VITE_PUBLIC_URL;
+  const { id } = useParams();
   const navigate = useNavigate();
+  const apiUrl = import.meta.env.VITE_PUBLIC_URL;
 
   const [response, setResponse] = useState(null);
-  const [optionText, setOptionText] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -17,20 +16,12 @@ const ResponseDetail = () => {
       try {
         const response = await axios.get(`${apiUrl}/Response/${id}`);
         setResponse(response.data);
-
-        // If OptionID exists, fetch the associated option text
-        if (response.data.optionID && response.data.optionID !== 0) {
-          const optionResponse = await axios.get(`${apiUrl}/SurveyOption/${response.data.optionID}`);
-          setOptionText(optionResponse.data.optionText);
-        }
       } catch (err) {
-        console.error("Error fetching response details:", err);
-        setError("Failed to load response details.");
+        setError("Failed to load response.");
       } finally {
         setLoading(false);
       }
     };
-
     fetchResponse();
   }, [id, apiUrl]);
 
@@ -39,19 +30,15 @@ const ResponseDetail = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h2 className="text-2xl font-bold mb-4">Response Detail</h2>
-      <div className="bg-white shadow-md rounded-lg p-6 max-w-xl mx-auto">
-        <p><strong>Response ID:</strong> {response.responseID}</p>
+      <h2 className="text-2xl font-bold mb-4">Response Details</h2>
+      <div className="bg-white shadow-md rounded p-4">
         <p><strong>Participation ID:</strong> {response.participationID}</p>
         <p><strong>Question ID:</strong> {response.questionID}</p>
-        {response.optionID && response.optionID !== 0 ? (
-          <p><strong>Option:</strong> {optionText}</p>
-        ) : (
-          <p><strong>Response Text:</strong> {response.responseText || "N/A"}</p>
-        )}
+        <p><strong>Option ID:</strong> {response.optionID}</p>
+        <p><strong>Response Text:</strong> {response.responseText}</p>
         <button
-          onClick={() => navigate("/response/list")}
-          className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+          onClick={() => navigate("/response-list")}
+          className="bg-blue-500 text-white px-4 py-2 rounded mt-4 hover:bg-blue-600"
         >
           Back to List
         </button>

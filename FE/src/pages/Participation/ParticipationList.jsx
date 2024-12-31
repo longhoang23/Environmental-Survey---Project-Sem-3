@@ -10,15 +10,15 @@ const ParticipationList = () => {
   const navigate = useNavigate();
 
   const handleAddButton = () => {
-    navigate("/participation/add");
+    navigate("/add-participation");
   };
 
   const handleDetailButton = (id) => {
-    navigate(`/participation/detail/${id}`);
+    navigate(`/participation-detail/${id}`);
   };
 
   const handleUpdateButton = (id) => {
-    navigate(`/participation/update/${id}`);
+    navigate(`/update-participation/${id}`);
   };
 
   const handleDeleteButton = async (id) => {
@@ -64,8 +64,10 @@ const ParticipationList = () => {
               <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">ID</th>
               <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">User ID</th>
               <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Survey ID</th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Date</th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Participation Date</th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Total Score</th>
               <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">FeedBack</th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -81,6 +83,8 @@ const ParticipationList = () => {
                   <td className="px-4 py-2">{participation.userID}</td>
                   <td className="px-4 py-2">{participation.surveyID}</td>
                   <td className="px-4 py-2">{participation.participationDate}</td>
+                  <td className="px-4 py-2">{participation.totalScore}</td>
+                  <td className="px-4 py-2">{participation.feedback}</td>
                   <td className="px-4 py-2 space-x-2">
                     <button
                       onClick={() => handleUpdateButton(participation.participationID)}

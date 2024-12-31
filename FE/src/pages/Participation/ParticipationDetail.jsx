@@ -34,11 +34,11 @@ const ParticipationDetail = () => {
       <div className="bg-white shadow-md rounded p-4">
         <p><strong>User ID:</strong> {participation.userID}</p>
         <p><strong>Survey ID:</strong> {participation.surveyID}</p>
-        <p><strong>Date:</strong> {participation.participationDate}</p>
+        <p><strong>Participation Date:</strong> {participation.participationDate}</p>
         <p><strong>Total Score:</strong> {participation.totalScore}</p>
         <p><strong>Feedback:</strong> {participation.feedback}</p>
         <button
-          onClick={() => navigate("/participation/list")}
+          onClick={() => navigate("/participation-list")}
           className="bg-blue-500 text-white px-4 py-2 rounded mt-4 hover:bg-blue-600"
         >
           Back to List

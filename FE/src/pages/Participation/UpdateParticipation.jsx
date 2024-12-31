@@ -49,7 +49,7 @@ const UpdateParticipation = () => {
       const response = await axios.put(`${apiUrl}/Participation/update/${id}`, participation);
       if (response.status === 200) {
         alert("Participation updated successfully!");
-        navigate("/participation/list");
+        navigate("/participation-list");
       }
     } catch (err) {
       console.error("Error updating participation:", err);
@@ -109,6 +109,17 @@ const UpdateParticipation = () => {
             required
           />
         </div>
+
+        <div className="flex flex-col mb-4">
+        <label htmlFor="totalScore" className="font-semibold mb-1">Total Score</label>
+        <input
+          id="totalScore"
+          type="number"
+          value={participation.totalScore || 0} // Default to 0 if the value is null
+          onChange={(e) => setParticipation({ ...participation, totalScore: parseInt(e.target.value) || 0 })}
+          className="border p-2 rounded"
+        />
+      </div>
 
         <div className="flex flex-col mb-4">
           <label htmlFor="feedback" className="font-semibold mb-1">Feedback</label>

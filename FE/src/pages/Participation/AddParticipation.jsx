@@ -45,7 +45,7 @@ const AddParticipation = () => {
       const response = await axios.post(`${apiUrl}/Participation/create`, participation);
       if (response.status === 200 || response.status === 201) {
         alert("Participation created successfully!");
-        navigate("/participation/list");
+        navigate("/participation-list");
       }
     } catch (err) {
       console.error("Error creating participation:", err);
@@ -104,6 +104,17 @@ const AddParticipation = () => {
             required
           />
         </div>
+
+        <div className="flex flex-col mb-4">
+        <label htmlFor="totalScore" className="font-semibold mb-1">Total Score</label>
+        <input
+          id="totalScore"
+          type="number"
+          value={participation.totalScore || 0} // Default to 0 if the value is null
+          onChange={(e) => setParticipation({ ...participation, totalScore: parseInt(e.target.value) || 0 })}
+          className="border p-2 rounded"
+        />
+      </div>
 
         <div className="flex flex-col mb-4">
           <label htmlFor="feedback" className="font-semibold mb-1">Feedback</label>
