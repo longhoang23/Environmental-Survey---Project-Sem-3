@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import { getAuthHeaders } from "../../Services/userAuth"; // Assuming you have this utility
 
 const UpdateFaq = () => {
   const apiUrl = import.meta.env.VITE_PUBLIC_URL;
@@ -19,7 +20,9 @@ const UpdateFaq = () => {
   useEffect(() => {
     const fetchFaq = async () => {
       try {
-        const response = await axios.get(`${apiUrl}/Faq/${id}`);
+        const response = await axios.get(`${apiUrl}/Faq/${id}`,{
+          headers: getAuthHeaders(),
+        });
         if (response.status === 200) {
           setFaq(response.data);
           setLoading(false);
@@ -41,9 +44,7 @@ const UpdateFaq = () => {
         `${apiUrl}/Faq/update/${id}`,
         faq,
         {
-          headers: {
-            "Content-Type": "application/json",
-          },
+          headers: getAuthHeaders(),
         }
       );
       if (response.status === 200) {

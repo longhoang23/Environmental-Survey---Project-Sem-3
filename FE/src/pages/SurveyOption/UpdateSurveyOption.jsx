@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import { getAuthHeaders } from "../../Services/userAuth"; // Assuming you have this utility
 
 const UpdateOption = () => {
   const apiUrl = import.meta.env.VITE_PUBLIC_URL;
@@ -20,7 +21,9 @@ const UpdateOption = () => {
   useEffect(() => {
     const fetchOption = async () => {
       try {
-        const response = await axios.get(`${apiUrl}/SurveyOption/${id}`);
+        const response = await axios.get(`${apiUrl}/SurveyOption/${id}`,{
+          headers: getAuthHeaders(),
+        });
         if (response.status === 200) {
           setOption(response.data);
           setLoading(false);
@@ -42,9 +45,7 @@ const UpdateOption = () => {
         `${apiUrl}/SurveyOption/update/${id}`,
         option,
         {
-          headers: {
-            "Content-Type": "application/json",
-          },
+          headers: getAuthHeaders(),
         }
       );
       if (response.status === 200) {
