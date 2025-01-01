@@ -9,7 +9,7 @@ const LoginForm = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const apiUrl = import.meta.env.VITE_PUBLIC_URL;
+  const apiUrl = import.meta.env.VITE_PUBLIC_URL; // Base URL từ môi trường
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,55 +29,63 @@ const LoginForm = () => {
         password,
       });
 
-      console.log(response.data);
+      const { token, user } = response.data; // Lấy token và user từ phản hồi API
 
-      debugger;
-      const { token, user } = response.data;
-      console.log(user);
-
-      debugger;
-      console.log(token);
+      if (!token || !user) {
+        setError("Phản hồi từ server không hợp lệ!");
+        setLoading(false);
+        return;
+      }
 
       // Lưu token và thông tin người dùng vào localStorage
       localStorage.setItem("token", token);
       localStorage.setItem("user", JSON.stringify(user));
 
-      debugger;
-      const role = user.role;
+      // Phát sự kiện "user-changed" để Sidebar lắng nghe
+      handleLoginSuccess(user);
 
-      if (role == "1") {
-        navigate("/admin");
-      } else if (role == "2") {
-        navigate("/staff");
-      } else if (role == "3") {
-        navigate("/student");
-      } else {
-        setError("Không tìm thấy vai trò người dùng!");
+      // Điều hướng theo vai trò của người dùng
+      switch (user.role) {
+        case 1: // Admin
+          navigate("/dashboard/dashboard");
+          break;
+        case 2: // Staff
+          navigate("/staff");
+          break;
+        case 3: // Student
+          navigate("/student");
+          break;
+        default:
+          setError("Không tìm thấy vai trò người dùng!");
       }
 
       alert("Đăng nhập thành công!");
     } catch (err) {
-      debugger;
-      setError("Your username or password is wrong! Or your account is not activated!");
       console.error("Lỗi đăng nhập:", err);
+      setError("Tên đăng nhập hoặc mật khẩu không đúng!");
     } finally {
       setLoading(false);
     }
   };
 
+  const handleLoginSuccess = (loggedInUser) => {
+    localStorage.setItem("user", JSON.stringify(loggedInUser));
+    window.dispatchEvent(new Event("user-changed"));
+  };
+
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <h2 className="text-2xl font-bold text-center">Login</h2>
+    <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-4">
+      <h2 className="text-2xl font-bold text-center">Đăng Nhập</h2>
 
       {error && <div className="text-red-500 text-sm">{error}</div>}
 
       <div>
-        <label htmlFor="userName" className="block text-sm font-medium">
-          User Name
+        <label htmlFor="username" className="block text-sm font-medium">
+          Tên đăng nhập
         </label>
         <input
           type="text"
-          id="userName"
+          id="username"
           value={username}
           onChange={(e) => setUserName(e.target.value)}
           className="w-full p-3 border border-gray-300 rounded-md mt-2"
@@ -87,7 +95,7 @@ const LoginForm = () => {
 
       <div>
         <label htmlFor="password" className="block text-sm font-medium">
-          Password
+          Mật khẩu
         </label>
         <input
           type="password"
