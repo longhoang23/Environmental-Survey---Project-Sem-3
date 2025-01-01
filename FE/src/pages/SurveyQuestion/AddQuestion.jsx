@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { getAuthHeaders } from "../../Services/userAuth"; // Assuming you have this utility
 
 const AddQuestion = () => {
   const apiUrl = import.meta.env.VITE_PUBLIC_URL;
@@ -16,9 +17,7 @@ const AddQuestion = () => {
     e.preventDefault();
     try {
       const response = await axios.post(`${apiUrl}/SurveyQuestion/create`, question, {
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: getAuthHeaders(),
       });
 
       if (response.status === 201 || response.status === 200) {

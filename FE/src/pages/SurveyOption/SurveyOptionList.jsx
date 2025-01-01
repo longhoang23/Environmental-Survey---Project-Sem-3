@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { getAuthHeaders } from "../../Services/userAuth"; // Assuming you have this utility
 
 const SurveyOList = () => {
   const [surveyOptions, setSurveyOption] = useState([]);
@@ -26,7 +27,9 @@ const SurveyOList = () => {
     const confirmDelete = window.confirm(`Do you want to delete id: ${id}`);
     if (!confirmDelete) return;
     try {
-      const response = await axios.delete(`${apiUrl}/SurveyOption/delete/${id}`);
+      const response = await axios.delete(`${apiUrl}/SurveyOption/delete/${id}`,{
+        headers: getAuthHeaders(),
+      });
       if (response.status === 200) {
         setSurveyOption(surveyOptions.filter((surveyO) => surveyO.optionID !== id));
         alert("Survey Option deleted successfully!");
