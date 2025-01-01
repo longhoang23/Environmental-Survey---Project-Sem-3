@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using api.Data;
 using api.Enums.Role;
+using api.Helpers;
 using api.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -44,30 +45,75 @@ namespace api.Repositories.Staff
             var existingUser = await _context.Users.FindAsync(userId);
             if (existingUser == null || existingUser.Role != UserRole.Staff)
             {
-                return null; // Not found or not Staff
+                return null; // Not found or not staff
             }
 
-            // Update necessary fields
+            // Keep old first/last and username
+            string oldFirst = existingUser.FirstName;
+            string oldLast  = existingUser.LastName;
+            string oldUsername = existingUser.Username;
+
+            // Overwrite fields you allow
             existingUser.FirstName = updatedUser.FirstName;
             existingUser.LastName = updatedUser.LastName;
             existingUser.PhoneNumber = updatedUser.PhoneNumber;
             existingUser.Role = updatedUser.Role;
-            // existingUser.RollOrEmpNo = updatedUser.RollOrEmpNo;
+            // existingUser.RollOrEmpNo = updatedUser.RollOrEmpNo; // if needed
             existingUser.SectionId = updatedUser.SectionId;
             existingUser.Specification = updatedUser.Specification;
-            // existingUser.JoinDate = updatedUser.JoinDate;
+            // existingUser.JoinDate = updatedUser.JoinDate; // if you want to allow updates
             existingUser.UpdatedAt = updatedUser.UpdatedAt;
             existingUser.Status = updatedUser.Status;
-            // existingUser.Username = updatedUser.Username;
+            // existingUser.Username = updatedUser.Username; // do not overwrite directly
 
+            // Update password if present
             if (!string.IsNullOrEmpty(updatedUser.PasswordHash))
             {
                 existingUser.PasswordHash = updatedUser.PasswordHash;
             }
 
+            // 1. Check if first or last name changed
+            bool nameChanged = (oldFirst != updatedUser.FirstName) || (oldLast != updatedUser.LastName);
+
+            // 2. If name changed, rebuild username, preserving old suffix
+            if (nameChanged && !string.IsNullOrWhiteSpace(oldUsername))
+            {
+                // Extract old 4-digit suffix
+                string suffix = ExtractSuffix(oldUsername);
+
+                // Build new prefix => "firstname.lastname"
+                string newPrefix = UsernameGenerator.GenerateUsername(updatedUser.FirstName, updatedUser.LastName);
+
+                // Combine them
+                existingUser.Username = newPrefix + suffix;
+            }
+
             await _context.SaveChangesAsync();
             return existingUser;
         }
+
+        /// <summary>
+        /// Try to read the last 4 chars as digits. If not digits, generate new 4 digits.
+        /// </summary>
+        private string ExtractSuffix(string oldUsername)
+        {
+            if (oldUsername.Length < 4)
+            {
+                // fallback
+                return UsernameGenerator.Generate4Digits();
+            }
+
+            string possibleDigits = oldUsername[^4..];
+            if (int.TryParse(possibleDigits, out _))
+            {
+                return possibleDigits;
+            }
+            else
+            {
+                return UsernameGenerator.Generate4Digits();
+            }
+        }
+
 
         public async Task<User?> DeleteStaffAsync(int userId)
         {

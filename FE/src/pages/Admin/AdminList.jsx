@@ -36,7 +36,7 @@ const AdminList = () => {
 
   // Navigate to detail page
   const handleDetailButton = (id) => {
-    navigate(`/admin/detail/${id}`);
+    navigate(`/admin/admin-detail/${id}`);
   };
 
   useEffect(() => {

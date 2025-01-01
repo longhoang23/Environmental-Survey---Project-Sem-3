@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9ZN08sHNIVw=",
+  "dgSpecHash": "nQLJTPQ4wao=",
   "success": true,
-  "projectFilePath": "D:\\Lập trình\\Aptech\\Project\\Project 3\\Source code\\Environmental-Survey---Project-Sem-3\\api\\api.csproj",
+  "projectFilePath": "D:\\Lập trình\\Aptech\\Project\\Project 3\\New folder\\Environmental-Survey---Project-Sem-3\\api\\api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

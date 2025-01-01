@@ -1,14 +1,10 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-// Import icon từ react-icons (ở ví dụ này mình dùng Font Awesome)
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 
 const Sidebar = () => {
   const [user, setUser] = useState(null);
-  const [openSurveys, setOpenSurveys] = useState(false);
-  const [openSeminars, setOpenSeminars] = useState(false);
-  const [openFAQs, setOpenFAQs] = useState(false);
-  const [openSupports, setOpenSupports] = useState(false);
+  const [openMenus, setOpenMenus] = useState({}); // State quản lý menu mở
 
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -20,14 +16,13 @@ const Sidebar = () => {
     };
 
     window.addEventListener("user-changed", handleUserChanged);
-
     return () => {
       window.removeEventListener("user-changed", handleUserChanged);
     };
   }, []);
 
   if (!user) {
-    return null;
+    return null; // Không hiển thị nếu chưa đăng nhập
   }
 
   const { firstName, role } = user;
@@ -39,265 +34,112 @@ const Sidebar = () => {
     window.location.href = "/login";
   };
 
+  // Danh sách menu dựa trên vai trò
+  const menus = {
+    1: [
+      { name: "Dashboard", path: "/dashboard/dashboard" },
+      { name: "User Requests", path: "/admin/user-requests" },
+      {
+        name: "Survey",
+        subMenus: [
+          { name: "Create Survey", path: "/admin/add-survey" },
+          { name: "All Surveys", path: "/admin/surveys" },
+        ],
+      },
+      {
+        name: "Seminar",
+        subMenus: [
+          { name: "Create Seminar", path: "/add-seminar" },
+          { name: "All Seminars", path: "/seminar-list" },
+        ],
+      },
+      {
+        name: "Competition",
+        subMenus: [
+          { name: "Create Competition", path: "/competition-list" },
+          { name: "All Competitions", path: "/add-competition" },
+        ],
+      },
+      {
+        name: "FAQs",
+        subMenus: [
+          { name: "Create FAQ", path: "/admin/create-faq" },
+          { name: "All FAQs", path: "/admin/all-faqs" },
+        ],
+      },
+      {
+        name: "Supports",
+        subMenus: [
+          { name: "Create Support", path: "/admin/create-support" },
+          { name: "All Supports", path: "/admin/all-supports" },
+        ],
+      },
+    ],
+    2: [
+      { name: "Surveys", path: "/staff/surveys" },
+      { name: "Seminars", path: "/staff/seminars" },
+      { name: "FAQs", path: "/staff/faqs" },
+      { name: "Supports", path: "/staff/supports" },
+    ],
+    3: [
+      { name: "Surveys", path: "/student/surveys" },
+      { name: "Seminars", path: "/student/seminars" },
+      { name: "FAQs", path: "/student/faqs" },
+      { name: "Supports", path: "/student/supports" },
+    ],
+  };
+
+  const toggleMenu = (menuName) => {
+    setOpenMenus((prev) => ({ ...prev, [menuName]: !prev[menuName] }));
+  };
+
+  const renderMenu = (menuList) =>
+    menuList.map((menu) =>
+      menu.subMenus ? (
+        <li key={menu.name}>
+          <button
+            onClick={() => toggleMenu(menu.name)}
+            className="block w-full text-left text-lg text-blue-500 py-2 px-4 rounded-md hover:bg-gray-200 transition duration-300"
+          >
+            {menu.name}
+            <span className="float-right">
+              {openMenus[menu.name] ? <FaChevronUp /> : <FaChevronDown />}
+            </span>
+          </button>
+          {openMenus[menu.name] && (
+            <ul className="ml-4 space-y-2">
+              {menu.subMenus.map((subMenu) => (
+                <li key={subMenu.name}>
+                  <Link
+                    to={subMenu.path}
+                    className="block text-blue-400 py-2 px-4 hover:bg-gray-200"
+                  >
+                    {subMenu.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          )}
+        </li>
+      ) : (
+        <li key={menu.name}>
+          <Link
+            to={menu.path}
+            className="block text-lg text-blue-500 py-2 px-4 rounded-md hover:bg-gray-200 transition duration-300"
+          >
+            {menu.name}
+          </Link>
+        </li>
+      )
+    );
+
   return (
-    <div className="bg-white font-medium w-64 h-screen p-4">
-      <ul className="space-y-4">
-        {role === 1 && (
-          <>
-            <li>
-              <Link
-                to="/admin"
-                className="block text-lg text-blue-500 hover: my-2 py-2 px-4 rounded-md hover:bg-gray-200 transition duration-300"
-              >
-                Dashboard
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/admin/user-requests"
-                className="block text-lg text-blue-500 hover: py-2 px-4 rounded-md hover:bg-gray-200 transition duration-300"
-              >
-                User Requests
-              </Link>
-            </li>
-            <li>
-              <button
-                onClick={() => setOpenSurveys(!openSurveys)}
-                className="block w-full text-left text-lg text-blue-500 py-2 px-4 rounded-md hover:bg-gray-200 transition duration-300"
-              >
-                Survey{" "}
-                <span className="float-right">
-                  {openSurveys ? <FaChevronUp /> : <FaChevronDown />}
-                </span>
-              </button>
-              {openSurveys && (
-                <ul className=" space-y-2">
-                  <li>
-                    <Link
-                      to="/admin"
-                      className="block text-blue-400 py-2 px-6 hover:bg-gray-200"
-                    >
-                      Create Survey
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/admin"
-                      className="block text-blue-400 py-2 px-6 hover:bg-gray-200"
-                    >
-                      All Survey
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/admin"
-                      className="block text-blue-400 py-2 px-6 hover:bg-gray-200"
-                    >
-                      On-going Surveys
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/admin"
-                      className="block text-blue-400 py-2 px-6 hover:bg-gray-200"
-                    >
-                      Check Answers
-                    </Link>
-                  </li>
-                </ul>
-              )}
-            </li>
-            <li>
-              <button
-                onClick={() => setOpenSeminars(!openSeminars)}
-                className="block w-full text-left text-lg text-blue-500 py-2 px-4 rounded-md hover:bg-gray-200 transition duration-300"
-              >
-                Seminar{" "}
-                <span className="float-right">
-                  {openSeminars ? <FaChevronUp /> : <FaChevronDown />}
-                </span>
-              </button>
-              {openSeminars && (
-                <ul className=" space-y-2">
-                  <li>
-                    <Link
-                      to="/admin"
-                      className="block text-blue-400 py-2 px-6 hover:bg-gray-200"
-                    >
-                      Create Competition
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/admin"
-                      className="block text-blue-400 py-2 px-6 hover:bg-gray-200"
-                    >
-                      All Competitions
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/admin"
-                      className="block text-blue-400 py-2 px-6 hover:bg-gray-200"
-                    >
-                      On-Going Competitions
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/admin"
-                      className="block text-blue-400 py-2 px-6 hover:bg-gray-200"
-                    >
-                      Check Answers
-                    </Link>
-                  </li>
-                </ul>
-              )}
-            </li>
-            <li>
-              <button
-                onClick={() => setOpenFAQs(!openFAQs)}
-                className="block w-full text-left text-lg text-blue-500 py-2 px-4 rounded-md hover:bg-gray-200 transition duration-300"
-              >
-                FAQs{" "}
-                <span className="float-right">
-                  {openFAQs ? <FaChevronUp /> : <FaChevronDown />}
-                </span>
-              </button>
-              {openFAQs && (
-                <ul className=" space-y-2">
-                  <li>
-                    <Link
-                      to="/admin"
-                      className="block text-blue-400 py-2 px-6 hover:bg-gray-200"
-                    >
-                      Create FAQ
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/admin"
-                      className="block text-blue-400 py-2 px-6 hover:bg-gray-200"
-                    >
-                      All FAQs
-                    </Link>
-                  </li>
-                </ul>
-              )}
-            </li>
-            <li>
-              <button
-                onClick={() => setOpenSupports(!openSupports)}
-                className="block w-full text-left text-lg text-blue-500 py-2 px-4 rounded-md hover:bg-gray-200 transition duration-300"
-              >
-                Supports{" "}
-                <span className="float-right">
-                  {openSupports ? <FaChevronUp /> : <FaChevronDown />}
-                </span>
-              </button>
-              {openSupports && (
-                <ul className=" space-y-2">
-                  <li>
-                    <Link
-                      to="/admin"
-                      className="block text-blue-400 py-2 px-6 hover:bg-gray-200"
-                    >
-                      Create Support
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/admin"
-                      className="block text-blue-400 py-2 px-6 hover:bg-gray-200"
-                    >
-                      All Support
-                    </Link>
-                  </li>
-                </ul>
-              )}
-            </li>
-          </>
-        )}
-
-        {role === 2 && (
-          <>
-            <li>
-              <Link
-                to="/student/surveys"
-                className="block text-lg text-white hover:text-gray-300 py-2 px-4 rounded-md hover:bg-blue-700 transition duration-300"
-              >
-                Surveys
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/student/competitions"
-                className="block text-lg text-white hover:text-gray-300 py-2 px-4 rounded-md hover:bg-blue-700 transition duration-300"
-              >
-                Seminar
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/student/competitions"
-                className="block text-lg text-white hover:text-gray-300 py-2 px-4 rounded-md hover:bg-blue-700 transition duration-300"
-              >
-                FAQs
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/student/competitions"
-                className="block text-lg text-white hover:text-gray-300 py-2 px-4 rounded-md hover:bg-blue-700 transition duration-300"
-              >
-                Supports
-              </Link>
-            </li>
-          </>
-        )}
-
-        {role === 3 && (
-          <>
-            <li>
-              <Link
-                to="/student/surveys"
-                className="block text-lg text-white hover:text-gray-300 py-2 px-4 rounded-md hover:bg-blue-700 transition duration-300"
-              >
-                Surveys
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/student/competitions"
-                className="block text-lg text-white hover:text-gray-300 py-2 px-4 rounded-md hover:bg-blue-700 transition duration-300"
-              >
-                Seminar
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/student/competitions"
-                className="block text-lg text-white hover:text-gray-300 py-2 px-4 rounded-md hover:bg-blue-700 transition duration-300"
-              >
-                FAQs
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/student/competitions"
-                className="block text-lg text-white hover:text-gray-300 py-2 px-4 rounded-md hover:bg-blue-700 transition duration-300"
-              >
-                Supports
-              </Link>
-            </li>
-          </>
-        )}
-      </ul>
-
-      <div className="mt-6 border-t border-gray-700 pt-6">
+    <div className="bg-white font-medium w-64 h-screen p-4 ">
+      <ul className="space-y-4">{renderMenu(menus[role] || [])}</ul>
+      <div className="mt-6 border-t border-gray-300 pt-6">
         <button
           onClick={handleLogout}
-          className="w-full bg-red-600 text-white py-2 rounded-md hover:bg-red-700 transition duration-300"
+          className="w-full bg-red-500 text-white py-2 rounded-md hover:bg-red-600 transition duration-300"
         >
           Logout
         </button>

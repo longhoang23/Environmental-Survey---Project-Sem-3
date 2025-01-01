@@ -4653,11 +4653,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Lập trình\\Aptech\\Project\\Project 3\\Source code\\Environmental-Survey---Project-Sem-3\\api\\api.csproj",
+      "projectUniqueName": "D:\\Lập trình\\Aptech\\Project\\Project 3\\New folder\\Environmental-Survey---Project-Sem-3\\api\\api.csproj",
       "projectName": "api",
-      "projectPath": "D:\\Lập trình\\Aptech\\Project\\Project 3\\Source code\\Environmental-Survey---Project-Sem-3\\api\\api.csproj",
+      "projectPath": "D:\\Lập trình\\Aptech\\Project\\Project 3\\New folder\\Environmental-Survey---Project-Sem-3\\api\\api.csproj",
       "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "D:\\Lập trình\\Aptech\\Project\\Project 3\\Source code\\Environmental-Survey---Project-Sem-3\\api\\obj\\",
+      "outputPath": "D:\\Lập trình\\Aptech\\Project\\Project 3\\New folder\\Environmental-Survey---Project-Sem-3\\api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",

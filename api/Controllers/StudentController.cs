@@ -79,6 +79,7 @@ namespace api.Controllers
         }
 
         [HttpDelete("delete/{userId}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteStudent(int userId)
         {
             var deletedStudent = await _studentRepository.DeleteStudentAsync(userId);

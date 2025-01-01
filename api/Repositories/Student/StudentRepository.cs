@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using api.Data;
 using api.Enums.Role;
+using api.Helpers;
 using api.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -67,10 +68,15 @@ namespace api.Repositories.Student
             var existingUser = await _context.Users.FindAsync(userId);
             if (existingUser == null || existingUser.Role != UserRole.Student)
             {
-                return null; // Student not found or role mismatch
+                return null; // Not found or not a student
             }
 
-            // Update the fields you wish to allow
+            // Before overwriting fields, store old first/last for comparison
+            string oldFirst = existingUser.FirstName;
+            string oldLast  = existingUser.LastName;
+            string oldUsername = existingUser.Username;
+
+            // Overwrite allowed fields
             existingUser.FirstName = updatedUser.FirstName;
             existingUser.LastName = updatedUser.LastName;
             existingUser.PhoneNumber = updatedUser.PhoneNumber;
@@ -78,20 +84,59 @@ namespace api.Repositories.Student
             existingUser.KlassId = updatedUser.KlassId;
             existingUser.Specification = updatedUser.Specification;
             existingUser.Status = updatedUser.Status;
-            // existingUser.Username = updatedUser.Username;
             existingUser.UpdatedAt = updatedUser.UpdatedAt;
 
-            // Only update password if provided
+            // Password if provided
             if (!string.IsNullOrEmpty(updatedUser.PasswordHash))
             {
                 existingUser.PasswordHash = updatedUser.PasswordHash;
             }
 
-            // AdmissionDate/JoinDate can be handled similarly if relevant for updates
-            
+            // 1. Check if first or last name changed
+            bool nameChanged = (oldFirst != updatedUser.FirstName) || (oldLast != updatedUser.LastName);
+
+            // 2. If name changed, rebuild the username while preserving old suffix
+            if (nameChanged && !string.IsNullOrWhiteSpace(oldUsername))
+            {
+                // Extract the old 4-digit suffix
+                string suffix = ExtractSuffix(oldUsername);
+                
+                // Create new prefix => "firstname.lastname"
+                string newPrefix = UsernameGenerator.GenerateUsername(updatedUser.FirstName, updatedUser.LastName);
+
+                // Combine them
+                existingUser.Username = newPrefix + suffix;
+            }
+
             await _context.SaveChangesAsync();
             return existingUser;
         }
+
+        /// <summary>
+        /// Extracts the last 4-digit suffix from the old username. If not found, generate a new one.
+        /// </summary>
+        private string ExtractSuffix(string oldUsername)
+        {
+            if (oldUsername.Length < 4)
+            {
+                // fallback to generating a new suffix
+                return UsernameGenerator.Generate4Digits();
+            }
+
+            // last 4 chars
+            string possibleDigits = oldUsername[^4..]; // substring from length-4 to the end
+            if (int.TryParse(possibleDigits, out _))
+            {
+                return possibleDigits; // last 4 are digits
+            }
+            else
+            {
+                // fallback if user had no digit suffix
+                return UsernameGenerator.Generate4Digits();
+            }
+        }
+
+
 
         public async Task<User?> DeleteStudentAsync(int userId)
         {

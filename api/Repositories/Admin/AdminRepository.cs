@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using api.Data;
 using api.Enums.Role;
+using api.Helpers;
 using api.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -53,6 +54,7 @@ namespace api.Repositories.Admin
             {
                 return null;
             }
+            
 
             if (!string.Equals(existingUser.Username, updatedUser.Username, StringComparison.OrdinalIgnoreCase))
             {
@@ -75,7 +77,9 @@ namespace api.Repositories.Admin
                     return null;
                 }
             }
-
+            string oldFirst = existingUser.FirstName;
+            string oldLast  = existingUser.LastName;
+            string oldUsername = existingUser.Username;
             // Update fields (you can map all fields you want to allow updates on)
             existingUser.FirstName = updatedUser.FirstName;
             existingUser.LastName = updatedUser.LastName;
@@ -92,9 +96,44 @@ namespace api.Repositories.Admin
             {
                 existingUser.PasswordHash = updatedUser.PasswordHash;
             }
+            
+            // 1. Check if first or last name changed
+            bool nameChanged = (oldFirst != updatedUser.FirstName) || (oldLast != updatedUser.LastName);
+
+            // 2. If name changed, rebuild username, preserving old suffix
+            if (nameChanged && !string.IsNullOrWhiteSpace(oldUsername))
+            {
+                // Extract old 4-digit suffix
+                string suffix = ExtractSuffix(oldUsername);
+
+                // Build new prefix => "firstname.lastname"
+                string newPrefix = UsernameGenerator.GenerateUsername(updatedUser.FirstName, updatedUser.LastName);
+
+                // Combine them
+                existingUser.Username = newPrefix + suffix;
+            }
 
             await _context.SaveChangesAsync();
             return existingUser;
+        }
+
+        private string ExtractSuffix(string oldUsername)
+        {
+            if (oldUsername.Length < 4)
+            {
+                // fallback
+                return UsernameGenerator.Generate4Digits();
+            }
+
+            string possibleDigits = oldUsername[^4..];
+            if (int.TryParse(possibleDigits, out _))
+            {
+                return possibleDigits;
+            }
+            else
+            {
+                return UsernameGenerator.Generate4Digits();
+            }
         }
 
         public async Task<User?> DeleteAdminAsync(int userId)
