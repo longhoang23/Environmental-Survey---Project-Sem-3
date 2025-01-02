@@ -37,12 +37,14 @@ const Sidebar = () => {
   // Danh sách menu dựa trên vai trò
   const menus = {
     1: [
-      { name: "Dashboard", path: "/dashboard/dashboard" },
+      { name: "Dashboard", path: "/dashboard" },
       { name: "User Requests", path: "/admin/user-requests" },
       {
         name: "Survey",
         subMenus: [
           { name: "Create Survey", path: "/admin/add-survey" },
+          { name: "Survey Question", path: "/admin/questions" },
+          { name: "Survey Option", path: "/admin/options" },
           { name: "All Surveys", path: "/admin/surveys" },
         ],
       },
@@ -56,15 +58,15 @@ const Sidebar = () => {
       {
         name: "Competition",
         subMenus: [
-          { name: "Create Competition", path: "/competition-list" },
-          { name: "All Competitions", path: "/add-competition" },
+          { name: "Create Competition", path: "/add-competition" },
+          { name: "All Competitions", path: "/competition-list" },
         ],
       },
       {
         name: "FAQs",
         subMenus: [
-          { name: "Create FAQ", path: "/admin/create-faq" },
-          { name: "All FAQs", path: "/admin/all-faqs" },
+          { name: "Create FAQ", path: "/admin/add-faq" },
+          { name: "All FAQs", path: "/admin/faqs" },
         ],
       },
       {

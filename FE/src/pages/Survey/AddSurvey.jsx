@@ -3,20 +3,22 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { getAuthHeaders } from "../../Services/userAuth"; // Assuming you have this utility
 
-
 const AddSurvey = () => {
   const apiUrl = import.meta.env.VITE_PUBLIC_URL;
+  const navigate = useNavigate();
+
+  const currentUser = JSON.parse(localStorage.getItem("user"));
+  const createdBy = currentUser?.userID || 0;
+
   const [survey, setSurvey] = useState({
     title: "",
     description: "",
     targetAudience: "",
     startDate: "",
     endDate: "",
-    createdBy : 0,
+    createdBy: createdBy,
     isActive: true,
   });
-
-  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -71,7 +73,9 @@ const AddSurvey = () => {
             id="description"
             name="description"
             value={survey.description}
-            onChange={(e) => setSurvey({ ...survey, description: e.target.value })}
+            onChange={(e) =>
+              setSurvey({ ...survey, description: e.target.value })
+            }
             required
             className="block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
           />
@@ -89,7 +93,9 @@ const AddSurvey = () => {
             id="targetAudience"
             name="targetAudience"
             value={survey.targetAudience}
-            onChange={(e) => setSurvey({ ...survey, targetAudience: e.target.value })}
+            onChange={(e) =>
+              setSurvey({ ...survey, targetAudience: e.target.value })
+            }
             required
             className="block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
           />
@@ -107,7 +113,9 @@ const AddSurvey = () => {
             id="startDate"
             name="startDate"
             value={survey.startDate}
-            onChange={(e) => setSurvey({ ...survey, startDate: e.target.value })}
+            onChange={(e) =>
+              setSurvey({ ...survey, startDate: e.target.value })
+            }
             required
             className="block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
           />
@@ -141,9 +149,11 @@ const AddSurvey = () => {
           <input
             type="number"
             id="createdBy"
-            name="createdBy"
+            readOnly
             value={survey.createdBy}
-            onChange={(e) => setSurvey({ ...survey, createdBy: e.target.value })}
+            onChange={(e) =>
+              setSurvey({ ...survey, createdBy: e.target.value })
+            }
             required
             className="block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
           />
@@ -161,7 +171,9 @@ const AddSurvey = () => {
             id="isActive"
             name="isActive"
             checked={survey.isActive}
-            onChange={(e) => setSurvey({ ...survey, isActive: e.target.checked })}
+            onChange={(e) =>
+              setSurvey({ ...survey, isActive: e.target.checked })
+            }
             className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
           />
         </div>

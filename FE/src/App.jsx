@@ -51,9 +51,9 @@ import CompetitionList from "./pages/Competition/CompetitionList";
 import CompetitionDetail from "./pages/Competition/CompetitionDetail";
 import AddCompetition from "./pages/Competition/AddCompetition";
 import UpdateCompetition from "./pages/Competition/UpdateCompetition";
-import AddParticipation from "./pages/Participation/AddParticipation"; 
-import ParticipationDetail from "./pages/Participation/ParticipationDetail"; 
-import ParticipationList from "./pages/Participation/ParticipationList"; 
+import AddParticipation from "./pages/Participation/AddParticipation";
+import ParticipationDetail from "./pages/Participation/ParticipationDetail";
+import ParticipationList from "./pages/Participation/ParticipationList";
 import UpdateParticipation from "./pages/Participation/UpdateParticipation";
 import ResponseList from "./pages/Response/ResponseList";
 import ResponseDetail from "./pages/Response/ResponseDetail";
@@ -63,9 +63,6 @@ import SupportList from "./pages/Support/SupportList";
 import SupportDetail from "./pages/Support/SupportDetail";
 import AddSupport from "./pages/Support/AddSupport";
 import UpdateSupport from "./pages/Support/UpdateSupport";
-
-
-
 
 import { useEffect, useState } from "react";
 
@@ -104,7 +101,7 @@ function App() {
                 />
                 <Route path="/admin/user-requests" element={<UserRequests />} />
                 <Route path="/admin/user-detail/:id" element={<UserDetail />} />
-                <Route path="/dashboard/dashboard" element={<Dashboard />} />
+                <Route path="/dashboard" element={<Dashboard />} />
 
                 <Route path="/admin/admin-list" element={<AdminList />} />
                 <Route
@@ -166,34 +163,58 @@ function App() {
                   element={<UpdateStaff />}
                 />
 
-          <Route path="/seminar-list" element={<SeminarList />} />
-          <Route path="/seminar-detail/:id" element={<SeminarDetail />} />
-          <Route path="/add-seminar" element={<AddSeminar />} />
-          <Route path="/update-seminar/:id" element={<UpdateSeminar />} />
+                <Route path="/seminar-list" element={<SeminarList />} />
+                <Route path="/seminar-detail/:id" element={<SeminarDetail />} />
+                <Route path="/add-seminar" element={<AddSeminar />} />
+                <Route path="/update-seminar/:id" element={<UpdateSeminar />} />
 
-          <Route path="/competition-list" element={<CompetitionList />} />
-          <Route path="/competition-detail/:id" element={<CompetitionDetail />} />
-          <Route path="/add-competition" element={<AddCompetition />} />
-          <Route path="/update-competition/:id" element={<UpdateCompetition />} />
+                <Route path="/competition-list" element={<CompetitionList />} />
+                <Route
+                  path="/competition-detail/:id"
+                  element={<CompetitionDetail />}
+                />
+                <Route path="/add-competition" element={<AddCompetition />} />
+                <Route
+                  path="/update-competition/:id"
+                  element={<UpdateCompetition />}
+                />
 
-          <Route path="/participation-list" element={<ParticipationList />} />
-          <Route path="/participation-detail/:id" element={<ParticipationDetail />} />
-          <Route path="/add-participation" element={<AddParticipation />} />
-          <Route path="/update-participation/:id" element={<UpdateParticipation />} />
+                <Route
+                  path="/participation-list"
+                  element={<ParticipationList />}
+                />
+                <Route
+                  path="/participation-detail/:id"
+                  element={<ParticipationDetail />}
+                />
+                <Route
+                  path="/add-participation"
+                  element={<AddParticipation />}
+                />
+                <Route
+                  path="/update-participation/:id"
+                  element={<UpdateParticipation />}
+                />
 
-          {/* Response Routes */}
-          <Route path="/response-list" element={<ResponseList />} />
-          <Route path="/response-detail/:id" element={<ResponseDetail />} />
-          <Route path="/add-response" element={<AddResponse />} />
-          <Route path="/update-response/:id" element={<UpdateResponse />} />
+                {/* Response Routes */}
+                <Route path="/response-list" element={<ResponseList />} />
+                <Route
+                  path="/response-detail/:id"
+                  element={<ResponseDetail />}
+                />
+                <Route path="/add-response" element={<AddResponse />} />
+                <Route
+                  path="/update-response/:id"
+                  element={<UpdateResponse />}
+                />
 
-          {/* Support Routes */}
-          <Route path="/support-list" element={<SupportList />} />
-          <Route path="/support-detail/:id" element={<SupportDetail />} />
-          <Route path="/add-support" element={<AddSupport />} />
-          <Route path="/update-support/:id" element={<UpdateSupport />} />
+                {/* Support Routes */}
+                <Route path="/support-list" element={<SupportList />} />
+                <Route path="/support-detail/:id" element={<SupportDetail />} />
+                <Route path="/add-support" element={<AddSupport />} />
+                <Route path="/update-support/:id" element={<UpdateSupport />} />
 
-          <Route path="/admin/student-list" element={<StudentList />} />
+                <Route path="/admin/student-list" element={<StudentList />} />
                 <Route
                   path="/admin/student-detail/:id"
                   element={<StudentDetail />}

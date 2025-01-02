@@ -11,7 +11,7 @@ const Dashboard = () => {
     { name: "Competition", path: "/competition-list" },
     { name: "Participation", path: "/participation" },
     { name: "Survey", path: "/admin/surveys" },
-    { name: "FAQ", path: "/faq" },
+    { name: "FAQ", path: "/admin/faqs" },
     { name: "Support", path: "/support" },
   ];
 
