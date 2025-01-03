@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
+import Profile from "./components/Profile";
 import HomePage from "./pages/Home/HomePage";
 import LoginPage from "./pages/Login/LoginPage";
 import KlassList from "./pages/Klass/KlassList";
@@ -15,7 +16,6 @@ import UserRequests from "./pages/Admin/UserRequests";
 import UserDetail from "./pages/Admin/UserDetail";
 import Dashboard from "./pages/Dashboard/Dashboard";
 
-//Survey
 import SurveyList from "./pages/Survey/SurveyList";
 import AddSurvey from "./pages/Survey/AddSurvey";
 import UpdateSurvey from "./pages/Survey/UpdateSurvey";
@@ -80,6 +80,7 @@ function App() {
 
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/register" element={<RegisterPage />} />
+                <Route path="/profile" element={<Profile />} />
 
                 <Route path="/admin/classes" element={<KlassList />} />
                 <Route path="/admin/add-class" element={<AddKlass />} />
