@@ -37,9 +37,6 @@ const UpdateParticipation = () => {
 
         if (participationResponse.status === 200) {
           setParticipation(participationResponse.data); // Set participation data
-          setInitialDates({
-            participationDate: response.data.participationDate,
-          });
           setLoading(false);
         } else {
           setError("Failed to load participation data."); // Handle non-200 responses
@@ -57,6 +54,19 @@ const UpdateParticipation = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null);
+
+    if (!participation.participationDate) {
+      setError("Participation date is required.");
+      setLoading(false);
+      return;
+    }
+
+    const selectedUser = users.find((user) => user.userID === participation.userID);
+    if (!selectedUser || !selectedUser.isActive) {
+      setError("Selected user is inactive and cannot participate.");
+      setLoading(false);
+      return;
+    }
 
     try {
       const response = await axios.put(`${apiUrl}/Participation/update/${id}`, participation, {
@@ -88,7 +98,9 @@ const UpdateParticipation = () => {
             className="border p-2 rounded"
           >
             <option value={0}>-- Select User --</option>
-            {users.map((user) => (
+            {users
+            .filter((user) => user.isActive) // Only include active users
+            .map((user) => (
               <option key={user.userID} value={user.userID}>
                 {user.firstName} {user.lastName}
               </option>
@@ -114,12 +126,16 @@ const UpdateParticipation = () => {
         </div>
 
         <div className="flex flex-col mb-4">
-          <label htmlFor="participationDate" className="font-semibold mb-1">Participation Date</label>
+          <label htmlFor="participationDate" className="font-semibold mb-1">
+            Participation Date
+          </label>
           <input
             id="participationDate"
-            type="date"
+            type="datetime-local"
             value={participation.participationDate}
-            onChange={(e) => setParticipation({ ...participation, participationDate: e.target.value })}
+            onChange={(e) =>
+              setParticipation({ ...participation, participationDate: e.target.value })
+            }
             className="border p-2 rounded"
             required
           />

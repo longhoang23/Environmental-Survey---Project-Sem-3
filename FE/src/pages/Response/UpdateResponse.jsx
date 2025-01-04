@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
+import { getAuthHeaders } from "../../Services/userAuth";
 
 const UpdateResponse = () => {
   const apiUrl = import.meta.env.VITE_PUBLIC_URL; // Backend API base URL
@@ -23,17 +24,22 @@ const UpdateResponse = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [responseRes, participationRes, questionRes, optionRes] = await Promise.all([
-          axios.get(`${apiUrl}/Response/${id}`), // Get existing response by ID
+        const [participationRes, questionRes, optionRes] = await Promise.all([
           axios.get(`${apiUrl}/Participation/all`),
           axios.get(`${apiUrl}/SurveyQuestion/all`),
           axios.get(`${apiUrl}/SurveyOption/all`), // Fetch all options
         ]);
-
-        setResponse(responseRes.data);
         setParticipations(participationRes.data);
         setQuestions(questionRes.data);
         setOptions(optionRes.data);
+
+        const responseRes = await axios.post(`${apiUrl}/Response/${id}`, response, {
+          headers: getAuthHeaders(),
+        });
+        if (responseRes.status === 200) {
+         setResponse(responseRes.data);
+         setLoading(false);
+        }
       } catch (err) {
         console.error("Error fetching data:", err);
         setError("Failed to load data.");
@@ -52,11 +58,12 @@ const UpdateResponse = () => {
     try {
       const updateRes = await axios.put(`${apiUrl}/Response/update/${id}`, response, {
         headers: { "Content-Type": "application/json" },
+        headers: getAuthHeaders(),
       });
 
       if (updateRes.status === 200) {
         alert("Response updated successfully!");
-        navigate("/response-list");
+        navigate("/admin/response-list");
       }
     } catch (err) {
       console.error("Error updating response:", err);
@@ -102,7 +109,7 @@ const UpdateResponse = () => {
             <option value={0}>-- Select Question --</option>
             {questions.map((q) => (
               <option key={q.questionID} value={q.questionID}>
-                {q.questionID}
+                {q.questionText}
               </option>
             ))}
           </select>
