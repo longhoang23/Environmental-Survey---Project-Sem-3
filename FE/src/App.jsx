@@ -16,6 +16,7 @@ import UserRequests from "./pages/Admin/UserRequests";
 import UserDetail from "./pages/Admin/UserDetail";
 import Dashboard from "./pages/Dashboard/Dashboard";
 
+//Survey
 import SurveyList from "./pages/Survey/SurveyList";
 import AddSurvey from "./pages/Survey/AddSurvey";
 import UpdateSurvey from "./pages/Survey/UpdateSurvey";
@@ -65,6 +66,9 @@ import AddSupport from "./pages/Support/AddSupport";
 import UpdateSupport from "./pages/Support/UpdateSupport";
 
 import { useEffect, useState } from "react";
+import SectionList from "./pages/Section/SectionList";
+import AddSection from "./pages/Section/AddSection";
+import UpdateSection from "./pages/Section/UpdateSection";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -100,6 +104,11 @@ function App() {
                   path="/admin/update-class/:klassId"
                   element={<UpdateKlass />}
                 />
+                <Route path="/admin/sections" element={<SectionList />} />
+                <Route path="/admin/add-section" element={<AddSection />} />
+                <Route path="/admin/update-section/:sectionId" element={<UpdateSection />} />
+
+
                 <Route path="/admin/user-requests" element={<UserRequests />} />
                 <Route path="/admin/user-detail/:id" element={<UserDetail />} />
                 <Route path="/dashboard" element={<Dashboard />} />

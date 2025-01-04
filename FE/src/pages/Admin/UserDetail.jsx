@@ -21,6 +21,7 @@ const UserDetail = () => {
     );
   }
 
+  // Function to handle null or undefined values
   const formatValue = (value) =>
     value === null || value === undefined ? "null" : value;
 

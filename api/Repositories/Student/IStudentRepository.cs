@@ -14,5 +14,6 @@ namespace api.Repositories.Student
         Task<User?> UpdateStudentAsync(User updatedUser, int userId);
         Task<User?> DeleteStudentAsync(int userId);
         Task<bool> StudentExistsAsync(int userId);
+        Task<User?> GetUserByPhoneAsync(string phoneNumber);
     }
 }

@@ -26,7 +26,7 @@ const Sidebar = () => {
     return null; // Không hiển thị nếu chưa đăng nhập
   }
 
-  const { role } = user;
+  const { firstName, role } = user;
 
   const handleLogout = () => {
     localStorage.removeItem("user");
