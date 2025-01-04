@@ -37,6 +37,10 @@ const UpdateParticipation = () => {
 
         if (participationResponse.status === 200) {
           setParticipation(participationResponse.data); // Set participation data
+          setInitialDates({
+            participationDate: response.data.participationDate,
+          });
+          setLoading(false);
         } else {
           setError("Failed to load participation data."); // Handle non-200 responses
         }
