@@ -9,19 +9,11 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = api
 build_property.RootNamespace = api
-<<<<<<< HEAD
 build_property.ProjectDir = D:\Codes\Aptech_learning\eProject\eProject3\Environmental-Survey---Project-Sem-3\api\
-=======
-build_property.ProjectDir = D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\
->>>>>>> 8fad7164fd4be2daf105824012a01fa6231b7194
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-<<<<<<< HEAD
 build_property.MSBuildProjectDirectory = D:\Codes\Aptech_learning\eProject\eProject3\Environmental-Survey---Project-Sem-3\api
-=======
-build_property.MSBuildProjectDirectory = D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api
->>>>>>> 8fad7164fd4be2daf105824012a01fa6231b7194
 build_property._RazorSourceGeneratorDebug = 

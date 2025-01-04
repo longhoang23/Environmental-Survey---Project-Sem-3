@@ -50,15 +50,6 @@ namespace api.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-<<<<<<< HEAD
-            var user = createStudentDTO.ToCreateStudentResponse();
-            var createdStudent = await _studentRepository.CreateStudentAsync(user);
-            var studentDTO = createdStudent.ToStudentDTO();
-
-            return CreatedAtAction(nameof(GetStudentById), new { userId = studentDTO.UserID }, studentDTO);
-        }
-
-=======
             // 1. Check if phone number is already in use
             var existingUser = await _studentRepository.GetUserByPhoneAsync(createStudentDTO.PhoneNumber);
             if (existingUser != null)
@@ -134,7 +125,6 @@ namespace api.Controllers
         }
 
 
->>>>>>> 8fad7164fd4be2daf105824012a01fa6231b7194
         [HttpPut("update/{userId}")]
         public async Task<IActionResult> UpdateStudent(int userId, [FromBody] UpdateStudentDTO updateStudentDTO)
         {

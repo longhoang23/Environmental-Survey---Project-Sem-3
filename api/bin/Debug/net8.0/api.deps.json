@@ -17,12 +17,8 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.11",
           "Microsoft.EntityFrameworkCore.Tools": "8.0.11",
           "Newtonsoft.Json": "13.0.3",
-<<<<<<< HEAD
-          "Swashbuckle.AspNetCore": "6.6.2"
-=======
           "Swashbuckle.AspNetCore": "6.6.2",
           "Twilio": "7.8.0"
->>>>>>> 8fad7164fd4be2daf105824012a01fa6231b7194
         },
         "runtime": {
           "api.dll": {}
@@ -721,11 +717,8 @@
           }
         }
       },
-<<<<<<< HEAD
-=======
       "Microsoft.NETCore.Platforms/1.1.0": {},
       "Microsoft.NETCore.Targets/1.1.0": {},
->>>>>>> 8fad7164fd4be2daf105824012a01fa6231b7194
       "Microsoft.OpenApi/1.6.14": {
         "runtime": {
           "lib/netstandard2.0/Microsoft.OpenApi.dll": {
@@ -851,8 +844,6 @@
           "System.Runtime.CompilerServices.Unsafe": "6.0.0"
         }
       },
-<<<<<<< HEAD
-=======
       "System.Collections.NonGeneric/4.3.0": {
         "dependencies": {
           "System.Diagnostics.Debug": "4.3.0",
@@ -874,7 +865,6 @@
           "System.Threading": "4.3.0"
         }
       },
->>>>>>> 8fad7164fd4be2daf105824012a01fa6231b7194
       "System.Composition/6.0.0": {
         "dependencies": {
           "System.Composition.AttributedModel": "6.0.0",
@@ -947,8 +937,6 @@
           }
         }
       },
-<<<<<<< HEAD
-=======
       "System.Diagnostics.Debug/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
@@ -956,7 +944,6 @@
           "System.Runtime": "4.3.0"
         }
       },
->>>>>>> 8fad7164fd4be2daf105824012a01fa6231b7194
       "System.Diagnostics.DiagnosticSource/6.0.1": {
         "dependencies": {
           "System.Runtime.CompilerServices.Unsafe": "6.0.0"
@@ -987,15 +974,14 @@
           }
         }
       },
-<<<<<<< HEAD
       "System.Formats.Asn1/8.0.1": {
         "runtime": {
           "lib/net8.0/System.Formats.Asn1.dll": {
             "assemblyVersion": "8.0.0.0",
             "fileVersion": "8.0.724.31311"
           }
-=======
-      "System.Formats.Asn1/8.0.1": {},
+        }
+      },
       "System.Globalization/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
@@ -1011,7 +997,6 @@
           "System.Runtime": "4.3.0",
           "System.Runtime.Extensions": "4.3.0",
           "System.Runtime.InteropServices": "4.3.0"
->>>>>>> 8fad7164fd4be2daf105824012a01fa6231b7194
         }
       },
       "System.IdentityModel.Tokens.Jwt/7.1.2": {
@@ -1026,8 +1011,6 @@
           }
         }
       },
-<<<<<<< HEAD
-=======
       "System.IO/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
@@ -1037,7 +1020,6 @@
           "System.Threading.Tasks": "4.3.0"
         }
       },
->>>>>>> 8fad7164fd4be2daf105824012a01fa6231b7194
       "System.IO.Pipelines/6.0.3": {},
       "System.Memory/4.5.4": {},
       "System.Memory.Data/1.0.2": {
@@ -1053,8 +1035,6 @@
         }
       },
       "System.Numerics.Vectors/4.5.0": {},
-<<<<<<< HEAD
-=======
       "System.Reflection/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
@@ -1064,14 +1044,11 @@
           "System.Runtime": "4.3.0"
         }
       },
->>>>>>> 8fad7164fd4be2daf105824012a01fa6231b7194
       "System.Reflection.Metadata/6.0.1": {
         "dependencies": {
           "System.Collections.Immutable": "6.0.0"
         }
       },
-<<<<<<< HEAD
-=======
       "System.Reflection.Primitives/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
@@ -1094,7 +1071,6 @@
           "Microsoft.NETCore.Targets": "1.1.0"
         }
       },
->>>>>>> 8fad7164fd4be2daf105824012a01fa6231b7194
       "System.Runtime.Caching/6.0.0": {
         "dependencies": {
           "System.Configuration.ConfigurationManager": "6.0.1"
@@ -1115,8 +1091,6 @@
         }
       },
       "System.Runtime.CompilerServices.Unsafe/6.0.0": {},
-<<<<<<< HEAD
-=======
       "System.Runtime.Extensions/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
@@ -1141,7 +1115,6 @@
           "System.Runtime.Handles": "4.3.0"
         }
       },
->>>>>>> 8fad7164fd4be2daf105824012a01fa6231b7194
       "System.Security.AccessControl/6.0.0": {},
       "System.Security.Cryptography.Cng/5.0.0": {
         "dependencies": {
@@ -1177,8 +1150,6 @@
         }
       },
       "System.Security.Principal.Windows/5.0.0": {},
-<<<<<<< HEAD
-=======
       "System.Text.Encoding/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
@@ -1186,7 +1157,6 @@
           "System.Runtime": "4.3.0"
         }
       },
->>>>>>> 8fad7164fd4be2daf105824012a01fa6231b7194
       "System.Text.Encoding.CodePages/6.0.0": {
         "dependencies": {
           "System.Runtime.CompilerServices.Unsafe": "6.0.0"
@@ -1198,9 +1168,6 @@
         }
       },
       "System.Text.Json/4.7.2": {},
-<<<<<<< HEAD
-      "System.Threading.Channels/6.0.0": {},
-=======
       "System.Threading/4.3.0": {
         "dependencies": {
           "System.Runtime": "4.3.0",
@@ -1215,7 +1182,6 @@
           "System.Runtime": "4.3.0"
         }
       },
->>>>>>> 8fad7164fd4be2daf105824012a01fa6231b7194
       "System.Threading.Tasks.Extensions/4.5.4": {},
       "System.Windows.Extensions/6.0.0": {
         "dependencies": {
@@ -1235,8 +1201,6 @@
             "fileVersion": "6.0.21.52210"
           }
         }
-<<<<<<< HEAD
-=======
       },
       "Twilio/7.8.0": {
         "dependencies": {
@@ -1251,7 +1215,6 @@
             "fileVersion": "7.8.0.0"
           }
         }
->>>>>>> 8fad7164fd4be2daf105824012a01fa6231b7194
       }
     }
   },
@@ -1597,8 +1560,6 @@
       "path": "microsoft.identitymodel.tokens/7.1.2",
       "hashPath": "microsoft.identitymodel.tokens.7.1.2.nupkg.sha512"
     },
-<<<<<<< HEAD
-=======
     "Microsoft.NETCore.Platforms/1.1.0": {
       "type": "package",
       "serviceable": true,
@@ -1613,7 +1574,6 @@
       "path": "microsoft.netcore.targets/1.1.0",
       "hashPath": "microsoft.netcore.targets.1.1.0.nupkg.sha512"
     },
->>>>>>> 8fad7164fd4be2daf105824012a01fa6231b7194
     "Microsoft.OpenApi/1.6.14": {
       "type": "package",
       "serviceable": true,
@@ -1705,8 +1665,6 @@
       "path": "system.collections.immutable/6.0.0",
       "hashPath": "system.collections.immutable.6.0.0.nupkg.sha512"
     },
-<<<<<<< HEAD
-=======
     "System.Collections.NonGeneric/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -1721,7 +1679,6 @@
       "path": "system.collections.specialized/4.3.0",
       "hashPath": "system.collections.specialized.4.3.0.nupkg.sha512"
     },
->>>>>>> 8fad7164fd4be2daf105824012a01fa6231b7194
     "System.Composition/6.0.0": {
       "type": "package",
       "serviceable": true,
@@ -1771,8 +1728,6 @@
       "path": "system.configuration.configurationmanager/6.0.1",
       "hashPath": "system.configuration.configurationmanager.6.0.1.nupkg.sha512"
     },
-<<<<<<< HEAD
-=======
     "System.Diagnostics.Debug/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -1780,7 +1735,6 @@
       "path": "system.diagnostics.debug/4.3.0",
       "hashPath": "system.diagnostics.debug.4.3.0.nupkg.sha512"
     },
->>>>>>> 8fad7164fd4be2daf105824012a01fa6231b7194
     "System.Diagnostics.DiagnosticSource/6.0.1": {
       "type": "package",
       "serviceable": true,
@@ -1802,8 +1756,6 @@
       "path": "system.formats.asn1/8.0.1",
       "hashPath": "system.formats.asn1.8.0.1.nupkg.sha512"
     },
-<<<<<<< HEAD
-=======
     "System.Globalization/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -1818,7 +1770,6 @@
       "path": "system.globalization.extensions/4.3.0",
       "hashPath": "system.globalization.extensions.4.3.0.nupkg.sha512"
     },
->>>>>>> 8fad7164fd4be2daf105824012a01fa6231b7194
     "System.IdentityModel.Tokens.Jwt/7.1.2": {
       "type": "package",
       "serviceable": true,
@@ -1826,8 +1777,6 @@
       "path": "system.identitymodel.tokens.jwt/7.1.2",
       "hashPath": "system.identitymodel.tokens.jwt.7.1.2.nupkg.sha512"
     },
-<<<<<<< HEAD
-=======
     "System.IO/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -1835,7 +1784,6 @@
       "path": "system.io/4.3.0",
       "hashPath": "system.io.4.3.0.nupkg.sha512"
     },
->>>>>>> 8fad7164fd4be2daf105824012a01fa6231b7194
     "System.IO.Pipelines/6.0.3": {
       "type": "package",
       "serviceable": true,
@@ -1864,8 +1812,6 @@
       "path": "system.numerics.vectors/4.5.0",
       "hashPath": "system.numerics.vectors.4.5.0.nupkg.sha512"
     },
-<<<<<<< HEAD
-=======
     "System.Reflection/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -1873,7 +1819,6 @@
       "path": "system.reflection/4.3.0",
       "hashPath": "system.reflection.4.3.0.nupkg.sha512"
     },
->>>>>>> 8fad7164fd4be2daf105824012a01fa6231b7194
     "System.Reflection.Metadata/6.0.1": {
       "type": "package",
       "serviceable": true,
@@ -1881,8 +1826,6 @@
       "path": "system.reflection.metadata/6.0.1",
       "hashPath": "system.reflection.metadata.6.0.1.nupkg.sha512"
     },
-<<<<<<< HEAD
-=======
     "System.Reflection.Primitives/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -1904,7 +1847,6 @@
       "path": "system.runtime/4.3.0",
       "hashPath": "system.runtime.4.3.0.nupkg.sha512"
     },
->>>>>>> 8fad7164fd4be2daf105824012a01fa6231b7194
     "System.Runtime.Caching/6.0.0": {
       "type": "package",
       "serviceable": true,
@@ -1919,8 +1861,6 @@
       "path": "system.runtime.compilerservices.unsafe/6.0.0",
       "hashPath": "system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
     },
-<<<<<<< HEAD
-=======
     "System.Runtime.Extensions/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -1942,7 +1882,6 @@
       "path": "system.runtime.interopservices/4.3.0",
       "hashPath": "system.runtime.interopservices.4.3.0.nupkg.sha512"
     },
->>>>>>> 8fad7164fd4be2daf105824012a01fa6231b7194
     "System.Security.AccessControl/6.0.0": {
       "type": "package",
       "serviceable": true,
@@ -1978,8 +1917,6 @@
       "path": "system.security.principal.windows/5.0.0",
       "hashPath": "system.security.principal.windows.5.0.0.nupkg.sha512"
     },
-<<<<<<< HEAD
-=======
     "System.Text.Encoding/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -1987,7 +1924,6 @@
       "path": "system.text.encoding/4.3.0",
       "hashPath": "system.text.encoding.4.3.0.nupkg.sha512"
     },
->>>>>>> 8fad7164fd4be2daf105824012a01fa6231b7194
     "System.Text.Encoding.CodePages/6.0.0": {
       "type": "package",
       "serviceable": true,
@@ -2009,8 +1945,6 @@
       "path": "system.text.json/4.7.2",
       "hashPath": "system.text.json.4.7.2.nupkg.sha512"
     },
-<<<<<<< HEAD
-=======
     "System.Threading/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -2018,7 +1952,6 @@
       "path": "system.threading/4.3.0",
       "hashPath": "system.threading.4.3.0.nupkg.sha512"
     },
->>>>>>> 8fad7164fd4be2daf105824012a01fa6231b7194
     "System.Threading.Channels/6.0.0": {
       "type": "package",
       "serviceable": true,
@@ -2026,8 +1959,6 @@
       "path": "system.threading.channels/6.0.0",
       "hashPath": "system.threading.channels.6.0.0.nupkg.sha512"
     },
-<<<<<<< HEAD
-=======
     "System.Threading.Tasks/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -2035,7 +1966,6 @@
       "path": "system.threading.tasks/4.3.0",
       "hashPath": "system.threading.tasks.4.3.0.nupkg.sha512"
     },
->>>>>>> 8fad7164fd4be2daf105824012a01fa6231b7194
     "System.Threading.Tasks.Extensions/4.5.4": {
       "type": "package",
       "serviceable": true,
@@ -2049,8 +1979,6 @@
       "sha512": "sha512-IXoJOXIqc39AIe+CIR7koBtRGMiCt/LPM3lI+PELtDIy9XdyeSrwXFdWV9dzJ2Awl0paLWUaknLxFQ5HpHZUog==",
       "path": "system.windows.extensions/6.0.0",
       "hashPath": "system.windows.extensions.6.0.0.nupkg.sha512"
-<<<<<<< HEAD
-=======
     },
     "Twilio/7.8.0": {
       "type": "package",
@@ -2058,7 +1986,6 @@
       "sha512": "sha512-GsW+XAwXX1F2YKHoQuO7T73/awAxOskdVgtvsCi6mnHYVq0cffM1CZUQdERmRt9UiCmEvt32sPe7qy/On5TBzg==",
       "path": "twilio/7.8.0",
       "hashPath": "twilio.7.8.0.nupkg.sha512"
->>>>>>> 8fad7164fd4be2daf105824012a01fa6231b7194
     }
   }
 }
