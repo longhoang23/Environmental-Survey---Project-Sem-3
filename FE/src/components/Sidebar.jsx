@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 
 const Sidebar = () => {
   const [user, setUser] = useState(null);
   const [openMenus, setOpenMenus] = useState({}); // State quản lý menu mở
+  const navigate = useNavigate();
 
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -25,7 +26,7 @@ const Sidebar = () => {
     return null; // Không hiển thị nếu chưa đăng nhập
   }
 
-  const { firstName, role } = user;
+  const { role } = user;
 
   const handleLogout = () => {
     localStorage.removeItem("user");
@@ -34,7 +35,10 @@ const Sidebar = () => {
     window.location.href = "/login";
   };
 
-  // Danh sách menu dựa trên vai trò
+  const toggleMenu = (menuName) => {
+    setOpenMenus((prev) => ({ ...prev, [menuName]: !prev[menuName] }));
+  };
+
   const menus = {
     1: [
       { name: "Dashboard", path: "/dashboard" },
@@ -91,10 +95,6 @@ const Sidebar = () => {
     ],
   };
 
-  const toggleMenu = (menuName) => {
-    setOpenMenus((prev) => ({ ...prev, [menuName]: !prev[menuName] }));
-  };
-
   const renderMenu = (menuList) =>
     menuList.map((menu) =>
       menu.subMenus ? (
@@ -136,9 +136,15 @@ const Sidebar = () => {
     );
 
   return (
-    <div className="bg-white font-medium w-64 h-screen p-4 ">
+    <div className="bg-white font-medium w-64 h-screen p-4">
       <ul className="space-y-4">{renderMenu(menus[role] || [])}</ul>
       <div className="mt-6 border-t border-gray-300 pt-6">
+        <button
+          onClick={() => navigate("/profile")}
+          className="w-full bg-gray-200 text-gray-800 py-2 rounded-md hover:bg-gray-300 transition duration-300 mb-4"
+        >
+          Profile
+        </button>
         <button
           onClick={handleLogout}
           className="w-full bg-red-500 text-white py-2 rounded-md hover:bg-red-600 transition duration-300"
