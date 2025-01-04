@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { getAuthHeaders } from "../../Services/userAuth"; // Assuming you have this utility
+import { getAuthHeaders } from "../../Services/userAuth";
 
-const StudentList = () => {
+const StudentList = () => { 
   const [students, setStudents] = useState([]);
-  const [klasses, setKlasses] = useState([]); // list of { klassId, name }
+  const [klasses, setKlasses] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const apiUrl = import.meta.env.VITE_PUBLIC_URL; // e.g., http://localhost:5169/api
+  const apiUrl = import.meta.env.VITE_PUBLIC_URL;
 
   const navigate = useNavigate();
 
@@ -29,7 +29,7 @@ const StudentList = () => {
     if (!confirmDelete) return;
     try {
       const response = await axios.delete(`${apiUrl}/Student/delete/${id}`, {
-        headers: getAuthHeaders(),
+        headers: getAuthHeaders()
       });
       if (response.status === 200) {
         setStudents(students.filter((s) => s.userID !== id));
@@ -42,15 +42,17 @@ const StudentList = () => {
       setLoading(false);
     }
   };
+  const userRole = JSON.parse(localStorage.getItem('user')).role;
+  const isStudent = userRole == 3
+  
 
   useEffect(() => {
     const fetchData = async () => {
+      
       try {
-        // Load all students
         const studentResponse = await axios.get(`${apiUrl}/Student/all`);
         setStudents(studentResponse.data);
 
-        // Load all classes
         const klassResponse = await axios.get(`${apiUrl}/Klass/all`);
         setKlasses(klassResponse.data);
 
@@ -72,7 +74,6 @@ const StudentList = () => {
     return <div className="text-center text-lg text-red-500">{error}</div>;
   }
 
-  // Helper to get the klass name from klassId
   const getKlassName = (klassId) => {
     const found = klasses.find((k) => k.klassId === klassId);
     return found ? found.name : "No Class";
@@ -99,22 +100,18 @@ const StudentList = () => {
               </th>
               <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
                 Class
-              </th>
+              </th>              
               <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
                 Action
               </th>
+              
             </tr>
           </thead>
           <tbody>
             {students.length > 0 ? (
               students.map((student) => (
                 <tr key={student.userID} className="border-b hover:bg-gray-50">
-                  {/* Make StudentID clickable to see details */}
-                  <td
-                    className="px-4 py-2 text-sm text-blue-600 cursor-pointer"
-                    onClick={() => handleDetailButton(student.userID)}
-                    title="Click to see more details"
-                  >
+                  <td className="px-4 py-2 text-sm text-gray-700">
                     {student.userID}
                   </td>
                   <td className="px-4 py-2 text-sm text-gray-700">
@@ -126,24 +123,36 @@ const StudentList = () => {
                   <td className="px-4 py-2 text-sm text-gray-700">
                     {student.username}
                   </td>
-                  {/* Show the class NAME instead of the klassId */}
                   <td className="px-4 py-2 text-sm text-gray-700">
                     {getKlassName(student.klassId)}
                   </td>
-                  <td className="px-4 py-2 text-sm">
-                    <button
-                      onClick={() => handleUpdateButton(student.userID)}
-                      className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none"
-                    >
-                      Update
-                    </button>
-                    <button
-                      onClick={() => handleDeleteButton(student.userID)}
-                      className="ml-2 px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none"
-                    >
-                      Delete
-                    </button>
-                  </td>
+                  
+                    <td className="px-4 py-2 text-sm">
+                      <button 
+                        onClick={() => handleDetailButton(student.userID)}
+                        title="Click to see more details"
+                        className="mr-2 px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none"
+                        > 
+                        View Detail 
+                      </button>
+                      <button
+                        onClick={() => handleUpdateButton(student.userID)}
+                        className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none"
+                        hidden = {isStudent}
+                      >
+                        Update
+                      </button>
+                      <button
+                        onClick={() => handleDeleteButton(student.userID)}
+                        className="ml-2 px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none"
+                        hidden = {isStudent}
+                      >
+                        Delete
+                      </button>
+                      
+                      
+                    </td>
+                
                 </tr>
               ))
             ) : (
@@ -156,15 +165,15 @@ const StudentList = () => {
           </tbody>
         </table>
       </div>
-      {/* Optional add button */}
-      <div className="flex justify-center mt-6">
-        <button
-          onClick={handleAddButton}
-          className="px-6 py-3 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none"
-        >
-          Add Student
-        </button>
-      </div>
+        <div className="flex justify-center mt-6">
+          <button
+            onClick={handleAddButton}
+            className="px-6 py-3 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none"
+            hidden={isStudent}
+          >
+            Add Student
+          </button>
+        </div>
     </div>
   );
 };

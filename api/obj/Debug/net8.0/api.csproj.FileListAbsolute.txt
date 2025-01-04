@@ -143,6 +143,7 @@ D:\Project\EnviromentalSurveyPortal\api\obj\Debug\net8.0\api.pdb
 D:\Project\EnviromentalSurveyPortal\api\obj\Debug\net8.0\api.genruntimeconfig.cache
 D:\Project\EnviromentalSurveyPortal\api\obj\Debug\net8.0\ref\api.dll
 D:\Project\EnviromentalSurveyPortal\api\bin\Debug\net8.0\BCrypt.Net-Next.dll
+<<<<<<< HEAD
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\appsettings.Development.json
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\appsettings.json
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\api.exe
@@ -175,6 +176,8 @@ D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Identity.Client.dll
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+=======
+>>>>>>> 8fad7164fd4be2daf105824012a01fa6231b7194
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
@@ -305,7 +308,6 @@ D:\Codes\Aptech_learning\eProject\eProject3\Environmental-Survey---Project-Sem-3
 D:\Codes\Aptech_learning\eProject\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 D:\Codes\Aptech_learning\eProject\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
 D:\Codes\Aptech_learning\eProject\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
-<<<<<<< HEAD
 D:\Codes\Aptech_learning\eProject\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\appsettings.Development.json
 D:\Codes\Aptech_learning\eProject\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\appsettings.json
 D:\Codes\Aptech_learning\eProject\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\api.exe
@@ -457,7 +459,6 @@ D:\Codes\Aptech_learning\eProject\eProject3\Environmental-Survey---Project-Sem-3
 D:\Codes\Aptech_learning\eProject\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.pdb
 D:\Codes\Aptech_learning\eProject\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.genruntimeconfig.cache
 D:\Codes\Aptech_learning\eProject\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\ref\api.dll
-=======
 D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\appsettings.Development.json
 D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\appsettings.json
 D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\api.exe
@@ -1090,3 +1091,7 @@ D:\Lập trình\Aptech\Project\Project 3\New folder\Environmental-Survey---Proje
 D:\Lập trình\Aptech\Project\Project 3\New folder\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.genruntimeconfig.cache
 D:\Lập trình\Aptech\Project\Project 3\New folder\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\ref\api.dll
 >>>>>>> 850069973333edeb5a9a041c8536368320e2df02
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Twilio.dll
+D:\Codes\Aptech_learning\eProject\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\package-lock.json
+D:\Codes\Aptech_learning\eProject\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\package.json
+D:\Codes\Aptech_learning\eProject\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Twilio.dll

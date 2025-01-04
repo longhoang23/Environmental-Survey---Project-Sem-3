@@ -90,11 +90,7 @@ const AdminList = () => {
               admins.map((admin) => (
                 <tr key={admin.userID} className="border-b hover:bg-gray-50">
                   {/* Make AdminID clickable to see details */}
-                  <td
-                    className="px-4 py-2 text-sm text-blue-600 cursor-pointer"
-                    onClick={() => handleDetailButton(admin.userID)}
-                    title="Click to see more details"
-                  >
+                  <td className="px-4 py-2 text-sm text-gray-700 ">
                     {admin.userID}
                   </td>
                   <td className="px-4 py-2 text-sm text-gray-700">
@@ -107,6 +103,13 @@ const AdminList = () => {
                     {admin.username}
                   </td>
                   <td className="px-4 py-2 text-sm">
+                    <button 
+                      onClick={() => handleDetailButton(admin.userID)}
+                      title="Click to see more details"
+                      className="mr-2 px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none"
+                      > 
+                      View Detail 
+                    </button>
                     <button
                       onClick={() => handleUpdateButton(admin.userID)}
                       className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none"

@@ -22,7 +22,6 @@ namespace api.Models
         public string LastName { get; set; } = null!;
 
         [Required]
-        [MaxLength(10)]
         public string PhoneNumber { get; set; } = null!;
 
         [Required]

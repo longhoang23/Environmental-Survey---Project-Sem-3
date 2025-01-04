@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using api.DTOs.Seminar;
 using api.Mappers;
 using api.Repositories.Seminar;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api.Controllers
@@ -40,6 +41,7 @@ namespace api.Controllers
         }
 
         [HttpPost("create")]
+        [Authorize(Roles = "Admin,Staff")]
         public async Task<IActionResult> CreateSeminar([FromBody] CreateSeminarDTO createSeminarDTO)
         {
             if (!ModelState.IsValid)
@@ -53,6 +55,8 @@ namespace api.Controllers
         }
 
         [HttpPut("update/{seminarId}")]
+        [Authorize(Roles = "Admin,Staff")]
+
         public async Task<IActionResult> UpdateSeminar(int seminarId, [FromBody] UpdateSeminarDTO updateSeminarDTO)
         {
             if (!ModelState.IsValid)
@@ -70,6 +74,8 @@ namespace api.Controllers
         }
 
         [HttpDelete("delete/{seminarId}")]
+        [Authorize(Roles = "Admin,Staff")]
+
         public async Task<IActionResult> DeleteSeminar(int seminarId)
         {
             var deletedSeminar = await _seminarRepository.DeleteSeminarAsync(seminarId);

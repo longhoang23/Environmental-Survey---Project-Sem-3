@@ -98,12 +98,8 @@ const StaffList = () => {
             {staffs.length > 0 ? (
               staffs.map((staff) => (
                 <tr key={staff.userID} className="border-b hover:bg-gray-50">
-                  {/* Make StaffID clickable to see details */}
-                  <td
-                    className="px-4 py-2 text-sm text-blue-600 cursor-pointer"
-                    onClick={() => handleDetailButton(staff.userID)}
-                    title="Click to see more details"
-                  >
+
+                  <td className="px-4 py-2 text-sm text-gray-700">
                     {staff.userID}
                   </td>
                   <td className="px-4 py-2 text-sm text-gray-700">
@@ -119,6 +115,13 @@ const StaffList = () => {
                     {getSectionName(staff.sectionId)}
                   </td>
                   <td className="px-4 py-2 text-sm">
+                    <button 
+                      onClick={() => handleDetailButton(staff.userID)}
+                      title="Click to see more details"
+                      className="mr-2 px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none"
+                      > 
+                      View Detail 
+                    </button>
                     <button
                       onClick={() => handleUpdateButton(staff.userID)}
                       className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none"

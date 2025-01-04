@@ -7,6 +7,9 @@ using api.Mappers;
 using api.Repositories.Student;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Twilio;
+using Twilio.Rest.Api.V2010.Account;
+using Twilio.Types;
 
 namespace api.Controllers
 {
@@ -47,12 +50,80 @@ namespace api.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
+            // 1. Check if phone number is already in use
+            var existingUser = await _studentRepository.GetUserByPhoneAsync(createStudentDTO.PhoneNumber);
+            if (existingUser != null)
+            {
+                return BadRequest("This phone number is already in use by another user.");
+            }
+
+            // 2. Create the student
             var user = createStudentDTO.ToCreateStudentResponse();
             var createdStudent = await _studentRepository.CreateStudentAsync(user);
-            var studentDTO = createdStudent.ToStudentDTO();
 
-            return CreatedAtAction(nameof(GetStudentById), new { userId = studentDTO.UserID }, studentDTO);
+            if (createdStudent != null)
+            {
+                // Prepare SMS content
+                string username = createdStudent.Username;
+                string password = createStudentDTO.Password; // Original password
+                string messageContent = $"Welcome to our portal! Your username is {username} and password is {password}.";
+
+                // Send SMS
+                try
+                {
+                    if (!string.IsNullOrWhiteSpace(createdStudent.PhoneNumber))
+                    {
+                        await SendSms(createdStudent.PhoneNumber, messageContent);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error sending SMS: {ex.Message}");
+                }
+
+                var studentDTO = createdStudent.ToStudentDTO();
+                return CreatedAtAction(nameof(GetStudentById), new { userId = studentDTO.UserID }, studentDTO);
+            }
+
+            return BadRequest("Failed to create student.");
         }
+
+
+
+        private async Task SendSms(string toPhoneNumber, string message)
+        {
+            
+            string? accountSid = "";
+        
+            string? authToken = "";
+            // +12316818023
+            string? fromPhoneNumber = "";
+
+            if (string.IsNullOrEmpty(accountSid) || string.IsNullOrEmpty(authToken) || string.IsNullOrEmpty(fromPhoneNumber))
+            {
+                throw new InvalidOperationException("Twilio environment variables are not properly configured.");
+            }
+
+            TwilioClient.Init(accountSid, authToken);
+
+            try
+            {
+                var messageOptions = new CreateMessageOptions(new PhoneNumber(toPhoneNumber))
+                {
+                    From = new PhoneNumber(fromPhoneNumber),
+                    Body = message
+                };
+
+                var sentMessage = await MessageResource.CreateAsync(messageOptions);
+                Console.WriteLine($"Message sent successfully: SID {sentMessage.Sid}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error sending SMS: {ex.Message}");
+                throw;
+            }
+        }
+
 
         [HttpPut("update/{userId}")]
         public async Task<IActionResult> UpdateStudent(int userId, [FromBody] UpdateStudentDTO updateStudentDTO)
