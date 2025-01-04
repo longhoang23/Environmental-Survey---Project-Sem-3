@@ -6020,19 +6020,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ADMIN\\.nuget\\packages\\": {}
+    "C:\\Users\\Admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Codes\\Aptech_learning\\eProject\\eProject3\\Environmental-Survey---Project-Sem-3\\api\\api.csproj",
+      "projectUniqueName": "D:\\Project\\EnviromentalSurveyPortal\\Environmental-Survey---Project-Sem-3\\api\\api.csproj",
       "projectName": "api",
-      "projectPath": "D:\\Codes\\Aptech_learning\\eProject\\eProject3\\Environmental-Survey---Project-Sem-3\\api\\api.csproj",
-      "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-      "outputPath": "D:\\Codes\\Aptech_learning\\eProject\\eProject3\\Environmental-Survey---Project-Sem-3\\api\\obj\\",
+      "projectPath": "D:\\Project\\EnviromentalSurveyPortal\\Environmental-Survey---Project-Sem-3\\api\\api.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "D:\\Project\\EnviromentalSurveyPortal\\Environmental-Survey---Project-Sem-3\\api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6130,16 +6130,8 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file D:\\Codes\\Aptech_learning\\eProject\\eProject3\\Environmental-Survey---Project-Sem-3\\api\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }

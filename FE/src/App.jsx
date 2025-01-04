@@ -177,6 +177,18 @@ function App() {
                   path="/admin/update-staff/:id"
                   element={<UpdateStaff />}
                 />
+                
+                {/* Student */}
+                <Route path="/admin/student-list" element={<StudentList />} />
+                <Route
+                  path="/admin/student-detail/:id"
+                  element={<StudentDetail />}
+                />
+                <Route path="/admin/add-student" element={<AddStudent />} />
+                <Route
+                  path="/admin/update-student/:id"
+                  element={<UpdateStudent />}
+                />
 
                 <Route path="/seminar-list" element={<SeminarList />} />
                 <Route path="/seminar-detail/:id" element={<SeminarDetail />} />
@@ -229,17 +241,6 @@ function App() {
                 <Route path="/add-support" element={<AddSupport />} />
                 <Route path="/update-support/:id" element={<UpdateSupport />} />
 
-                <Route path="/admin/student-list" element={<StudentList />} />
-                <Route
-                  path="/admin/student-detail/:id"
-                  element={<StudentDetail />}
-                />
-                <Route path="/admin/add-student" element={<AddStudent />} />
-                <Route
-                  path="/admin/update-student/:id"
-                  element={<UpdateStudent />}
-                />
-
                 <Route path="/seminar-list" element={<SeminarList />} />
                 <Route path="/seminar-detail/:id" element={<SeminarDetail />} />
                 <Route path="/add-seminar" element={<AddSeminar />} />
@@ -255,6 +256,24 @@ function App() {
                   path="/update-competition/:id"
                   element={<UpdateCompetition />}
                 />
+
+
+                {/*/Student */}
+
+
+                <Route path="/student/seminar-list" element={<SeminarList />} />
+                <Route path="/student/competition-list" element={<CompetitionList />} />
+                <Route path="/student/participation-list" element={<ParticipationList />} />
+                <Route path="/student/survey-list" element={<SurveyList />} />
+                
+
+                {/*/Staff */}
+                <Route path="/staff/survey-list" element={<SurveyList />} />
+                <Route path="/staff/seminar-list" element={<SeminarList />} />
+                <Route path="/staff/competition-list" element={<CompetitionList />} />
+                <Route path="/staff/participation-list" element={<ParticipationList />} />
+                <Route path="/staff/student-list" element={<StudentList />} />
+
               </Routes>
             </div>
           </div>

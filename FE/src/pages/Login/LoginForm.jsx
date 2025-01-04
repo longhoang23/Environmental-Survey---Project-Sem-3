@@ -47,7 +47,7 @@ const LoginForm = () => {
       // Điều hướng theo vai trò của người dùng
       switch (user.role) {
         case 1: // Admin
-          navigate("/dashboard/dashboard");
+          navigate("/dashboard");
           break;
         case 2: // Staff
           navigate("/staff");
