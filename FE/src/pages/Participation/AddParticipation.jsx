@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { getAuthHeaders } from "../../Services/userAuth";
 
 const AddParticipation = () => {
   const apiUrl = import.meta.env.VITE_PUBLIC_URL;
@@ -10,7 +11,7 @@ const AddParticipation = () => {
     userID: 0,
     surveyID: 0,
     participationDate: "",
-    totalScore: null,
+    totalScore: 0,
     feedback: "",
   });
 
@@ -22,11 +23,11 @@ const AddParticipation = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [usersResponse, surveysResponse] = await Promise.all([
-          axios.get(`${apiUrl}/User/all`),
-          axios.get(`${apiUrl}/Survey/all`),
-        ]);
+        // Fetch Users data
+        const usersResponse = await axios.get(`${apiUrl}/Student/all`);
         setUsers(usersResponse.data);
+        //Fetch Survey Data
+        const surveysResponse = await axios.get(`${apiUrl}/Survey/all`);
         setSurveys(surveysResponse.data);
       } catch (err) {
         console.error("Error fetching data:", err);
@@ -42,18 +43,26 @@ const AddParticipation = () => {
     setError(null);
 
     try {
-      const response = await axios.post(`${apiUrl}/Participation/create`, participation);
+      const response = await axios.post(`${apiUrl}/Participation/create`, participation, {
+        headers: getAuthHeaders(),
+      });
+    
       if (response.status === 200 || response.status === 201) {
         alert("Participation created successfully!");
-        navigate("/participation/list");
+        navigate("/admin/participation-list");
       }
     } catch (err) {
       console.error("Error creating participation:", err);
-      setError("Failed to create participation. Please try again.");
+      if (err.response) {
+        // Display backend error message if available
+        setError(err.response.data.message || "Failed to create participation.");
+      } else {
+        setError("Failed to connect to the server.");
+      }
     } finally {
       setLoading(false);
     }
-  };
+  };    
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -63,6 +72,7 @@ const AddParticipation = () => {
           <label htmlFor="userID" className="font-semibold mb-1">User</label>
           <select
             id="userID"
+            name="userID"
             value={participation.userID}
             onChange={(e) => setParticipation({ ...participation, userID: parseInt(e.target.value) })}
             className="border p-2 rounded"
@@ -80,6 +90,7 @@ const AddParticipation = () => {
           <label htmlFor="surveyID" className="font-semibold mb-1">Survey</label>
           <select
             id="surveyID"
+            name="surveyID"
             value={participation.surveyID}
             onChange={(e) => setParticipation({ ...participation, surveyID: parseInt(e.target.value) })}
             className="border p-2 rounded"
@@ -97,6 +108,7 @@ const AddParticipation = () => {
           <label htmlFor="participationDate" className="font-semibold mb-1">Participation Date</label>
           <input
             id="participationDate"
+            name = "participationDate"
             type="datetime-local"
             value={participation.participationDate}
             onChange={(e) => setParticipation({ ...participation, participationDate: e.target.value })}
@@ -106,9 +118,22 @@ const AddParticipation = () => {
         </div>
 
         <div className="flex flex-col mb-4">
+        <label htmlFor="totalScore" className="font-semibold mb-1">Total Score</label>
+        <input
+          id="totalScore"
+          name="totalScore"
+          type="number"
+          value={participation.totalScore || 0} // Default to 0 if the value is null
+          onChange={(e) => setParticipation({ ...participation, totalScore: parseInt(e.target.value) || 0 })}
+          className="border p-2 rounded"
+        />
+      </div>
+
+        <div className="flex flex-col mb-4">
           <label htmlFor="feedback" className="font-semibold mb-1">Feedback</label>
           <input
             id="feedback"
+            name="feedback"
             type="text"
             value={participation.feedback}
             onChange={(e) => setParticipation({ ...participation, feedback: e.target.value })}

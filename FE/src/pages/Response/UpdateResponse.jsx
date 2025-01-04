@@ -56,7 +56,7 @@ const UpdateResponse = () => {
 
       if (updateRes.status === 200) {
         alert("Response updated successfully!");
-        navigate("/response/list");
+        navigate("/response-list");
       }
     } catch (err) {
       console.error("Error updating response:", err);
@@ -71,6 +71,7 @@ const UpdateResponse = () => {
     <div className="container mx-auto px-4 py-8">
       <h2 className="text-2xl font-bold mb-4">Update Response</h2>
       <form onSubmit={handleSubmit} className="max-w-md mx-auto bg-white p-6 shadow-md rounded">
+
         <div className="flex flex-col mb-4">
           <label htmlFor="participationID" className="font-semibold mb-1">Participation</label>
           <select
@@ -84,7 +85,7 @@ const UpdateResponse = () => {
             <option value={0}>-- Select Participation --</option>
             {participations.map((p) => (
               <option key={p.participationID} value={p.participationID}>
-                Participation {p.participationID}
+                {p.participationDate}
               </option>
             ))}
           </select>
@@ -101,7 +102,7 @@ const UpdateResponse = () => {
             <option value={0}>-- Select Question --</option>
             {questions.map((q) => (
               <option key={q.questionID} value={q.questionID}>
-                {q.questionText}
+                {q.questionID}
               </option>
             ))}
           </select>

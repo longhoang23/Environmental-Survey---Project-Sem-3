@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { getAuthHeaders } from "../../Services/userAuth"; // Assuming you have this utility
 
 const StudentList = () => {
   const [students, setStudents] = useState([]);
@@ -27,7 +28,9 @@ const StudentList = () => {
     const confirmDelete = window.confirm(`Do you want to delete student with id: ${id}?`);
     if (!confirmDelete) return;
     try {
-      const response = await axios.delete(`${apiUrl}/Student/delete/${id}`);
+      const response = await axios.delete(`${apiUrl}/Student/delete/${id}`, {
+        headers: getAuthHeaders(),
+      });
       if (response.status === 200) {
         setStudents(students.filter((s) => s.userID !== id));
         alert("Student deleted successfully!");

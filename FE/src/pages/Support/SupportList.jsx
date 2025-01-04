@@ -10,15 +10,15 @@ const SupportList = () => {
   const navigate = useNavigate();
 
   const handleAddButton = () => {
-    navigate("/support/add");
+    navigate("/add-support");
   };
 
   const handleDetailButton = (id) => {
-    navigate(`/support/detail/${id}`);
+    navigate(`/support-detail/${id}`);
   };
 
   const handleUpdateButton = (id) => {
-    navigate(`/support/update/${id}`);
+    navigate(`/update-support/${id}`);
   };
 
   const handleDeleteButton = async (id) => {
@@ -63,6 +63,7 @@ const SupportList = () => {
             <tr>
               <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">ID</th>
               <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Contact Info</th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Action</th>
             </tr>
           </thead>
           <tbody>

@@ -50,7 +50,7 @@ const AddResponse = () => {
       });
       if (response.status === 201 || response.status === 200) {
         alert("Response added successfully!");
-        navigate("/response/list");
+        navigate("/response-list");
       }
     } catch (err) {
       console.error("Error adding response:", err);
@@ -65,6 +65,7 @@ const AddResponse = () => {
     <div className="container mx-auto px-4 py-8">
       <h2 className="text-2xl font-bold mb-4">Add Response</h2>
       <form onSubmit={handleSubmit} className="max-w-md mx-auto bg-white p-6 shadow-md rounded">
+
         {/* Participation */}
         <div className="flex flex-col mb-4">
           <label htmlFor="participationID" className="font-semibold mb-1">
@@ -80,7 +81,7 @@ const AddResponse = () => {
             <option value={0}>-- Select Participation --</option>
             {participations.map((p) => (
               <option key={p.participationID} value={p.participationID}>
-                {p.participationID}
+                {p.participationDate}
               </option>
             ))}
           </select>
@@ -101,7 +102,7 @@ const AddResponse = () => {
             <option value={0}>-- Select Question --</option>
             {questions.map((q) => (
               <option key={q.questionID} value={q.questionID}>
-                {q.questionText}
+                {q.questionID}
               </option>
             ))}
           </select>
@@ -121,7 +122,7 @@ const AddResponse = () => {
             <option value={0}>-- Select Option --</option>
             {options.map((o) => (
               <option key={o.optionID} value={o.optionID}>
-                {o.optionText}
+                {o.optionID}
               </option>
             ))}
           </select>

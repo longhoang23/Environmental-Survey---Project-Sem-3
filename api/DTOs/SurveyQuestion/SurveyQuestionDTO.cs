@@ -21,12 +21,7 @@ namespace api.DTOs.SurveyQuestion
         public SurveyDTO Survey { get; set; } = null!;
 
         // Navigation Properties
-        public ICollection<SurveyQuestionDTO> SurveyQuestions { get; set; } = new List<SurveyQuestionDTO>();
-        public List<SurveyOptionDTO> Options { get; internal set; }
+        public ICollection<SurveyOptionDTO> Options { get; set; } = new List<SurveyOptionDTO>();
 
-        internal object ToSurveyQuestionDTO()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

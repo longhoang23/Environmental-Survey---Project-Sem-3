@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using api.DTOs.Staff;
 using api.Mappers;
 using api.Repositories.Staff;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api.Controllers
@@ -57,6 +58,7 @@ namespace api.Controllers
         }
 
         [HttpPut("update/{userId}")]
+        [Authorize(Roles = "Admin,Staff")]
         public async Task<IActionResult> UpdateStaff(int userId, [FromBody] UpdateStaffDTO updateStaffDTO)
         {
             if (!ModelState.IsValid)
@@ -83,6 +85,7 @@ namespace api.Controllers
         }
 
         [HttpDelete("delete/{userId}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteStaff(int userId)
         {
             var deletedStaff = await _staffRepository.DeleteStaffAsync(userId);

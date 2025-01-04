@@ -55,7 +55,6 @@ namespace api.Controllers
         }
 
         [HttpPut("update/{userId}")]
-        [Authorize(Roles ="Admin")]
         public async Task<IActionResult> UpdateStudent(int userId, [FromBody] UpdateStudentDTO updateStudentDTO)
         {
             if (!ModelState.IsValid)
@@ -80,6 +79,7 @@ namespace api.Controllers
         }
 
         [HttpDelete("delete/{userId}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteStudent(int userId)
         {
             var deletedStudent = await _studentRepository.DeleteStudentAsync(userId);

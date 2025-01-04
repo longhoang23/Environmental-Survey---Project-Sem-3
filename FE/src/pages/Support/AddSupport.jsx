@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+
 const AddSupport = () => {
   const apiUrl = import.meta.env.VITE_PUBLIC_URL;
   const navigate = useNavigate();
@@ -22,7 +23,7 @@ const AddSupport = () => {
       const response = await axios.post(`${apiUrl}/Support/create`, support);
       if (response.status === 200 || response.status === 201) {
         alert("Support created successfully!");
-        navigate("/support/list");
+        navigate("/support-list");
       }
     } catch (err) {
       console.error("Error creating support:", err);
@@ -36,6 +37,7 @@ const AddSupport = () => {
     <div className="container mx-auto px-4 py-8">
       <h2 className="text-2xl font-bold mb-4">Add Support</h2>
       <form onSubmit={handleSubmit} className="max-w-md mx-auto bg-white p-6 shadow-md rounded">
+        
         {/* Contact Info */}
         <div className="flex flex-col mb-4">
           <label htmlFor="contactInfo" className="font-semibold mb-1">

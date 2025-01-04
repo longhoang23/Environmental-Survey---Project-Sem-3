@@ -36,7 +36,7 @@ const UpdateSupport = () => {
       const response = await axios.put(`${apiUrl}/Support/update/${id}`, support);
       if (response.status === 200) {
         alert("Support updated successfully!");
-        navigate("/support/list");
+        navigate("/support-list");
       }
     } catch (err) {
       console.error("Error updating support:", err);
@@ -65,6 +65,7 @@ const UpdateSupport = () => {
             required
           />
         </div>
+        
         <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
           Update Support
         </button>
