@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { getAuthHeaders } from "../../Services/userAuth";
 
 
 const AddSupport = () => {
@@ -20,10 +21,13 @@ const AddSupport = () => {
     setError(null);
 
     try {
-      const response = await axios.post(`${apiUrl}/Support/create`, support);
+      const response = await axios.post(`${apiUrl}/Support/create`, support, {
+        headers: getAuthHeaders(),
+      });
+      
       if (response.status === 200 || response.status === 201) {
         alert("Support created successfully!");
-        navigate("/support-list");
+        navigate("/admin/support-list");
       }
     } catch (err) {
       console.error("Error creating support:", err);

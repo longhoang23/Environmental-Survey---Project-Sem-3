@@ -6,6 +6,7 @@ using api.DTOs.Response;
 using api.Mappers;
 using api.Repositories.Responses;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace api.Controllers
 {
@@ -40,6 +41,7 @@ namespace api.Controllers
         }
 
         [HttpPost("create")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> CreateResponse([FromBody] CreateResponseDTO createResponseDTO)
         {
             if (!ModelState.IsValid)
@@ -53,6 +55,7 @@ namespace api.Controllers
         }
 
         [HttpPut("update/{responseId}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateResponse(int responseId, [FromBody] UpdateResponseDTO updateResponseDTO)
         {
             if (!ModelState.IsValid)
@@ -69,6 +72,7 @@ namespace api.Controllers
         }
 
         [HttpDelete("delete/{responseId}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteResponse(int responseId)
         {
             var deletedResponse = await _responseRepository.DeleteResponseAsync(responseId);
