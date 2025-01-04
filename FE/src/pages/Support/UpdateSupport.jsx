@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { getAuthHeaders } from "../../Services/userAuth";
 
 const UpdateSupport = () => {
   const { id } = useParams();
@@ -17,8 +18,15 @@ const UpdateSupport = () => {
   useEffect(() => {
     const fetchSupport = async () => {
       try {
-        const response = await axios.get(`${apiUrl}/Support/${id}`);
-        setSupport(response.data);
+        const response = await axios.get(`${apiUrl}/Support/${id}`, {
+          headers: getAuthHeaders(),
+        });
+        if(response.status === 200){
+          setSupport(response.data);
+          setLoading(false);
+        } else{
+          setError("Failed to load participation data."); // Handle non-200 responses
+        }
       } catch (err) {
         setError("Failed to load support.");
       } finally {
@@ -33,10 +41,12 @@ const UpdateSupport = () => {
     setError(null);
 
     try {
-      const response = await axios.put(`${apiUrl}/Support/update/${id}`, support);
+      const response = await axios.put(`${apiUrl}/Support/update/${id}`, support, {
+        headers: getAuthHeaders(),
+      });
       if (response.status === 200) {
         alert("Support updated successfully!");
-        navigate("/support-list");
+        navigate("/admin/support-list");
       }
     } catch (err) {
       console.error("Error updating support:", err);

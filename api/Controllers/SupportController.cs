@@ -7,6 +7,7 @@ using api.DTOs.Support;
 using api.Mappers;
 using api.Repositories.Supports;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace api.Controllers
 {
@@ -43,6 +44,7 @@ namespace api.Controllers
         }
 
         [HttpPost("create")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> CreateSupport([FromBody] CreateSupportDTO createSupportDTO)
         {
             if (!ModelState.IsValid)
@@ -56,6 +58,7 @@ namespace api.Controllers
         }
 
         [HttpPut("update/{supportId}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateSupport(int supportId, [FromBody] UpdateSupportDTO updateSupportDTO)
         {
             if (!ModelState.IsValid)
@@ -72,6 +75,7 @@ namespace api.Controllers
         }
 
         [HttpDelete("delete/{supportId}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteSupport(int supportId)
         {
             var deletedSupport = await _supportRepository.DeleteSupportAsync(supportId);

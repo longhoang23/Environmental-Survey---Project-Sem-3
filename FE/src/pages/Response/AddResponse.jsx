@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { getAuthHeaders } from "../../Services/userAuth";
 
 const AddResponse = () => {
   const apiUrl = import.meta.env.VITE_PUBLIC_URL;
@@ -47,10 +48,11 @@ const AddResponse = () => {
     try {
       const response = await axios.post(`${apiUrl}/Response/create`, response, {
         headers: { "Content-Type": "application/json" },
+        headers: getAuthHeaders(),
       });
       if (response.status === 201 || response.status === 200) {
         alert("Response added successfully!");
-        navigate("/response-list");
+        navigate("/admin/response-list");
       }
     } catch (err) {
       console.error("Error adding response:", err);
@@ -102,7 +104,7 @@ const AddResponse = () => {
             <option value={0}>-- Select Question --</option>
             {questions.map((q) => (
               <option key={q.questionID} value={q.questionID}>
-                {q.questionID}
+                {q.questionText}
               </option>
             ))}
           </select>
@@ -122,7 +124,7 @@ const AddResponse = () => {
             <option value={0}>-- Select Option --</option>
             {options.map((o) => (
               <option key={o.optionID} value={o.optionID}>
-                {o.optionID}
+                {o.optionText}
               </option>
             ))}
           </select>

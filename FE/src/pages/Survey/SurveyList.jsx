@@ -111,10 +111,10 @@ const SurveyList = () => {
                     {survey.targetAudience}
                   </td>
                   <td className="px-4 py-2 text-sm text-gray-700">
-                    {survey.startDate}
+                    {survey.startDate ? survey.startDate.slice(0, 10) : ""}
                   </td>
                   <td className="px-4 py-2 text-sm text-gray-700">
-                    {survey.endDate}
+                    {survey.startDate ? survey.startDate.slice(0, 10) : ""}
                   </td>
                   <td className="px-4 py-2 text-sm text-gray-700">
                     {survey.isActive == true ? "true" : "false"}

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { getAuthHeaders } from "../../Services/userAuth";
 
 const ResponseList = () => {
   const apiUrl = import.meta.env.VITE_PUBLIC_URL; // e.g., http://localhost:5169/api
@@ -10,21 +11,23 @@ const ResponseList = () => {
   const navigate = useNavigate();
 
   const handleAddButton = () => {
-    navigate("/add-response");
+    navigate("/admin/add-response");
   };
 
   const handleDetailButton = (id) => {
-    navigate(`/response-detail/${id}`);
+    navigate(`/admin/response-detail/${id}`);
   };
 
   const handleUpdateButton = (id) => {
-    navigate(`/update-response/${id}`);
+    navigate(`/admin/update-response/${id}`);
   };
 
   const handleDeleteButton = async (id) => {
     if (window.confirm(`Are you sure you want to delete response ID: ${id}?`)) {
       try {
-        const response = await axios.delete(`${apiUrl}/Response/delete/${id}`);
+        const response = await axios.delete(`${apiUrl}/Response/delete/${id}`, {
+          headers: getAuthHeaders(),
+        });
         if (response.status === 200) {
           setResponses(responses.filter((r) => r.responseID !== id));
           alert("Response deleted successfully!");

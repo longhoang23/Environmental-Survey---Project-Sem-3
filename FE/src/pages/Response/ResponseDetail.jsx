@@ -37,7 +37,7 @@ const ResponseDetail = () => {
         <p><strong>Option ID:</strong> {response.optionID}</p>
         <p><strong>Response Text:</strong> {response.responseText}</p>
         <button
-          onClick={() => navigate("/response-list")}
+          onClick={() => navigate("/admin/response-list")}
           className="bg-blue-500 text-white px-4 py-2 rounded mt-4 hover:bg-blue-600"
         >
           Back to List
