@@ -18,8 +18,8 @@ const UpdateStaff = () => {
     sectionId: 0,
     specification: "",
     status: "",     // read-only
-    password: "",
-    confirmPassword: "",
+    // password: "",
+    // confirmPassword: "",
   });
 
   // For fetching sections
@@ -68,11 +68,11 @@ const UpdateStaff = () => {
     setError(null);
 
      // Password verification check:
-     if (staff.password !== staff.confirmPassword) {
-      setError("Passwords do not match!");
-      setLoading(false);
-      return;
-    }
+    //  if (staff.password !== staff.confirmPassword) {
+    //   setError("Passwords do not match!");
+    //   setLoading(false);
+    //   return;
+    // }
 
     try {
       // We form the request body from 'staff' state
@@ -229,13 +229,12 @@ const UpdateStaff = () => {
             id="status"
             type="text"
             value={staff.status || ""}
-            readOnly
             className="border p-2 rounded bg-gray-100 cursor-not-allowed"
           />
         </div>
 
         {/* Password (if you want to update it) */}
-        <div className="flex flex-col">
+        {/* <div className="flex flex-col">
           <label htmlFor="password" className="font-semibold mb-1">
             Password
           </label>
@@ -247,7 +246,23 @@ const UpdateStaff = () => {
             className="border p-2 rounded"
             placeholder="Enter new password if changing"
           />
-        </div>
+        </div> */}
+
+         {/* Confirm Password */}
+        {/* <div className="flex flex-col">
+          <label htmlFor="confirmPassword" className="font-semibold mb-1">
+            Confirm Password
+          </label>
+          <input
+            id="confirmPassword"
+            type="password"
+            value={staff.confirmPassword}
+            onChange={(e) => setStaff({ ...staff, confirmPassword: e.target.value })}
+            required
+            className="border p-2 rounded"
+            placeholder="Confirm password"
+          />
+        </div> */}
 
          {/* Confirm Password */}
         <div className="flex flex-col">

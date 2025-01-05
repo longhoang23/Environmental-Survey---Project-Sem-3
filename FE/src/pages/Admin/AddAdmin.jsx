@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import { getAuthHeaders } from "../../Services/userAuth";
 const AddAdmin = () => {
   const apiUrl = import.meta.env.VITE_PUBLIC_URL; // e.g. http://localhost:5169/api
   const navigate = useNavigate();
@@ -48,9 +48,7 @@ const AddAdmin = () => {
     try {
       // Adjust if your endpoint is different, e.g. /Admin/create
       const response = await axios.post(`${apiUrl}/Admin/create`, admin, {
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: getAuthHeaders()
       });
 
       // Check for success (could be 201 or 200 depending on your API)

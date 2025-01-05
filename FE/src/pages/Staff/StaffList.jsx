@@ -50,11 +50,13 @@ const StaffList = () => {
   useEffect(() => {
     const fetchStaffs = async () => {
       try {
-        const staffResponse = await axios.get(`${apiUrl}/Staff/all`);
-        setStaffs(staffResponse.data);
-
         const sectionResponse = await axios.get(`${apiUrl}/Section/all`);
         setSections(sectionResponse.data);
+        
+        const staffResponse = await axios.get(`${apiUrl}/Staff/all`, {
+          headers: getAuthHeaders()
+        });
+        setStaffs(staffResponse.data);
 
         setLoading(false);
       } catch (err) {

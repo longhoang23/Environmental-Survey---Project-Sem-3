@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import { getAuthHeaders } from "../../Services/userAuth";
 const AddStudent = () => {
   const apiUrl = import.meta.env.VITE_PUBLIC_URL; // e.g. http://localhost:5169/api
   const navigate = useNavigate();
@@ -60,9 +60,7 @@ const AddStudent = () => {
     try {
       // Adjust if your endpoint is different, e.g. "/Student"
       const response = await axios.post(`${apiUrl}/Student/create`, student, {
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: getAuthHeaders()
       });
       if (response.status === 200 || response.status === 201) {
         alert("Student created successfully!");

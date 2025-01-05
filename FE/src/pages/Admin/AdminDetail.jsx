@@ -71,9 +71,9 @@ const AdminDetail = () => {
         <p>
           <strong>Username:</strong> {admin.username}
         </p>
-        <p>
+        {/* <p>
           <strong>Password:</strong> {admin.password}
-        </p>
+        </p> */}
 
         <button
           onClick={() => navigate("/admin/admin-list")}

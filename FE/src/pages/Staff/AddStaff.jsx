@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import { getAuthHeaders } from "../../Services/userAuth";
 const AddStaff = () => {
   const apiUrl = import.meta.env.VITE_PUBLIC_URL; // e.g. http://localhost:5169/api
   const navigate = useNavigate();
@@ -60,9 +60,7 @@ const AddStaff = () => {
     try {
       // Adjust the endpoint if your API is different, e.g. /Staff
       const response = await axios.post(`${apiUrl}/Staff/create`, staff, {
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: getAuthHeaders()
       });
       if (response.status === 200 || response.status === 201) {
         alert("Staff created successfully!");
