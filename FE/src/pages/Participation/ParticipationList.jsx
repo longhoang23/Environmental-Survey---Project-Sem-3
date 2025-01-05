@@ -11,25 +11,32 @@ const ParticipationList = () => {
   const navigate = useNavigate();
 
   const handleAddButton = () => {
-    navigate("/admin/add-participation");
+    navigate("/add-participation");
   };
 
   const handleDetailButton = (id) => {
-    navigate(`/admin/participation-detail/${id}`);
+    navigate(`/participation-detail/${id}`);
   };
 
   const handleUpdateButton = (id) => {
-    navigate(`/admin/update-participation/${id}`);
+    navigate(`/update-participation/${id}`);
   };
 
   const handleDeleteButton = async (id) => {
-    if (window.confirm(`Are you sure you want to delete participation ID: ${id}?`)) {
+    if (
+      window.confirm(`Are you sure you want to delete participation ID: ${id}?`)
+    ) {
       try {
-        const response = await axios.delete(`${apiUrl}/Participation/delete/${id}`,{
-          headers: getAuthHeaders(),
-        });
+        const response = await axios.delete(
+          `${apiUrl}/Participation/delete/${id}`,
+          {
+            headers: getAuthHeaders(),
+          }
+        );
         if (response.status === 200) {
-          setParticipations(participations.filter((p) => p.participationID !== id));
+          setParticipations(
+            participations.filter((p) => p.participationID !== id)
+          );
           alert("Participation deleted successfully!");
         }
       } catch (err) {
@@ -64,39 +71,64 @@ const ParticipationList = () => {
         <table className="min-w-full table-auto">
           <thead className="bg-gray-100">
             <tr>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">ID</th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">User ID</th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Survey ID</th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Participation Date</th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Total Score</th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">FeedBack</th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Action</th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
+                ID
+              </th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
+                User ID
+              </th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
+                Survey ID
+              </th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
+                Participation Date
+              </th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
+                Total Score
+              </th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
+                FeedBack
+              </th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
+                Action
+              </th>
             </tr>
           </thead>
           <tbody>
             {participations.length > 0 ? (
               participations.map((participation) => (
-                <tr key={participation.participationID} className="border-b hover:bg-gray-50">
+                <tr
+                  key={participation.participationID}
+                  className="border-b hover:bg-gray-50"
+                >
                   <td
                     className="px-4 py-2 text-blue-600 cursor-pointer"
-                    onClick={() => handleDetailButton(participation.participationID)}
+                    onClick={() =>
+                      handleDetailButton(participation.participationID)
+                    }
                   >
                     {participation.participationID}
                   </td>
                   <td className="px-4 py-2">{participation.userID}</td>
                   <td className="px-4 py-2">{participation.surveyID}</td>
-                  <td className="px-4 py-2">{participation.participationDate}</td>
+                  <td className="px-4 py-2">
+                    {participation.participationDate}
+                  </td>
                   <td className="px-4 py-2">{participation.totalScore}</td>
                   <td className="px-4 py-2">{participation.feedback}</td>
                   <td className="px-4 py-2 space-x-2">
                     <button
-                      onClick={() => handleUpdateButton(participation.participationID)}
+                      onClick={() =>
+                        handleUpdateButton(participation.participationID)
+                      }
                       className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
                     >
                       Update
                     </button>
                     <button
-                      onClick={() => handleDeleteButton(participation.participationID)}
+                      onClick={() =>
+                        handleDeleteButton(participation.participationID)
+                      }
                       className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
                     >
                       Delete

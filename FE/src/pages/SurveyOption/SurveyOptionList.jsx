@@ -11,16 +11,15 @@ const SurveyOList = () => {
   const navigate = useNavigate();
 
   const handleAddButton = () => {
-    navigate("/admin/add-option");
+    navigate("/add-option");
   };
 
   const handleDetailButton = (id) => {
-    navigate(`/admin/option-detail/${id}`);
+    navigate(`/option-detail/${id}`);
   };
 
-
   const handleUpdateButton = (id) => {
-    navigate(`/admin/update-option/${id}`);
+    navigate(`/update-option/${id}`);
   };
 
   const handleDeleteButton = async (id) => {
@@ -31,7 +30,9 @@ const SurveyOList = () => {
         headers: getAuthHeaders(),
       });
       if (response.status === 200) {
-        setSurveyOption(surveyOptions.filter((surveyO) => surveyO.optionID !== id));
+        setSurveyOption(
+          surveyOptions.filter((surveyO) => surveyO.optionID !== id)
+        );
         alert("Survey Option deleted successfully!");
       }
     } catch (error) {
@@ -39,9 +40,8 @@ const SurveyOList = () => {
       alert("Failed to delete Survey Option");
     }
   };
-
-  const userRole = JSON.parse(localStorage.getItem('user')).role;
-  const isStudent = userRole == 3
+  const userRole = JSON.parse(localStorage.getItem("user")).role;
+  const isStudent = userRole == 3;
 
   useEffect(() => {
     const fetchOption = async () => {
@@ -67,7 +67,9 @@ const SurveyOList = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold text-center mb-6">Survey Option List</h1>
+      <h1 className="text-3xl font-bold text-center mb-6">
+        Survey Option List
+      </h1>
       <div className="overflow-x-auto bg-white rounded-lg shadow-md">
         <table className="min-w-full table-auto">
           <thead className="bg-gray-100">
@@ -92,7 +94,10 @@ const SurveyOList = () => {
           <tbody>
             {surveyOptions.length > 0 ? (
               surveyOptions.map((surveyO) => (
-                <tr key={surveyO.optionID} className="border-b hover:bg-gray-50">
+                <tr
+                  key={surveyO.optionID}
+                  className="border-b hover:bg-gray-50"
+                >
                   <td className="px-4 py-2 text-sm text-gray-700">
                     {surveyO.optionID}
                   </td>

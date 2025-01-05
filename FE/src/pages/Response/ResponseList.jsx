@@ -11,15 +11,15 @@ const ResponseList = () => {
   const navigate = useNavigate();
 
   const handleAddButton = () => {
-    navigate("/admin/add-response");
+    navigate("/add-response");
   };
 
   const handleDetailButton = (id) => {
-    navigate(`/admin/response-detail/${id}`);
+    navigate(`/response-detail/${id}`);
   };
 
   const handleUpdateButton = (id) => {
-    navigate(`/admin/update-response/${id}`);
+    navigate(`/update-response/${id}`);
   };
 
   const handleDeleteButton = async (id) => {
@@ -64,18 +64,33 @@ const ResponseList = () => {
         <table className="min-w-full table-auto">
           <thead className="bg-gray-100">
             <tr>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">ID</th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Participation ID</th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Question ID</th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Option ID</th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Response Text</th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Action</th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
+                ID
+              </th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
+                Participation ID
+              </th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
+                Question ID
+              </th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
+                Option ID
+              </th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
+                Response Text
+              </th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
+                Action
+              </th>
             </tr>
           </thead>
           <tbody>
             {responses.length > 0 ? (
               responses.map((response) => (
-                <tr key={response.responseID} className="border-b hover:bg-gray-50">
+                <tr
+                  key={response.responseID}
+                  className="border-b hover:bg-gray-50"
+                >
                   <td
                     className="px-4 py-2 text-blue-600 cursor-pointer"
                     onClick={() => handleDetailButton(response.responseID)}
