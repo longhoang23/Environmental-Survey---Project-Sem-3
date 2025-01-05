@@ -14,7 +14,7 @@ const SurveyDetail = () => {
   const itemsPerPage = 6;
 
   const handleDetailButton = (questionID) => {
-    navigate(`/admin/question-detail/${questionID}`);
+    navigate(`/question-detail/${questionID}`);
   };
 
   useEffect(() => {
@@ -77,10 +77,12 @@ const SurveyDetail = () => {
           <strong>Target Audience:</strong> {survey.targetAudience}
         </p>
         <p>
-          <strong>Start Date:</strong> {survey.startDate ? survey.startDate.slice(0, 10) : ""}
+          <strong>Start Date:</strong>{" "}
+          {survey.startDate ? survey.startDate.slice(0, 10) : ""}
         </p>
         <p>
-          <strong>End Date:</strong> {survey.endDate ? survey.endDate.slice(0, 10) : ""}
+          <strong>End Date:</strong>{" "}
+          {survey.endDate ? survey.endDate.slice(0, 10) : ""}
         </p>
         <p>
           <strong>Is Active:</strong> {survey.isActive ? "true" : "false"}
@@ -88,7 +90,7 @@ const SurveyDetail = () => {
 
         <div className="flex justify-center">
           <button
-            onClick={() => navigate("/admin/surveys")}
+            onClick={() => navigate("/surveys")}
             className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
           >
             Back to Survey List
@@ -97,15 +99,21 @@ const SurveyDetail = () => {
       </div>
 
       {/* List of Questions */}
-      <h2 className="text-2xl font-semibold mt-8 mb-4 text-center">Survey Questions</h2>
+      <h2 className="text-2xl font-semibold mt-8 mb-4 text-center">
+        Survey Questions
+      </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {currentQuestions.map((question) => (
           <div
             key={question.questionID}
             className="p-4 bg-white shadow rounded border border-gray-200 relative"
           >
-            <h3 className="text-lg font-medium mb-2">Question: {question.questionText}</h3>
-            <p className="text-sm text-gray-700">Type: {question.questionType}</p>
+            <h3 className="text-lg font-medium mb-2">
+              Question: {question.questionText}
+            </h3>
+            <p className="text-sm text-gray-700">
+              Type: {question.questionType}
+            </p>
             <button
               onClick={() => handleDetailButton(question.questionID)}
               className="absolute bottom-4 right-4 px-6 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none"
@@ -125,7 +133,9 @@ const SurveyDetail = () => {
         >
           Previous
         </button>
-        <span className="px-4 py-2">Page {currentPage} of {totalPages}</span>
+        <span className="px-4 py-2">
+          Page {currentPage} of {totalPages}
+        </span>
         <button
           onClick={handleNext}
           disabled={currentPage === totalPages}

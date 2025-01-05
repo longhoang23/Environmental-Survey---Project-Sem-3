@@ -11,22 +11,22 @@ const SurveyList = () => {
   const navigate = useNavigate();
 
   const handleAddButton = () => {
-    navigate("/admin/add-survey");
+    navigate("/add-survey");
   };
 
   const handleDetailButton = (id) => {
-    navigate(`/admin/survey-detail/${id}`);
+    navigate(`/survey-detail/${id}`);
   };
 
   const handleUpdateButton = (id) => {
-    navigate(`/admin/update-survey/${id}`);
+    navigate(`/update-survey/${id}`);
   };
 
   const handleDeleteButton = async (id) => {
     const confirmDelete = window.confirm(`Do you want to delete id: ${id}`);
     if (!confirmDelete) return;
     try {
-      const response = await axios.delete(`${apiUrl}/Survey/delete/${id}`,{
+      const response = await axios.delete(`${apiUrl}/Survey/delete/${id}`, {
         headers: getAuthHeaders(),
       });
       if (response.status === 200) {

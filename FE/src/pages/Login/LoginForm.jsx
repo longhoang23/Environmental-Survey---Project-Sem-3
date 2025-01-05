@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 const LoginForm = () => {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false); // Trạng thái hiển thị mật khẩu
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -23,13 +24,12 @@ const LoginForm = () => {
     }
 
     try {
-      // Gửi yêu cầu đăng nhập tới API
       const response = await axios.post(`${apiUrl}/User/Login`, {
         username,
         password,
       });
 
-      const { token, user } = response.data; // Lấy token và user từ phản hồi API
+      const { token, user } = response.data;
 
       if (!token || !user) {
         setError("Phản hồi từ server không hợp lệ!");
@@ -41,19 +41,17 @@ const LoginForm = () => {
       localStorage.setItem("token", token);
       localStorage.setItem("user", JSON.stringify(user));
 
-      // Phát sự kiện "user-changed" để Sidebar lắng nghe
       handleLoginSuccess(user);
 
-      // Điều hướng theo vai trò của người dùng
       switch (user.role) {
         case 1: // Admin
           navigate("/dashboard");
           break;
         case 2: // Staff
-          navigate("/staff");
+          navigate("/survey-list");
           break;
         case 3: // Student
-          navigate("/student");
+          navigate("/survey-list");
           break;
         default:
           setError("Không tìm thấy vai trò người dùng!");
@@ -98,13 +96,24 @@ const LoginForm = () => {
           Mật khẩu
         </label>
         <input
-          type="password"
+          type={showPassword ? "text" : "password"} // Hiển thị mật khẩu dựa trên trạng thái
           id="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           className="w-full p-3 border border-gray-300 rounded-md mt-2"
           required
         />
+        <div className="mt-2">
+          <label className="text-sm text-gray-600 flex items-center">
+            <input
+              type="checkbox"
+              checked={showPassword}
+              onChange={() => setShowPassword(!showPassword)} // Đổi trạng thái hiển thị mật khẩu
+              className="mr-2"
+            />
+            Hiển thị mật khẩu
+          </label>
+        </div>
       </div>
 
       <button

@@ -34,9 +34,8 @@ const FaqList = () => {
       alert("Failed to delete Faq");
     }
   };
-
-  const userRole = JSON.parse(localStorage.getItem('user')).role;
-  const isStudent = userRole == 3
+  const userRole = JSON.parse(localStorage.getItem("user")).role;
+  const isStudent = userRole == 3;
 
   useEffect(() => {
     const fetchFaq = async () => {

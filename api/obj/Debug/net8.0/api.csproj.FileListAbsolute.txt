@@ -934,12 +934,19 @@ D:\Lập trình\Aptech\Project\Project 3\New folder\Environmental-Survey---Proje
 D:\Lập trình\Aptech\Project\Project 3\New folder\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.genruntimeconfig.cache
 D:\Lập trình\Aptech\Project\Project 3\New folder\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\ref\api.dll
 >>>>>>> 850069973333edeb5a9a041c8536368320e2df02
+<<<<<<< HEAD
 D:\Codes\Aptech_learning\eProject\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\package-lock.json
 D:\Codes\Aptech_learning\eProject\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\package.json
 <<<<<<< HEAD
 =======
 D:\Codes\Aptech_learning\eProject\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Twilio.dll
 >>>>>>> 1b9ea8cbb8d173f5bbf4fb2bc45c3daa8e6991f7
+=======
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Twilio.dll
+D:\Codes\Aptech_learning\eProject\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\package-lock.json
+D:\Codes\Aptech_learning\eProject\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\package.json
+D:\Codes\Aptech_learning\eProject\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Twilio.dll
+>>>>>>> 8a058244c479ce91b02abced85e930f892183a31
 D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\appsettings.Development.json
 D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\appsettings.json
 D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\api.exe
@@ -1100,3 +1107,12 @@ D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0
 >>>>>>> 3642d3c42bfc1f795d343aa7ea3f795378d41507
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\package-lock.json
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\package.json
+<<<<<<< HEAD
+=======
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\package-lock.json
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\package.json
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Twilio.dll
+D:\Lập trình\Aptech\Project\Project 3\New folder\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\package-lock.json
+D:\Lập trình\Aptech\Project\Project 3\New folder\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\package.json
+D:\Lập trình\Aptech\Project\Project 3\New folder\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Twilio.dll
+>>>>>>> 8a058244c479ce91b02abced85e930f892183a31

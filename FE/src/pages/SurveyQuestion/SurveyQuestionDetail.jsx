@@ -12,9 +12,9 @@ const QuestionDetail = () => {
   const [error, setError] = useState(null);
 
   const handleDetailButton = (id) => {
-    navigate(`/admin/option-detail/${id}`);
+    navigate(`/option-detail/${id}`);
   };
-  
+
   useEffect(() => {
     const fetchQuestion = async () => {
       setLoading(true);
@@ -63,7 +63,7 @@ const QuestionDetail = () => {
 
         <div className="flex justify-center">
           <button
-            onClick={() => navigate("/admin/questions")}
+            onClick={() => navigate("/questions")}
             className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
           >
             Back to Question List
@@ -72,14 +72,18 @@ const QuestionDetail = () => {
       </div>
 
       {/* List of Options */}
-      <h2 className="text-2xl font-semibold mt-8 mb-4 text-center">Survey Options</h2>
+      <h2 className="text-2xl font-semibold mt-8 mb-4 text-center">
+        Survey Options
+      </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {question.options.map((option) => (
           <div
             key={option.optionID}
             className="relative p-4 bg-white shadow rounded border border-gray-200"
           >
-            <h3 className="text-lg font-medium mb-2">Option: {option.optionText}</h3>
+            <h3 className="text-lg font-medium mb-2">
+              Option: {option.optionText}
+            </h3>
             <p className="text-sm text-gray-700">Score: {option.score}</p>
             <button
               onClick={() => handleDetailButton(option.optionID)}

@@ -39,6 +39,7 @@
         "FROM_EMAIL": "khanhquan1102@gmail.com"
       }
     },
+    
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
