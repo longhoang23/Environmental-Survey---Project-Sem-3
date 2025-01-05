@@ -70,7 +70,7 @@ const Sidebar = () => {
         name: "FAQs",
         subMenus: [
           { name: "Create FAQ", path: "/admin/add-faq" },
-          { name: "All FAQs", path: "/admin/faqs" },
+          { name: "All FAQs", path: "/faqs" },
         ],
       },
       {
@@ -95,7 +95,7 @@ const Sidebar = () => {
       { name: "Seminars", path: "/student/seminar-list" },
       { name: "Participations", path: "/student/participation-list" },
       { name: "Students", path: "/student/student-list" },
-      { name: "FAQs", path: "/student/faqs" },
+      { name: "FAQs", path: "/faqs" },
       { name: "Supports", path: "/student/supports" },
     ],
   };

@@ -21,7 +21,7 @@ const AddFaq = () => {
 
       if (response.status === 201 || response.status === 200) {
         alert("Faq added successfully!");
-        navigate("/admin/faqs");
+        navigate("/faqs");
       }
     } catch (error) {
       console.error("Error:", error);
