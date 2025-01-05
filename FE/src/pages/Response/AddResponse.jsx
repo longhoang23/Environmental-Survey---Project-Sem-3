@@ -10,28 +10,33 @@ const AddResponse = () => {
   const [response, setResponse] = useState({
     participationID: 0,
     questionID: 0,
-    optionID: 0, // Default to 0
+    optionID: 0,
     responseText: "",
   });
 
   const [participations, setParticipations] = useState([]);
   const [questions, setQuestions] = useState([]);
-  const [options, setOptions] = useState([]);
+  const [allOptions, setAllOptions] = useState([]); // Store all options
+  const [filteredOptions, setFilteredOptions] = useState([]); // Store filtered options for selected QuestionID
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Fetch participations, questions, and options
+  // Fetch questions and options
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [participationResponse, questionResponse, optionResponse] = await Promise.all([
-          axios.get(`${apiUrl}/Participation/all`),
-          axios.get(`${apiUrl}/SurveyQuestion/all`),
-          axios.get(`${apiUrl}/SurveyOption/all`),
-        ]);
-        setParticipations(participationResponse.data);
-        setQuestions(questionResponse.data);
-        setOptions(optionResponse.data);
+        const ParticipationRes = await axios.get(`${apiUrl}/Participation/all`, {
+          headers: getAuthHeaders(),
+        });
+        setParticipations(ParticipationRes.data);
+        const QuestionRes = await axios.get(`${apiUrl}/SurveyQuestion/all`, {
+          headers: getAuthHeaders(),
+        });
+        setQuestions(QuestionRes.data);
+        const OptionRes = await axios.get(`${apiUrl}/SurveyOption/all`, {
+          headers: getAuthHeaders(),
+        });
+        setAllOptions(OptionRes.data); // Store all options
       } catch (err) {
         console.error("Error fetching data:", err);
         setError("Failed to load data.");
@@ -42,21 +47,41 @@ const AddResponse = () => {
     fetchData();
   }, [apiUrl]);
 
+  // Filter options when the QuestionID changes
+  useEffect(() => {
+    if (response.questionID !== 0) {
+      const filtered = allOptions.filter(
+        (option) => option.questionID === response.questionID
+      );
+      setFilteredOptions(filtered);
+    } else {
+      setFilteredOptions([]); // Clear options if no QuestionID is selected
+    }
+  }, [response.questionID, allOptions]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     setError(null);
+
     try {
-      const response = await axios.post(`${apiUrl}/Response/create`, response, {
-        headers: { "Content-Type": "application/json" },
+      const apiResponse = await axios.post(`${apiUrl}/Response/create`, response, {
         headers: getAuthHeaders(),
       });
-      if (response.status === 201 || response.status === 200) {
-        alert("Response added successfully!");
+
+      if (apiResponse.status === 201 || apiResponse.status === 200) {
+        alert("Response created successfully!");
         navigate("/response-list");
       }
     } catch (err) {
       console.error("Error adding response:", err);
-      setError("Failed to add response.");
+      if (err.response) {
+        setError(err.response.data.message || "Failed to create response.");
+      } else {
+        setError("Failed to connect to the server.");
+      }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -67,23 +92,21 @@ const AddResponse = () => {
     <div className="container mx-auto px-4 py-8">
       <h2 className="text-2xl font-bold mb-4">Add Response</h2>
       <form onSubmit={handleSubmit} className="max-w-md mx-auto bg-white p-6 shadow-md rounded">
-
-        {/* Participation */}
         <div className="flex flex-col mb-4">
           <label htmlFor="participationID" className="font-semibold mb-1">
-            Participation
+            Participation ID
           </label>
           <select
             id="participationID"
             value={response.participationID}
-            onChange={(e) => setResponse({ ...response, participationID: parseInt(e.target.value) })}
+            onChange={(e) => setResponse({ ...response, participationID: parseInt(e.target.value)})}
             className="border p-2 rounded"
             required
           >
-            <option value={0}>-- Select Participation --</option>
+            <option value={0}>-- Select Question --</option>
             {participations.map((p) => (
               <option key={p.participationID} value={p.participationID}>
-                {p.participationDate}
+                {p.participationID}
               </option>
             ))}
           </select>
@@ -97,7 +120,7 @@ const AddResponse = () => {
           <select
             id="questionID"
             value={response.questionID}
-            onChange={(e) => setResponse({ ...response, questionID: parseInt(e.target.value) })}
+            onChange={(e) => setResponse({ ...response, questionID: parseInt(e.target.value), optionID: 0 })}
             className="border p-2 rounded"
             required
           >
@@ -120,9 +143,11 @@ const AddResponse = () => {
             value={response.optionID}
             onChange={(e) => setResponse({ ...response, optionID: parseInt(e.target.value) })}
             className="border p-2 rounded"
+            required
+            disabled={filteredOptions.length === 0} // Disable if no options are available
           >
             <option value={0}>-- Select Option --</option>
-            {options.map((o) => (
+            {filteredOptions.map((o) => (
               <option key={o.optionID} value={o.optionID}>
                 {o.optionText}
               </option>
@@ -145,8 +170,15 @@ const AddResponse = () => {
           />
         </div>
 
-        <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-          Add Response
+         {/* Submit Button */}
+         <button
+          type="submit"
+          className={`bg-blue-500 text-white px-4 py-2 rounded ${
+            loading ? "opacity-50 cursor-not-allowed" : "hover:bg-blue-600"
+          }`}
+          disabled={loading}
+        >
+          {loading ? "Submitting..." : "Add Response"}
         </button>
         {error && <p className="text-red-500 mt-2">{error}</p>}
       </form>
