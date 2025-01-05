@@ -49,6 +49,9 @@ const StudentDetail = () => {
           <strong>Last Name:</strong> {student.lastName}
         </p>
         <p>
+          <strong>Email:</strong> {student.email}
+        </p>
+        <p>
           <strong>Phone Number:</strong> {student.phoneNumber}
         </p>
         <p>

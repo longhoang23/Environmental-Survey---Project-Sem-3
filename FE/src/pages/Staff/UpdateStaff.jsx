@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
+import { getAuthHeaders } from "../../Services/userAuth";
 
 const UpdateStaff = () => {
   const apiUrl = import.meta.env.VITE_PUBLIC_URL; // e.g. http://localhost:5169/api
@@ -11,12 +12,14 @@ const UpdateStaff = () => {
   const [staff, setStaff] = useState({
     firstName: "",
     lastName: "",
+    email : "",
     phoneNumber: "",
     role: "Staff",  // read-only
     sectionId: 0,
     specification: "",
     status: "",     // read-only
-    password: ""
+    password: "",
+    confirmPassword: "",
   });
 
   // For fetching sections
@@ -38,7 +41,9 @@ const UpdateStaff = () => {
         setSections(sectionRes.data);
 
         // Load staff detail
-        const staffRes = await axios.get(`${apiUrl}/Staff/${id}`);
+        const staffRes = await axios.get(`${apiUrl}/Staff/${id}`, {
+          headers: getAuthHeaders()
+        });
         if (staffRes.status === 200) {
           setStaff(staffRes.data);
         } else {
@@ -62,10 +67,17 @@ const UpdateStaff = () => {
     setLoading(true);
     setError(null);
 
+     // Password verification check:
+     if (staff.password !== staff.confirmPassword) {
+      setError("Passwords do not match!");
+      setLoading(false);
+      return;
+    }
+
     try {
       // We form the request body from 'staff' state
       const response = await axios.put(`${apiUrl}/Staff/update/${id}`, staff, {
-        headers: { "Content-Type": "application/json" },
+        headers: getAuthHeaders()
       });
 
       if (response.status === 200) {
@@ -74,7 +86,7 @@ const UpdateStaff = () => {
       }
     } catch (err) {
       console.error("Error updating staff:", err);
-      setError("Failed to update staff. Please try again.");
+      setError("Failed to update staff. Please try again. Email or PhoneNumber might already existed! Check your password as well!");
     } finally {
       setLoading(false);
     }
@@ -123,6 +135,23 @@ const UpdateStaff = () => {
             onChange={(e) => setStaff({ ...staff, lastName: e.target.value })}
             required
             className="border p-2 rounded"
+          />
+        </div>
+
+        {/* Email */}
+        <div className="flex flex-col">
+          <label htmlFor="email" className="font-semibold mb-1">
+            Email
+          </label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            value={staff.email}
+            onChange={(e) => setStaff({...staff, email: e.target.value})}
+            required
+            className="border p-2 rounded"
+            placeholder="Enter email"
           />
         </div>
 
@@ -212,11 +241,27 @@ const UpdateStaff = () => {
           </label>
           <input
             id="password"
-            type="text"
+            type="password"
             value={staff.password || ""}
             onChange={(e) => setStaff({ ...staff, password: e.target.value })}
             className="border p-2 rounded"
             placeholder="Enter new password if changing"
+          />
+        </div>
+
+         {/* Confirm Password */}
+        <div className="flex flex-col">
+          <label htmlFor="confirmPassword" className="font-semibold mb-1">
+            Confirm Password
+          </label>
+          <input
+            id="confirmPassword"
+            type="password"
+            value={staff.confirmPassword}
+            onChange={(e) => setStaff({ ...staff, confirmPassword: e.target.value })}
+            required
+            className="border p-2 rounded"
+            placeholder="Confirm password"
           />
         </div>
 

@@ -15,6 +15,7 @@ namespace api.Mappers
                 UserID = user.UserID,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
+                Email = user.Email,
                 PhoneNumber = user.PhoneNumber,
                 Role = user.Role,
                 RollOrEmpNo = user.RollOrEmpNo,
@@ -24,7 +25,11 @@ namespace api.Mappers
                 Password = user.PasswordHash,
                 JoinDate = user.JoinDate,
                 UpdatedAt = user.UpdatedAt,
-                Status = user.Status
+                Status = user.Status,
+                Participations = user.Participations?.Select(p => p.ToParticipationDTO()).ToList(),
+                SeminarsConducted = user.SeminarsConducted?.Select(s => s.ToSeminarDTO()).ToList(),
+                Winners = user.Winners?.Select(w => w.ToCompetitionDTO()).ToList()
+                
             };
         }
 
@@ -32,6 +37,7 @@ namespace api.Mappers
             return new User {
                 FirstName = createStaffDTO.FirstName,
                 LastName = createStaffDTO.LastName,
+                Email = createStaffDTO.Email,
                 PhoneNumber = createStaffDTO.PhoneNumber,
                 Role = createStaffDTO.Role,
                 RollOrEmpNo = RollOrEmpNoGenerator.GenerateRollOrEmpNo("staff"),
@@ -49,6 +55,7 @@ namespace api.Mappers
             {
                 FirstName = updateStaffDTO.FirstName,
                 LastName = updateStaffDTO.LastName,
+                Email = updateStaffDTO.Email,
                 PhoneNumber = updateStaffDTO.PhoneNumber,
                 Role = updateStaffDTO.Role,
                 // RollOrEmpNo = updateStaffDTO.RollOrEmpNo,

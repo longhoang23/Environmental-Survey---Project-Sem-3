@@ -20,8 +20,13 @@ namespace api.Models
         [Required]
         [MaxLength(100)]
         public string LastName { get; set; } = null!;
+        [Required]
+        [MaxLength(254)]
+        [EmailAddress(ErrorMessage = "Invalid email address format.")]
+        public string Email {get; set;} = null!;
 
         [Required]
+        [MaxLength(16)]
         public string PhoneNumber { get; set; } = null!;
 
         [Required]
@@ -64,6 +69,7 @@ namespace api.Models
         public ICollection<Survey>? SurveysCreated { get; set; } = new List<Survey>();
         public ICollection<Participation>? Participations { get; set; } = new List<Participation>();
         public ICollection<Seminar>? SeminarsConducted { get; set; } = new List<Seminar>();
+        public ICollection<Competition>? Winners {get; set;} = new List<Competition>();
         public ICollection<RegistrationRequest> RegistrationRequests {get; set;} = new List<RegistrationRequest>();
     }
 }

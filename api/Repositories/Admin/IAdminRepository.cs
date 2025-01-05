@@ -14,8 +14,6 @@ namespace api.Repositories.Admin
         Task<User?> DeleteAdminAsync(int userId);
         Task<IEnumerable<User>> GetAllAdminsAsync();
         Task<bool> AdminExistAsync(int userId);
-        Task<User?> GetUserByUsernameAsync(string username);
-        Task<User?> GetUserByRollOrEmpNoAsync(string rollOrEmpNo);
     
     }
 }

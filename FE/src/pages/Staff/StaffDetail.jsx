@@ -55,6 +55,9 @@ const StaffDetail = () => {
           <strong>Last Name:</strong> {staff.lastName}
         </p>
         <p>
+          <strong>Email:</strong> {staff.email}
+        </p>
+        <p>
           <strong>Phone Number:</strong> {staff.phoneNumber}
         </p>
         <p>

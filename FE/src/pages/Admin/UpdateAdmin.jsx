@@ -11,11 +11,13 @@ const UpdateAdmin = () => {
   const [admin, setAdmin] = useState({
     firstName: "",
     lastName: "",
+    email: "",
     phoneNumber: "",
     role: "Admin",
     specification: "",
     status: "Active",
-    password: ""
+    password: "",
+    confirmPassword: ""
   });
 
   const [loading, setLoading] = useState(false);
@@ -45,6 +47,13 @@ const UpdateAdmin = () => {
     setLoading(true);
     setError(null);
 
+    // Password verification check:
+    if (admin.password !== admin.confirmPassword) {
+      setError("Passwords do not match!");
+      setLoading(false);
+      return;
+    }
+
     try {
       // Adjust endpoint if your API differs (e.g., "/Admin/update/{id}")
       const response = await axios.put(`${apiUrl}/Admin/update/${id}`, admin, {
@@ -58,7 +67,7 @@ const UpdateAdmin = () => {
       }
     } catch (err) {
       console.error("Error updating Admin:", err);
-      setError("Failed to update Admin. Please try again.");
+      setError("Failed to update Admin. Please try again. Email or PhoneNumber might already existed! Check your password as well!");
     } finally {
       setLoading(false);
     }
@@ -102,6 +111,21 @@ const UpdateAdmin = () => {
             required
             className="border p-2 rounded"
             placeholder="Enter last name"
+          />
+        </div>
+
+        <div className="flex flex-col">
+          <label htmlFor="email" className="font-semibold mb-1">
+            Email
+          </label>
+          <input
+            id="email"
+            type="email"
+            value={admin.email}
+            onChange={(e) => setAdmin({ ...admin, email: e.target.value })}
+            required
+            className="border p-2 rounded"
+            placeholder="Enter email"
           />
         </div>
 
@@ -171,11 +195,27 @@ const UpdateAdmin = () => {
           </label>
           <input
             id="password"
-            type="text"
+            type="password"
             value={admin.password || ""}
             onChange={(e) => setAdmin({ ...admin, password: e.target.value })}
             className="border p-2 rounded"
             placeholder="Enter password"
+          />
+        </div>
+
+        {/* Confirm Password */}
+        <div className="flex flex-col">
+          <label htmlFor="confirmPassword" className="font-semibold mb-1">
+            Confirm Password
+          </label>
+          <input
+            id="confirmPassword"
+            type="password"
+            value={admin.confirmPassword}
+            onChange={(e) => setAdmin({ ...admin, confirmPassword: e.target.value })}
+            required
+            className="border p-2 rounded"
+            placeholder="Confirm password"
           />
         </div>
 

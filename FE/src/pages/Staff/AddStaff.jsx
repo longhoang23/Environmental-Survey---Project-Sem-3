@@ -10,12 +10,14 @@ const AddStaff = () => {
   const [staff, setStaff] = useState({
     firstName: "",
     lastName: "",
+    email: "",
     phoneNumber: "",
     role: "Staff",       // Default to "Staff"
     sectionId: 0,
     specification: "",
     status: "",          // Could be an empty string initially
-    password: ""
+    password: "",
+    confirmPassword: "",
   });
 
   // We'll fetch the sections to populate a <select>
@@ -48,6 +50,13 @@ const AddStaff = () => {
     setLoading(true);
     setError(null);
 
+    // Password verification check:
+    if (staff.password !== staff.confirmPassword) {
+      setError("Passwords do not match!");
+      setLoading(false);
+      return;
+    }
+
     try {
       // Adjust the endpoint if your API is different, e.g. /Staff
       const response = await axios.post(`${apiUrl}/Staff/create`, staff, {
@@ -61,7 +70,7 @@ const AddStaff = () => {
       }
     } catch (err) {
       console.error("Error creating staff:", err);
-      setError("Failed to create staff. Please try again.");
+      setError("Failed to create staff. Please try again. Email or PhoneNumber might already existed! Check your password as well!");
     } finally {
       setLoading(false);
     }
@@ -107,6 +116,23 @@ const AddStaff = () => {
             required
             className="border p-2 rounded"
             placeholder="Enter last name"
+          />
+        </div>
+
+        {/* Email */}
+        <div className="flex flex-col">
+          <label htmlFor="email" className="font-semibold mb-1">
+            Email
+          </label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            value={staff.email}
+            onChange={(e) => setStaff({...staff, email: e.target.value})}
+            required
+            className="border p-2 rounded"
+            placeholder="Enter email"
           />
         </div>
 
@@ -201,12 +227,28 @@ const AddStaff = () => {
           </label>
           <input
             id="password"
-            type="text"
+            type="password"
             value={staff.password}
             onChange={(e) => setStaff({ ...staff, password: e.target.value })}
             required
             className="border p-2 rounded"
             placeholder="Enter password"
+          />
+        </div>
+
+        {/* Confirm Password */}
+        <div className="flex flex-col">
+          <label htmlFor="confirmPassword" className="font-semibold mb-1">
+            Confirm Password
+          </label>
+          <input
+            id="confirmPassword"
+            type="password"
+            value={staff.confirmPassword}
+            onChange={(e) => setStaff({ ...staff, confirmPassword: e.target.value })}
+            required
+            className="border p-2 rounded"
+            placeholder="Confirm password"
           />
         </div>
 

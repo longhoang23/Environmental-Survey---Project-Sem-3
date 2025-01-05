@@ -11,12 +11,14 @@ const UpdateStudent = () => {
   const [student, setStudent] = useState({
     firstName: "",
     lastName: "",
+    email: "",
     phoneNumber: "",
     role: "Student",
     klassId: 0,
     specification: "",
     status: "",
-    password: ""
+    password: "",
+    confirmPassword: "",
   });
 
   const [klasses, setKlasses] = useState([]); // for <select> of classes
@@ -62,6 +64,13 @@ const UpdateStudent = () => {
     setLoading(true);
     setError(null);
 
+     // Password verification check:
+    if (student.password !== student.confirmPassword) {
+      setError("Passwords do not match!");
+      setLoading(false);
+      return;
+    }
+
     try {
       // Adjust if your endpoint is different (e.g., /Student/update/{id})
       const response = await axios.put(`${apiUrl}/Student/update/${id}`, student, {
@@ -73,7 +82,7 @@ const UpdateStudent = () => {
       }
     } catch (err) {
       console.error("Error updating student:", err);
-      setError("Failed to update student. Please try again.");
+      setError("Failed to update student. Please try again. Email or PhoneNumber might already existed! Check your password as well!");
     } finally {
       setLoading(false);
     }
@@ -122,6 +131,23 @@ const UpdateStudent = () => {
             onChange={(e) => setStudent({ ...student, lastName: e.target.value })}
             required
             className="border p-2 rounded"
+          />
+        </div>
+
+        {/* Email */}
+        <div className="flex flex-col">
+          <label htmlFor="email" className="font-semibold mb-1">
+            Email
+          </label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            value={student.email}
+            onChange={(e) => setStudent({...student, email: e.target.value})}
+            required
+            className="border p-2 rounded"
+            placeholder="Enter email"
           />
         </div>
 
@@ -214,14 +240,30 @@ const UpdateStudent = () => {
           </label>
           <input
             id="password"
-            type="text"
+            type="password"
             value={student.password || ""}
             onChange={(e) => setStudent({ ...student, password: e.target.value })}
             className="border p-2 rounded"
             placeholder="Enter new password if changing"
           />
         </div>
-
+        
+        {/* Confirm Password */}
+        <div className="flex flex-col">
+          <label htmlFor="confirmPassword" className="font-semibold mb-1">
+            Confirm Password
+          </label>
+          <input
+            id="confirmPassword"
+            type="password"
+            value={student.confirmPassword}
+            onChange={(e) => setStudent({ ...student, confirmPassword: e.target.value })}
+            required
+            className="border p-2 rounded"
+            placeholder="Confirm password"
+          />
+        </div>
+        
         {/* Submit */}
         {loading ? (
           <p className="text-blue-500 font-semibold">Updating student...</p>

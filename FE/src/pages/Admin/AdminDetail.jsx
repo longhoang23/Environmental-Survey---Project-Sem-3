@@ -45,6 +45,9 @@ const AdminDetail = () => {
           <strong>Last Name:</strong> {admin.lastName}
         </p>
         <p>
+          <strong>Email:</strong> {admin.email}
+        </p>
+        <p>
           <strong>Phone Number:</strong> {admin.phoneNumber}
         </p>
         <p>

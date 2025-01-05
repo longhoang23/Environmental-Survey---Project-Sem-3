@@ -934,7 +934,6 @@ D:\Lập trình\Aptech\Project\Project 3\New folder\Environmental-Survey---Proje
 D:\Lập trình\Aptech\Project\Project 3\New folder\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.genruntimeconfig.cache
 D:\Lập trình\Aptech\Project\Project 3\New folder\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\ref\api.dll
 >>>>>>> 850069973333edeb5a9a041c8536368320e2df02
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Twilio.dll
 D:\Codes\Aptech_learning\eProject\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\package-lock.json
 D:\Codes\Aptech_learning\eProject\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\package.json
 D:\Codes\Aptech_learning\eProject\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Twilio.dll

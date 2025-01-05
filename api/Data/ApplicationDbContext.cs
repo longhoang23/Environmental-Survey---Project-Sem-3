@@ -99,50 +99,7 @@ namespace api.Data
                 .HasForeignKey(p => p.UserID)
                 .OnDelete(DeleteBehavior.Restrict);
                 
-            modelBuilder.Entity<User>().HasData(
-                    new User
-                    {
-                        UserID = 1,
-                        FirstName = "Super",
-                        LastName = "Admin",
-                        PhoneNumber = "0001112222",
-                        Role = UserRole.Admin,
-                        RollOrEmpNo = "EMP1001",
-                        Status = UserStatus.Active,
-                        Username = "superadmin",
-                        PasswordHash = BCrypt.Net.BCrypt.HashPassword("Admin123"),  // hashed password
-                        JoinDate = new DateTime(2023, 01, 01),
-                        UpdatedAt = DateTime.UtcNow
-                    },
-                    new User
-                    {
-                        UserID = 2,
-                        FirstName = "System",
-                        LastName = "Administrator",
-                        PhoneNumber = "0001113333",
-                        Role = UserRole.Admin,
-                        RollOrEmpNo = "EMP1002",
-                        Status = UserStatus.Active,
-                        Username = "sysadmin",
-                        PasswordHash = BCrypt.Net.BCrypt.HashPassword("Admin123"),  
-                        JoinDate = new DateTime(2023, 02, 01),
-                        UpdatedAt = DateTime.UtcNow
-                    },
-                    new User
-                    {
-                        UserID = 3,
-                        FirstName = "Head",
-                        LastName = "Admin",
-                        PhoneNumber = "0001114444",
-                        Role = UserRole.Admin,
-                        RollOrEmpNo = "EMP1003",
-                        Status = UserStatus.Active,
-                        Username = "headadmin",
-                        PasswordHash = BCrypt.Net.BCrypt.HashPassword("Admin123"), 
-                        JoinDate = new DateTime(2023, 03, 01),
-                        UpdatedAt = DateTime.UtcNow
-                    }
-                );
+            
             modelBuilder.Entity<Klass>().HasData(
                 new Klass
                 {
@@ -178,17 +135,67 @@ namespace api.Data
                     Name = "Section C"
                 }
             );
+            modelBuilder.Entity<User>().HasData(
+                // Admins
+                new User
+                {
+                    UserID = 1,
+                    FirstName = "Super",
+                    LastName = "Admin",
+                    Email = "super.admin@example.com",
+                    PhoneNumber = "0001112222",
+                    Role = UserRole.Admin,
+                    RollOrEmpNo = "EMP1001",
+                    Status = UserStatus.Active,
+                    Username = "superadmin",
+                    PasswordHash = BCrypt.Net.BCrypt.HashPassword("Admin123"),
+                    JoinDate = new DateTime(2023, 01, 01),
+                    UpdatedAt = DateTime.UtcNow
+                },
+                new User
+                {
+                    UserID = 2,
+                    FirstName = "System",
+                    LastName = "Administrator",
+                    Email = "system.admin@example.com",
+                    PhoneNumber = "0001113333",
+                    Role = UserRole.Admin,
+                    RollOrEmpNo = "EMP1002",
+                    Status = UserStatus.Active,
+                    Username = "sysadmin",
+                    PasswordHash = BCrypt.Net.BCrypt.HashPassword("Admin123"),
+                    JoinDate = new DateTime(2023, 02, 01),
+                    UpdatedAt = DateTime.UtcNow
+                },
+                new User
+                {
+                    UserID = 3,
+                    FirstName = "Head",
+                    LastName = "Admin",
+                    Email = "head.admin@example.com",
+                    PhoneNumber = "0001114444",
+                    Role = UserRole.Admin,
+                    RollOrEmpNo = "EMP1003",
+                    Status = UserStatus.Active,
+                    Username = "headadmin",
+                    PasswordHash = BCrypt.Net.BCrypt.HashPassword("Admin123"),
+                    JoinDate = new DateTime(2023, 03, 01),
+                    UpdatedAt = DateTime.UtcNow
+                }
+            );
 
+            // Students
             modelBuilder.Entity<User>().HasData(
                 new User
                 {
                     UserID = 101,
                     FirstName = "John",
                     LastName = "Doe",
+                    Email = "john.doe@example.com",
                     PhoneNumber = "1234567890",
                     Role = UserRole.Student,
                     RollOrEmpNo = "student111111",
-                    KlassId = 1, // Example KlassId
+                    KlassId = 1,
                     Specification = "Computer Science",
                     AdmissionDate = new DateTime(2023, 01, 10),
                     UpdatedAt = DateTime.UtcNow,
@@ -201,6 +208,7 @@ namespace api.Data
                     UserID = 102,
                     FirstName = "Jane",
                     LastName = "Smith",
+                    Email = "jane.smith@example.com",
                     PhoneNumber = "9876543210",
                     Role = UserRole.Student,
                     RollOrEmpNo = "student123456",
@@ -217,6 +225,7 @@ namespace api.Data
                     UserID = 103,
                     FirstName = "Alice",
                     LastName = "Johnson",
+                    Email = "alice.johnson@example.com",
                     PhoneNumber = "4567891230",
                     Role = UserRole.Student,
                     RollOrEmpNo = "student135790",
@@ -233,6 +242,7 @@ namespace api.Data
                     UserID = 104,
                     FirstName = "Bob",
                     LastName = "Brown",
+                    Email = "bob.brown@example.com",
                     PhoneNumber = "3216549870",
                     Role = UserRole.Student,
                     RollOrEmpNo = "student987654",
@@ -249,6 +259,7 @@ namespace api.Data
                     UserID = 105,
                     FirstName = "Charlie",
                     LastName = "White",
+                    Email = "charlie.white@example.com",
                     PhoneNumber = "6543217890",
                     Role = UserRole.Student,
                     RollOrEmpNo = "student234567",
@@ -261,16 +272,19 @@ namespace api.Data
                     PasswordHash = BCrypt.Net.BCrypt.HashPassword("password123")
                 }
             );
+
+            // Staff
             modelBuilder.Entity<User>().HasData(
                 new User
                 {
                     UserID = 201,
                     FirstName = "Alice",
                     LastName = "Brown",
+                    Email = "alice.brown@example.com",
                     PhoneNumber = "1122334455",
                     Role = UserRole.Staff,
                     RollOrEmpNo = "STAFF001",
-                    SectionId = 1, // Example SectionId
+                    SectionId = 1,
                     Specification = "IT Support",
                     JoinDate = new DateTime(2022, 01, 15),
                     UpdatedAt = DateTime.UtcNow,
@@ -283,6 +297,7 @@ namespace api.Data
                     UserID = 202,
                     FirstName = "Bob",
                     LastName = "Johnson",
+                    Email = "bob.johnson@example.com",
                     PhoneNumber = "2233445566",
                     Role = UserRole.Staff,
                     RollOrEmpNo = "STAFF002",
@@ -299,6 +314,7 @@ namespace api.Data
                     UserID = 203,
                     FirstName = "Charlie",
                     LastName = "Smith",
+                    Email = "charlie.smith@example.com",
                     PhoneNumber = "3344556677",
                     Role = UserRole.Staff,
                     RollOrEmpNo = "STAFF003",
@@ -315,6 +331,7 @@ namespace api.Data
                     UserID = 204,
                     FirstName = "Diana",
                     LastName = "White",
+                    Email = "diana.white@example.com",
                     PhoneNumber = "4455667788",
                     Role = UserRole.Staff,
                     RollOrEmpNo = "STAFF004",
@@ -331,6 +348,7 @@ namespace api.Data
                     UserID = 205,
                     FirstName = "Evan",
                     LastName = "Green",
+                    Email = "evan.green@example.com",
                     PhoneNumber = "5566778899",
                     Role = UserRole.Staff,
                     RollOrEmpNo = "STAFF005",
@@ -342,7 +360,7 @@ namespace api.Data
                     Username = "evan.green",
                     PasswordHash = BCrypt.Net.BCrypt.HashPassword("password123")
                 }
-            );
+            ); 
         }
     }
 }
