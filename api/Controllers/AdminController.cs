@@ -1,17 +1,18 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using api.DTOs.Admin;
 using api.Mappers;
 using api.Repositories.Admin;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
+    // [Authorize(Roles = "Admin")]
     public class AdminController : ControllerBase
     {
         private readonly IAdminRepository _adminRepository;
@@ -45,18 +46,23 @@ namespace api.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-            
+
+            string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+    
+            if (!Regex.IsMatch(createAdminDTO.Email, emailPattern))
+            {
+                return BadRequest("The provided email is invalid.");
+            }
+
             var user = createAdminDTO.ToCreateAdminResponse();
             var createdAdmin = await _adminRepository.CreateAdminAsync(user);
 
-             if (createdAdmin == null)
+            if (createdAdmin == null)
             {
-                // If null, we assume there was a conflict
-                return Conflict(new { message = "Username or Roll/EmpNo is already in use." });
+                return Conflict(new { message = "Username, email, phone, or Roll/EmpNo is already in use." });
             }
 
             var adminDTO = createdAdmin.ToAdminDTO();
-
             return CreatedAtAction(nameof(GetAdminById), new { userId = adminDTO.UserID }, adminDTO);
         }
 
@@ -70,7 +76,10 @@ namespace api.Controllers
             var updatedAdmin = await _adminRepository.UpdateAdminAsync(userToUpdate, userId);
 
             if (updatedAdmin == null)
-                return Conflict(new { message = "Username or Roll/EmpNo is already in use." });
+            {
+                // If null, it indicates a conflict (duplicate username/email/phone/etc.)
+                return Conflict(new { message = "Username, email, phone, or Roll/EmpNo is already in use." });
+            }
 
             var adminDTO = updatedAdmin.ToAdminDTO();
             return Ok(adminDTO);

@@ -38,6 +38,9 @@ const SeminarList = () => {
     }
   };
 
+  const userRole = JSON.parse(localStorage.getItem('user')).role;
+  const isStudent = userRole == 3
+
   // Load seminars on mount
   useEffect(() => {
     const fetchSeminars = async () => {
@@ -97,12 +100,14 @@ const SeminarList = () => {
                     <button
                       onClick={() => handleUpdateButton(seminar.seminarID)}
                       className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none"
+                      hidden= {isStudent}
                     >
                       Update
                     </button>
                     <button
                       onClick={() => handleDeleteButton(seminar.seminarID)}
                       className="ml-2 px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none"
+                      hidden={isStudent}
                     >
                       Delete
                     </button>
@@ -120,6 +125,7 @@ const SeminarList = () => {
         <button
           onClick={handleAddButton}
           className="px-6 py-3 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none mt-4"
+          hidden={isStudent}
         >
           Add Seminar
         </button>

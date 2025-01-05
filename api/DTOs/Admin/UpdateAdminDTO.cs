@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using api.Enums.Role;
@@ -11,6 +12,10 @@ namespace api.DTOs.Admin
     {
         public string FirstName { get; set; } = null!;
         public string LastName { get; set; } = null!;
+        [Required]
+        [MaxLength(254)]
+        [EmailAddress(ErrorMessage = "Invalid email address format.")]
+        public string Email {get; set;} = null!;
         public string PhoneNumber { get; set; } = null!;
         
         public UserRole Role { get; set; } = UserRole.Admin;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import { getAuthHeaders } from "../../Services/userAuth";
 const AddStudent = () => {
   const apiUrl = import.meta.env.VITE_PUBLIC_URL; // e.g. http://localhost:5169/api
   const navigate = useNavigate();
@@ -10,12 +10,14 @@ const AddStudent = () => {
   const [student, setStudent] = useState({
     firstName: "",
     lastName: "",
+    email: "",
     phoneNumber: "",
     role: "Student",          // Default to "Student"
     klassId: 0,              // This will be updated by user selection
     specification: "",
     status: "NotRequested",   // Default per your requirement
-    password: ""
+    password: "",
+    confirmPassword: "",
   });
 
   // List of classes for the <select> dropdown
@@ -47,13 +49,18 @@ const AddStudent = () => {
     e.preventDefault();
     setLoading(true);
     setError(null);
+    
+    // Password verification check:
+    if (student.password !== student.confirmPassword) {
+      setError("Passwords do not match!");
+      setLoading(false);
+      return;
+    }
 
     try {
       // Adjust if your endpoint is different, e.g. "/Student"
       const response = await axios.post(`${apiUrl}/Student/create`, student, {
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: getAuthHeaders()
       });
       if (response.status === 200 || response.status === 201) {
         alert("Student created successfully!");
@@ -61,7 +68,7 @@ const AddStudent = () => {
       }
     } catch (err) {
       console.error("Error creating student:", err);
-      setError("Failed to create student. Please try again.");
+      setError("Failed to create student. Please try again. Email or PhoneNumber might already existed! Check your password as well!");
     } finally {
       setLoading(false);
     }
@@ -109,6 +116,23 @@ const AddStudent = () => {
             required
             className="border p-2 rounded"
             placeholder="Enter last name"
+          />
+        </div>
+
+        {/* Email */}
+        <div className="flex flex-col">
+          <label htmlFor="email" className="font-semibold mb-1">
+            Email
+          </label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            value={student.email}
+            onChange={(e) => setStudent({...student, email: e.target.value})}
+            required
+            className="border p-2 rounded"
+            placeholder="Enter email"
           />
         </div>
 
@@ -208,6 +232,22 @@ const AddStudent = () => {
             placeholder="Enter password"
           />
         </div>
+        {/* Confirm Password */}
+        <div className="flex flex-col">
+          <label htmlFor="confirmPassword" className="font-semibold mb-1">
+            Confirm Password
+          </label>
+          <input
+            id="confirmPassword"
+            type="password"
+            value={student.confirmPassword}
+            onChange={(e) => setStudent({ ...student, confirmPassword: e.target.value })}
+            required
+            className="border p-2 rounded"
+            placeholder="Confirm password"
+          />
+        </div>
+        
 
         {/* Submit */}
         {loading ? (

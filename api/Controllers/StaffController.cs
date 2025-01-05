@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using api.DTOs.Staff;
 using api.Mappers;
@@ -45,12 +46,24 @@ namespace api.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
+            
+            string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+    
+            if (!Regex.IsMatch(createStaffDTO.Email, emailPattern))
+            {
+                return BadRequest("The provided email is invalid.");
+            }
 
             // Map DTO to User entity
             var user = createStaffDTO.ToCreateStaffResponse();
 
             // Create the staff user
             var createdStaff = await _staffRepository.CreateStaffAsync(user);
+
+            if (createdStaff == null)
+            {
+                return Conflict(new { message = "Email, phone is already in use." });
+            }
 
             // Map back to DTO for the response
             var staffDTO = createdStaff.ToStaffDTO();
@@ -79,6 +92,7 @@ namespace api.Controllers
 
             if (updatedStaff == null)
                 return NotFound("Staff user not found or not a Staff.");
+            
 
             var staffDTO = updatedStaff.ToStaffDTO();
             return Ok(staffDTO);

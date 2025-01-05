@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
+import { getAuthHeaders } from "../../Services/userAuth"; // Assuming you have this utility
 
 const UpdateParticipation = () => {
   const apiUrl = import.meta.env.VITE_PUBLIC_URL;
@@ -11,7 +12,7 @@ const UpdateParticipation = () => {
     userID: 0,
     surveyID: 0,
     participationDate: "",
-    totalScore: null,
+    totalScore: 0,
     feedback: "",
   });
 
@@ -23,14 +24,23 @@ const UpdateParticipation = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [participationResponse, usersResponse, surveysResponse] = await Promise.all([
-          axios.get(`${apiUrl}/Participation/${id}`),
-          axios.get(`${apiUrl}/User/all`),
-          axios.get(`${apiUrl}/Survey/all`),
-        ]);
-        setParticipation(participationResponse.data);
+        // Fetch Users data
+        const usersResponse = await axios.get(`${apiUrl}/Student/all`);
         setUsers(usersResponse.data);
+        //Fetch Surveys data
+        const surveysResponse = await axios.get(`${apiUrl}/Survey/all`);
         setSurveys(surveysResponse.data);
+         // Fetch Participation data with authorization
+        const participationResponse = await axios.get(`${apiUrl}/Participation/${id}`, {
+          headers: getAuthHeaders(), // Include the authorization headers
+        });
+
+        if (participationResponse.status === 200) {
+          setParticipation(participationResponse.data); // Set participation data
+          setLoading(false);
+        } else {
+          setError("Failed to load participation data."); // Handle non-200 responses
+        }
       } catch (err) {
         console.error("Error fetching data:", err);
         setError("Failed to load data.");
@@ -45,11 +55,26 @@ const UpdateParticipation = () => {
     e.preventDefault();
     setError(null);
 
+    if (!participation.participationDate) {
+      setError("Participation date is required.");
+      setLoading(false);
+      return;
+    }
+
+    const selectedUser = users.find((user) => user.userID === participation.userID);
+    if (!selectedUser || !selectedUser.isActive) {
+      setError("Selected user is inactive and cannot participate.");
+      setLoading(false);
+      return;
+    }
+
     try {
-      const response = await axios.put(`${apiUrl}/Participation/update/${id}`, participation);
+      const response = await axios.put(`${apiUrl}/Participation/update/${id}`, participation, {
+          headers: getAuthHeaders(),
+      });
       if (response.status === 200) {
         alert("Participation updated successfully!");
-        navigate("/participation-list");
+        navigate("/admin/participation-list");
       }
     } catch (err) {
       console.error("Error updating participation:", err);
@@ -73,7 +98,9 @@ const UpdateParticipation = () => {
             className="border p-2 rounded"
           >
             <option value={0}>-- Select User --</option>
-            {users.map((user) => (
+            {users
+            .filter((user) => user.isActive) // Only include active users
+            .map((user) => (
               <option key={user.userID} value={user.userID}>
                 {user.firstName} {user.lastName}
               </option>
@@ -99,12 +126,16 @@ const UpdateParticipation = () => {
         </div>
 
         <div className="flex flex-col mb-4">
-          <label htmlFor="participationDate" className="font-semibold mb-1">Participation Date</label>
+          <label htmlFor="participationDate" className="font-semibold mb-1">
+            Participation Date
+          </label>
           <input
             id="participationDate"
             type="datetime-local"
             value={participation.participationDate}
-            onChange={(e) => setParticipation({ ...participation, participationDate: e.target.value })}
+            onChange={(e) =>
+              setParticipation({ ...participation, participationDate: e.target.value })
+            }
             className="border p-2 rounded"
             required
           />
@@ -115,7 +146,7 @@ const UpdateParticipation = () => {
         <input
           id="totalScore"
           type="number"
-          value={participation.totalScore || 0} // Default to 0 if the value is null
+          value={participation.totalScore} // Default to 0 if the value is null
           onChange={(e) => setParticipation({ ...participation, totalScore: parseInt(e.target.value) || 0 })}
           className="border p-2 rounded"
         />

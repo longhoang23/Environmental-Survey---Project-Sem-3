@@ -8,6 +8,7 @@ using api.Enums.Status;
 using api.Mappers;
 using api.Repositories.Participations;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace api.Controllers
 {
@@ -44,6 +45,7 @@ namespace api.Controllers
         }
 
         [HttpPost("create")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> CreateParticipation([FromBody] CreateParticipationDTO createParticipationDTO)
         {
             if (!ModelState.IsValid)
@@ -67,6 +69,7 @@ namespace api.Controllers
         }
 
         [HttpPut("update/{participationId}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateParticipation(int participationId, [FromBody] UpdateParticipationDTO updateParticipationDTO)
         {
             if (!ModelState.IsValid)
@@ -83,6 +86,7 @@ namespace api.Controllers
         }
 
         [HttpDelete("delete/{participationId}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteParticipation(int participationId)
         {
             var deletedParticipation = await _participationRepository.DeleteParticipationAsync(participationId);

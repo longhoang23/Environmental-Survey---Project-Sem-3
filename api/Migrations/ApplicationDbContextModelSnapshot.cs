@@ -42,6 +42,9 @@ namespace api.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
+                    b.Property<int?>("UserID")
+                        .HasColumnType("int");
+
                     b.Property<int?>("Winner1")
                         .HasColumnType("int");
 
@@ -52,6 +55,8 @@ namespace api.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("CompetitionID");
+
+                    b.HasIndex("UserID");
 
                     b.HasIndex("Winner1");
 
@@ -417,6 +422,11 @@ namespace api.Migrations
                     b.Property<DateTime?>("AdmissionDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(254)
+                        .HasColumnType("nvarchar(254)");
+
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -440,7 +450,8 @@ namespace api.Migrations
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(16)
+                        .HasColumnType("nvarchar(16)");
 
                     b.Property<int>("Role")
                         .HasMaxLength(20)
@@ -482,209 +493,226 @@ namespace api.Migrations
                         new
                         {
                             UserID = 1,
+                            Email = "super.admin@example.com",
                             FirstName = "Super",
                             JoinDate = new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Admin",
-                            PasswordHash = "$2a$11$ZhlzUoDjeTsfsPwp3UbWoeCZWd5XVn.wMGlA5j4oTFn/NtbJjIHke",
+                            PasswordHash = "$2a$11$Otd/mOPA6cHEcxQyqDDk8eketXcA4uX6Jog5J4b7nLt/yRNxktQS6",
                             PhoneNumber = "0001112222",
                             Role = 1,
                             RollOrEmpNo = "EMP1001",
                             Status = 2,
-                            UpdatedAt = new DateTime(2025, 1, 2, 12, 12, 19, 852, DateTimeKind.Utc).AddTicks(5799),
+                            UpdatedAt = new DateTime(2025, 1, 4, 12, 4, 48, 878, DateTimeKind.Utc).AddTicks(4982),
                             Username = "superadmin"
                         },
                         new
                         {
                             UserID = 2,
+                            Email = "system.admin@example.com",
                             FirstName = "System",
                             JoinDate = new DateTime(2023, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Administrator",
-                            PasswordHash = "$2a$11$s66Vsj9VJuedHNDqdiQ/dOl7xWPANI81l4hISNGMBhh0tcKRzWTne",
+                            PasswordHash = "$2a$11$H5vFipjhAY393uRrtvpUEeqeCE7kPGiQMxXhaO3/rPw5fUcgH5qJm",
                             PhoneNumber = "0001113333",
                             Role = 1,
                             RollOrEmpNo = "EMP1002",
                             Status = 2,
-                            UpdatedAt = new DateTime(2025, 1, 2, 12, 12, 19, 966, DateTimeKind.Utc).AddTicks(8943),
+                            UpdatedAt = new DateTime(2025, 1, 4, 12, 4, 49, 0, DateTimeKind.Utc).AddTicks(1189),
                             Username = "sysadmin"
                         },
                         new
                         {
                             UserID = 3,
+                            Email = "head.admin@example.com",
                             FirstName = "Head",
                             JoinDate = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Admin",
-                            PasswordHash = "$2a$11$aIUXyshiCBXS06UAAMiCOO3v8rxujv/tSCgxXkZ6xtTI1j3AP1AGO",
+                            PasswordHash = "$2a$11$Nehxf/UFYuieVbz3C88hkOjy6dpAqY3lcjS6QvDdCYHy5icEslaLm",
                             PhoneNumber = "0001114444",
                             Role = 1,
                             RollOrEmpNo = "EMP1003",
                             Status = 2,
-                            UpdatedAt = new DateTime(2025, 1, 2, 12, 12, 20, 83, DateTimeKind.Utc).AddTicks(3655),
+                            UpdatedAt = new DateTime(2025, 1, 4, 12, 4, 49, 115, DateTimeKind.Utc).AddTicks(4029),
                             Username = "headadmin"
                         },
                         new
                         {
                             UserID = 101,
                             AdmissionDate = new DateTime(2023, 1, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "john.doe@example.com",
                             FirstName = "John",
                             KlassId = 1,
                             LastName = "Doe",
-                            PasswordHash = "$2a$11$v3RJSxJUgCHHOJpaoNJ1zOxKLmqyAlI/wZC1/PJnEno/9EuviOn66",
+                            PasswordHash = "$2a$11$FQMyxjLy.VQge5.OYWqlb.zcVAqvSm7nei71vf7OfZrs5vW9ix1rC",
                             PhoneNumber = "1234567890",
                             Role = 3,
                             RollOrEmpNo = "student111111",
                             Specification = "Computer Science",
                             Status = 0,
-                            UpdatedAt = new DateTime(2025, 1, 2, 12, 12, 20, 83, DateTimeKind.Utc).AddTicks(4099),
+                            UpdatedAt = new DateTime(2025, 1, 4, 12, 4, 49, 115, DateTimeKind.Utc).AddTicks(4507),
                             Username = "john.doe"
                         },
                         new
                         {
                             UserID = 102,
                             AdmissionDate = new DateTime(2023, 2, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "jane.smith@example.com",
                             FirstName = "Jane",
                             KlassId = 1,
                             LastName = "Smith",
-                            PasswordHash = "$2a$11$iqMpI4HPgwR7j21T0PHYgOTPr0IftaAv8TwV/wYsHi7jD7bk86lzu",
+                            PasswordHash = "$2a$11$YUzIp0dZddbMpraZkDveXOSoce9BqE/.ZVvq1.S3uo6OMSQnBFPKW",
                             PhoneNumber = "9876543210",
                             Role = 3,
                             RollOrEmpNo = "student123456",
                             Specification = "Mathematics",
                             Status = 0,
-                            UpdatedAt = new DateTime(2025, 1, 2, 12, 12, 20, 202, DateTimeKind.Utc).AddTicks(1288),
+                            UpdatedAt = new DateTime(2025, 1, 4, 12, 4, 49, 234, DateTimeKind.Utc).AddTicks(3872),
                             Username = "jane.smith"
                         },
                         new
                         {
                             UserID = 103,
                             AdmissionDate = new DateTime(2023, 3, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "alice.johnson@example.com",
                             FirstName = "Alice",
                             KlassId = 2,
                             LastName = "Johnson",
-                            PasswordHash = "$2a$11$5Menge0b7BiSPgKKiy9Y2uznx4TTJO3.GDlvp5dB0BHiNXjP68Due",
+                            PasswordHash = "$2a$11$mtQtTAVz14nATIfxz8uP3OTSVrRRXcECdSD./CGeKdaRZO0iaPFaG",
                             PhoneNumber = "4567891230",
                             Role = 3,
                             RollOrEmpNo = "student135790",
                             Specification = "Physics",
                             Status = 0,
-                            UpdatedAt = new DateTime(2025, 1, 2, 12, 12, 20, 327, DateTimeKind.Utc).AddTicks(8042),
+                            UpdatedAt = new DateTime(2025, 1, 4, 12, 4, 49, 353, DateTimeKind.Utc).AddTicks(6573),
                             Username = "alice.johnson"
                         },
                         new
                         {
                             UserID = 104,
                             AdmissionDate = new DateTime(2023, 4, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "bob.brown@example.com",
                             FirstName = "Bob",
                             KlassId = 2,
                             LastName = "Brown",
-                            PasswordHash = "$2a$11$7iARk5l9a2DzWPy5luA7EeogQxpKNfJdQH8EJpdk2Mj45ZNBxtJk2",
+                            PasswordHash = "$2a$11$jWo2cAQq8K1fj00h1HQBJukFRKX1agtWZ2/kxBYi04e8UkqY.QJSa",
                             PhoneNumber = "3216549870",
                             Role = 3,
                             RollOrEmpNo = "student987654",
                             Specification = "Chemistry",
                             Status = 0,
-                            UpdatedAt = new DateTime(2025, 1, 2, 12, 12, 20, 443, DateTimeKind.Utc).AddTicks(5942),
+                            UpdatedAt = new DateTime(2025, 1, 4, 12, 4, 49, 468, DateTimeKind.Utc).AddTicks(4494),
                             Username = "bob.brown"
                         },
                         new
                         {
                             UserID = 105,
                             AdmissionDate = new DateTime(2023, 5, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "charlie.white@example.com",
                             FirstName = "Charlie",
                             KlassId = 3,
                             LastName = "White",
-                            PasswordHash = "$2a$11$QJiTvPbStMTdZ20mGG1A8Ol4Vmf/EqHVlC1CCJk7TEehJwsCxsiIe",
+                            PasswordHash = "$2a$11$rAXsQKpEODLuihun7XcAIuBJpJVQ2W/jh7vP4wAHdqRW4AhtLfoCW",
                             PhoneNumber = "6543217890",
                             Role = 3,
                             RollOrEmpNo = "student234567",
                             Specification = "Biology",
                             Status = 0,
-                            UpdatedAt = new DateTime(2025, 1, 2, 12, 12, 20, 560, DateTimeKind.Utc).AddTicks(7706),
+                            UpdatedAt = new DateTime(2025, 1, 4, 12, 4, 49, 583, DateTimeKind.Utc).AddTicks(2293),
                             Username = "charlie.white"
                         },
                         new
                         {
                             UserID = 201,
+                            Email = "alice.brown@example.com",
                             FirstName = "Alice",
                             JoinDate = new DateTime(2022, 1, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Brown",
-                            PasswordHash = "$2a$11$GnfVPDkoEzo9pksCwDj5UOceze5jQDzCHwIncOABe04D.v2m7XCXW",
+                            PasswordHash = "$2a$11$oLuTkV1GAIXj8GOBZ6ksH.faqs3F.f/Udsmz89RqH1SeAB8P.E3lS",
                             PhoneNumber = "1122334455",
                             Role = 2,
                             RollOrEmpNo = "STAFF001",
                             SectionId = 1,
                             Specification = "IT Support",
                             Status = 2,
-                            UpdatedAt = new DateTime(2025, 1, 2, 12, 12, 20, 674, DateTimeKind.Utc).AddTicks(861),
+                            UpdatedAt = new DateTime(2025, 1, 4, 12, 4, 49, 702, DateTimeKind.Utc).AddTicks(2363),
                             Username = "alice.brown"
                         },
                         new
                         {
                             UserID = 202,
+                            Email = "bob.johnson@example.com",
                             FirstName = "Bob",
                             JoinDate = new DateTime(2022, 2, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Johnson",
-                            PasswordHash = "$2a$11$kPixrZXG7KIvijoz0F1GHeByOo4mrxHgn55ijW15.pcxkpPqb1AvS",
+                            PasswordHash = "$2a$11$KyWYC2gmpBLayKE.nU8e4OM5v2oUywGzxMl.Rsp0uojXdBH14HyRe",
                             PhoneNumber = "2233445566",
                             Role = 2,
                             RollOrEmpNo = "STAFF002",
                             SectionId = 2,
                             Specification = "Library Manager",
                             Status = 2,
-                            UpdatedAt = new DateTime(2025, 1, 2, 12, 12, 20, 790, DateTimeKind.Utc).AddTicks(7797),
+                            UpdatedAt = new DateTime(2025, 1, 4, 12, 4, 49, 817, DateTimeKind.Utc).AddTicks(3644),
                             Username = "bob.johnson"
                         },
                         new
                         {
                             UserID = 203,
+                            Email = "charlie.smith@example.com",
                             FirstName = "Charlie",
                             JoinDate = new DateTime(2022, 3, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Smith",
-                            PasswordHash = "$2a$11$lReLRyboDv7oSnr/qRiGyub49d37W/wKRcxpE/A.wJGvuoIWEE/EO",
+                            PasswordHash = "$2a$11$cxVfecFwMf53VQlxQv1Ncu/pWxvYo1C/opPwNL3Bzu9DU/tJ5QB3y",
                             PhoneNumber = "3344556677",
                             Role = 2,
                             RollOrEmpNo = "STAFF003",
                             SectionId = 3,
                             Specification = "Accounts Manager",
                             Status = 2,
-                            UpdatedAt = new DateTime(2025, 1, 2, 12, 12, 20, 907, DateTimeKind.Utc).AddTicks(7819),
+                            UpdatedAt = new DateTime(2025, 1, 4, 12, 4, 49, 932, DateTimeKind.Utc).AddTicks(9105),
                             Username = "charlie.smith"
                         },
                         new
                         {
                             UserID = 204,
+                            Email = "diana.white@example.com",
                             FirstName = "Diana",
                             JoinDate = new DateTime(2022, 4, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "White",
-                            PasswordHash = "$2a$11$RFCBDkfynwT/xbcbvFP.7.C.BshDnvGDWjTJwAvHsNuusIF.OiO.C",
+                            PasswordHash = "$2a$11$uDAMVZloocjAr0Zdy5QOU.o2e3LPx6jM75NtOC60yeMa2eBTG9j/y",
                             PhoneNumber = "4455667788",
                             Role = 2,
                             RollOrEmpNo = "STAFF004",
                             SectionId = 1,
                             Specification = "HR Specialist",
                             Status = 2,
-                            UpdatedAt = new DateTime(2025, 1, 2, 12, 12, 21, 24, DateTimeKind.Utc).AddTicks(6531),
+                            UpdatedAt = new DateTime(2025, 1, 4, 12, 4, 50, 46, DateTimeKind.Utc).AddTicks(6171),
                             Username = "diana.white"
                         },
                         new
                         {
                             UserID = 205,
+                            Email = "evan.green@example.com",
                             FirstName = "Evan",
                             JoinDate = new DateTime(2022, 5, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Green",
-                            PasswordHash = "$2a$11$3m2JwsIuuJZR0zdnKpupOemRFSy/VLGT6m8prQpPvUOFCn5KhB/oa",
+                            PasswordHash = "$2a$11$yzc7YldiztxZqP1O/PZveueUhg9CctA8/C.zlVTqASU1/JxxVs11C",
                             PhoneNumber = "5566778899",
                             Role = 2,
                             RollOrEmpNo = "STAFF005",
                             SectionId = 2,
                             Specification = "Security Officer",
                             Status = 2,
-                            UpdatedAt = new DateTime(2025, 1, 2, 12, 12, 21, 137, DateTimeKind.Utc).AddTicks(8235),
+                            UpdatedAt = new DateTime(2025, 1, 4, 12, 4, 50, 163, DateTimeKind.Utc).AddTicks(4383),
                             Username = "evan.green"
                         });
                 });
 
             modelBuilder.Entity("api.Models.Competition", b =>
                 {
+                    b.HasOne("api.Models.User", null)
+                        .WithMany("Winners")
+                        .HasForeignKey("UserID");
+
                     b.HasOne("api.Models.User", "FirstPlace")
                         .WithMany()
                         .HasForeignKey("Winner1")
@@ -852,6 +880,8 @@ namespace api.Migrations
                     b.Navigation("SeminarsConducted");
 
                     b.Navigation("SurveysCreated");
+
+                    b.Navigation("Winners");
                 });
 #pragma warning restore 612, 618
         }

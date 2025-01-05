@@ -14,5 +14,6 @@ namespace api.Repositories.Staff
         Task<User?> UpdateStaffAsync(User updatedUser, int userId);
         Task<User?> DeleteStaffAsync(int userId);
         Task<bool> StaffExistsAsync(int userId);
+        Task<User?> GetUserByPhoneAsync(string phoneNumber);
     }
 }

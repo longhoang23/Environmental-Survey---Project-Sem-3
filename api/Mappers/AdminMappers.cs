@@ -35,6 +35,7 @@ namespace api.Mappers
                 UserID = user.UserID,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
+                Email = user.Email,
                 PhoneNumber = user.PhoneNumber,
                 Role = user.Role,
                 RollOrEmpNo = user.RollOrEmpNo,
@@ -44,7 +45,8 @@ namespace api.Mappers
                 JoinDate = user.JoinDate,
                 UpdatedAt = user.UpdatedAt,
                 Status = user.Status,
-                SeminarsConducted = user.SeminarsConducted?.Select(s => s.ToSeminarDTO()).ToList()
+                SeminarsConducted = user.SeminarsConducted?.Select(s => s.ToSeminarDTO()).ToList(),
+                SurveysCreated = user.SurveysCreated?.Select(s => s.ToSurveyDTO()).ToList(),
             };
         }
         
@@ -54,6 +56,7 @@ namespace api.Mappers
             {
                 FirstName = dto.FirstName,
                 LastName = dto.LastName,
+                Email = dto.Email,
                 PhoneNumber = dto.PhoneNumber,
                 Role = dto.Role,
                 RollOrEmpNo = RollOrEmpNoGenerator.GenerateRollOrEmpNo("admin"),
@@ -72,6 +75,7 @@ namespace api.Mappers
             {
                 FirstName = dto.FirstName,
                 LastName = dto.LastName,
+                Email = dto.Email,
                 PhoneNumber = dto.PhoneNumber,
                 Role = dto.Role,
                 // RollOrEmpNo = dto.RollOrEmpNo,

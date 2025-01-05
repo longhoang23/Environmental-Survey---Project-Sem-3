@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { getAuthHeaders } from "../../Services/userAuth";
 
 const SupportList = () => {
   const apiUrl = import.meta.env.VITE_PUBLIC_URL; // e.g., http://localhost:5169/api
@@ -10,21 +11,23 @@ const SupportList = () => {
   const navigate = useNavigate();
 
   const handleAddButton = () => {
-    navigate("/add-support");
+    navigate("/admin/add-support");
   };
 
   const handleDetailButton = (id) => {
-    navigate(`/support-detail/${id}`);
+    navigate(`/admin/support-detail/${id}`);
   };
 
   const handleUpdateButton = (id) => {
-    navigate(`/update-support/${id}`);
+    navigate(`/admin/update-support/${id}`);
   };
 
   const handleDeleteButton = async (id) => {
     if (window.confirm(`Are you sure you want to delete support ID: ${id}?`)) {
       try {
-        const response = await axios.delete(`${apiUrl}/Support/delete/${id}`);
+        const response = await axios.delete(`${apiUrl}/Support/delete/${id}`,{
+          headers: getAuthHeaders(),
+        });
         if (response.status === 200) {
           setSupports(supports.filter((p) => p.supportID !== id));
           alert("Support deleted successfully!");

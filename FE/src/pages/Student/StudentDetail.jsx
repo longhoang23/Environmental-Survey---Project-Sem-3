@@ -49,6 +49,9 @@ const StudentDetail = () => {
           <strong>Last Name:</strong> {student.lastName}
         </p>
         <p>
+          <strong>Email:</strong> {student.email}
+        </p>
+        <p>
           <strong>Phone Number:</strong> {student.phoneNumber}
         </p>
         <p>
@@ -77,9 +80,9 @@ const StudentDetail = () => {
         <p>
           <strong>Username:</strong> {student.username}
         </p>
-        <p>
+        {/* <p>
           <strong>Password (Hash):</strong> {student.password}
-        </p>
+        </p> */}
 
         <button
           onClick={() => navigate("/admin/student-list")}

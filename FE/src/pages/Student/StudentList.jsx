@@ -50,7 +50,9 @@ const StudentList = () => {
     const fetchData = async () => {
       
       try {
-        const studentResponse = await axios.get(`${apiUrl}/Student/all`);
+        const studentResponse = await axios.get(`${apiUrl}/Student/all`, {
+          headers: getAuthHeaders()
+        });
         setStudents(studentResponse.data);
 
         const klassResponse = await axios.get(`${apiUrl}/Klass/all`);

@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 
 const Sidebar = () => {
   const [user, setUser] = useState(null);
   const [openMenus, setOpenMenus] = useState({}); // State quản lý menu mở
+  const navigate = useNavigate();
 
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -34,15 +35,20 @@ const Sidebar = () => {
     window.location.href = "/login";
   };
 
-  // Danh sách menu dựa trên vai trò
+  const toggleMenu = (menuName) => {
+    setOpenMenus((prev) => ({ ...prev, [menuName]: !prev[menuName] }));
+  };
+
   const menus = {
     1: [
-      { name: "Dashboard", path: "/dashboard/dashboard" },
+      { name: "Dashboard", path: "/dashboard" },
       { name: "User Requests", path: "/admin/user-requests" },
       {
         name: "Survey",
         subMenus: [
           { name: "Create Survey", path: "/admin/add-survey" },
+          { name: "Survey Question", path: "/admin/questions" },
+          { name: "Survey Option", path: "/admin/options" },
           { name: "All Surveys", path: "/admin/surveys" },
         ],
       },
@@ -56,15 +62,15 @@ const Sidebar = () => {
       {
         name: "Competition",
         subMenus: [
-          { name: "Create Competition", path: "/competition-list" },
-          { name: "All Competitions", path: "/add-competition" },
+          { name: "Create Competition", path: "/add-competition" },
+          { name: "All Competitions", path: "/competition-list" },
         ],
       },
       {
         name: "FAQs",
         subMenus: [
-          { name: "Create FAQ", path: "/admin/create-faq" },
-          { name: "All FAQs", path: "/admin/all-faqs" },
+          { name: "Create FAQ", path: "/admin/add-faq" },
+          { name: "All FAQs", path: "/admin/faqs" },
         ],
       },
       {
@@ -76,21 +82,22 @@ const Sidebar = () => {
       },
     ],
     2: [
-      { name: "Surveys", path: "/staff/surveys" },
-      { name: "Seminars", path: "/staff/seminars" },
+      { name: "Surveys", path: "/staff/survey-list" },
+      { name: "Seminars", path: "/staff/seminar-list" },
+      { name: "Participations", path: "/staff/participation-list" },
+      { name: "Students", path: "/staff/student-list" },
+      { name: "Staffs", path: "/staff/staff-list" },
       { name: "FAQs", path: "/staff/faqs" },
       { name: "Supports", path: "/staff/supports" },
     ],
     3: [
-      { name: "Surveys", path: "/student/surveys" },
-      { name: "Seminars", path: "/student/seminars" },
+      { name: "Surveys", path: "/student/survey-list" },
+      { name: "Seminars", path: "/student/seminar-list" },
+      { name: "Participations", path: "/student/participation-list" },
+      { name: "Students", path: "/student/student-list" },
       { name: "FAQs", path: "/student/faqs" },
       { name: "Supports", path: "/student/supports" },
     ],
-  };
-
-  const toggleMenu = (menuName) => {
-    setOpenMenus((prev) => ({ ...prev, [menuName]: !prev[menuName] }));
   };
 
   const renderMenu = (menuList) =>
@@ -134,9 +141,15 @@ const Sidebar = () => {
     );
 
   return (
-    <div className="bg-white font-medium w-64 h-screen p-4 ">
+    <div className="bg-white font-medium w-64 h-screen p-4">
       <ul className="space-y-4">{renderMenu(menus[role] || [])}</ul>
       <div className="mt-6 border-t border-gray-300 pt-6">
+        <button
+          onClick={() => navigate("/profile")}
+          className="w-full bg-gray-200 text-gray-800 py-2 rounded-md hover:bg-gray-300 transition duration-300 mb-4"
+        >
+          Profile
+        </button>
         <button
           onClick={handleLogout}
           className="w-full bg-red-500 text-white py-2 rounded-md hover:bg-red-600 transition duration-300"

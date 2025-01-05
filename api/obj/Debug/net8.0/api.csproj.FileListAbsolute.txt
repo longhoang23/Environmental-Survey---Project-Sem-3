@@ -143,16 +143,41 @@ D:\Project\EnviromentalSurveyPortal\api\obj\Debug\net8.0\api.pdb
 D:\Project\EnviromentalSurveyPortal\api\obj\Debug\net8.0\api.genruntimeconfig.cache
 D:\Project\EnviromentalSurveyPortal\api\obj\Debug\net8.0\ref\api.dll
 D:\Project\EnviromentalSurveyPortal\api\bin\Debug\net8.0\BCrypt.Net-Next.dll
+<<<<<<< HEAD
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\appsettings.Development.json
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\appsettings.json
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\api.exe
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\api.deps.json
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\api.runtimeconfig.json
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\api.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\api.pdb
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Azure.Core.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Azure.Identity.dll
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\BCrypt.Net-Next.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Humanizer.dll
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.AspNetCore.OpenApi.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+=======
+>>>>>>> 8fad7164fd4be2daf105824012a01fa6231b7194
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
@@ -161,18 +186,122 @@ D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.OpenApi.dll
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Mono.TextTemplating.dll
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.ClientModel.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.CodeDom.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Composition.AttributedModel.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Composition.Convention.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Composition.Hosting.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Composition.Runtime.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Composition.TypedParts.dll
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Drawing.Common.dll
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Memory.Data.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Runtime.Caching.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Security.Permissions.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Windows.Extensions.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.csproj.AssemblyReference.cache
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.GeneratedMSBuildEditorConfig.editorconfig
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.AssemblyInfoInputs.cache
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.AssemblyInfo.cs
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.csproj.CoreCompileInputs.cache
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.MvcApplicationPartsAssemblyInfo.cs
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.MvcApplicationPartsAssemblyInfo.cache
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.sourcelink.json
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\staticwebassets.build.json
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\staticwebassets.development.json
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\staticwebassets\msbuild.api.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\staticwebassets\msbuild.build.api.props
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.api.props
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.api.props
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\staticwebassets.pack.json
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\scopedcss\bundle\api.styles.css
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.csproj.Up2Date
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\refint\api.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.pdb
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.genruntimeconfig.cache
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\ref\api.dll
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Newtonsoft.Json.dll
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.AspNetCore.JsonPatch.dll
 D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
 D:\Codes\Aptech_learning\eProject\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\Codes\Aptech_learning\eProject\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 D:\Codes\Aptech_learning\eProject\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
@@ -330,163 +459,164 @@ D:\Codes\Aptech_learning\eProject\eProject3\Environmental-Survey---Project-Sem-3
 D:\Codes\Aptech_learning\eProject\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.pdb
 D:\Codes\Aptech_learning\eProject\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.genruntimeconfig.cache
 D:\Codes\Aptech_learning\eProject\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\ref\api.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\appsettings.Development.json
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\appsettings.json
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\api.exe
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\api.deps.json
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\api.runtimeconfig.json
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\api.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\api.pdb
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Azure.Core.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Azure.Identity.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\BCrypt.Net-Next.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Humanizer.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.AspNetCore.JsonPatch.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.AspNetCore.OpenApi.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Identity.Client.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.OpenApi.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Mono.TextTemplating.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Newtonsoft.Json.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.ClientModel.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.CodeDom.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Composition.AttributedModel.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Composition.Convention.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Composition.Hosting.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Composition.Runtime.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Composition.TypedParts.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Drawing.Common.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Formats.Asn1.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Memory.Data.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Runtime.Caching.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Security.Permissions.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Windows.Extensions.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.csproj.AssemblyReference.cache
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.GeneratedMSBuildEditorConfig.editorconfig
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.AssemblyInfoInputs.cache
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.AssemblyInfo.cs
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.csproj.CoreCompileInputs.cache
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.MvcApplicationPartsAssemblyInfo.cs
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.MvcApplicationPartsAssemblyInfo.cache
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.sourcelink.json
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\staticwebassets.build.json
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\staticwebassets.development.json
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\staticwebassets\msbuild.api.Microsoft.AspNetCore.StaticWebAssets.props
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\staticwebassets\msbuild.build.api.props
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.api.props
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.api.props
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\staticwebassets.pack.json
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\scopedcss\bundle\api.styles.css
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.csproj.Up2Date
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\refint\api.dll
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.pdb
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.genruntimeconfig.cache
-D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\ref\api.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\appsettings.Development.json
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\appsettings.json
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\api.exe
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\api.deps.json
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\api.runtimeconfig.json
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\api.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\api.pdb
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Azure.Core.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Azure.Identity.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\BCrypt.Net-Next.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Humanizer.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.AspNetCore.OpenApi.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.OpenApi.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Mono.TextTemplating.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.ClientModel.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.CodeDom.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Composition.AttributedModel.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Composition.Convention.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Composition.Hosting.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Composition.Runtime.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Composition.TypedParts.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Drawing.Common.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Formats.Asn1.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Memory.Data.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Runtime.Caching.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Security.Permissions.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Windows.Extensions.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.csproj.AssemblyReference.cache
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.GeneratedMSBuildEditorConfig.editorconfig
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.AssemblyInfoInputs.cache
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.AssemblyInfo.cs
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.csproj.CoreCompileInputs.cache
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.MvcApplicationPartsAssemblyInfo.cs
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.MvcApplicationPartsAssemblyInfo.cache
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.sourcelink.json
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\staticwebassets.build.json
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\staticwebassets.development.json
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\staticwebassets\msbuild.api.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\staticwebassets\msbuild.build.api.props
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.api.props
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.api.props
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\staticwebassets.pack.json
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\scopedcss\bundle\api.styles.css
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.csproj.Up2Date
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\refint\api.dll
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.pdb
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.genruntimeconfig.cache
+D:\Lập trình\Aptech\Project\Project 3\Source code\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\ref\api.dll
+>>>>>>> faaefef6986c0693b12ff0efe9286fd7b7879376
 D:\Web Khảo Sát\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\appsettings.Development.json
 D:\Web Khảo Sát\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\appsettings.json
 D:\Web Khảo Sát\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\api.staticwebassets.endpoints.json
@@ -803,130 +933,167 @@ D:\Lập trình\Aptech\Project\Project 3\New folder\Environmental-Survey---Proje
 D:\Lập trình\Aptech\Project\Project 3\New folder\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.pdb
 D:\Lập trình\Aptech\Project\Project 3\New folder\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.genruntimeconfig.cache
 D:\Lập trình\Aptech\Project\Project 3\New folder\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\ref\api.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\appsettings.Development.json
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\appsettings.json
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\api.deps.json
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\api.runtimeconfig.json
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\api.pdb
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Azure.Identity.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Humanizer.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Mono.TextTemplating.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.ClientModel.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.CodeDom.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Composition.AttributedModel.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Composition.Convention.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Composition.Hosting.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Composition.Runtime.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Composition.TypedParts.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Drawing.Common.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Memory.Data.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Runtime.Caching.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Security.Permissions.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Windows.Extensions.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.csproj.AssemblyReference.cache
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.GeneratedMSBuildEditorConfig.editorconfig
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.AssemblyInfoInputs.cache
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.AssemblyInfo.cs
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.csproj.CoreCompileInputs.cache
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.MvcApplicationPartsAssemblyInfo.cs
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.MvcApplicationPartsAssemblyInfo.cache
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.sourcelink.json
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\staticwebassets.build.json
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\staticwebassets.development.json
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\staticwebassets\msbuild.api.Microsoft.AspNetCore.StaticWebAssets.props
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\staticwebassets\msbuild.build.api.props
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.api.props
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.api.props
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\staticwebassets.pack.json
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\scopedcss\bundle\api.styles.css
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.csproj.Up2Date
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\refint\api.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.pdb
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.genruntimeconfig.cache
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\ref\api.dll
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Twilio.dll
+>>>>>>> 850069973333edeb5a9a041c8536368320e2df02
+D:\Codes\Aptech_learning\eProject\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\package-lock.json
+D:\Codes\Aptech_learning\eProject\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\package.json
+D:\Codes\Aptech_learning\eProject\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Twilio.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\appsettings.Development.json
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\appsettings.json
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\api.exe
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\api.deps.json
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\api.runtimeconfig.json
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\api.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\api.pdb
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Azure.Core.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Azure.Identity.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\BCrypt.Net-Next.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Humanizer.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.AspNetCore.OpenApi.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.OpenApi.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Mono.TextTemplating.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.ClientModel.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.CodeDom.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Composition.AttributedModel.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Composition.Convention.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Composition.Hosting.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Composition.Runtime.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Composition.TypedParts.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Drawing.Common.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Formats.Asn1.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Memory.Data.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Runtime.Caching.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Security.Permissions.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\System.Windows.Extensions.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.csproj.AssemblyReference.cache
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.GeneratedMSBuildEditorConfig.editorconfig
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.AssemblyInfoInputs.cache
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.AssemblyInfo.cs
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.csproj.CoreCompileInputs.cache
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.MvcApplicationPartsAssemblyInfo.cs
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.MvcApplicationPartsAssemblyInfo.cache
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.sourcelink.json
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\staticwebassets.build.json
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\staticwebassets.development.json
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\staticwebassets\msbuild.api.Microsoft.AspNetCore.StaticWebAssets.props
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\staticwebassets\msbuild.build.api.props
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.api.props
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.api.props
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\staticwebassets.pack.json
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\scopedcss\bundle\api.styles.css
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.csproj.Up2Date
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\refint\api.dll
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.pdb
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.genruntimeconfig.cache
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\ref\api.dll
+>>>>>>> 3642d3c42bfc1f795d343aa7ea3f795378d41507
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\package-lock.json
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\package.json
