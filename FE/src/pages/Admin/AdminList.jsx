@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import { getAuthHeaders } from "../../Services/userAuth";
 const AdminList = () => {
   const [admins, setAdmins] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -21,7 +21,9 @@ const AdminList = () => {
     const confirmDelete = window.confirm(`Do you want to delete id: ${id}?`);
     if (!confirmDelete) return;
     try {
-      const response = await axios.delete(`${apiUrl}/Admin/delete/${id}`);
+      const response = await axios.delete(`${apiUrl}/Admin/delete/${id}`, {
+        headers: getAuthHeaders()
+      });
       if (response.status === 200) {
         setAdmins(admins.filter((admin) => admin.userID !== id));
         alert("Admin deleted successfully!");
@@ -42,7 +44,9 @@ const AdminList = () => {
   useEffect(() => {
     const fetchAdmins = async () => {
       try {
-        const response = await axios.get(`${apiUrl}/Admin/all`);
+        const response = await axios.get(`${apiUrl}/Admin/all`, {
+          headers: getAuthHeaders()
+        });
         setAdmins(response.data);
         setLoading(false);
       } catch (error) {

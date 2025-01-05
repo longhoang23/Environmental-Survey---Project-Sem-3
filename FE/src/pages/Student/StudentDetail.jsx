@@ -80,9 +80,9 @@ const StudentDetail = () => {
         <p>
           <strong>Username:</strong> {student.username}
         </p>
-        <p>
+        {/* <p>
           <strong>Password (Hash):</strong> {student.password}
-        </p>
+        </p> */}
 
         <button
           onClick={() => navigate("/admin/student-list")}

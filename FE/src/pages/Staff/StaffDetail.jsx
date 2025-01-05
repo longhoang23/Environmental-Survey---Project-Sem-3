@@ -86,9 +86,9 @@ const StaffDetail = () => {
         <p>
           <strong>Username:</strong> {staff.username}
         </p>
-        <p>
+        {/* <p>
           <strong>Password (Hash):</strong> {staff.password}
-        </p>
+        </p> */}
 
         <button
           onClick={() => navigate("/admin/staff-list")}
