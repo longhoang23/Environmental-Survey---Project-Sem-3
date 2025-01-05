@@ -63,7 +63,7 @@ const UpdateResponse = () => {
 
       if (updateRes.status === 200) {
         alert("Response updated successfully!");
-        navigate("/admin/response-list");
+        navigate("/response-list");
       }
     } catch (err) {
       console.error("Error updating response:", err);

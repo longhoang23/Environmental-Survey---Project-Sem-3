@@ -937,8 +937,13 @@ D:\Lập trình\Aptech\Project\Project 3\New folder\Environmental-Survey---Proje
 D:\Codes\Aptech_learning\eProject\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\package-lock.json
 D:\Codes\Aptech_learning\eProject\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\package.json
 D:\Codes\Aptech_learning\eProject\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Twilio.dll
+>>>>>>> 3642d3c42bfc1f795d343aa7ea3f795378d41507
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\package-lock.json
+D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\package.json
 D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\appsettings.Development.json
 D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\appsettings.json
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\package-lock.json
+D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\package.json
 D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\api.exe
 D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\api.deps.json
 D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\api.runtimeconfig.json
@@ -1094,6 +1099,3 @@ D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0
 D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.pdb
 D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\api.genruntimeconfig.cache
 D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\obj\Debug\net8.0\ref\api.dll
->>>>>>> 3642d3c42bfc1f795d343aa7ea3f795378d41507
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\package-lock.json
-D:\Project\EnviromentalSurveyPortal\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\package.json

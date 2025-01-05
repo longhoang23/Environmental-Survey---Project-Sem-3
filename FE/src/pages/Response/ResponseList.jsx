@@ -11,15 +11,15 @@ const ResponseList = () => {
   const navigate = useNavigate();
 
   const handleAddButton = () => {
-    navigate("/admin/add-response");
+    navigate("/add-response");
   };
 
   const handleDetailButton = (id) => {
-    navigate(`/admin/response-detail/${id}`);
+    navigate(`/response-detail/${id}`);
   };
 
   const handleUpdateButton = (id) => {
-    navigate(`/admin/update-response/${id}`);
+    navigate(`/update-response/${id}`);
   };
 
   const handleDeleteButton = async (id) => {

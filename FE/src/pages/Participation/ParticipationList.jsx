@@ -11,21 +11,21 @@ const ParticipationList = () => {
   const navigate = useNavigate();
 
   const handleAddButton = () => {
-    navigate("/admin/add-participation");
+    navigate("/add-participation");
   };
 
   const handleDetailButton = (id) => {
-    navigate(`/admin/participation-detail/${id}`);
+    navigate(`/participation-detail/${id}`);
   };
 
   const handleUpdateButton = (id) => {
-    navigate(`/admin/update-participation/${id}`);
+    navigate(`/update-participation/${id}`);
   };
 
   const handleDeleteButton = async (id) => {
     if (window.confirm(`Are you sure you want to delete participation ID: ${id}?`)) {
       try {
-        const response = await axios.delete(`${apiUrl}/Participation/delete/${id}`,{
+        const response = await axios.delete(`${apiUrl}/Participation/delete/${id}`, {
           headers: getAuthHeaders(),
         });
         if (response.status === 200) {
@@ -85,7 +85,7 @@ const ParticipationList = () => {
                   </td>
                   <td className="px-4 py-2">{participation.userID}</td>
                   <td className="px-4 py-2">{participation.surveyID}</td>
-                  <td className="px-4 py-2">{participation.participationDate}</td>
+                  <td className="px-4 py-2">{participation.participationDate ? participation.participationDate.slice(0, 10) : ""}</td>
                   <td className="px-4 py-2">{participation.totalScore}</td>
                   <td className="px-4 py-2">{participation.feedback}</td>
                   <td className="px-4 py-2 space-x-2">
