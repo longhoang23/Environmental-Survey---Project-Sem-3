@@ -8,7 +8,7 @@ const AddResponse = () => {
   const navigate = useNavigate();
 
   const [response, setResponse] = useState({
-    participationID: 0,
+    participationID: "",
     questionID: 0,
     optionID: 0,
     responseText: "",
@@ -92,25 +92,24 @@ const AddResponse = () => {
     <div className="container mx-auto px-4 py-8">
       <h2 className="text-2xl font-bold mb-4">Add Response</h2>
       <form onSubmit={handleSubmit} className="max-w-md mx-auto bg-white p-6 shadow-md rounded">
-        <div className="flex flex-col mb-4">
-          <label htmlFor="participationID" className="font-semibold mb-1">
-            Participation ID
-          </label>
-          <select
-            id="participationID"
-            value={response.participationID}
-            onChange={(e) => setResponse({ ...response, participationID: parseInt(e.target.value)})}
-            className="border p-2 rounded"
-            required
-          >
-            <option value={0}>-- Select Question --</option>
-            {participations.map((p) => (
-              <option key={p.participationID} value={p.participationID}>
-                {p.participationID}
-              </option>
-            ))}
-          </select>
-        </div>
+      {/* Participation ID */}
+      <div className="mb-5">
+      <label
+        htmlFor="participationID"
+        className="block text-sm font-medium text-gray-700 mb-1"
+      >
+        Participation ID:
+      </label>
+      <input
+        type="text"
+        id="participationID"
+        value={response.participationID}
+        onChange={(e) => setResponse({ ...response, participationID: e.target.value })}
+        required
+        className="block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+      />
+    </div>
+
 
         {/* Question */}
         <div className="flex flex-col mb-4">
