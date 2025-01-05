@@ -163,7 +163,7 @@ function App() {
                   element={<SurveyOptionDetail />}
                 />
                 {/* Faq */}
-                <Route path="/admin/faqs" element={<FaqList />} />
+                <Route path="/faqs" element={<FaqList />} />
                 <Route path="/admin/add-faq" element={<AddFaq />} />
                 <Route path="/admin/update-faq/:id" element={<UpdateFaq />} />
 

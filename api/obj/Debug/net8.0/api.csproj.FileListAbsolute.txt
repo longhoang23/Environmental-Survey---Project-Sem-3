@@ -936,7 +936,6 @@ D:\Lập trình\Aptech\Project\Project 3\New folder\Environmental-Survey---Proje
 >>>>>>> 850069973333edeb5a9a041c8536368320e2df02
 D:\Codes\Aptech_learning\eProject\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\package-lock.json
 D:\Codes\Aptech_learning\eProject\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\package.json
-D:\Codes\Aptech_learning\eProject\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\Twilio.dll
 D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\appsettings.Development.json
 D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\appsettings.json
 D:\DestokDev\eProject3\Environmental-Survey---Project-Sem-3\api\bin\Debug\net8.0\api.exe
