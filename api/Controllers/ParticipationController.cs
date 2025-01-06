@@ -70,14 +70,36 @@ namespace api.Controllers
         [HttpPut("update/{participationId}")]
         public async Task<IActionResult> UpdateParticipation(int participationId, [FromBody] UpdateParticipationDTO updateParticipationDTO)
         {
-            if (!ModelState.IsValid)
+            // if (!ModelState.IsValid)
+            //     return BadRequest(ModelState);
+
+            // var updatedParticipationEntity = updateParticipationDTO.ToUpdateParticipationResponse();
+            // var updatedParticipation = await _participationRepository.UpdateParticipationAsync(updatedParticipationEntity, participationId);
+
+            // if (updatedParticipation == null)
+            //     return NotFound("Participation not found or could not be updated.");
+
+            // var participationDTO = updatedParticipation.ToParticipationDTO();
+            // return Ok(participationDTO);
+             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
+            // Fetch the existing participation record
+            var existingParticipation = await _participationRepository.GetParticipationByIdAsync(participationId);
+            if (existingParticipation == null)
+                return NotFound("Participation not found.");
+
+            // Preserve existing fields if not explicitly updated
             var updatedParticipationEntity = updateParticipationDTO.ToUpdateParticipationResponse();
+
+            // Preserve participationDate
+            updatedParticipationEntity.ParticipationDate = existingParticipation.ParticipationDate;
+
+            // Update participation
             var updatedParticipation = await _participationRepository.UpdateParticipationAsync(updatedParticipationEntity, participationId);
 
             if (updatedParticipation == null)
-                return NotFound("Participation not found or could not be updated.");
+                return NotFound("Participation could not be updated.");
 
             var participationDTO = updatedParticipation.ToParticipationDTO();
             return Ok(participationDTO);

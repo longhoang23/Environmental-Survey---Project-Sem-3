@@ -14,7 +14,7 @@ const AddParticipation = () => {
   const [participation, setParticipation] = useState({
     userID: userID,
     surveyID: 0,
-    participationDate: "",
+    participationDate: new Date().toISOString().split("T")[0],
     totalScore: 0,
     feedback: "",
   });
@@ -119,8 +119,9 @@ const AddParticipation = () => {
             onChange={(e) =>
               setParticipation({ ...participation, participationDate: e.target.value })
             }
-            className="border p-2 rounded"
-            required
+            readOnly
+            className="border p-2 rounded bg-gray-100 cursor-not-allowed"
+            
           />
         </div>
 
@@ -136,7 +137,8 @@ const AddParticipation = () => {
             onChange={(e) =>
               setParticipation({ ...participation, totalScore: parseInt(e.target.value) || 0 })
             }
-            className="border p-2 rounded"
+            readOnly
+            className="border p-2 rounded bg-gray-100 cursor-not-allowed"
           />
         </div>
 
