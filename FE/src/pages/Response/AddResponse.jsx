@@ -16,14 +16,14 @@ const AddResponse = () => {
 
   const [participations, setParticipations] = useState([]);
   const [questions, setQuestions] = useState([]);
-  const [allOptions, setAllOptions] = useState([]);
-  const [filteredOptions, setFilteredOptions] = useState([]);
+  const [allOptions, setAllOptions] = useState([]); // Store all options
+  const [filteredOptions, setFilteredOptions] = useState([]); // Store filtered options for selected QuestionID
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [currentScore, setCurrentScore] = useState(0); // Trạng thái cho điểm hiện tại
   const getScore = 0;
 
-  // Fetch dữ liệu
+  // Fetch questions and options
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -31,16 +31,14 @@ const AddResponse = () => {
           headers: getAuthHeaders(),
         });
         setParticipations(ParticipationRes.data);
-
         const QuestionRes = await axios.get(`${apiUrl}/SurveyQuestion/all`, {
           headers: getAuthHeaders(),
         });
         setQuestions(QuestionRes.data);
-
         const OptionRes = await axios.get(`${apiUrl}/SurveyOption/all`, {
           headers: getAuthHeaders(),
         });
-        setAllOptions(OptionRes.data);
+        setAllOptions(OptionRes.data); // Store all options
       } catch (err) {
         console.error("Error fetching data:", err);
         setError("Failed to load data.");
@@ -51,7 +49,6 @@ const AddResponse = () => {
     fetchData();
   }, [apiUrl]);
 
-  // Lấy điểm hiện tại khi participationID thay đổi
   useEffect(() => {
     const fetchParticipationScore = async () => {
       if (response.participationID) {
@@ -60,7 +57,7 @@ const AddResponse = () => {
             headers: getAuthHeaders(),
           });
           const participationData = participationResponse.data;
-          setCurrentScore(participationData.totalScore || 0); // Lấy tổng điểm hiện tại
+          setCurrentScore(participationData.totalScore || 0);
         } catch (err) {
           console.error("Error fetching participation score:", err);
         }
@@ -69,7 +66,6 @@ const AddResponse = () => {
     fetchParticipationScore();
   }, [response.participationID, apiUrl]);
 
-  // Lọc options khi questionID thay đổi
   useEffect(() => {
     if (response.questionID !== 0) {
       const filtered = allOptions.filter(
@@ -77,7 +73,7 @@ const AddResponse = () => {
       );
       setFilteredOptions(filtered);
     } else {
-      setFilteredOptions([]);
+      setFilteredOptions([]); // Clear options if no QuestionID is selected
     }
   }, [response.questionID, allOptions]);
 

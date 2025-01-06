@@ -6,8 +6,11 @@ import { getAuthHeaders } from "../../Services/userAuth"; // Assuming you have t
 const ParticipationList = () => {
   const apiUrl = import.meta.env.VITE_PUBLIC_URL; // e.g., http://localhost:5169/api
   const [participations, setParticipations] = useState([]);
+  const [filteredParticipations, setFilteredParticipations] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [searchUserId, setSearchUserId] = useState("");
+  const [searchSurveyId, setSearchSurveyId] = useState("");
   const navigate = useNavigate();
 
   const handleAddButton = () => {
@@ -37,6 +40,9 @@ const ParticipationList = () => {
           setParticipations(
             participations.filter((p) => p.participationID !== id)
           );
+          setFilteredParticipations(
+            filteredParticipations.filter((p) => p.participationID !== id)
+          );
           alert("Participation deleted successfully!");
         }
       } catch (err) {
@@ -51,6 +57,7 @@ const ParticipationList = () => {
       try {
         const response = await axios.get(`${apiUrl}/Participation/all`);
         setParticipations(response.data);
+        setFilteredParticipations(response.data); // Initialize filtered list
       } catch (err) {
         console.error("Error fetching participations:", err);
         setError("Failed to load participations.");
@@ -61,12 +68,50 @@ const ParticipationList = () => {
     fetchParticipations();
   }, [apiUrl]);
 
+  // Filter based on UserID and SurveyID search inputs
+  useEffect(() => {
+    let filtered = participations;
+
+    if (searchUserId) {
+      filtered = filtered.filter((p) =>
+        p.userID.toString().includes(searchUserId)
+      );
+    }
+
+    if (searchSurveyId) {
+      filtered = filtered.filter((p) =>
+        p.surveyID.toString().includes(searchSurveyId)
+      );
+    }
+
+    setFilteredParticipations(filtered);
+  }, [searchUserId, searchSurveyId, participations]);
+
   if (loading) return <div>Loading participations...</div>;
   if (error) return <div className="text-red-500">{error}</div>;
 
   return (
     <div className="container mx-auto px-4 py-8">
       <h2 className="text-2xl font-bold mb-4">Participation List</h2>
+
+      {/* Search Bars */}
+      <div className="flex justify-between items-center mb-4">
+        <input
+          type="text"
+          placeholder="Search by User ID"
+          value={searchUserId}
+          onChange={(e) => setSearchUserId(e.target.value)}
+          className="border p-2 rounded w-1/2 mr-2"
+        />
+        <input
+          type="text"
+          placeholder="Search by Survey ID"
+          value={searchSurveyId}
+          onChange={(e) => setSearchSurveyId(e.target.value)}
+          className="border p-2 rounded w-1/2"
+        />
+      </div>
+
       <div className="overflow-x-auto bg-white rounded-lg shadow-md">
         <table className="min-w-full table-auto">
           <thead className="bg-gray-100">
@@ -95,8 +140,8 @@ const ParticipationList = () => {
             </tr>
           </thead>
           <tbody>
-            {participations.length > 0 ? (
-              participations.map((participation) => (
+            {filteredParticipations.length > 0 ? (
+              filteredParticipations.map((participation) => (
                 <tr
                   key={participation.participationID}
                   className="border-b hover:bg-gray-50"
@@ -111,7 +156,11 @@ const ParticipationList = () => {
                   </td>
                   <td className="px-4 py-2">{participation.userID}</td>
                   <td className="px-4 py-2">{participation.surveyID}</td>
-                  <td className="px-4 py-2">{participation.participationDate ? participation.participationDate.slice(0, 10) : ""}</td>
+                  <td className="px-4 py-2">
+                    {participation.participationDate
+                      ? participation.participationDate.slice(0, 10)
+                      : ""}
+                  </td>
                   <td className="px-4 py-2">{participation.totalScore}</td>
                   <td className="px-4 py-2">{participation.feedback}</td>
                   <td className="px-4 py-2 space-x-2">
@@ -138,7 +187,7 @@ const ParticipationList = () => {
               ))
             ) : (
               <tr>
-                <td colSpan="5" className="text-center py-4 text-gray-500">
+                <td colSpan="7" className="text-center py-4 text-gray-500">
                   No participations available.
                 </td>
               </tr>

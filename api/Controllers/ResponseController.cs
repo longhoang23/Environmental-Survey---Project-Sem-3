@@ -41,7 +41,7 @@ namespace api.Controllers
         }
 
         [HttpPost("create")]
-        [Authorize(Roles = "Admin")]
+        // [Authorize(Roles = "Admin")]
         public async Task<IActionResult> CreateResponse([FromBody] CreateResponseDTO createResponseDTO)
         {
             if (!ModelState.IsValid)

@@ -15,15 +15,15 @@ const UpdateResponse = () => {
     responseText: "",
   });
 
-  const [oldOptionID, setOldOptionID] = useState(null); // Trạng thái cho option cũ
-  const [oldScore, setOldScore] = useState(0); // Trạng thái cho điểm cũ
+  const [oldOptionID, setOldOptionID] = useState(null);
+  const [oldScore, setOldScore] = useState(0);
   const [participations, setParticipations] = useState([]);
   const [questions, setQuestions] = useState([]);
   const [options, setOptions] = useState([]);
   const [filteredOptions, setFilteredOptions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [currentScore, setCurrentScore] = useState(0); // Trạng thái cho điểm hiện tại
+  const [currentScore, setCurrentScore] = useState(0); 
 
   // Fetch data for participations, questions, options, and the specific response
   useEffect(() => {
@@ -41,16 +41,13 @@ const UpdateResponse = () => {
         setOptions(optionRes.data);
         setResponse(responseRes.data);
 
-        // Lưu oldOptionID và oldScore từ phản hồi
         setOldOptionID(responseRes.data.optionID);
         const oldOption = optionRes.data.find(opt => opt.optionID === responseRes.data.optionID);
         setOldScore(oldOption ? oldOption.score : 0);
 
-        // Lấy tổng điểm của participation
         const participationData = participationRes.data.find(p => p.participationID === responseRes.data.participationID);
         setCurrentScore(participationData.totalScore || 0);
 
-        // Filter options for the initial questionID
         const initialFilteredOptions = optionRes.data.filter(
           (opt) => opt.questionID === responseRes.data.questionID
         );
@@ -79,38 +76,34 @@ const UpdateResponse = () => {
     setLoading(true);
     setError(null);
   
-    // Validate ParticipationID
-    const participationID = String(response.participationID).trim();
+    // Chuyển đổi participationID thành chuỗi trước khi xử lý
+    const participationID = String(response.participationID || "").trim();
+  
     if (!participationID) {
       setError("Participation ID is required.");
       setLoading(false);
       return;
     }
-
-    // Cập nhật participationID trong response
-    setResponse({ ...response, participationID });
-
+  
     try {
-      // Tính điểm mới
       const selectedOption = options.find(opt => opt.optionID === response.optionID);
       const newScore = selectedOption ? selectedOption.score : 0;
-
-      // Cập nhật participation với điểm số mới
+  
       const updatedScore = currentScore - oldScore + newScore;
-
-      // Cập nhật response
-      const updateRes = await axios.put(`${apiUrl}/Response/update/${id}`, { ...response, participationID }, {
-        headers: getAuthHeaders(),
-      });
-
+  
+      const updateRes = await axios.put(
+        `${apiUrl}/Response/update/${id}`,
+        { ...response, participationID }, // Đảm bảo gửi đúng participationID
+        { headers: getAuthHeaders() }
+      );
+  
       if (updateRes.status === 200) {
-        // Cập nhật tổng điểm cho participation
-        const participationUpdateRes = await axios.put(`${apiUrl}/Participation/update/${participationID}`, {
-          totalScore: updatedScore,
-        }, {
-          headers: getAuthHeaders(),
-        });
-
+        const participationUpdateRes = await axios.put(
+          `${apiUrl}/Participation/update/${participationID}`,
+          { totalScore: updatedScore },
+          { headers: getAuthHeaders() }
+        );
+  
         if (participationUpdateRes.status === 200) {
           alert("Response updated successfully!");
           navigate("/response-list");
@@ -129,6 +122,7 @@ const UpdateResponse = () => {
       setLoading(false);
     }
   };
+  
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div className="text-red-500">{error}</div>;
