@@ -52,7 +52,7 @@ const AddResponse = () => {
       });
       if (response.status === 201 || response.status === 200) {
         alert("Response added successfully!");
-        navigate("/admin/response-list");
+        navigate("/response-list");
       }
     } catch (err) {
       console.error("Error adding response:", err);

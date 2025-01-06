@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0b0E8koi0vs=",
+  "dgSpecHash": "JtDp7car63E=",
   "success": true,
-  "projectFilePath": "D:\\Codes\\Aptech_learning\\eProject\\eProject3\\Environmental-Survey---Project-Sem-3\\api\\api.csproj",
+  "projectFilePath": "D:\\Codes\\Aptech_learning\\eProject\\e3\\Environmental-Survey---Project-Sem-3\\api\\api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ADMIN\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
@@ -119,7 +119,7 @@
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Problem reading the cache file D:\\Codes\\Aptech_learning\\eProject\\eProject3\\Environmental-Survey---Project-Sem-3\\api\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+      "message": "Problem reading the cache file D:\\Codes\\Aptech_learning\\eProject\\e3\\Environmental-Survey---Project-Sem-3\\api\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
     }
   ]
 }

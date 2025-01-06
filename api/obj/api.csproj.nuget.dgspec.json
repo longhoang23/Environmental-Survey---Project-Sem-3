@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Codes\\Aptech_learning\\eProject\\eProject3\\Environmental-Survey---Project-Sem-3\\api\\api.csproj": {}
+    "D:\\Codes\\Aptech_learning\\eProject\\e3\\Environmental-Survey---Project-Sem-3\\api\\api.csproj": {}
   },
   "projects": {
-    "D:\\Codes\\Aptech_learning\\eProject\\eProject3\\Environmental-Survey---Project-Sem-3\\api\\api.csproj": {
+    "D:\\Codes\\Aptech_learning\\eProject\\e3\\Environmental-Survey---Project-Sem-3\\api\\api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Codes\\Aptech_learning\\eProject\\eProject3\\Environmental-Survey---Project-Sem-3\\api\\api.csproj",
+        "projectUniqueName": "D:\\Codes\\Aptech_learning\\eProject\\e3\\Environmental-Survey---Project-Sem-3\\api\\api.csproj",
         "projectName": "api",
-        "projectPath": "D:\\Codes\\Aptech_learning\\eProject\\eProject3\\Environmental-Survey---Project-Sem-3\\api\\api.csproj",
+        "projectPath": "D:\\Codes\\Aptech_learning\\eProject\\e3\\Environmental-Survey---Project-Sem-3\\api\\api.csproj",
         "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "D:\\Codes\\Aptech_learning\\eProject\\eProject3\\Environmental-Survey---Project-Sem-3\\api\\obj\\",
+        "outputPath": "D:\\Codes\\Aptech_learning\\eProject\\e3\\Environmental-Survey---Project-Sem-3\\api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",

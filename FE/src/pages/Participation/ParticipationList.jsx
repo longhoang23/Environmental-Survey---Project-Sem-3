@@ -27,12 +27,9 @@ const ParticipationList = () => {
       window.confirm(`Are you sure you want to delete participation ID: ${id}?`)
     ) {
       try {
-        const response = await axios.delete(
-          `${apiUrl}/Participation/delete/${id}`,
-          {
-            headers: getAuthHeaders(),
-          }
-        );
+        const response = await axios.delete(`${apiUrl}/Participation/delete/${id}`, {
+          headers: getAuthHeaders(),
+        });
         if (response.status === 200) {
           setParticipations(
             participations.filter((p) => p.participationID !== id)
@@ -111,9 +108,7 @@ const ParticipationList = () => {
                   </td>
                   <td className="px-4 py-2">{participation.userID}</td>
                   <td className="px-4 py-2">{participation.surveyID}</td>
-                  <td className="px-4 py-2">
-                    {participation.participationDate}
-                  </td>
+                  <td className="px-4 py-2">{participation.participationDate ? participation.participationDate.slice(0, 10) : ""}</td>
                   <td className="px-4 py-2">{participation.totalScore}</td>
                   <td className="px-4 py-2">{participation.feedback}</td>
                   <td className="px-4 py-2 space-x-2">
