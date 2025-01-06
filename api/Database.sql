@@ -1,4 +1,4 @@
-CREATE DATABASE EnvironmentalSurveyPortal;
+CREATE DATABASE EnvironmentalSurveyPortalDB;
 
 -- Use the newly created database
 USE EnvironmentalSurveyPortal;
