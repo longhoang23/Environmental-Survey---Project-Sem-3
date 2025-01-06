@@ -22,6 +22,9 @@ const SupportList = () => {
     navigate(`/update-support/${id}`);
   };
 
+  const userRole = JSON.parse(localStorage.getItem('user')).role;
+  const isStudent = userRole == 3
+
   const handleDeleteButton = async (id) => {
     if (window.confirm(`Are you sure you want to delete support ID: ${id}?`)) {
       try {
@@ -38,8 +41,8 @@ const SupportList = () => {
       }
     }
   };
-  const userRole = JSON.parse(localStorage.getItem("user")).role;
-  const isStudent = userRole == 3;
+  const SupportuserRole = JSON.parse(localStorage.getItem("user")).role;
+  const isSupportStudent = SupportuserRole == 3;
 
   useEffect(() => {
     const fetchSupports = async () => {
@@ -72,7 +75,7 @@ const SupportList = () => {
               <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
                 Contact Info
               </th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600" hidden={isSupportStudent}>
                 Action
               </th>
             </tr>
@@ -95,12 +98,14 @@ const SupportList = () => {
                     <button
                       onClick={() => handleUpdateButton(support.supportID)}
                       className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                      hidden={isSupportStudent}
                     >
                       Update
                     </button>
                     <button
                       onClick={() => handleDeleteButton(support.supportID)}
                       className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+                      hidden={isSupportStudent}
                     >
                       Delete
                     </button>

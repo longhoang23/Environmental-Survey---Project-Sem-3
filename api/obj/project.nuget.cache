@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BSYYftyOQO0=",
+  "dgSpecHash": "wuxS6xDxQFk=",
   "success": true,
-  "projectFilePath": "D:\\Web Khảo Sát\\Environmental-Survey---Project-Sem-3\\api\\api.csproj",
+  "projectFilePath": "D:\\DestokDev\\eProject3\\Environmental-Survey---Project-Sem-3\\api\\api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\anhdu\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\anhdu\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
@@ -114,12 +114,5 @@
     "C:\\Users\\anhdu\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
     "C:\\Users\\anhdu\\.nuget\\packages\\twilio\\7.8.0\\twilio.7.8.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file D:\\Web Khảo Sát\\Environmental-Survey---Project-Sem-3\\api\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }
