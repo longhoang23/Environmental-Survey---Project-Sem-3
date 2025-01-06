@@ -1,3 +1,7 @@
+-- Please note that this most definately won't work because we use 
+-- BCrypt.Net.BCrypt.HashPassword() and this will encrypt password in way
+-- that you won't be able to properly insert into PasswordHash
+-- Please turn on the terminal and type 'dotnet ef database update' in backend /api instead
 CREATE DATABASE EnvironmentalSurveyPortalDB;
 
 -- Use the newly created database
