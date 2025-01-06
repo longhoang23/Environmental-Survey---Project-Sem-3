@@ -147,10 +147,8 @@ const UpdateParticipation = () => {
             id="totalScore"
             type="number"
             value={participation.totalScore}
-            onChange={(e) =>
-              setParticipation({ ...participation, totalScore: parseInt(e.target.value) || 0 })
-            }
-            className="border p-2 rounded"
+            readOnly
+            className="border p-2 rounded bg-gray-100 cursor-not-allowed"
           />
         </div>
 

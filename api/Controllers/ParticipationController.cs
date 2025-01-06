@@ -45,7 +45,6 @@ namespace api.Controllers
         }
 
         [HttpPost("create")]
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> CreateParticipation([FromBody] CreateParticipationDTO createParticipationDTO)
         {
             if (!ModelState.IsValid)
