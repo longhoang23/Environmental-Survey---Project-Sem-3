@@ -1,4 +1,3 @@
-Create Database
 CREATE DATABASE EnvironmentalSurveyPortal;
 
 -- Use the newly created database
@@ -21,6 +20,7 @@ CREATE TABLE Users (
     UserID INT IDENTITY(1,1) PRIMARY KEY, -- Unique identifier for each user
     FirstName NVARCHAR(100) NOT NULL, -- First name of the user
     LastName NVARCHAR(100) NOT NULL, -- Last name of the user
+    Email NVARCHAR(255) NOT NULL, -- Email of the user
     PhoneNumber NVARCHAR(10) NOT NULL, -- User's phone number
     Role NVARCHAR(20) NOT NULL CHECK (Role IN ('Admin', 'Staff', 'Student')), -- User role: Admin, Staff, or Student
     RollOrEmpNo NVARCHAR(50) NOT NULL UNIQUE, -- Unique identifier for roll number or employee number
@@ -129,3 +129,111 @@ CREATE TABLE Support (
     SupportID INT IDENTITY(1,1) PRIMARY KEY, -- Unique identifier for each support entry
     ContactInfo NVARCHAR(MAX) NOT NULL -- Contact details
 );
+
+CREATE TABLE RegistrationRequests (
+    RegistrationRequestId INT IDENTITY(1,1) PRIMARY KEY, -- Unique identifier for each registration request
+    UserId INT NOT NULL, -- Foreign key reference to Users
+    FirstName NVARCHAR(100) NOT NULL, -- First name from the request
+    LastName NVARCHAR(100) NOT NULL, -- Last name from the request
+    RollOrEmpNo NVARCHAR(50) NOT NULL, -- Unique identifier for roll number or employee number
+    ClassId INT NULL, -- Foreign key reference to Classes (optional)
+    SectionId INT NULL, -- Foreign key reference to Sections (optional)
+    Specification NVARCHAR(100) NULL, -- Specialization or specific description (optional)
+    AdmissionDate DATE NULL, -- Admission date for students (if applicable)
+    JoinDate DATE NULL, -- Joining date for staff (if applicable)
+    RequestedAt DATETIME NOT NULL DEFAULT GETDATE(), -- Date of the registration request
+    FOREIGN KEY (UserId) REFERENCES Users(UserID), -- FK to Users table
+    FOREIGN KEY (ClassId) REFERENCES Classes(ClassId), -- FK to Classes table (optional)
+    FOREIGN KEY (SectionId) REFERENCES Sections(SectionId) -- FK to Sections table (optional)
+);
+
+-- Insert data into Classes
+INSERT INTO Classes (Name)
+VALUES 
+('Class A'),
+('Class B'),
+('Class C');
+
+-- Insert data into Sections
+INSERT INTO Sections (Name)
+VALUES 
+('Section 1'),
+('Section 2'),
+('Section 3');
+
+-- Insert data into Users (one for each role: Admin, Staff, Student)
+INSERT INTO Users (FirstName, LastName, Email, PhoneNumber, Role, RollOrEmpNo, ClassId, SectionId, Specification, AdmissionDate, JoinDate, UpdatedAt, Status, Username, PasswordHash)
+VALUES 
+('AdminFirst', 'AdminLast', 'admin1@example.com', '1234567890', 'Admin', 'ADM001', NULL, NULL, 'System Administrator', NULL, '2022-01-01', GETDATE(), 'Active', 'admin.user', HASHBYTES('SHA2_256', 'Admin123')), 
+('StaffFirst', 'StaffLast', 'staff1@example.com', '2345678901', 'Staff', 'STF001', NULL, 1, 'IT Support', NULL, '2022-02-01', GETDATE(), 'Active', 'staff.user', HASHBYTES('SHA2_256', 'Staff123')),
+('StudentFirst', 'StudentLast', 'student1@example.com', '3456789012', 'Student', 'STU001', 1, NULL, 'Computer Science', '2022-03-01', NULL, GETDATE(), 'Active', 'student.user', HASHBYTES('SHA2_256', 'Student123'));
+
+-- Insert data into Surveys
+INSERT INTO Surveys (Title, Description, TargetAudience, StartDate, EndDate, CreatedBy, IsActive)
+VALUES 
+('Survey 1', 'Description of Survey 1', 'Students', '2025-01-01', '2025-01-15', 3, 1),
+('Survey 2', 'Description of Survey 2', 'Staff', '2025-01-10', '2025-01-20', 2, 1),
+('Survey 3', 'Description of Survey 3', 'Students', '2025-02-01', '2025-02-15', 3, 1);
+
+-- Insert data into SurveyQuestions
+INSERT INTO SurveyQuestions (SurveyID, QuestionText, QuestionType)
+VALUES 
+(1, 'What is your favorite subject?', 'Multiple Choice'),
+(1, 'How satisfied are you with your course?', 'Rating'),
+(2, 'What improvements do you suggest for staff training?', 'Text');
+
+-- Insert data into SurveyOptions
+INSERT INTO SurveyOptions (QuestionID, OptionText, Score)
+VALUES 
+(1, 'Math', 1),
+(1, 'Science', 1),
+(1, 'History', 1);
+
+-- Insert data into Participations
+INSERT INTO Participations (UserID, SurveyID, ParticipationDate, TotalScore, Feedback)
+VALUES 
+(3, 1, '2025-01-02', 10, 'Great survey!'),
+(3, 1, '2025-01-03', 8, 'Helpful content'),
+(2, 2, '2025-01-12', NULL, 'Good training.');
+
+-- Insert data into Responses
+INSERT INTO Responses (ParticipationID, QuestionID, OptionID, ResponseText)
+VALUES 
+(1, 1, 1, NULL),
+(1, 2, NULL, 'Very satisfied'),
+(3, 3, NULL, 'Add more practical examples.');
+
+-- Insert data into Competitions
+INSERT INTO Competitions (Title, Description, PrizeDetails, Winner1, Winner2, Winner3)
+VALUES 
+('Competition 1', 'Description of Competition 1', 'First Prize: $100', 3, 2, NULL),
+('Competition 2', 'Description of Competition 2', 'First Prize: $200', 2, NULL, NULL),
+('Competition 3', 'Description of Competition 3', 'First Prize: $300', 3, 2, 1);
+
+-- Insert data into Seminars
+INSERT INTO Seminars (ConductedBy, Location, Date, ParticipantsCount, Description)
+VALUES 
+(2, 'Auditorium', '2025-01-15', 50, 'Introduction to Environmental Awareness'),
+(2, 'Library', '2025-02-10', 30, 'Book Launch Seminar'),
+(1, 'Conference Room', '2025-03-05', 20, 'Administrative Workshop');
+
+-- Insert data into FAQ
+INSERT INTO FAQ (Question, Answer)
+VALUES 
+('How to participate in surveys?', 'Log in to your account and go to the Surveys section.'),
+('How to reset my password?', 'Click on Forgot Password on the login page and follow the instructions.'),
+('Who can participate in competitions?', 'Both Students and Staff can participate.');
+
+-- Insert data into Support
+INSERT INTO Support (ContactInfo)
+VALUES 
+('support@environmentportal.com'),
+('123-456-7890'),
+('Visit us at the Administration Office.');
+
+-- Insert data into RegistrationRequests
+INSERT INTO RegistrationRequests (UserId, FirstName, LastName, RollOrEmpNo, ClassId, SectionId, Specification, AdmissionDate, JoinDate, RequestedAt)
+VALUES 
+(3, 'John', 'Doe', 'STU002', 1, NULL, 'Physics', '2023-01-01', NULL, GETDATE()), 
+(2, 'Jane', 'Smith', 'STF002', NULL, 1, 'Library Manager', NULL, '2023-02-01', GETDATE()),
+(1, 'Alice', 'Brown', 'ADM002', NULL, NULL, 'Administrative Assistant', NULL, '2023-03-01', GETDATE());
