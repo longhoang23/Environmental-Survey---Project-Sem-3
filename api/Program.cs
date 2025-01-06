@@ -86,6 +86,11 @@ builder.Services.AddAuthentication(options => {
 
 var app = builder.Build();
 
+//If you use database.sql to create database then you'll need this. Though it most definately won't work.
+Console.WriteLine(BCrypt.Net.BCrypt.HashPassword("Admin123"));  // For the admin
+Console.WriteLine(BCrypt.Net.BCrypt.HashPassword("Staff123")); // For the staff
+Console.WriteLine(BCrypt.Net.BCrypt.HashPassword("Student123")); // For the student
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

@@ -67,6 +67,8 @@ const AddParticipation = () => {
       setLoading(false);
     }
   };    
+  const userRole = JSON.parse(localStorage.getItem("user")).role;
+  const isStudent = userRole === 3;
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -137,8 +139,8 @@ const AddParticipation = () => {
             onChange={(e) =>
               setParticipation({ ...participation, totalScore: parseInt(e.target.value) || 0 })
             }
-            readOnly
-            className="border p-2 rounded bg-gray-100 cursor-not-allowed"
+            className="border p-2 rounded"
+            hidden= {isStudent}
           />
         </div>
 

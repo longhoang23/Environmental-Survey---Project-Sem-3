@@ -1,7 +1,7 @@
 CREATE DATABASE EnvironmentalSurveyPortalDB;
 
 -- Use the newly created database
-USE EnvironmentalSurveyPortal;
+USE EnvironmentalSurveyPortalDB;
 
 -- Table: Classes
 CREATE TABLE Classes (
@@ -22,7 +22,7 @@ CREATE TABLE Users (
     LastName NVARCHAR(100) NOT NULL, -- Last name of the user
     Email NVARCHAR(255) NOT NULL, -- Email of the user
     PhoneNumber NVARCHAR(10) NOT NULL, -- User's phone number
-    Role NVARCHAR(20) NOT NULL CHECK (Role IN ('Admin', 'Staff', 'Student')), -- User role: Admin, Staff, or Student
+    Role INT NOT NULL CHECK (Role IN (1, 2, 3)), -- User role: 1 = Admin, 2 = Staff, 3 = Student
     RollOrEmpNo NVARCHAR(50) NOT NULL UNIQUE, -- Unique identifier for roll number or employee number
     ClassId INT NULL, -- Foreign key reference to Classes
     Specification NVARCHAR(100) NULL, -- Specialization or specific description
@@ -30,12 +30,13 @@ CREATE TABLE Users (
     AdmissionDate DATE NULL, -- Admission date for students
     JoinDate DATE NULL, -- Joining date for staff
     UpdatedAt DATE NULL, -- Last updated date
-    Status NVARCHAR(10) NOT NULL DEFAULT 'Pending' CHECK (Status IN ('Pending', 'Active', 'Inactive')), -- Registration status
+    Status INT NOT NULL DEFAULT 0 CHECK (Status IN (0, 1, 2, 3)), -- Default is 0 (NotRequested)
     Username NVARCHAR(50) NOT NULL UNIQUE, -- Login username
     PasswordHash NVARCHAR(255) NOT NULL, -- Hashed password
     FOREIGN KEY (ClassId) REFERENCES Classes(ClassId), -- FK to Classes
     FOREIGN KEY (SectionId) REFERENCES Sections(SectionId) -- FK to Sections
 );
+
 
 -- Table: Surveys
 CREATE TABLE Surveys (
@@ -164,10 +165,9 @@ VALUES
 -- Insert data into Users (one for each role: Admin, Staff, Student)
 INSERT INTO Users (FirstName, LastName, Email, PhoneNumber, Role, RollOrEmpNo, ClassId, SectionId, Specification, AdmissionDate, JoinDate, UpdatedAt, Status, Username, PasswordHash)
 VALUES 
-('AdminFirst', 'AdminLast', 'admin1@example.com', '1234567890', 'Admin', 'ADM001', NULL, NULL, 'System Administrator', NULL, '2022-01-01', GETDATE(), 'Active', 'admin.user', HASHBYTES('SHA2_256', 'Admin123')), 
-('StaffFirst', 'StaffLast', 'staff1@example.com', '2345678901', 'Staff', 'STF001', NULL, 1, 'IT Support', NULL, '2022-02-01', GETDATE(), 'Active', 'staff.user', HASHBYTES('SHA2_256', 'Staff123')),
-('StudentFirst', 'StudentLast', 'student1@example.com', '3456789012', 'Student', 'STU001', 1, NULL, 'Computer Science', '2022-03-01', NULL, GETDATE(), 'Active', 'student.user', HASHBYTES('SHA2_256', 'Student123'));
-
+('AdminFirst', 'AdminLast', 'admin1@example.com', '1234567890', 1, 'ADM001', NULL, NULL, 'System Administrator', NULL, '2022-01-01', GETDATE(), 2, 'admin.user', '$2a$12$eT3SjyHxkYIpCM4AlzBw2OW5aYc5u1j/UTRLQPZRhM7kC6d65Ui6G'), 
+('StaffFirst', 'StaffLast', 'staff1@example.com', '2345678901', 2, 'STF001', NULL, 1, 'IT Support', NULL, '2022-02-01', GETDATE(), 2, 'staff.user', '$2a$12$HdJDR5XmpvUOvDO8LgJ.JuEs5ysP8U4oJEdJg0qKnqFgJ6vzgArSa'),
+('StudentFirst', 'StudentLast', 'student1@example.com', '3456789012', 3, 'STU001', 1, NULL, 'Computer Science', '2022-03-01', NULL, GETDATE(), 2, 'student.user', '$2a$12$yjkMkgGZKrAaHd2nZtJYROUkRmBIXwwhrfXKdcMj9tyFmGR66.Iie');
 -- Insert data into Surveys
 INSERT INTO Surveys (Title, Description, TargetAudience, StartDate, EndDate, CreatedBy, IsActive)
 VALUES 
