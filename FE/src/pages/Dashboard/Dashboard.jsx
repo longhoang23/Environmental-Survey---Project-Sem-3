@@ -6,13 +6,13 @@ const Dashboard = () => {
     { name: "Staff", path: "/admin/staff-list" },
     { name: "Student", path: "/admin/student-list" },
     { name: "Class", path: "/admin/classes" },
-    { name: "Section", path: "/section" },
+    { name: "Section", path: "/admin/sections" },
     { name: "Seminar", path: "/seminar-list" },
     { name: "Competition", path: "/competition-list" },
-    { name: "Participation", path: "/participation" },
+    { name: "Participation", path: "/participation-list" },
     { name: "Survey", path: "/admin/surveys" },
-    { name: "FAQ", path: "/admin/faqs" },
-    { name: "Support", path: "/support" },
+    { name: "FAQ", path: "/faqs" },
+    { name: "Support", path: "/support-list" },
   ];
 
   return (

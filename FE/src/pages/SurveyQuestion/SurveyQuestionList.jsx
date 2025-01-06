@@ -11,16 +11,15 @@ const SurveyQList = () => {
   const navigate = useNavigate();
 
   const handleAddButton = () => {
-    navigate("/admin/add-question");
+    navigate("/add-question");
   };
 
   const handleDetailButton = (id) => {
-    navigate(`/admin/question-detail/${id}`);
+    navigate(`/question-detail/${id}`);
   };
 
-
   const handleUpdateButton = (id) => {
-    navigate(`/admin/update-question/${id}`);
+    navigate(`/update-question/${id}`);
   };
 
   const handleDeleteButton = async (id) => {
@@ -31,7 +30,9 @@ const SurveyQList = () => {
         headers: getAuthHeaders(),
       });
       if (response.status === 200) {
-        setSurveyQuestion(surveyQuestions.filter((surveyQ) => surveyQ.questionID !== id));
+        setSurveyQuestion(
+          surveyQuestions.filter((surveyQ) => surveyQ.questionID !== id)
+        );
         alert("Survey Question deleted successfully!");
       }
     } catch (error) {
@@ -39,6 +40,8 @@ const SurveyQList = () => {
       alert("Failed to delete Survey Question");
     }
   };
+  const userRole = JSON.parse(localStorage.getItem("user")).role;
+  const isStudent = userRole == 3;
 
   useEffect(() => {
     const fetchQuestion = async () => {
@@ -64,7 +67,9 @@ const SurveyQList = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold text-center mb-6">Survey Question List</h1>
+      <h1 className="text-3xl font-bold text-center mb-6">
+        Survey Question List
+      </h1>
       <div className="overflow-x-auto bg-white rounded-lg shadow-md">
         <table className="min-w-full table-auto">
           <thead className="bg-gray-100">
@@ -89,7 +94,10 @@ const SurveyQList = () => {
           <tbody>
             {surveyQuestions.length > 0 ? (
               surveyQuestions.map((surveyQ) => (
-                <tr key={surveyQ.questionID} className="border-b hover:bg-gray-50">
+                <tr
+                  key={surveyQ.questionID}
+                  className="border-b hover:bg-gray-50"
+                >
                   <td className="px-4 py-2 text-sm text-gray-700">
                     {surveyQ.questionID}
                   </td>
@@ -111,13 +119,15 @@ const SurveyQList = () => {
                     </button>
                     <button
                       onClick={() => handleUpdateButton(surveyQ.questionID)}
-                      className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none"
+                      className="ml-2 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none"
+                      hidden = {isStudent}
                     >
                       Update
                     </button>
                     <button
                       onClick={() => handleDeleteButton(surveyQ.questionID)}
                       className="ml-2 px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none"
+                      hidden = {isStudent}
                     >
                       Delete
                     </button>
@@ -138,6 +148,7 @@ const SurveyQList = () => {
         <button
           onClick={handleAddButton}
           className="px-6 py-3 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none"
+          hidden = {isStudent}
         >
           Add Survey Question
         </button>

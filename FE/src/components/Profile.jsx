@@ -19,11 +19,22 @@ const Profile = () => {
     );
   }
 
-  const { firstName, lastName, username, role } = user;
+  const {
+    firstName,
+    lastName,
+    username,
+    role,
+    phoneNumber,
+    joinDate,
+    rollOrEmpNo,
+    userID,
+    specification,
+    updatedAt,
+  } = user;
 
   return (
     <div className="bg-gray-100 min-h-screen flex justify-center p-4">
-      <div className="bg-white shadow-md rounded-lg w-full p-6">
+      <div className="bg-white shadow-md rounded-lg w-full max-w-4xl p-6">
         <h1 className="text-2xl font-bold text-gray-700 mb-6 text-center">
           User Profile
         </h1>
@@ -35,8 +46,28 @@ const Profile = () => {
             <strong>Username:</strong> {username}
           </p>
           <p>
+            <strong>Phone Number:</strong> {phoneNumber || "null"}
+          </p>
+          <p>
             <strong>Role:</strong>{" "}
             {role === 1 ? "Admin" : role === 2 ? "Staff" : "Student"}
+          </p>
+          <p>
+            <strong>Roll/Employee No:</strong> {rollOrEmpNo || "null"}
+          </p>
+          <p>
+            <strong>User ID:</strong> {userID || "null"}
+          </p>
+          <p>
+            <strong>Specification:</strong> {specification || "null"}
+          </p>
+          <p>
+            <strong>Join Date:</strong>{" "}
+            {joinDate ? new Date(joinDate).toLocaleDateString() : "null"}
+          </p>
+          <p>
+            <strong>Updated At:</strong>{" "}
+            {updatedAt ? new Date(updatedAt).toLocaleString() : "null"}
           </p>
         </div>
         <button

@@ -11,6 +11,9 @@ const OptionDetail = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const userRole = JSON.parse(localStorage.getItem("user")).role;
+  const isStudent = userRole == 3;
+
   useEffect(() => {
     const fetchOption = async () => {
       setLoading(true);
@@ -53,13 +56,13 @@ const OptionDetail = () => {
         <p>
           <strong>Option Text:</strong> {option.optionText}
         </p>
-        <p>
+        <p hidden={isStudent}>
           <strong>Score:</strong> {option.score}
         </p>
 
         <div className="flex justify-center">
           <button
-            onClick={() => navigate("/admin/options")}
+            onClick={() => navigate("/options")}
             className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
           >
             Back to Option List

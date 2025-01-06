@@ -15,21 +15,29 @@ const AddResponse = () => {
 
   const [participations, setParticipations] = useState([]);
   const [questions, setQuestions] = useState([]);
-  const [allOptions, setAllOptions] = useState([]); // Store all options
-  const [filteredOptions, setFilteredOptions] = useState([]); // Store filtered options for selected QuestionID
+  const [allOptions, setAllOptions] = useState([]);
+  const [filteredOptions, setFilteredOptions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [currentScore, setCurrentScore] = useState(0); // Trạng thái cho điểm hiện tại
+  const getScore = 0;
 
-  // Fetch questions and options
+  // Fetch dữ liệu
   useEffect(() => {
     const fetchData = async () => {
       try {
         const ParticipationRes = await axios.get(`${apiUrl}/Participation/all`);
         setParticipations(ParticipationRes.data);
-        const QuestionRes = await axios.get(`${apiUrl}/SurveyQuestion/all`);
+
+        const QuestionRes = await axios.get(`${apiUrl}/SurveyQuestion/all`, {
+          headers: getAuthHeaders(),
+        });
         setQuestions(QuestionRes.data);
-        const OptionRes = await axios.get(`${apiUrl}/SurveyOption/all`);
-        setAllOptions(OptionRes.data); // Store all options
+
+        const OptionRes = await axios.get(`${apiUrl}/SurveyOption/all`, {
+          headers: getAuthHeaders(),
+        });
+        setAllOptions(OptionRes.data);
       } catch (err) {
         console.error("Error fetching data:", err);
         setError("Failed to load data.");
@@ -40,7 +48,25 @@ const AddResponse = () => {
     fetchData();
   }, [apiUrl]);
 
-  // Filter options when the QuestionID changes
+  // Lấy điểm hiện tại khi participationID thay đổi
+  useEffect(() => {
+    const fetchParticipationScore = async () => {
+      if (response.participationID) {
+        try {
+          const participationResponse = await axios.get(`${apiUrl}/Participation/${response.participationID}`, {
+            headers: getAuthHeaders(),
+          });
+          const participationData = participationResponse.data;
+          setCurrentScore(participationData.totalScore || 0); // Lấy tổng điểm hiện tại
+        } catch (err) {
+          console.error("Error fetching participation score:", err);
+        }
+      }
+    };
+    fetchParticipationScore();
+  }, [response.participationID, apiUrl]);
+
+  // Lọc options khi questionID thay đổi
   useEffect(() => {
     if (response.questionID !== 0) {
       const filtered = allOptions.filter(
@@ -48,7 +74,7 @@ const AddResponse = () => {
       );
       setFilteredOptions(filtered);
     } else {
-      setFilteredOptions([]); // Clear options if no QuestionID is selected
+      setFilteredOptions([]);
     }
   }, [response.questionID, allOptions]);
 
@@ -61,6 +87,15 @@ const AddResponse = () => {
       const apiResponse = await axios.post(`${apiUrl}/Response/create`, response);
 
       if (apiResponse.status === 201 || apiResponse.status === 200) {
+        const selectedOption = allOptions.find(option => option.optionID === response.optionID);
+        const updatedScore = currentScore + (selectedOption ? selectedOption.score : 0);
+
+        await axios.put(`${apiUrl}/Participation/update/${response.participationID}`, {
+          totalScore: updatedScore,
+        }, {
+          headers: getAuthHeaders(),
+        });
+
         alert("Response created successfully!");
         navigate("/response-list");
       }
@@ -83,24 +118,26 @@ const AddResponse = () => {
     <div className="container mx-auto px-4 py-8">
       <h2 className="text-2xl font-bold mb-4">Add Response</h2>
       <form onSubmit={handleSubmit} className="max-w-md mx-auto bg-white p-6 shadow-md rounded">
-      {/* Participation ID */}
-      <div className="mb-5">
-      <label
-        htmlFor="participationID"
-        className="block text-sm font-medium text-gray-700 mb-1"
-      >
-        Participation ID:
-      </label>
-      <input
-        type="text"
-        id="participationID"
-        value={response.participationID}
-        onChange={(e) => setResponse({ ...response, participationID: e.target.value })}
-        required
-        className="block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
-      />
-    </div>
-
+        {/* Participation ID */}
+        <div className="flex flex-col mb-4">
+          <label htmlFor="participationID" className="block text-sm font-medium text-gray-700 mb-1">
+            Participation ID:
+          </label>
+          <select
+            id="participationID"
+            value={response.participationID}
+            onChange={(e) => setResponse({ ...response, participationID: parseInt(e.target.value), questionID: 0, optionID: 0 })}
+            className="border p-2 rounded"
+            required
+          >
+            <option value={0}>-- Select Participation --</option>
+            {participations.map((p) => (
+              <option key={p.participationID} value={p.participationID}>
+                {p.userID} - {p.surveyID}
+              </option>
+            ))}
+          </select>
+        </div>
 
         {/* Question */}
         <div className="flex flex-col mb-4">
@@ -134,7 +171,7 @@ const AddResponse = () => {
             onChange={(e) => setResponse({ ...response, optionID: parseInt(e.target.value) })}
             className="border p-2 rounded"
             required
-            disabled={filteredOptions.length === 0} // Disable if no options are available
+            disabled={filteredOptions.length === 0}
           >
             <option value={0}>-- Select Option --</option>
             {filteredOptions.map((o) => (
@@ -159,13 +196,10 @@ const AddResponse = () => {
             placeholder="Enter response text"
           />
         </div>
-
-         {/* Submit Button */}
-         <button
+        {/* Submit Button */}
+        <button
           type="submit"
-          className={`bg-blue-500 text-white px-4 py-2 rounded ${
-            loading ? "opacity-50 cursor-not-allowed" : "hover:bg-blue-600"
-          }`}
+          className={`bg-blue-500 text-white px-4 py-2 rounded ${loading ? "opacity-50 cursor-not-allowed" : "hover:bg-blue-600"}`}
           disabled={loading}
         >
           {loading ? "Submitting..." : "Add Response"}

@@ -49,7 +49,7 @@ const UpdateFaq = () => {
       );
       if (response.status === 200) {
         alert("Faq updated successfully!");
-        navigate("/admin/faqs");
+        navigate("/faqs");
       }
     } catch (err) {
       console.error("Error updating Faq:", err);

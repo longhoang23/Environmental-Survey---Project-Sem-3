@@ -219,7 +219,6 @@ namespace api.Repositories.Student
             return await _context.Users
                 .AnyAsync(u => u.UserID == userId && u.Role == UserRole.Student);
         }
-
         public async Task<User?> GetUserByPhoneAsync(string phoneNumber)
         {
             return await _context.Users

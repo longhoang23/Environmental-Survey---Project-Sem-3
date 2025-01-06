@@ -25,7 +25,7 @@ const SupportList = () => {
   const handleDeleteButton = async (id) => {
     if (window.confirm(`Are you sure you want to delete support ID: ${id}?`)) {
       try {
-        const response = await axios.delete(`${apiUrl}/Support/delete/${id}`,{
+        const response = await axios.delete(`${apiUrl}/Support/delete/${id}`, {
           headers: getAuthHeaders(),
         });
         if (response.status === 200) {
@@ -38,6 +38,8 @@ const SupportList = () => {
       }
     }
   };
+  const userRole = JSON.parse(localStorage.getItem("user")).role;
+  const isStudent = userRole == 3;
 
   useEffect(() => {
     const fetchSupports = async () => {
@@ -64,15 +66,24 @@ const SupportList = () => {
         <table className="min-w-full table-auto">
           <thead className="bg-gray-100">
             <tr>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">ID</th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Contact Info</th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Action</th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
+                ID
+              </th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
+                Contact Info
+              </th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
+                Action
+              </th>
             </tr>
           </thead>
           <tbody>
             {supports.length > 0 ? (
               supports.map((support) => (
-                <tr key={support.supportID} className="border-b hover:bg-gray-50">
+                <tr
+                  key={support.supportID}
+                  className="border-b hover:bg-gray-50"
+                >
                   <td
                     className="px-4 py-2 text-blue-600 cursor-pointer"
                     onClick={() => handleDetailButton(support.supportID)}
@@ -110,6 +121,7 @@ const SupportList = () => {
         <button
           onClick={handleAddButton}
           className="px-6 py-3 bg-green-500 text-white rounded hover:bg-green-600"
+          hidden={isStudent}
         >
           Add Support
         </button>

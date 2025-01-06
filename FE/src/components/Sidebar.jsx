@@ -46,10 +46,10 @@ const Sidebar = () => {
       {
         name: "Survey",
         subMenus: [
-          { name: "Create Survey", path: "/admin/add-survey" },
-          { name: "Survey Question", path: "/admin/questions" },
-          { name: "Survey Option", path: "/admin/options" },
-          { name: "All Surveys", path: "/admin/surveys" },
+          { name: "Create Survey", path: "/add-survey" },
+          { name: "Survey Question", path: "/questions" },
+          { name: "Survey Option", path: "/options" },
+          { name: "All Surveys", path: "/surveys" },
         ],
       },
       {
@@ -59,6 +59,8 @@ const Sidebar = () => {
           { name: "All Seminars", path: "/seminar-list" },
         ],
       },
+      { name: "Participations", path: "/participation-list" },
+      { name: "Response", path: "/response-list" },
       {
         name: "Competition",
         subMenus: [
@@ -70,33 +72,50 @@ const Sidebar = () => {
         name: "FAQs",
         subMenus: [
           { name: "Create FAQ", path: "/admin/add-faq" },
-          { name: "All FAQs", path: "/admin/faqs" },
+          { name: "All FAQs", path: "/faqs" },
         ],
       },
       {
         name: "Supports",
         subMenus: [
-          { name: "Create Support", path: "/admin/create-support" },
-          { name: "All Supports", path: "/admin/all-supports" },
+          { name: "Create Support", path: "/add-support" },
+          { name: "All Supports", path: "/support-list" },
         ],
       },
     ],
     2: [
-      { name: "Surveys", path: "/staff/survey-list" },
-      { name: "Seminars", path: "/staff/seminar-list" },
-      { name: "Participations", path: "/staff/participation-list" },
-      { name: "Students", path: "/staff/student-list" },
+      {
+        name: "Survey",
+        subMenus: [
+          { name: "All Surveys", path: "/survey-list" },
+          { name: "Survey Question", path: "/questions" },
+          { name: "Survey Option", path: "/options" },
+        ],
+      },
+      { name: "Seminars", path: "/seminar-list" },
+      { name: "Participations", path: "/participation-list" },
+      { name: "Response", path: "/response-list" },
+      { name: "Competitions", path: "/competition-list" },
       { name: "Staffs", path: "/staff/staff-list" },
-      { name: "FAQs", path: "/staff/faqs" },
-      { name: "Supports", path: "/staff/supports" },
+      { name: "Students", path: "/staff/student-list" },
+      { name: "FAQs", path: "/faqs" },
+      { name: "Supports", path: "/support-list" },
     ],
     3: [
-      { name: "Surveys", path: "/student/survey-list" },
-      { name: "Seminars", path: "/student/seminar-list" },
-      { name: "Participations", path: "/student/participation-list" },
-      { name: "Students", path: "/student/student-list" },
-      { name: "FAQs", path: "/student/faqs" },
-      { name: "Supports", path: "/student/supports" },
+      {
+        name: "Survey",
+        subMenus: [
+          { name: "All Surveys", path: "/survey-list" },
+          { name: "Survey Question", path: "/questions" },
+          { name: "Survey Option", path: "/options" },
+        ],
+      },
+      { name: "Seminars", path: "/seminar-list" },
+      { name: "Participations", path: "/participation-list" },
+      { name: "Response", path: "/response-list" },
+      { name: "Competitions", path: "/competition-list" },
+      { name: "FAQs", path: "/faqs" },
+      { name: "Supports", path: "/support-list" },
     ],
   };
 

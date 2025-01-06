@@ -21,12 +21,19 @@ const ParticipationList = () => {
     navigate(`/update-participation/${id}`);
   };
 
+  const userRole = JSON.parse(localStorage.getItem('user')).role;
+  const isStudent = userRole == 3
+
   const handleDeleteButton = async (id) => {
-    if (window.confirm(`Are you sure you want to delete participation ID: ${id}?`)) {
+    if (
+      window.confirm(`Are you sure you want to delete participation ID: ${id}?`)
+    ) {
       try {
         const response = await axios.delete(`${apiUrl}/Participation/delete/${id}`);
         if (response.status === 200) {
-          setParticipations(participations.filter((p) => p.participationID !== id));
+          setParticipations(
+            participations.filter((p) => p.participationID !== id)
+          );
           alert("Participation deleted successfully!");
         }
       } catch (err) {
@@ -61,22 +68,41 @@ const ParticipationList = () => {
         <table className="min-w-full table-auto">
           <thead className="bg-gray-100">
             <tr>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">ID</th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">User ID</th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Survey ID</th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Participation Date</th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Total Score</th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">FeedBack</th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Action</th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
+                ID
+              </th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
+                User ID
+              </th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
+                Survey ID
+              </th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
+                Participation Date
+              </th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
+                Total Score
+              </th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
+                FeedBack
+              </th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600" hidden={isStudent}>
+                Action
+              </th>
             </tr>
           </thead>
           <tbody>
             {participations.length > 0 ? (
               participations.map((participation) => (
-                <tr key={participation.participationID} className="border-b hover:bg-gray-50">
+                <tr
+                  key={participation.participationID}
+                  className="border-b hover:bg-gray-50"
+                >
                   <td
                     className="px-4 py-2 text-blue-600 cursor-pointer"
-                    onClick={() => handleDetailButton(participation.participationID)}
+                    onClick={() =>
+                      handleDetailButton(participation.participationID)
+                    }
                   >
                     {participation.participationID}
                   </td>
@@ -87,14 +113,20 @@ const ParticipationList = () => {
                   <td className="px-4 py-2">{participation.feedback}</td>
                   <td className="px-4 py-2 space-x-2">
                     <button
-                      onClick={() => handleUpdateButton(participation.participationID)}
+                      onClick={() =>
+                        handleUpdateButton(participation.participationID)
+                      }
                       className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                      hidden={isStudent}
                     >
                       Update
                     </button>
                     <button
-                      onClick={() => handleDeleteButton(participation.participationID)}
+                      onClick={() =>
+                        handleDeleteButton(participation.participationID)
+                      }
                       className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+                      hidden={isStudent}
                     >
                       Delete
                     </button>

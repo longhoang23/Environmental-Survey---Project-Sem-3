@@ -17,8 +17,8 @@ const UpdateStudent = () => {
     klassId: 0,
     specification: "",
     status: "",
-    password: "",
-    confirmPassword: "",
+    // password: "",
+    // confirmPassword: "",
   });
 
   const [klasses, setKlasses] = useState([]); // for <select> of classes
@@ -65,11 +65,11 @@ const UpdateStudent = () => {
     setError(null);
 
      // Password verification check:
-    if (student.password !== student.confirmPassword) {
-      setError("Passwords do not match!");
-      setLoading(false);
-      return;
-    }
+    // if (student.password !== student.confirmPassword) {
+    //   setError("Passwords do not match!");
+    //   setLoading(false);
+    //   return;
+    // }
 
     try {
       // Adjust if your endpoint is different (e.g., /Student/update/{id})
@@ -234,7 +234,7 @@ const UpdateStudent = () => {
         </div>
 
         {/* Password */}
-        <div className="flex flex-col">
+        {/* <div className="flex flex-col">
           <label htmlFor="password" className="font-semibold mb-1">
             Password
           </label>
@@ -246,10 +246,10 @@ const UpdateStudent = () => {
             className="border p-2 rounded"
             placeholder="Enter new password if changing"
           />
-        </div>
+        </div> */}
         
         {/* Confirm Password */}
-        <div className="flex flex-col">
+        {/* <div className="flex flex-col">
           <label htmlFor="confirmPassword" className="font-semibold mb-1">
             Confirm Password
           </label>
@@ -262,7 +262,7 @@ const UpdateStudent = () => {
             className="border p-2 rounded"
             placeholder="Confirm password"
           />
-        </div>
+        </div> */}
         
         {/* Submit */}
         {loading ? (

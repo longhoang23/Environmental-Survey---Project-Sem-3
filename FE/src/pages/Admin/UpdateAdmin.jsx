@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
-
+import { getAuthHeaders } from "../../Services/userAuth";
 const UpdateAdmin = () => {
   const apiUrl = import.meta.env.VITE_PUBLIC_URL; // e.g. http://localhost:5169/api
   const navigate = useNavigate();
@@ -16,8 +16,8 @@ const UpdateAdmin = () => {
     role: "Admin",
     specification: "",
     status: "Active",
-    password: "",
-    confirmPassword: ""
+    // password: "",
+    // confirmPassword: ""
   });
 
   const [loading, setLoading] = useState(false);
@@ -27,7 +27,9 @@ const UpdateAdmin = () => {
   useEffect(() => {
     const fetchAdmin = async () => {
       try {
-        const response = await axios.get(`${apiUrl}/Admin/${id}`);
+        const response = await axios.get(`${apiUrl}/Admin/${id}`, {
+          headers: getAuthHeaders()
+        });
         if (response.status === 200) {
           setAdmin(response.data);
         } else {
@@ -48,18 +50,16 @@ const UpdateAdmin = () => {
     setError(null);
 
     // Password verification check:
-    if (admin.password !== admin.confirmPassword) {
-      setError("Passwords do not match!");
-      setLoading(false);
-      return;
-    }
+    // if (admin.password !== admin.confirmPassword) {
+    //   setError("Passwords do not match!");
+    //   setLoading(false);
+    //   return;
+    // }
 
     try {
       // Adjust endpoint if your API differs (e.g., "/Admin/update/{id}")
       const response = await axios.put(`${apiUrl}/Admin/update/${id}`, admin, {
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: getAuthHeaders()
       });
       if (response.status === 200) {
         alert("Admin updated successfully!");
@@ -189,7 +189,7 @@ const UpdateAdmin = () => {
           />
         </div>
 
-        <div className="flex flex-col">
+        {/* <div className="flex flex-col">
           <label htmlFor="password" className="font-semibold mb-1">
             Password
           </label>
@@ -201,7 +201,23 @@ const UpdateAdmin = () => {
             className="border p-2 rounded"
             placeholder="Enter password"
           />
-        </div>
+        </div> */}
+
+        {/* Confirm Password */}
+        {/* <div className="flex flex-col">
+          <label htmlFor="confirmPassword" className="font-semibold mb-1">
+            Confirm Password
+          </label>
+          <input
+            id="confirmPassword"
+            type="password"
+            value={admin.confirmPassword}
+            onChange={(e) => setAdmin({ ...admin, confirmPassword: e.target.value })}
+            required
+            className="border p-2 rounded"
+            placeholder="Confirm password"
+          />
+        </div> */}
 
         {/* Confirm Password */}
         <div className="flex flex-col">

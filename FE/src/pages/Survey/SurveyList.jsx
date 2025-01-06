@@ -11,22 +11,22 @@ const SurveyList = () => {
   const navigate = useNavigate();
 
   const handleAddButton = () => {
-    navigate("/admin/add-survey");
+    navigate("/add-survey");
   };
 
   const handleDetailButton = (id) => {
-    navigate(`/admin/survey-detail/${id}`);
+    navigate(`/survey-detail/${id}`);
   };
 
   const handleUpdateButton = (id) => {
-    navigate(`/admin/update-survey/${id}`);
+    navigate(`/update-survey/${id}`);
   };
 
   const handleDeleteButton = async (id) => {
     const confirmDelete = window.confirm(`Do you want to delete id: ${id}`);
     if (!confirmDelete) return;
     try {
-      const response = await axios.delete(`${apiUrl}/Survey/delete/${id}`,{
+      const response = await axios.delete(`${apiUrl}/Survey/delete/${id}`, {
         headers: getAuthHeaders(),
       });
       if (response.status === 200) {
@@ -38,6 +38,10 @@ const SurveyList = () => {
       alert("Failed to delete Survey");
     }
   };
+
+  const userRole = JSON.parse(localStorage.getItem('user')).role;
+  const isStudent = userRole == 3
+  const isStaff = userRole == 2
 
   useEffect(() => {
     const fetchSurvey = async () => {
@@ -128,17 +132,20 @@ const SurveyList = () => {
                     </button>
                     <button
                       onClick={() => handleUpdateButton(survey.surveyID)}
-                      className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none"
+                      className="ml-2 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none"
+                      hidden={isStaff || isStudent}
                     >
                       Update
                     </button>
                     <button
                       onClick={() => handleDeleteButton(survey.surveyID)}
                       className="ml-2 px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none"
+                      hidden={isStaff || isStudent}
                     >
                       Delete
                     </button>
                   </td>
+
                 </tr>
               ))
             ) : (
@@ -155,6 +162,7 @@ const SurveyList = () => {
         <button
           onClick={handleAddButton}
           className="px-6 py-3 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none"
+          hidden={isStaff || isStudent}
         >
           Add Survey
         </button>
