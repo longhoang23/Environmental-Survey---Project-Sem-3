@@ -27,7 +27,7 @@ const AddSupport = () => {
       
       if (response.status === 200 || response.status === 201) {
         alert("Support created successfully!");
-        navigate("/admin/support-list");
+        navigate("/support-list");
       }
     } catch (err) {
       console.error("Error creating support:", err);

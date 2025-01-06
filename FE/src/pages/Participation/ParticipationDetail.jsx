@@ -34,7 +34,7 @@ const ParticipationDetail = () => {
       <div className="bg-white shadow-md rounded p-4">
         <p><strong>User ID:</strong> {participation.userID}</p>
         <p><strong>Survey ID:</strong> {participation.surveyID}</p>
-        <p><strong>Participation Date:</strong> {participation.participationDate}</p>
+        <p><strong>Participation Date:</strong> {participation.participationDate ? participation.participationDate.slice(0, 10) : ""}</p>
         <p><strong>Total Score:</strong> {participation.totalScore}</p>
         <p><strong>Feedback:</strong> {participation.feedback}</p>
         <button
