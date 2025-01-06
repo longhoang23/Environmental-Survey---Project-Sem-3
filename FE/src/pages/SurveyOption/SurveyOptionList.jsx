@@ -94,10 +94,17 @@ const SurveyOList = () => {
         <table className="min-w-full table-auto">
           <thead className="bg-gray-100">
             <tr>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Option ID</th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Question ID</th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Option Text</th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600" hidden={isStudent}>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
+                Option ID
+              </th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
+                Question ID
+              </th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
+                Option Text
+              </th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600"
+              hidden = {isStudent}>
                 Score
               </th>
               <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Action</th>
@@ -130,7 +137,7 @@ const SurveyOList = () => {
                     <button
                       onClick={() => handleDeleteButton(surveyO.optionID)}
                       className="ml-2 px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none"
-                      hidden={isStudent}
+                      hidden = {isStudent}
                     >
                       Delete
                     </button>
@@ -151,7 +158,7 @@ const SurveyOList = () => {
         <button
           onClick={handleAddButton}
           className="px-6 py-3 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none"
-          hidden={isStudent}
+          hidden = {isStudent}
         >
           Add Survey Option
         </button>

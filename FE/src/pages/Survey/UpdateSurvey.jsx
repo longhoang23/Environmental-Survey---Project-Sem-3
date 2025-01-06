@@ -3,18 +3,17 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { getAuthHeaders } from "../../Services/userAuth"; // Assuming you have this utility
 
-
 const UpdateSurvey = () => {
   const apiUrl = import.meta.env.VITE_PUBLIC_URL;
   const { id } = useParams();
 
-  const [survey, setSurvey] = useState({ 
+  const [survey, setSurvey] = useState({
     title: "",
     description: "",
     targetAudience: "",
     startDate: "",
     endDate: "",
-    isActive: true, 
+    isActive: true,
   });
 
   const [initialDates, setInitialDates] = useState({
@@ -63,7 +62,7 @@ const UpdateSurvey = () => {
       );
       if (response.status === 200) {
         alert("Survey updated successfully!");
-        navigate("/admin/surveys");
+        navigate("/surveys");
       }
     } catch (err) {
       console.error("Error updating Survey:", err);
@@ -122,7 +121,9 @@ const UpdateSurvey = () => {
             id="description"
             name="description"
             value={survey.description || ""}
-            onChange={(e) => setSurvey({ ...survey, description: e.target.value })}
+            onChange={(e) =>
+              setSurvey({ ...survey, description: e.target.value })
+            }
             required
             className="block w-full p-2 border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none"
           />
@@ -140,7 +141,9 @@ const UpdateSurvey = () => {
             id="targetAudience"
             name="targetAudience"
             value={survey.targetAudience || ""}
-            onChange={(e) => setSurvey({ ...survey, targetAudience: e.target.value })}
+            onChange={(e) =>
+              setSurvey({ ...survey, targetAudience: e.target.value })
+            }
             required
             className="block w-full p-2 border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none"
           />
@@ -158,7 +161,9 @@ const UpdateSurvey = () => {
             id="startDate"
             name="startDate"
             value={survey.startDate || ""}
-            onChange={(e) => setSurvey({ ...survey, startDate: e.target.value })}
+            onChange={(e) =>
+              setSurvey({ ...survey, startDate: e.target.value })
+            }
             required
             className="block w-full p-2 border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none"
           />
@@ -187,7 +192,7 @@ const UpdateSurvey = () => {
             Original End Date: {initialDates.endDate || "N/A"}
           </p>
         </div>
-        
+
         <div className="mb-5">
           <label
             htmlFor="isActive"
@@ -200,7 +205,9 @@ const UpdateSurvey = () => {
             id="isActive"
             name="isActive"
             checked={survey.isActive || false}
-            onChange={(e) => setSurvey({ ...survey, isActive: e.target.checked })}
+            onChange={(e) =>
+              setSurvey({ ...survey, isActive: e.target.checked })
+            }
             className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
           />
         </div>

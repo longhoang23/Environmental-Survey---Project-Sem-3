@@ -12,8 +12,8 @@ const AddStudent = () => {
     lastName: "",
     email: "",
     phoneNumber: "",
-    role: "Student",          // Default to "Student"
-    klassId: 0,              // This will be updated by user selection
+    role: "Student", // Default to "Student"
+    klassId: 0, // This will be updated by user selection
     specification: "",
     status: "NotRequested",   // Default per your requirement
     password: "",
@@ -57,14 +57,21 @@ const AddStudent = () => {
       return;
     }
 
+    // Password verification check:
+    if (student.password !== student.confirmPassword) {
+      setError("Passwords do not match!");
+      setLoading(false);
+      return;
+    }
+
     try {
       // Adjust if your endpoint is different, e.g. "/Student"
       const response = await axios.post(`${apiUrl}/Student/create`, student, {
-        headers: getAuthHeaders()
+        headers: getAuthHeaders(),
       });
       if (response.status === 200 || response.status === 201) {
         alert("Student created successfully!");
-        navigate("/admin/student-list"); // go back to the student list
+        navigate("/student-list"); // go back to the student list
       }
     } catch (err) {
       console.error("Error creating student:", err);
@@ -96,7 +103,9 @@ const AddStudent = () => {
             id="firstName"
             type="text"
             value={student.firstName}
-            onChange={(e) => setStudent({ ...student, firstName: e.target.value })}
+            onChange={(e) =>
+              setStudent({ ...student, firstName: e.target.value })
+            }
             required
             className="border p-2 rounded"
             placeholder="Enter first name"
@@ -112,7 +121,9 @@ const AddStudent = () => {
             id="lastName"
             type="text"
             value={student.lastName}
-            onChange={(e) => setStudent({ ...student, lastName: e.target.value })}
+            onChange={(e) =>
+              setStudent({ ...student, lastName: e.target.value })
+            }
             required
             className="border p-2 rounded"
             placeholder="Enter last name"
@@ -145,7 +156,9 @@ const AddStudent = () => {
             id="phoneNumber"
             type="text"
             value={student.phoneNumber}
-            onChange={(e) => setStudent({ ...student, phoneNumber: e.target.value })}
+            onChange={(e) =>
+              setStudent({ ...student, phoneNumber: e.target.value })
+            }
             required
             className="border p-2 rounded"
             placeholder="Enter phone number"
@@ -175,7 +188,9 @@ const AddStudent = () => {
           <select
             id="klassId"
             value={student.klassId}
-            onChange={(e) => setStudent({ ...student, klassId: parseInt(e.target.value) })}
+            onChange={(e) =>
+              setStudent({ ...student, klassId: parseInt(e.target.value) })
+            }
             className="border p-2 rounded"
           >
             <option value={0}>-- Select Class --</option>
@@ -196,7 +211,9 @@ const AddStudent = () => {
             id="specification"
             type="text"
             value={student.specification}
-            onChange={(e) => setStudent({ ...student, specification: e.target.value })}
+            onChange={(e) =>
+              setStudent({ ...student, specification: e.target.value })
+            }
             className="border p-2 rounded"
             placeholder="e.g. Computer Science"
           />
@@ -226,7 +243,9 @@ const AddStudent = () => {
             id="password"
             type="password"
             value={student.password}
-            onChange={(e) => setStudent({ ...student, password: e.target.value })}
+            onChange={(e) =>
+              setStudent({ ...student, password: e.target.value })
+            }
             required
             className="border p-2 rounded"
             placeholder="Enter password"
@@ -248,7 +267,6 @@ const AddStudent = () => {
           />
         </div>
         
-
         {/* Submit */}
         {loading ? (
           <p className="text-blue-500 font-semibold">Creating student...</p>

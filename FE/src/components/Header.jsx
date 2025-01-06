@@ -6,11 +6,9 @@ const Header = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    // Lấy user lúc khởi tạo
     const storedUser = JSON.parse(localStorage.getItem("user"));
     setUser(storedUser);
 
-    // Lắng nghe sự kiện tùy chỉnh "user-changed"
     const handleUserChanged = () => {
       const updatedUser = JSON.parse(localStorage.getItem("user"));
       setUser(updatedUser);
@@ -23,7 +21,6 @@ const Header = () => {
     };
   }, []);
 
-  // Nếu chưa đăng nhập, hiển thị Login và Register
   if (!user) {
     return (
       <header className="bg-blue-600 text-white shadow-md">
@@ -53,8 +50,7 @@ const Header = () => {
     );
   }
 
-  // Nếu đã đăng nhập, hiển thị "Hello, username (role)"
-  const { firstName, role } = user; // Lấy firstName và role từ đối tượng user
+  const { firstName, role } = user;
 
   return (
     <header className="bg-blue-600 text-white shadow-md">

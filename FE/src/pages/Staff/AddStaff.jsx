@@ -12,7 +12,7 @@ const AddStaff = () => {
     lastName: "",
     email: "",
     phoneNumber: "",
-    role: "Staff",       // Default to "Staff"
+    role: "Staff", // Default to "Staff"
     sectionId: 0,
     specification: "",
     status: "",          // Could be an empty string initially
@@ -60,11 +60,11 @@ const AddStaff = () => {
     try {
       // Adjust the endpoint if your API is different, e.g. /Staff
       const response = await axios.post(`${apiUrl}/Staff/create`, staff, {
-        headers: getAuthHeaders()
+        headers: getAuthHeaders(),
       });
       if (response.status === 200 || response.status === 201) {
         alert("Staff created successfully!");
-        navigate("/admin/staff-list"); // Go back to the staff list route
+        navigate("/staff-list"); // Go back to the staff list route
       }
     } catch (err) {
       console.error("Error creating staff:", err);
@@ -143,7 +143,9 @@ const AddStaff = () => {
             id="phoneNumber"
             type="text"
             value={staff.phoneNumber}
-            onChange={(e) => setStaff({ ...staff, phoneNumber: e.target.value })}
+            onChange={(e) =>
+              setStaff({ ...staff, phoneNumber: e.target.value })
+            }
             required
             className="border p-2 rounded"
             placeholder="Enter phone number"
@@ -172,7 +174,9 @@ const AddStaff = () => {
           <select
             id="sectionId"
             value={staff.sectionId}
-            onChange={(e) => setStaff({ ...staff, sectionId: parseInt(e.target.value) })}
+            onChange={(e) =>
+              setStaff({ ...staff, sectionId: parseInt(e.target.value) })
+            }
             className="border p-2 rounded"
           >
             <option value={0}>-- Select Section --</option>
@@ -193,7 +197,9 @@ const AddStaff = () => {
             id="specification"
             type="text"
             value={staff.specification}
-            onChange={(e) => setStaff({ ...staff, specification: e.target.value })}
+            onChange={(e) =>
+              setStaff({ ...staff, specification: e.target.value })
+            }
             className="border p-2 rounded"
             placeholder="e.g. IT Support"
           />
@@ -206,8 +212,10 @@ const AddStaff = () => {
           </label>
           <select
             id="status"
-            value={staff.status || 0} 
-            onChange={(e) => setStaff({ ...staff, status: parseInt(e.target.value) })}
+            value={staff.status || 0}
+            onChange={(e) =>
+              setStaff({ ...staff, status: parseInt(e.target.value) })
+            }
             className="border p-2 rounded"
           >
             {/* <option>-- Select Section --</option> */}

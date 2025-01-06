@@ -76,7 +76,6 @@ const UpdateResponse = () => {
     setLoading(true);
     setError(null);
   
-    // Chuyển đổi participationID thành chuỗi trước khi xử lý
     const participationID = String(response.participationID || "").trim();
   
     if (!participationID) {

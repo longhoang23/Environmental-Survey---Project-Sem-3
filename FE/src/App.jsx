@@ -90,11 +90,9 @@ function App() {
           <Header />
 
           <div className="flex flex-row flex-1">
-            {user && (
-              <div className="w-64">
-                <Sidebar />
-              </div>
-            )}
+            <div className="w-64">
+              <Sidebar />
+            </div>
             <div className="flex-1 ">
               <Routes>
                 <Route path="/" element={<HomePage />} />
@@ -103,16 +101,23 @@ function App() {
                 <Route path="/register" element={<RegisterPage />} />
                 <Route path="/profile" element={<Profile />} />
 
-                <Route path="/admin/classes" element={<KlassList />} />
-                <Route path="/admin/add-class" element={<AddKlass />} />
+                <Route path="/classes" element={<KlassList />} />
+                <Route path="/add-class" element={<AddKlass />} />
                 <Route
-                  path="/admin/update-class/:klassId"
+                  path="/update-class/:klassId"
                   element={<UpdateKlass />}
                 />
                 <Route path="/admin/sections" element={<SectionList />} />
                 <Route path="/admin/add-section" element={<AddSection />} />
                 <Route path="/admin/update-section/:sectionId" element={<UpdateSection />} />
 
+
+                <Route path="/sections" element={<SectionList />} />
+                <Route path="/add-section" element={<AddSection />} />
+                <Route
+                  path="/update-section/:sectionId"
+                  element={<UpdateSection />}
+                />
 
                 <Route path="/admin/user-requests" element={<UserRequests />} />
                 <Route path="/admin/user-detail/:id" element={<UserDetail />} />
@@ -183,11 +188,8 @@ function App() {
                 <Route path="/admin/add-faq" element={<AddFaq />} />
                 <Route path="/admin/update-faq/:id" element={<UpdateFaq />} />
 
-                <Route path="/admin/staff-list" element={<StaffList />} />
-                <Route
-                  path="/admin/staff-detail/:id"
-                  element={<StaffDetail />}
-                />
+                <Route path="/staff-list" element={<StaffList />} />
+                <Route path="/staff-detail/:id" element={<StaffDetail />} />
                 <Route path="/admin/add-staff" element={<AddStaff />} />
                 <Route
                   path="/admin/update-staff/:id"
@@ -195,11 +197,8 @@ function App() {
                 />
                 
                 {/* Student */}
-                <Route path="/admin/student-list" element={<StudentList />} />
-                <Route
-                  path="/admin/student-detail/:id"
-                  element={<StudentDetail />}
-                />
+                <Route path="/student-list" element={<StudentList />} />
+                <Route path="/student-detail/:id" element={<StudentDetail />} />
                 <Route path="/admin/add-student" element={<AddStudent />} />
                 <Route
                   path="/admin/update-student/:id"

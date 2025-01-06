@@ -19,7 +19,7 @@ const StudentList = () => {
   };
 
   const handleDetailButton = (id) => {
-    navigate(`/admin/student-detail/${id}`);
+    navigate(`/student-detail/${id}`);
   };
 
   const handleUpdateButton = (id) => {
@@ -27,7 +27,9 @@ const StudentList = () => {
   };
 
   const handleDeleteButton = async (id) => {
-    const confirmDelete = window.confirm(`Do you want to delete student with id: ${id}?`);
+    const confirmDelete = window.confirm(
+      `Do you want to delete student with id: ${id}?`
+    );
     if (!confirmDelete) return;
     try {
       const response = await axios.delete(`${apiUrl}/Student/delete/${id}`, {

@@ -16,13 +16,17 @@ const AddOption = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${apiUrl}/SurveyOption/create`, option, {
-        headers: getAuthHeaders(),
-      });
+      const response = await axios.post(
+        `${apiUrl}/SurveyOption/create`,
+        option,
+        {
+          headers: getAuthHeaders(),
+        }
+      );
 
       if (response.status === 201 || response.status === 200) {
         alert("Option added successfully!");
-        navigate("/admin/options");
+        navigate("/options");
       }
     } catch (error) {
       console.error("Error:", error);
@@ -47,7 +51,9 @@ const AddOption = () => {
             id="questionID"
             name="questionID"
             value={option.questionID}
-            onChange={(e) => setOption({ ...option, questionID: e.target.value })}
+            onChange={(e) =>
+              setOption({ ...option, questionID: e.target.value })
+            }
             required
             className="block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
           />
@@ -64,7 +70,9 @@ const AddOption = () => {
             id="optionText"
             name="optionText"
             value={option.optionText}
-            onChange={(e) => setOption({ ...option, optionText: e.target.value })}
+            onChange={(e) =>
+              setOption({ ...option, optionText: e.target.value })
+            }
             required
             className="block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
           />
@@ -82,7 +90,9 @@ const AddOption = () => {
             id="score"
             name="score"
             value={option.score}
-            onChange={(e) => setOption({ ...option, score: Number(e.target.value) })}
+            onChange={(e) =>
+              setOption({ ...option, score: Number(e.target.value) })
+            }
             required
             className="block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
           />

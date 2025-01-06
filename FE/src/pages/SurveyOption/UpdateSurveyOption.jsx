@@ -7,7 +7,7 @@ const UpdateOption = () => {
   const apiUrl = import.meta.env.VITE_PUBLIC_URL;
   const { id } = useParams();
 
-  const [option, setOption] = useState({ 
+  const [option, setOption] = useState({
     questionID: "",
     optionText: "",
     score: 0,
@@ -21,7 +21,7 @@ const UpdateOption = () => {
   useEffect(() => {
     const fetchOption = async () => {
       try {
-        const response = await axios.get(`${apiUrl}/SurveyOption/${id}`,{
+        const response = await axios.get(`${apiUrl}/SurveyOption/${id}`, {
           headers: getAuthHeaders(),
         });
         if (response.status === 200) {
@@ -50,7 +50,7 @@ const UpdateOption = () => {
       );
       if (response.status === 200) {
         alert("Option updated successfully!");
-        navigate("/admin/options");
+        navigate("/options");
       }
     } catch (err) {
       console.error("Error updating Option:", err);
@@ -92,7 +92,9 @@ const UpdateOption = () => {
             id="questionID"
             name="questionID"
             value={option.questionID || ""}
-            onChange={(e) => setOption({ ...option, questionID: e.target.value })}
+            onChange={(e) =>
+              setOption({ ...option, questionID: e.target.value })
+            }
             required
             className="block w-full p-2 border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none"
           />
@@ -109,7 +111,9 @@ const UpdateOption = () => {
             id="optionText"
             name="optionText"
             value={option.optionText || ""}
-            onChange={(e) => setOption({ ...option, optionText: e.target.value })}
+            onChange={(e) =>
+              setOption({ ...option, optionText: e.target.value })
+            }
             required
             className="block w-full p-2 border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none"
           />
@@ -127,7 +131,9 @@ const UpdateOption = () => {
             id="score"
             name="score"
             value={option.score || 0}
-            onChange={(e) => setOption({ ...option, score: Number(e.target.value) })}
+            onChange={(e) =>
+              setOption({ ...option, score: Number(e.target.value) })
+            }
             required
             className="block w-full p-2 border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none"
           />

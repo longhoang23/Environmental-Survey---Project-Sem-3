@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 const Dashboard = () => {
   const menuItems = [
     { name: "Admin", path: "/admin/admin-list" },
-    { name: "Staff", path: "/admin/staff-list" },
-    { name: "Student", path: "/admin/student-list" },
-    { name: "Class", path: "/admin/classes" },
-    { name: "Section", path: "/admin/sections" },
+    { name: "Staff", path: "/staff-list" },
+    { name: "Student", path: "/student-list" },
+    { name: "Class", path: "/classes" },
+    { name: "Section", path: "/sections" },
     { name: "Seminar", path: "/seminar-list" },
     { name: "Competition", path: "/competition-list" },
     { name: "Participation", path: "/participation-list" },
-    { name: "Survey", path: "/admin/surveys" },
+    { name: "Survey", path: "/surveys" },
     { name: "FAQ", path: "/faqs" },
     { name: "Support", path: "/support-list" },
   ];

@@ -64,7 +64,7 @@ const UpdateStudent = () => {
     setLoading(true);
     setError(null);
 
-     // Password verification check:
+    // Password verification check:
     // if (student.password !== student.confirmPassword) {
     //   setError("Passwords do not match!");
     //   setLoading(false);
@@ -73,12 +73,16 @@ const UpdateStudent = () => {
 
     try {
       // Adjust if your endpoint is different (e.g., /Student/update/{id})
-      const response = await axios.put(`${apiUrl}/Student/update/${id}`, student, {
-        headers: getAuthHeaders(),
-      });
+      const response = await axios.put(
+        `${apiUrl}/Student/update/${id}`,
+        student,
+        {
+          headers: getAuthHeaders(),
+        }
+      );
       if (response.status === 200) {
         alert("Student updated successfully!");
-        navigate("/admin/student-list");
+        navigate("/student-list");
       }
     } catch (err) {
       console.error("Error updating student:", err);
@@ -113,7 +117,9 @@ const UpdateStudent = () => {
             id="firstName"
             type="text"
             value={student.firstName || ""}
-            onChange={(e) => setStudent({ ...student, firstName: e.target.value })}
+            onChange={(e) =>
+              setStudent({ ...student, firstName: e.target.value })
+            }
             required
             className="border p-2 rounded"
           />
@@ -128,7 +134,9 @@ const UpdateStudent = () => {
             id="lastName"
             type="text"
             value={student.lastName || ""}
-            onChange={(e) => setStudent({ ...student, lastName: e.target.value })}
+            onChange={(e) =>
+              setStudent({ ...student, lastName: e.target.value })
+            }
             required
             className="border p-2 rounded"
           />
@@ -160,7 +168,9 @@ const UpdateStudent = () => {
             id="phoneNumber"
             type="text"
             value={student.phoneNumber || ""}
-            onChange={(e) => setStudent({ ...student, phoneNumber: e.target.value })}
+            onChange={(e) =>
+              setStudent({ ...student, phoneNumber: e.target.value })
+            }
             required
             className="border p-2 rounded"
           />
@@ -189,7 +199,9 @@ const UpdateStudent = () => {
           <select
             id="klassId"
             value={student.klassId || 0}
-            onChange={(e) => setStudent({ ...student, klassId: parseInt(e.target.value) })}
+            onChange={(e) =>
+              setStudent({ ...student, klassId: parseInt(e.target.value) })
+            }
             className="border p-2 rounded"
           >
             <option value={0}>-- Select Class --</option>
@@ -210,7 +222,9 @@ const UpdateStudent = () => {
             id="specification"
             type="text"
             value={student.specification || ""}
-            onChange={(e) => setStudent({ ...student, specification: e.target.value })}
+            onChange={(e) =>
+              setStudent({ ...student, specification: e.target.value })
+            }
             className="border p-2 rounded"
           />
         </div>
@@ -222,11 +236,15 @@ const UpdateStudent = () => {
           </label>
           <select
             id="status"
-            value={student.status || 0} 
-            onChange={(e) => setStudent({ ...student, status: parseInt(e.target.value) })}
-            className="border p-2 rounded"
+            value={student.status || 0}
+            onChange={(e) =>
+              setStudent({ ...student, status: parseInt(e.target.value) })
+            }
+            readOnly
+            className="border p-2 rounded bg-gray-100"
           >
             <option value={0}>NotRequested</option>
+            readOnly
             <option value={1}>Pending</option>
             <option value={2}>Active</option>
             <option value={3}>Decline</option>

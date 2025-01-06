@@ -14,7 +14,7 @@ const UpdateStaff = () => {
     lastName: "",
     email : "",
     phoneNumber: "",
-    role: "Staff",  // read-only
+    role: "Staff", // read-only
     sectionId: 0,
     specification: "",
     status: "",     // read-only
@@ -42,7 +42,7 @@ const UpdateStaff = () => {
 
         // Load staff detail
         const staffRes = await axios.get(`${apiUrl}/Staff/${id}`, {
-          headers: getAuthHeaders()
+          headers: getAuthHeaders(),
         });
         if (staffRes.status === 200) {
           setStaff(staffRes.data);
@@ -67,7 +67,7 @@ const UpdateStaff = () => {
     setLoading(true);
     setError(null);
 
-     // Password verification check:
+    // Password verification check:
     //  if (staff.password !== staff.confirmPassword) {
     //   setError("Passwords do not match!");
     //   setLoading(false);
@@ -77,12 +77,12 @@ const UpdateStaff = () => {
     try {
       // We form the request body from 'staff' state
       const response = await axios.put(`${apiUrl}/Staff/update/${id}`, staff, {
-        headers: getAuthHeaders()
+        headers: getAuthHeaders(),
       });
 
       if (response.status === 200) {
         alert("Staff updated successfully!");
-        navigate("/admin/staff-list");
+        navigate("/staff-list");
       }
     } catch (err) {
       console.error("Error updating staff:", err);
@@ -164,7 +164,9 @@ const UpdateStaff = () => {
             id="phoneNumber"
             type="text"
             value={staff.phoneNumber || ""}
-            onChange={(e) => setStaff({ ...staff, phoneNumber: e.target.value })}
+            onChange={(e) =>
+              setStaff({ ...staff, phoneNumber: e.target.value })
+            }
             required
             className="border p-2 rounded"
           />
@@ -195,7 +197,8 @@ const UpdateStaff = () => {
             onChange={(e) =>
               setStaff({ ...staff, sectionId: parseInt(e.target.value) })
             }
-            className="border p-2 rounded"
+            readOnly
+            className="border p-2 rounded bg-gray-100"
           >
             <option value={0}>-- Select Section --</option>
             {sections.map((section) => (
@@ -215,7 +218,9 @@ const UpdateStaff = () => {
             id="specification"
             type="text"
             value={staff.specification || ""}
-            onChange={(e) => setStaff({ ...staff, specification: e.target.value })}
+            onChange={(e) =>
+              setStaff({ ...staff, specification: e.target.value })
+            }
             className="border p-2 rounded"
           />
         </div>
@@ -248,7 +253,7 @@ const UpdateStaff = () => {
           />
         </div> */}
 
-         {/* Confirm Password */}
+        {/* Confirm Password */}
         {/* <div className="flex flex-col">
           <label htmlFor="confirmPassword" className="font-semibold mb-1">
             Confirm Password
@@ -264,7 +269,7 @@ const UpdateStaff = () => {
           />
         </div> */}
 
-         {/* Confirm Password */}
+        {/* Confirm Password */}
         <div className="flex flex-col">
           <label htmlFor="confirmPassword" className="font-semibold mb-1">
             Confirm Password

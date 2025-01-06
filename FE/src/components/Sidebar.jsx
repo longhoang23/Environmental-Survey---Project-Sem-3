@@ -4,7 +4,7 @@ import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 
 const Sidebar = () => {
   const [user, setUser] = useState(null);
-  const [openMenus, setOpenMenus] = useState({}); // State quản lý menu mở
+  const [openMenus, setOpenMenus] = useState({});
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -21,12 +21,6 @@ const Sidebar = () => {
       window.removeEventListener("user-changed", handleUserChanged);
     };
   }, []);
-
-  if (!user) {
-    return null; // Không hiển thị nếu chưa đăng nhập
-  }
-
-  const { firstName, role } = user;
 
   const handleLogout = () => {
     localStorage.removeItem("user");
@@ -96,6 +90,8 @@ const Sidebar = () => {
       { name: "Participations", path: "/participation-list" },
       { name: "Response", path: "/response-list" },
       { name: "Competitions", path: "/competition-list" },
+      { name: "Classes", path: "/classes" },
+      { name: "Section", path: "/sections" },
       { name: "Staffs", path: "/staff/staff-list" },
       { name: "Students", path: "/staff/student-list" },
       { name: "FAQs", path: "/faqs" },
@@ -161,21 +157,52 @@ const Sidebar = () => {
 
   return (
     <div className="bg-white font-medium w-64 h-screen p-4">
-      <ul className="space-y-4">{renderMenu(menus[role] || [])}</ul>
-      <div className="mt-6 border-t border-gray-300 pt-6">
-        <button
-          onClick={() => navigate("/profile")}
-          className="w-full bg-gray-200 text-gray-800 py-2 rounded-md hover:bg-gray-300 transition duration-300 mb-4"
-        >
-          Profile
-        </button>
-        <button
-          onClick={handleLogout}
-          className="w-full bg-red-500 text-white py-2 rounded-md hover:bg-red-600 transition duration-300"
-        >
-          Logout
-        </button>
-      </div>
+      {!user ? (
+        <ul className="space-y-4">
+          <li>
+            <Link
+              to="/"
+              className="block text-lg text-blue-500 py-2 px-4 rounded-md hover:bg-gray-200 transition duration-300"
+            >
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/login"
+              className="block text-lg text-blue-500 py-2 px-4 rounded-md hover:bg-gray-200 transition duration-300"
+            >
+              Login
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/register"
+              className="block text-lg text-blue-500 py-2 px-4 rounded-md hover:bg-gray-200 transition duration-300"
+            >
+              Register
+            </Link>
+          </li>
+        </ul>
+      ) : (
+        <>
+          <ul className="space-y-4">{renderMenu(menus[user.role] || [])}</ul>
+          <div className="mt-6 border-t border-gray-300 pt-6">
+            <button
+              onClick={() => navigate("/profile")}
+              className="w-full bg-gray-200 text-gray-800 py-2 rounded-md hover:bg-gray-300 transition duration-300 mb-4"
+            >
+              Profile
+            </button>
+            <button
+              onClick={handleLogout}
+              className="w-full bg-red-500 text-white py-2 rounded-md hover:bg-red-600 transition duration-300"
+            >
+              Logout
+            </button>
+          </div>
+        </>
+      )}
     </div>
   );
 };

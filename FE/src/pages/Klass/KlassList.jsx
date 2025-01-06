@@ -12,11 +12,11 @@ const KlassList = () => {
   const navigate = useNavigate();
 
   const handleAddButton = () => {
-    navigate("/admin/add-class");
+    navigate("/add-class");
   };
 
   const handleUpdateButton = (id) => {
-    navigate(`/admin/update-class/${id}`);
+    navigate(`/update-class/${id}`);
   };
 
   const handleDeleteButton = async (id) => {
