@@ -5,12 +5,12 @@ import { useNavigate } from "react-router-dom";
 const LoginForm = () => {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false); // Trạng thái hiển thị mật khẩu
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const apiUrl = import.meta.env.VITE_PUBLIC_URL; // Base URL từ môi trường
+  const apiUrl = import.meta.env.VITE_PUBLIC_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,7 +18,7 @@ const LoginForm = () => {
     setError("");
 
     if (!username || !password) {
-      setError("Vui lòng nhập đầy đủ tên đăng nhập và mật khẩu!");
+      setError("Please enter your full username and password!");
       setLoading(false);
       return;
     }
@@ -29,15 +29,16 @@ const LoginForm = () => {
         password,
       });
 
+      console.log(response);
+
       const { token, user } = response.data;
 
       if (!token || !user) {
-        setError("Phản hồi từ server không hợp lệ!");
+        setError("Invalid server response!");
         setLoading(false);
         return;
       }
 
-      // Lưu token và thông tin người dùng vào localStorage
       localStorage.setItem("token", token);
       localStorage.setItem("user", JSON.stringify(user));
 
@@ -57,10 +58,10 @@ const LoginForm = () => {
           setError("Không tìm thấy vai trò người dùng!");
       }
 
-      alert("Đăng nhập thành công!");
+      alert("Login successful!");
     } catch (err) {
-      console.error("Lỗi đăng nhập:", err);
-      setError("Tên đăng nhập hoặc mật khẩu không đúng!");
+      console.error("Login error:", err);
+      setError("Incorrect username or password!");
     } finally {
       setLoading(false);
     }
@@ -73,13 +74,13 @@ const LoginForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-4">
-      <h2 className="text-2xl font-bold text-center">Đăng Nhập</h2>
+      <h2 className="text-2xl font-bold text-center">Login</h2>
 
       {error && <div className="text-red-500 text-sm">{error}</div>}
 
       <div>
         <label htmlFor="username" className="block text-sm font-medium">
-          Tên đăng nhập
+          Username
         </label>
         <input
           type="text"
@@ -93,10 +94,10 @@ const LoginForm = () => {
 
       <div>
         <label htmlFor="password" className="block text-sm font-medium">
-          Mật khẩu
+          Password
         </label>
         <input
-          type={showPassword ? "text" : "password"} // Hiển thị mật khẩu dựa trên trạng thái
+          type={showPassword ? "text" : "password"}
           id="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -108,10 +109,10 @@ const LoginForm = () => {
             <input
               type="checkbox"
               checked={showPassword}
-              onChange={() => setShowPassword(!showPassword)} // Đổi trạng thái hiển thị mật khẩu
+              onChange={() => setShowPassword(!showPassword)}
               className="mr-2"
             />
-            Hiển thị mật khẩu
+            Show password
           </label>
         </div>
       </div>
@@ -121,14 +122,14 @@ const LoginForm = () => {
         className="w-full bg-blue-500 text-white py-3 rounded-md mt-4"
         disabled={loading}
       >
-        {loading ? "Đang đăng nhập..." : "Đăng nhập"}
+        {loading ? "Loading..." : "Login"}
       </button>
 
       <div className="text-center text-sm mt-2">
         <p>
-          Chưa có tài khoản?{" "}
+          No account yet?{" "}
           <a href="/register" className="text-blue-500">
-            Đăng ký ngay
+            Register now
           </a>
         </p>
       </div>

@@ -22,6 +22,7 @@ const Profile = () => {
   const {
     firstName,
     lastName,
+    email,
     username,
     role,
     phoneNumber,
@@ -44,6 +45,9 @@ const Profile = () => {
           </p>
           <p>
             <strong>Username:</strong> {username}
+          </p>
+          <p>
+            <strong>Email:</strong> {email}
           </p>
           <p>
             <strong>Phone Number:</strong> {phoneNumber || "null"}

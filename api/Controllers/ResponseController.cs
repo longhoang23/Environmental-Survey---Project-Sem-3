@@ -55,7 +55,6 @@ namespace api.Controllers
         }
 
         [HttpPut("update/{responseId}")]
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateResponse(int responseId, [FromBody] UpdateResponseDTO updateResponseDTO)
         {
             if (!ModelState.IsValid)
@@ -72,7 +71,7 @@ namespace api.Controllers
         }
 
         [HttpDelete("delete/{responseId}")]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Staff")]
         public async Task<IActionResult> DeleteResponse(int responseId)
         {
             var deletedResponse = await _responseRepository.DeleteResponseAsync(responseId);

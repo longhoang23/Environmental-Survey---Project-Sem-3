@@ -134,7 +134,7 @@ const SurveyQList = () => {
                     <button
                       onClick={() => handleDeleteButton(surveyQ.questionID)}
                       className="ml-2 px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none"
-                      hidden={isStudent}
+                      hidden = {isStudent}
                     >
                       Delete
                     </button>
@@ -155,7 +155,7 @@ const SurveyQList = () => {
         <button
           onClick={handleAddButton}
           className="px-6 py-3 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none"
-          hidden={isStudent}
+          hidden = {isStudent}
         >
           Add Survey Question
         </button>

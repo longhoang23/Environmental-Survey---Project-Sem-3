@@ -13,17 +13,19 @@ const SectionList = () => {
 
   // Handle "Add Section" button
   const handleAddButton = () => {
-    navigate("/admin/add-section");
+    navigate("/add-section");
   };
 
   // Handle "Update" button for a specific section
   const handleUpdateButton = (id) => {
-    navigate(`/admin/update-section/${id}`);
+    navigate(`/update-section/${id}`);
   };
 
   // Handle "Delete" button for a specific section
   const handleDeleteButton = async (id) => {
-    const confirmDelete = window.confirm(`Do you want to delete section with id: ${id}?`);
+    const confirmDelete = window.confirm(
+      `Do you want to delete section with id: ${id}?`
+    );
     if (!confirmDelete) return;
     try {
       const response = await axios.delete(`${apiUrl}/Section/delete/${id}`);

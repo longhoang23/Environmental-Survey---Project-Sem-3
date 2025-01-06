@@ -68,7 +68,6 @@ namespace api.Controllers
         }
 
         [HttpPut("update/{participationId}")]
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateParticipation(int participationId, [FromBody] UpdateParticipationDTO updateParticipationDTO)
         {
             if (!ModelState.IsValid)
@@ -85,7 +84,7 @@ namespace api.Controllers
         }
 
         [HttpDelete("delete/{participationId}")]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Staff")]
         public async Task<IActionResult> DeleteParticipation(int participationId)
         {
             var deletedParticipation = await _participationRepository.DeleteParticipationAsync(participationId);

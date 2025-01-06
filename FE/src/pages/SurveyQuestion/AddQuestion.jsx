@@ -16,13 +16,17 @@ const AddQuestion = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${apiUrl}/SurveyQuestion/create`, question, {
-        headers: getAuthHeaders(),
-      });
+      const response = await axios.post(
+        `${apiUrl}/SurveyQuestion/create`,
+        question,
+        {
+          headers: getAuthHeaders(),
+        }
+      );
 
       if (response.status === 201 || response.status === 200) {
         alert("Question added successfully!");
-        navigate("/admin/questions");
+        navigate("/questions");
       }
     } catch (error) {
       console.error("Error:", error);
@@ -47,7 +51,9 @@ const AddQuestion = () => {
             id="surveyID"
             name="surveyID"
             value={question.surveyID}
-            onChange={(e) => setQuestion({ ...question, surveyID: e.target.value })}
+            onChange={(e) =>
+              setQuestion({ ...question, surveyID: e.target.value })
+            }
             required
             className="block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
           />
@@ -64,7 +70,9 @@ const AddQuestion = () => {
             id="questionText"
             name="questionText"
             value={question.questionText}
-            onChange={(e) => setQuestion({ ...question, questionText: e.target.value })}
+            onChange={(e) =>
+              setQuestion({ ...question, questionText: e.target.value })
+            }
             required
             className="block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
           />
@@ -82,7 +90,9 @@ const AddQuestion = () => {
             id="questionType"
             name="questionType"
             value={question.questionType}
-            onChange={(e) => setQuestion({ ...question, questionType: e.target.value })}
+            onChange={(e) =>
+              setQuestion({ ...question, questionType: e.target.value })
+            }
             required
             className="block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
           />

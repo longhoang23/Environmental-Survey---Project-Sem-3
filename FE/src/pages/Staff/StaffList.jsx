@@ -20,7 +20,7 @@ const StaffList = () => {
 
   // Show staff detail
   const handleDetailButton = (id) => {
-    navigate(`/admin/staff-detail/${id}`);
+    navigate(`/staff-detail/${id}`);
   };
 
   // Update staff
@@ -30,7 +30,9 @@ const StaffList = () => {
 
   // Delete staff
   const handleDeleteButton = async (id) => {
-    const confirmDelete = window.confirm(`Do you want to delete staff with id: ${id}?`);
+    const confirmDelete = window.confirm(
+      `Do you want to delete staff with id: ${id}?`
+    );
     if (!confirmDelete) return;
     try {
       const response = await axios.delete(`${apiUrl}/Staff/delete/${id}`, {
@@ -113,12 +115,24 @@ const StaffList = () => {
         <table className="min-w-full table-auto">
           <thead className="bg-gray-100">
             <tr>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">StaffID</th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">FirstName</th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">LastName</th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Username</th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Section</th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Action</th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
+                StaffID
+              </th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
+                FirstName
+              </th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
+                LastName
+              </th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
+                Username
+              </th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
+                Section
+              </th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
+                Action
+              </th>
             </tr>
           </thead>
           <tbody>

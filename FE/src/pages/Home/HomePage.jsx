@@ -1,21 +1,21 @@
+import earth from "../../assets/earth.png";
+
 const HomePage = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center max-w-lg p-8 bg-white rounded-lg shadow-lg">
-        <h1 className="text-4xl font-bold text-blue-600 mb-4">
-          Chào mừng đến với Environmental Survey
-        </h1>
-        <p className="text-lg text-gray-700 mb-4">
-          Tham gia các khảo sát và cuộc thi về bảo vệ môi trường. Hãy cùng nhau
-          xây dựng một thế giới xanh hơn!
-        </p>
-        <div className="space-x-4">
-          <button className="bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600">
-            Tham gia khảo sát
-          </button>
-          <button className="bg-green-500 text-white py-2 px-6 rounded-lg hover:bg-green-600">
-            Tìm hiểu thêm
-          </button>
+      <div className="flex items-center rounded-lg p-8 ">
+        <div className="flex-shrink-0 mr-8">
+          <img src={earth} alt="Earth" className="w-96 h-96 rounded-lg" />
+        </div>
+
+        <div className="text-left">
+          <h1 className="text-4xl font-bold text-blue-600 mb-4">
+            Welcome to Environmental Survey
+          </h1>
+          <p className="text-lg text-gray-700">
+            Participate in environmental surveys and competitions. Let's build a
+            greener world together!
+          </p>
         </div>
       </div>
     </div>

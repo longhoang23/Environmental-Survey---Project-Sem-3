@@ -72,7 +72,7 @@ const ResponseList = () => {
       }
     }
   };
-
+  
   useEffect(() => {
     const fetchResponses = async () => {
       try {

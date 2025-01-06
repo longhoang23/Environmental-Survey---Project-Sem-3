@@ -7,7 +7,7 @@ const UpdateQuestion = () => {
   const apiUrl = import.meta.env.VITE_PUBLIC_URL;
   const { id } = useParams();
 
-  const [question, setQuestion] = useState({ 
+  const [question, setQuestion] = useState({
     surveyID: "",
     questionText: "",
     questionType: "",
@@ -21,7 +21,7 @@ const UpdateQuestion = () => {
   useEffect(() => {
     const fetchQuestion = async () => {
       try {
-        const response = await axios.get(`${apiUrl}/SurveyQuestion/${id}`,{
+        const response = await axios.get(`${apiUrl}/SurveyQuestion/${id}`, {
           headers: getAuthHeaders(),
         });
         if (response.status === 200) {
@@ -50,7 +50,7 @@ const UpdateQuestion = () => {
       );
       if (response.status === 200) {
         alert("Question updated successfully!");
-        navigate("/admin/questions");
+        navigate("/questions");
       }
     } catch (err) {
       console.error("Error updating Question:", err);
@@ -92,7 +92,9 @@ const UpdateQuestion = () => {
             id="surveyID"
             name="surveyID"
             value={question.surveyID || ""}
-            onChange={(e) => setQuestion({ ...question, surveyID: e.target.value })}
+            onChange={(e) =>
+              setQuestion({ ...question, surveyID: e.target.value })
+            }
             required
             className="block w-full p-2 border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none"
           />
@@ -109,7 +111,9 @@ const UpdateQuestion = () => {
             id="questionText"
             name="questionText"
             value={question.questionText || ""}
-            onChange={(e) => setQuestion({ ...question, questionText: e.target.value })}
+            onChange={(e) =>
+              setQuestion({ ...question, questionText: e.target.value })
+            }
             required
             className="block w-full p-2 border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none"
           />
@@ -127,7 +131,9 @@ const UpdateQuestion = () => {
             id="questionType"
             name="questionType"
             value={question.questionType || ""}
-            onChange={(e) => setQuestion({ ...question, questionType: e.target.value })}
+            onChange={(e) =>
+              setQuestion({ ...question, questionType: e.target.value })
+            }
             required
             className="block w-full p-2 border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none"
           />

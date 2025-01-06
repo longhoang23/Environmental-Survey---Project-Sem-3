@@ -46,7 +46,9 @@ const StaffDetail = () => {
   // 2. Render the staff details
   return (
     <div className="container mx-auto px-4 py-8">
-      <h2 className="text-3xl font-bold mb-4">Staff Detail (ID: {staff.userID})</h2>
+      <h2 className="text-3xl font-bold mb-4">
+        Staff Detail (ID: {staff.userID})
+      </h2>
       <div className="bg-white shadow-md rounded-lg p-6 max-w-xl">
         <p>
           <strong>First Name:</strong> {staff.firstName}
@@ -91,7 +93,7 @@ const StaffDetail = () => {
         </p> */}
 
         <button
-          onClick={() => navigate("/admin/staff-list")}
+          onClick={() => navigate("/staff-list")}
           className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
         >
           Back to List
