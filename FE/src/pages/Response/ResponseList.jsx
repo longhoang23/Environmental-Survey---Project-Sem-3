@@ -6,6 +6,7 @@ import { getAuthHeaders } from "../../Services/userAuth";
 const ResponseList = () => {
   const apiUrl = import.meta.env.VITE_PUBLIC_URL; // e.g., http://localhost:5169/api
   const [responses, setResponses] = useState([]);
+  const [options, setOptions] = useState([]); // Khai báo options
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
@@ -22,13 +23,40 @@ const ResponseList = () => {
     navigate(`/update-response/${id}`);
   };
 
+  const userRole = JSON.parse(localStorage.getItem('user')).role;
+  const isStudent = userRole == 3
+
   const handleDeleteButton = async (id) => {
     if (window.confirm(`Are you sure you want to delete response ID: ${id}?`)) {
       try {
-        const response = await axios.delete(`${apiUrl}/Response/delete/${id}`, {
+        // Lấy thông tin phản hồi trước khi xóa
+        const responseToDelete = responses.find(r => r.responseID === id);
+        const participationID = responseToDelete.participationID;
+        const optionToDelete = options.find(opt => opt.optionID === responseToDelete.optionID);
+        const scoreToSubtract = optionToDelete ? optionToDelete.score : 0;
+
+        // Xóa phản hồi
+        const deleteResponse = await axios.delete(`${apiUrl}/Response/delete/${id}`, {
           headers: getAuthHeaders(),
         });
-        if (response.status === 200) {
+
+        if (deleteResponse.status === 200) {
+          // Cập nhật tổng điểm cho participation
+          const participationResponse = await axios.get(`${apiUrl}/Participation/${participationID}`, {
+            headers: getAuthHeaders(),
+          });
+
+          const currentTotalScore = participationResponse.data.totalScore || 0;
+          const updatedTotalScore = currentTotalScore - scoreToSubtract;
+
+          // Cập nhật tổng điểm mới
+          await axios.put(`${apiUrl}/Participation/update/${participationID}`, {
+            totalScore: updatedTotalScore,
+          }, {
+            headers: getAuthHeaders(),
+          });
+
+          // Cập nhật trạng thái phản hồi
           setResponses(responses.filter((r) => r.responseID !== id));
           alert("Response deleted successfully!");
         }
@@ -51,7 +79,21 @@ const ResponseList = () => {
         setLoading(false);
       }
     };
+
+    const fetchOptions = async () => { // Thêm hàm lấy options
+      try {
+        const response = await axios.get(`${apiUrl}/SurveyOption/all`, {
+          headers: getAuthHeaders(),
+        });
+        setOptions(response.data);
+      } catch (err) {
+        console.error("Error fetching options:", err);
+        setError("Failed to load options.");
+      }
+    };
+
     fetchResponses();
+    fetchOptions(); // Gọi hàm lấy options
   }, [apiUrl]);
 
   if (loading) return <div>Loading responses...</div>;
@@ -64,37 +106,19 @@ const ResponseList = () => {
         <table className="min-w-full table-auto">
           <thead className="bg-gray-100">
             <tr>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
-                ID
-              </th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
-                Participation ID
-              </th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
-                Question ID
-              </th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
-                Option ID
-              </th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
-                Response Text
-              </th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
-                Action
-              </th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">ID</th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Participation ID</th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Question ID</th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Option ID</th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Response Text</th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600" hidden={isStudent}>Action</th>
             </tr>
           </thead>
           <tbody>
             {responses.length > 0 ? (
               responses.map((response) => (
-                <tr
-                  key={response.responseID}
-                  className="border-b hover:bg-gray-50"
-                >
-                  <td
-                    className="px-4 py-2 text-blue-600 cursor-pointer"
-                    onClick={() => handleDetailButton(response.responseID)}
-                  >
+                <tr key={response.responseID} className="border-b hover:bg-gray-50">
+                  <td className="px-4 py-2 text-blue-600 cursor-pointer" onClick={() => handleDetailButton(response.responseID)}>
                     {response.responseID}
                   </td>
                   <td className="px-4 py-2">{response.participationID}</td>
@@ -102,38 +126,25 @@ const ResponseList = () => {
                   <td className="px-4 py-2">{response.optionID}</td>
                   <td className="px-4 py-2">{response.responseText}</td>
                   <td className="px-4 py-2 space-x-2">
-                    <button
-                      onClick={() => handleUpdateButton(response.responseID)}
-                      className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-                    >
-                      Update
-                    </button>
-                    <button
-                      onClick={() => handleDeleteButton(response.responseID)}
-                      className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
-                    >
-                      Delete
-                    </button>
+                    <button onClick={() => handleUpdateButton(response.responseID)} className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                      hidden={isStudent}
+                      >Update</button>
+                    <button onClick={() => handleDeleteButton(response.responseID)} className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+                      hidden={isStudent}
+                      >Delete</button>
                   </td>
                 </tr>
               ))
             ) : (
               <tr>
-                <td colSpan="5" className="text-center py-4 text-gray-500">
-                  No responses available.
-                </td>
+                <td colSpan="6" className="text-center py-4 text-gray-500">No responses available.</td>
               </tr>
             )}
           </tbody>
         </table>
       </div>
       <div className="mt-4">
-        <button
-          onClick={handleAddButton}
-          className="px-6 py-3 bg-green-500 text-white rounded hover:bg-green-600"
-        >
-          Add Response
-        </button>
+        <button onClick={handleAddButton} className="px-6 py-3 bg-green-500 text-white rounded hover:bg-green-600">Add Response</button>
       </div>
     </div>
   );
