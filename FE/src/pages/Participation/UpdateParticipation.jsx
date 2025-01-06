@@ -83,7 +83,7 @@ const UpdateParticipation = () => {
         onSubmit={handleSubmit}
         className="max-w-md mx-auto space-y-4 bg-white p-6 shadow-md rounded"
       >
-        {/* Conducted By */}
+        
         <div className="flex flex-col">
           <label htmlFor="userID" className="font-semibold mb-1">
             User ID

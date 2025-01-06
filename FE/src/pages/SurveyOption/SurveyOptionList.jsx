@@ -83,7 +83,8 @@ const SurveyOList = () => {
               <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
                 Option Text
               </th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600"
+              hidden = {isStudent}>
                 Score
               </th>
               <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
@@ -107,7 +108,8 @@ const SurveyOList = () => {
                   <td className="px-4 py-2 text-sm text-gray-700">
                     {surveyO.optionText}
                   </td>
-                  <td className="px-4 py-2 text-sm text-gray-700">
+                  <td className="px-4 py-2 text-sm text-gray-700"
+                  hidden = {isStudent}>
                     {surveyO.score}
                   </td>
                   <td className="px-4 py-2 text-sm">

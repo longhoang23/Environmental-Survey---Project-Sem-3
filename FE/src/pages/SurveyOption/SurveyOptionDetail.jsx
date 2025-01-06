@@ -11,6 +11,9 @@ const OptionDetail = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const userRole = JSON.parse(localStorage.getItem("user")).role;
+  const isStudent = userRole == 3;
+
   useEffect(() => {
     const fetchOption = async () => {
       setLoading(true);
@@ -53,7 +56,7 @@ const OptionDetail = () => {
         <p>
           <strong>Option Text:</strong> {option.optionText}
         </p>
-        <p>
+        <p hidden={isStudent}>
           <strong>Score:</strong> {option.score}
         </p>
 
