@@ -2,8 +2,11 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { getAuthHeaders } from "../../Services/userAuth";
+
 const AdminList = () => {
   const [admins, setAdmins] = useState([]);
+  const [filteredAdmins, setFilteredAdmins] = useState([]); // For search filtering
+  const [searchTerm, setSearchTerm] = useState(""); // Search input
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const apiUrl = import.meta.env.VITE_PUBLIC_URL;
@@ -22,21 +25,21 @@ const AdminList = () => {
     if (!confirmDelete) return;
     try {
       const response = await axios.delete(`${apiUrl}/Admin/delete/${id}`, {
-        headers: getAuthHeaders()
+        headers: getAuthHeaders(),
       });
       if (response.status === 200) {
         setAdmins(admins.filter((admin) => admin.userID !== id));
+        setFilteredAdmins(filteredAdmins.filter((admin) => admin.userID !== id)); // Update filtered list
         alert("Admin deleted successfully!");
       }
     } catch (error) {
       console.error("There was an error deleting the Admin:", error);
       alert("Failed to delete the Admin");
-    }finally{
-        setLoading(false);
+    } finally {
+      setLoading(false);
     }
   };
 
-  // Navigate to detail page
   const handleDetailButton = (id) => {
     navigate(`/admin/admin-detail/${id}`);
   };
@@ -45,9 +48,10 @@ const AdminList = () => {
     const fetchAdmins = async () => {
       try {
         const response = await axios.get(`${apiUrl}/Admin/all`, {
-          headers: getAuthHeaders()
+          headers: getAuthHeaders(),
         });
         setAdmins(response.data);
+        setFilteredAdmins(response.data); // Initialize filtered admins
         setLoading(false);
       } catch (error) {
         setError("Failed to load Admins");
@@ -56,6 +60,15 @@ const AdminList = () => {
     };
     fetchAdmins();
   }, [apiUrl]);
+
+  // Filter admins based on search term
+  useEffect(() => {
+    const filtered = admins.filter((admin) =>
+      admin.firstName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      admin.username.toLowerCase().includes(searchTerm.toLowerCase()) 
+    );
+    setFilteredAdmins(filtered);
+  }, [searchTerm, admins]);
 
   if (loading) {
     return <div className="text-center text-lg font-semibold">Loading...</div>;
@@ -68,6 +81,18 @@ const AdminList = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold text-center mb-6">Admin List</h1>
+
+      {/* Search Input */}
+      <div className="mb-4 flex justify-center">
+        <input
+          type="text"
+          placeholder="Search by first name or username"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="border p-2 rounded w-1/2"
+        />
+      </div>
+
       <div className="overflow-x-auto bg-white rounded-lg shadow-md">
         <table className="min-w-full table-auto">
           <thead className="bg-gray-100">
@@ -90,11 +115,10 @@ const AdminList = () => {
             </tr>
           </thead>
           <tbody>
-            {admins.length > 0 ? (
-              admins.map((admin) => (
+            {filteredAdmins.length > 0 ? (
+              filteredAdmins.map((admin) => (
                 <tr key={admin.userID} className="border-b hover:bg-gray-50">
-                  {/* Make AdminID clickable to see details */}
-                  <td className="px-4 py-2 text-sm text-gray-700 ">
+                  <td className="px-4 py-2 text-sm text-gray-700">
                     {admin.userID}
                   </td>
                   <td className="px-4 py-2 text-sm text-gray-700">
@@ -107,12 +131,11 @@ const AdminList = () => {
                     {admin.username}
                   </td>
                   <td className="px-4 py-2 text-sm">
-                    <button 
+                    <button
                       onClick={() => handleDetailButton(admin.userID)}
-                      title="Click to see more details"
                       className="mr-2 px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none"
-                      > 
-                      View Detail 
+                    >
+                      View Detail
                     </button>
                     <button
                       onClick={() => handleUpdateButton(admin.userID)}
@@ -139,6 +162,7 @@ const AdminList = () => {
           </tbody>
         </table>
       </div>
+
       <div className="flex justify-center mt-6">
         <button
           onClick={handleAddButton}

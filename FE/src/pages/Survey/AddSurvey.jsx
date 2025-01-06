@@ -31,7 +31,7 @@ const AddSurvey = () => {
       if (response.status === 201 || response.status === 200) {
         alert("Survey added successfully!");
         // Navigate back to Klass list page
-        navigate("/admin/surveys");
+        navigate("/surveys");
       }
     } catch (error) {
       console.error("Error:", error);

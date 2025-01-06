@@ -102,20 +102,13 @@ const UpdateParticipation = () => {
           <label htmlFor="surveyID" className="font-semibold mb-1">
             Survey
           </label>
-          <select
+          <input
             id="surveyID"
+            type="number"
             value={participation.surveyID}
-            onChange={(e) => setParticipation({ ...participation, surveyID: parseInt(e.target.value) })}
-            className="border p-2 rounded"
-            required
-          >
-            <option value={0}>-- Select Survey --</option>
-            {surveys.map((survey) => (
-              <option key={survey.surveyID} value={survey.surveyID}>
-                {survey.title}
-              </option>
-            ))}
-          </select>
+            className="border p-2 rounded bg-gray-100 cursor-not-allowed"
+            readOnly
+          />
         </div>
 
         {/* Participation Date */}

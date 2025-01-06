@@ -5,7 +5,9 @@ import { getAuthHeaders } from "../../Services/userAuth"; // Assuming you have t
 
 const StaffList = () => {
   const [staffs, setStaffs] = useState([]);
+  const [filteredStaffs, setFilteredStaffs] = useState([]); // For displaying filtered staff
   const [sections, setSections] = useState([]); // list of { sectionId, name }
+  const [searchTerm, setSearchTerm] = useState(""); // Search term for filtering
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const apiUrl = import.meta.env.VITE_PUBLIC_URL; // e.g., http://localhost:5169/api
@@ -13,7 +15,7 @@ const StaffList = () => {
 
   // Handle Add new staff
   const handleAddButton = () => {
-    navigate("/admin/add-staff"); // e.g. If you have an AddStaff route
+    navigate("/admin/add-staff");
   };
 
   // Show staff detail
@@ -31,11 +33,12 @@ const StaffList = () => {
     const confirmDelete = window.confirm(`Do you want to delete staff with id: ${id}?`);
     if (!confirmDelete) return;
     try {
-      const response = await axios.delete(`${apiUrl}/Staff/delete/${id}`,{
+      const response = await axios.delete(`${apiUrl}/Staff/delete/${id}`, {
         headers: getAuthHeaders(),
       });
       if (response.status === 200) {
         setStaffs(staffs.filter((s) => s.userID !== id));
+        setFilteredStaffs(filteredStaffs.filter((s) => s.userID !== id));
         alert("Staff deleted successfully!");
       }
     } catch (error) {
@@ -52,21 +55,36 @@ const StaffList = () => {
       try {
         const sectionResponse = await axios.get(`${apiUrl}/Section/all`);
         setSections(sectionResponse.data);
-        
+
         const staffResponse = await axios.get(`${apiUrl}/Staff/all`, {
-          headers: getAuthHeaders()
+          headers: getAuthHeaders(),
         });
         setStaffs(staffResponse.data);
-
+        setFilteredStaffs(staffResponse.data); // Initialize filtered staff list
         setLoading(false);
       } catch (err) {
-        console.error("Error fetching students/sections:", err);
-        setError("Failed to load Students or Sections");
+        console.error("Error fetching staffs/sections:", err);
+        setError("Failed to load Staffs or Sections");
         setLoading(false);
       }
     };
     fetchStaffs();
   }, [apiUrl]);
+
+  // Update filtered staff list whenever searchTerm or staffs changes
+  useEffect(() => {
+    const filtered = staffs.filter(
+      (staff) =>
+        staff.firstName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        staff.username.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredStaffs(filtered);
+  }, [searchTerm, staffs]);
+
+  const getSectionName = (sectionId) => {
+    const found = sections.find((s) => s.sectionId === sectionId);
+    return found ? found.name : "No Section";
+  };
 
   if (loading) {
     return <div className="text-center text-lg font-semibold">Loading...</div>;
@@ -76,14 +94,21 @@ const StaffList = () => {
     return <div className="text-center text-lg text-red-500">{error}</div>;
   }
 
-  const getSectionName = (sectionId) => {
-    const found = sections.find((s) => s.sectionId === sectionId);
-    return found ? found.name : "No Section";
-  };
-
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold text-center mb-6">Staff List</h1>
+
+      {/* Search Bar */}
+      <div className="mb-4 flex justify-center">
+        <input
+          type="text"
+          placeholder="Search by first name or username"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="border p-2 rounded w-1/2"
+        />
+      </div>
+
       <div className="overflow-x-auto bg-white rounded-lg shadow-md">
         <table className="min-w-full table-auto">
           <thead className="bg-gray-100">
@@ -97,32 +122,21 @@ const StaffList = () => {
             </tr>
           </thead>
           <tbody>
-            {staffs.length > 0 ? (
-              staffs.map((staff) => (
+            {filteredStaffs.length > 0 ? (
+              filteredStaffs.map((staff) => (
                 <tr key={staff.userID} className="border-b hover:bg-gray-50">
-
-                  <td className="px-4 py-2 text-sm text-gray-700">
-                    {staff.userID}
-                  </td>
-                  <td className="px-4 py-2 text-sm text-gray-700">
-                    {staff.firstName}
-                  </td>
-                  <td className="px-4 py-2 text-sm text-gray-700">
-                    {staff.lastName}
-                  </td>
-                  <td className="px-4 py-2 text-sm text-gray-700">
-                    {staff.username}
-                  </td>
-                  <td className="px-4 py-2 text-sm text-gray-700">
-                    {getSectionName(staff.sectionId)}
-                  </td>
+                  <td className="px-4 py-2 text-sm text-gray-700">{staff.userID}</td>
+                  <td className="px-4 py-2 text-sm text-gray-700">{staff.firstName}</td>
+                  <td className="px-4 py-2 text-sm text-gray-700">{staff.lastName}</td>
+                  <td className="px-4 py-2 text-sm text-gray-700">{staff.username}</td>
+                  <td className="px-4 py-2 text-sm text-gray-700">{getSectionName(staff.sectionId)}</td>
                   <td className="px-4 py-2 text-sm">
-                    <button 
+                    <button
                       onClick={() => handleDetailButton(staff.userID)}
                       title="Click to see more details"
                       className="mr-2 px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none"
-                      > 
-                      View Detail 
+                    >
+                      View Detail
                     </button>
                     <button
                       onClick={() => handleUpdateButton(staff.userID)}
