@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { getAuthHeaders } from "../../Services/userAuth";
 
 const AddParticipation = () => {
   const apiUrl = import.meta.env.VITE_PUBLIC_URL;
@@ -47,9 +46,7 @@ const AddParticipation = () => {
     setError(null);
 
     try {
-      const response = await axios.post(`${apiUrl}/Participation/create`, participation, {
-        headers: getAuthHeaders(),
-      });
+      const response = await axios.post(`${apiUrl}/Participation/create`, participation);
     
       if (response.status === 200 || response.status === 201) {
         alert("Participation created successfully!");

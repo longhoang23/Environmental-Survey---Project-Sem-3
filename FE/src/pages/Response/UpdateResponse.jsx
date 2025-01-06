@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
-import { getAuthHeaders } from "../../Services/userAuth";
 
 const UpdateResponse = () => {
   const apiUrl = import.meta.env.VITE_PUBLIC_URL; // Backend API base URL
@@ -27,10 +26,10 @@ const UpdateResponse = () => {
     const fetchData = async () => {
       try {
         const [participationRes, questionRes, optionRes, responseRes] = await Promise.all([
-          axios.get(`${apiUrl}/Participation/all`, { headers: getAuthHeaders() }),
-          axios.get(`${apiUrl}/SurveyQuestion/all`, { headers: getAuthHeaders() }),
-          axios.get(`${apiUrl}/SurveyOption/all`, { headers: getAuthHeaders() }),
-          axios.get(`${apiUrl}/Response/${id}`, { headers: getAuthHeaders() }), // Use GET method for fetching
+          axios.get(`${apiUrl}/Participation/all`),
+          axios.get(`${apiUrl}/SurveyQuestion/all`),
+          axios.get(`${apiUrl}/SurveyOption/all`),
+          axios.get(`${apiUrl}/Response/${id}`), // Use GET method for fetching
         ]);
 
         setParticipations(participationRes.data);
@@ -75,9 +74,7 @@ const UpdateResponse = () => {
     }
 
     try {
-      const updateRes = await axios.put(`${apiUrl}/Response/update/${id}`, response, {
-        headers: getAuthHeaders(),
-      });
+      const updateRes = await axios.put(`${apiUrl}/Response/update/${id}`, response);
 
       if (updateRes.status === 200) {
         alert("Response updated successfully!");

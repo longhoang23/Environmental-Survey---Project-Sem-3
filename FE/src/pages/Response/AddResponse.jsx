@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { getAuthHeaders } from "../../Services/userAuth";
 
 const AddResponse = () => {
   const apiUrl = import.meta.env.VITE_PUBLIC_URL;
@@ -25,17 +24,11 @@ const AddResponse = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const ParticipationRes = await axios.get(`${apiUrl}/Participation/all`, {
-          headers: getAuthHeaders(),
-        });
+        const ParticipationRes = await axios.get(`${apiUrl}/Participation/all`);
         setParticipations(ParticipationRes.data);
-        const QuestionRes = await axios.get(`${apiUrl}/SurveyQuestion/all`, {
-          headers: getAuthHeaders(),
-        });
+        const QuestionRes = await axios.get(`${apiUrl}/SurveyQuestion/all`);
         setQuestions(QuestionRes.data);
-        const OptionRes = await axios.get(`${apiUrl}/SurveyOption/all`, {
-          headers: getAuthHeaders(),
-        });
+        const OptionRes = await axios.get(`${apiUrl}/SurveyOption/all`);
         setAllOptions(OptionRes.data); // Store all options
       } catch (err) {
         console.error("Error fetching data:", err);
@@ -65,9 +58,7 @@ const AddResponse = () => {
     setError(null);
 
     try {
-      const apiResponse = await axios.post(`${apiUrl}/Response/create`, response, {
-        headers: getAuthHeaders(),
-      });
+      const apiResponse = await axios.post(`${apiUrl}/Response/create`, response);
 
       if (apiResponse.status === 201 || apiResponse.status === 200) {
         alert("Response created successfully!");

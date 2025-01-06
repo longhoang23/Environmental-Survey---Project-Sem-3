@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { getAuthHeaders } from "../../Services/userAuth"; // Assuming you have this utility
 
 const ParticipationList = () => {
   const apiUrl = import.meta.env.VITE_PUBLIC_URL; // e.g., http://localhost:5169/api
@@ -25,9 +24,7 @@ const ParticipationList = () => {
   const handleDeleteButton = async (id) => {
     if (window.confirm(`Are you sure you want to delete participation ID: ${id}?`)) {
       try {
-        const response = await axios.delete(`${apiUrl}/Participation/delete/${id}`, {
-          headers: getAuthHeaders(),
-        });
+        const response = await axios.delete(`${apiUrl}/Participation/delete/${id}`);
         if (response.status === 200) {
           setParticipations(participations.filter((p) => p.participationID !== id));
           alert("Participation deleted successfully!");

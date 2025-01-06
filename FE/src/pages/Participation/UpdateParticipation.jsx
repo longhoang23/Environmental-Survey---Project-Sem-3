@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
-import { getAuthHeaders } from "../../Services/userAuth"; // Assuming you have this utility
 
 const UpdateParticipation = () => {
   const apiUrl = import.meta.env.VITE_PUBLIC_URL;
@@ -27,15 +26,10 @@ const UpdateParticipation = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const surveysResponse = await axios.get(`${apiUrl}/Survey/all`, {
-          headers: getAuthHeaders(),
-        });
+        const surveysResponse = await axios.get(`${apiUrl}/Survey/all`);
         setSurveys(surveysResponse.data);
 
-        const participationResponse = await axios.get(`${apiUrl}/Participation/${id}`, {
-          headers: getAuthHeaders(), // Include the authorization headers
-        });
-
+        const participationResponse = await axios.get(`${apiUrl}/Participation/${id}`);
         if (participationResponse.status === 200) {
           setParticipation(participationResponse.data); // Set participation data
           setInitialDates({
@@ -60,9 +54,7 @@ const UpdateParticipation = () => {
     setError(null);
 
     try {
-      const response = await axios.put(`${apiUrl}/Participation/update/${id}`, participation, {
-          headers: getAuthHeaders(),
-      });
+      const response = await axios.put(`${apiUrl}/Participation/update/${id}`, participation);
       if (response.status === 200) {
         alert("Participation updated successfully!");
         navigate("/participation-list");
