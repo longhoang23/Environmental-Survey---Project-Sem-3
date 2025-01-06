@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { getAuthHeaders } from "../../Services/userAuth";
 
 const AddResponse = () => {
   const apiUrl = import.meta.env.VITE_PUBLIC_URL;
@@ -26,7 +27,9 @@ const AddResponse = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const ParticipationRes = await axios.get(`${apiUrl}/Participation/all`);
+        const ParticipationRes = await axios.get(`${apiUrl}/Participation/all`, {
+          headers: getAuthHeaders(),
+        });
         setParticipations(ParticipationRes.data);
 
         const QuestionRes = await axios.get(`${apiUrl}/SurveyQuestion/all`, {
@@ -84,7 +87,9 @@ const AddResponse = () => {
     setError(null);
 
     try {
-      const apiResponse = await axios.post(`${apiUrl}/Response/create`, response);
+      const apiResponse = await axios.post(`${apiUrl}/Response/create`, response, {
+        headers: getAuthHeaders(),
+      });
 
       if (apiResponse.status === 201 || apiResponse.status === 200) {
         const selectedOption = allOptions.find(option => option.optionID === response.optionID);

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { getAuthHeaders } from "../../Services/userAuth";
 
 const ResponseList = () => {
   const apiUrl = import.meta.env.VITE_PUBLIC_URL; // e.g., http://localhost:5169/api
@@ -24,6 +25,7 @@ const ResponseList = () => {
 
   const userRole = JSON.parse(localStorage.getItem('user')).role;
   const isStudent = userRole == 3
+
   const handleDeleteButton = async (id) => {
     if (window.confirm(`Are you sure you want to delete response ID: ${id}?`)) {
       try {

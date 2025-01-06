@@ -26,9 +26,7 @@ const AddParticipation = () => {
   useEffect(() => {
     const fetchSurveys = async () => {
       try {
-        const response = await axios.get(`${apiUrl}/Survey/all`, {
-          headers: getAuthHeaders(), // Include headers if required
-        });
+        const response = await axios.get(`${apiUrl}/Survey/all`);
         setSurveys(response.data);
       } catch (err) {
         console.error("Error fetching classes:", err);
