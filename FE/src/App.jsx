@@ -130,18 +130,13 @@ function App() {
                 />
                 <Route path="/admin/detail/:id" element={<AdminDetail />} />
                 {/* Survey */}
-                <Route path="/admin/surveys" element={<SurveyList />} />
-                <Route path="/admin/add-survey" element={<AddSurvey />} />
-                <Route
-                  path="/admin/update-survey/:id"
-                  element={<UpdateSurvey />}
-                />
-                <Route
-                  path="/admin/survey-detail/:id"
-                  element={<SurveyDetail />}
-                />
+                <Route path="/surveys" element={<SurveyList />} />
+                <Route path="/add-survey" element={<AddSurvey />} />
+                <Route path="/update-survey/:id" element={<UpdateSurvey />} />
+                <Route path="/survey-detail/:id" element={<SurveyDetail />} />
                 {/* SurveyQuestion */}
                 <Route path="/admin/questions" element={<QuestionList />} />
+
                 <Route path="/admin/add-question" element={<AddQuestion />} />
                 <Route
                   path="/admin/update-question/:id"
@@ -151,6 +146,18 @@ function App() {
                   path="/admin/question-detail/:id"
                   element={<SurveyQuestionDetail />}
                 />
+
+                <Route path="/questions" element={<QuestionList />} />
+                <Route path="/add-question" element={<AddQuestion />} />
+                <Route
+                  path="/update-question/:id"
+                  element={<UpdateQuestion />}
+                />
+                <Route
+                  path="/question-detail/:id"
+                  element={<SurveyQuestionDetail />}
+                />
+
                 {/* SurveyOption */}
                 <Route path="/admin/options" element={<OptionList />} />
                 <Route path="/admin/add-option" element={<AddOption />} />
@@ -162,8 +169,17 @@ function App() {
                   path="/admin/option-detail/:id"
                   element={<SurveyOptionDetail />}
                 />
+
+                <Route path="/options" element={<OptionList />} />
+                <Route path="/add-option" element={<AddOption />} />
+                <Route path="/update-option/:id" element={<UpdateOption />} />
+                <Route
+                  path="/option-detail/:id"
+                  element={<SurveyOptionDetail />}
+                />
+
                 {/* Faq */}
-                <Route path="/admin/faqs" element={<FaqList />} />
+                <Route path="/faqs" element={<FaqList />} />
                 <Route path="/admin/add-faq" element={<AddFaq />} />
                 <Route path="/admin/update-faq/:id" element={<UpdateFaq />} />
 
@@ -257,23 +273,31 @@ function App() {
                   element={<UpdateCompetition />}
                 />
 
-
                 {/*/Student */}
 
-
                 <Route path="/student/seminar-list" element={<SeminarList />} />
-                <Route path="/student/competition-list" element={<CompetitionList />} />
-                <Route path="/student/participation-list" element={<ParticipationList />} />
-                <Route path="/student/survey-list" element={<SurveyList />} />
-                
+                <Route
+                  path="/student/competition-list"
+                  element={<CompetitionList />}
+                />
+                <Route
+                  path="/student/participation-list"
+                  element={<ParticipationList />}
+                />
+                <Route path="/survey-list" element={<SurveyList />} />
 
                 {/*/Staff */}
-                <Route path="/staff/survey-list" element={<SurveyList />} />
                 <Route path="/staff/seminar-list" element={<SeminarList />} />
-                <Route path="/staff/competition-list" element={<CompetitionList />} />
-                <Route path="/staff/participation-list" element={<ParticipationList />} />
+                <Route
+                  path="/staff/competition-list"
+                  element={<CompetitionList />}
+                />
+                <Route
+                  path="/staff/participation-list"
+                  element={<ParticipationList />}
+                />
                 <Route path="/staff/student-list" element={<StudentList />} />
-
+                <Route path="/staff/staff-list" element={<StaffList />} />
               </Routes>
             </div>
           </div>

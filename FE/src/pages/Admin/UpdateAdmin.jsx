@@ -219,6 +219,22 @@ const UpdateAdmin = () => {
           />
         </div> */}
 
+        {/* Confirm Password */}
+        <div className="flex flex-col">
+          <label htmlFor="confirmPassword" className="font-semibold mb-1">
+            Confirm Password
+          </label>
+          <input
+            id="confirmPassword"
+            type="password"
+            value={admin.confirmPassword}
+            onChange={(e) => setAdmin({ ...admin, confirmPassword: e.target.value })}
+            required
+            className="border p-2 rounded"
+            placeholder="Confirm password"
+          />
+        </div>
+
         {loading ? (
           <p className="text-blue-500 font-semibold">Updating admin...</p>
         ) : (

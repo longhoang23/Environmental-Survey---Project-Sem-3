@@ -39,7 +39,7 @@ const SupportDetail = () => {
           <strong>Contact Info:</strong> {support.contactInfo}
         </p>
         <button
-          onClick={() => navigate("/admin/support-list")}
+          onClick={() => navigate("/support-list")}
           className="bg-blue-500 text-white px-4 py-2 rounded mt-4 hover:bg-blue-600"
         >
           Back to List

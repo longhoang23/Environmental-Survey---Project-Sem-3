@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 const SectionList = () => {
   const [sections, setSections] = useState([]);
+  const [filteredSections, setFilteredSections] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const apiUrl = import.meta.env.VITE_PUBLIC_URL;
@@ -11,7 +13,7 @@ const SectionList = () => {
 
   // Handle "Add Section" button
   const handleAddButton = () => {
-    navigate("/admin/add-section"); 
+    navigate("/admin/add-section");
   };
 
   // Handle "Update" button for a specific section
@@ -27,6 +29,7 @@ const SectionList = () => {
       const response = await axios.delete(`${apiUrl}/Section/delete/${id}`);
       if (response.status === 200) {
         setSections(sections.filter((section) => section.sectionId !== id));
+        setFilteredSections(filteredSections.filter((section) => section.sectionId !== id));
         alert("Section deleted successfully!");
       }
     } catch (error) {
@@ -41,6 +44,7 @@ const SectionList = () => {
       try {
         const response = await axios.get(`${apiUrl}/Section/all`);
         setSections(response.data);
+        setFilteredSections(response.data); // Initialize filteredSections
         setLoading(false);
       } catch (err) {
         setError("Failed to load Sections");
@@ -49,6 +53,14 @@ const SectionList = () => {
     };
     fetchSections();
   }, [apiUrl]);
+
+  // Filter sections based on search term
+  useEffect(() => {
+    const filtered = sections.filter((section) =>
+      section.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredSections(filtered);
+  }, [searchTerm, sections]);
 
   if (loading) {
     return <div className="text-center text-lg font-semibold">Loading...</div>;
@@ -61,6 +73,18 @@ const SectionList = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold text-center mb-6">Section List</h1>
+
+      {/* Search Bar */}
+      <div className="flex justify-center mb-4">
+        <input
+          type="text"
+          placeholder="Search by section name"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="border p-2 rounded w-1/2"
+        />
+      </div>
+
       <div className="overflow-x-auto bg-white rounded-lg shadow-md">
         <table className="min-w-full table-auto">
           <thead className="bg-gray-100">
@@ -77,8 +101,8 @@ const SectionList = () => {
             </tr>
           </thead>
           <tbody>
-            {sections.length > 0 ? (
-              sections.map((section) => (
+            {filteredSections.length > 0 ? (
+              filteredSections.map((section) => (
                 <tr key={section.sectionId} className="border-b hover:bg-gray-50">
                   <td className="px-4 py-2 text-sm text-gray-700">
                     {section.sectionId}

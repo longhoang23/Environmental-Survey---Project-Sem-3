@@ -264,6 +264,22 @@ const UpdateStaff = () => {
           />
         </div> */}
 
+         {/* Confirm Password */}
+        <div className="flex flex-col">
+          <label htmlFor="confirmPassword" className="font-semibold mb-1">
+            Confirm Password
+          </label>
+          <input
+            id="confirmPassword"
+            type="password"
+            value={staff.confirmPassword}
+            onChange={(e) => setStaff({ ...staff, confirmPassword: e.target.value })}
+            required
+            className="border p-2 rounded"
+            placeholder="Confirm password"
+          />
+        </div>
+
         {loading ? (
           <p className="text-blue-500 font-semibold">Updating staff...</p>
         ) : (

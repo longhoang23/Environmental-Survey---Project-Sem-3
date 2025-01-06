@@ -6,20 +6,23 @@ import { getAuthHeaders } from "../../Services/userAuth";
 const ResponseList = () => {
   const apiUrl = import.meta.env.VITE_PUBLIC_URL; // e.g., http://localhost:5169/api
   const [responses, setResponses] = useState([]);
+  const [filteredResponses, setFilteredResponses] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [searchParticipationId, setSearchParticipationId] = useState("");
+  const [searchQuestionId, setSearchQuestionId] = useState("");
   const navigate = useNavigate();
 
   const handleAddButton = () => {
-    navigate("/admin/add-response");
+    navigate("/add-response");
   };
 
   const handleDetailButton = (id) => {
-    navigate(`/admin/response-detail/${id}`);
+    navigate(`/response-detail/${id}`);
   };
 
   const handleUpdateButton = (id) => {
-    navigate(`/admin/update-response/${id}`);
+    navigate(`/update-response/${id}`);
   };
 
   const handleDeleteButton = async (id) => {
@@ -30,6 +33,9 @@ const ResponseList = () => {
         });
         if (response.status === 200) {
           setResponses(responses.filter((r) => r.responseID !== id));
+          setFilteredResponses(
+            filteredResponses.filter((r) => r.responseID !== id)
+          );
           alert("Response deleted successfully!");
         }
       } catch (err) {
@@ -44,6 +50,7 @@ const ResponseList = () => {
       try {
         const response = await axios.get(`${apiUrl}/Response/all`);
         setResponses(response.data);
+        setFilteredResponses(response.data); // Initialize filtered list
       } catch (err) {
         console.error("Error fetching responses:", err);
         setError("Failed to load responses.");
@@ -54,28 +61,81 @@ const ResponseList = () => {
     fetchResponses();
   }, [apiUrl]);
 
+  // Filter responses based on ParticipationID and QuestionID
+  useEffect(() => {
+    let filtered = responses;
+
+    if (searchParticipationId) {
+      filtered = filtered.filter((r) =>
+        r.participationID.toString().includes(searchParticipationId)
+      );
+    }
+
+    if (searchQuestionId) {
+      filtered = filtered.filter((r) =>
+        r.questionID.toString().includes(searchQuestionId)
+      );
+    }
+
+    setFilteredResponses(filtered);
+  }, [searchParticipationId, searchQuestionId, responses]);
+
   if (loading) return <div>Loading responses...</div>;
   if (error) return <div className="text-red-500">{error}</div>;
 
   return (
     <div className="container mx-auto px-4 py-8">
       <h2 className="text-2xl font-bold mb-4">Response List</h2>
+
+      {/* Search Bars */}
+      <div className="flex justify-between items-center mb-4">
+        <input
+          type="text"
+          placeholder="Search by Participation ID"
+          value={searchParticipationId}
+          onChange={(e) => setSearchParticipationId(e.target.value)}
+          className="border p-2 rounded w-1/2 mr-2"
+        />
+        <input
+          type="text"
+          placeholder="Search by Question ID"
+          value={searchQuestionId}
+          onChange={(e) => setSearchQuestionId(e.target.value)}
+          className="border p-2 rounded w-1/2"
+        />
+      </div>
+
       <div className="overflow-x-auto bg-white rounded-lg shadow-md">
         <table className="min-w-full table-auto">
           <thead className="bg-gray-100">
             <tr>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">ID</th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Participation ID</th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Question ID</th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Option ID</th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Response Text</th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">Action</th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
+                ID
+              </th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
+                Participation ID
+              </th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
+                Question ID
+              </th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
+                Option ID
+              </th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
+                Response Text
+              </th>
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
+                Action
+              </th>
             </tr>
           </thead>
           <tbody>
-            {responses.length > 0 ? (
-              responses.map((response) => (
-                <tr key={response.responseID} className="border-b hover:bg-gray-50">
+            {filteredResponses.length > 0 ? (
+              filteredResponses.map((response) => (
+                <tr
+                  key={response.responseID}
+                  className="border-b hover:bg-gray-50"
+                >
                   <td
                     className="px-4 py-2 text-blue-600 cursor-pointer"
                     onClick={() => handleDetailButton(response.responseID)}
@@ -104,7 +164,7 @@ const ResponseList = () => {
               ))
             ) : (
               <tr>
-                <td colSpan="5" className="text-center py-4 text-gray-500">
+                <td colSpan="6" className="text-center py-4 text-gray-500">
                   No responses available.
                 </td>
               </tr>

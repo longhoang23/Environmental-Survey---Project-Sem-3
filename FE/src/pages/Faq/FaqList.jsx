@@ -34,6 +34,8 @@ const FaqList = () => {
       alert("Failed to delete Faq");
     }
   };
+  const userRole = JSON.parse(localStorage.getItem("user")).role;
+  const isStudent = userRole == 3;
 
   useEffect(() => {
     const fetchFaq = async () => {
@@ -68,12 +70,14 @@ const FaqList = () => {
                 Faq ID
               </th>
               <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
-                QUestion
+                Question
               </th>
               <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
                 Answer
               </th>
-              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600">
+              <th className="px-4 py-2 text-left text-sm font-semibold text-gray-600"
+              hidden = {isStudent}
+              >
                 Action
               </th>
             </tr>
@@ -92,16 +96,18 @@ const FaqList = () => {
                     {faq.answer}
                   </td>
 
-                  <td className="px-4 py-2 text-sm">
+                  <td className="px-4 py-2 text-sm" hidden = {isStudent}>
                     <button
                       onClick={() => handleUpdateButton(faq.faqid)}
-                      className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none"
+                      className="ml-2 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none"
+                      hidden = {isStudent}
                     >
                       Update
                     </button>
                     <button
                       onClick={() => handleDeleteButton(faq.faqid)}
                       className="ml-2 px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none"
+                      hidden = {isStudent}
                     >
                       Delete
                     </button>
@@ -122,6 +128,7 @@ const FaqList = () => {
         <button
           onClick={handleAddButton}
           className="px-6 py-3 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none"
+          hidden = {isStudent}
         >
           Add New Faq
         </button>
