@@ -11,15 +11,15 @@ const SupportList = () => {
   const navigate = useNavigate();
 
   const handleAddButton = () => {
-    navigate("/admin/add-support");
+    navigate("/add-support");
   };
 
   const handleDetailButton = (id) => {
-    navigate(`/admin/support-detail/${id}`);
+    navigate(`/support-detail/${id}`);
   };
 
   const handleUpdateButton = (id) => {
-    navigate(`/admin/update-support/${id}`);
+    navigate(`/update-support/${id}`);
   };
 
   const handleDeleteButton = async (id) => {

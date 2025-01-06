@@ -46,7 +46,7 @@ const UpdateSupport = () => {
       });
       if (response.status === 200) {
         alert("Support updated successfully!");
-        navigate("/admin/support-list");
+        navigate("/support-list");
       }
     } catch (err) {
       console.error("Error updating support:", err);
