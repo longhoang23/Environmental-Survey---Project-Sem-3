@@ -38,7 +38,7 @@ const ParticipationDetail = () => {
         <p><strong>Total Score:</strong> {participation.totalScore}</p>
         <p><strong>Feedback:</strong> {participation.feedback}</p>
         <button
-          onClick={() => navigate("/admin/participation-list")}
+          onClick={() => navigate("/participation-list")}
           className="bg-blue-500 text-white px-4 py-2 rounded mt-4 hover:bg-blue-600"
         >
           Back to List

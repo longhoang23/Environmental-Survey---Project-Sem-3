@@ -41,7 +41,6 @@ const SurveyList = () => {
 
   const userRole = JSON.parse(localStorage.getItem('user')).role;
   const isStudent = userRole == 3
-  const isAdmin = userRole == 1
   const isStaff = userRole == 2
 
   useEffect(() => {
@@ -144,13 +143,6 @@ const SurveyList = () => {
                       hidden={isStaff || isStudent}
                     >
                       Delete
-                    </button>
-                    <button
-                      onClick={() => alert(`Join survey feature is not implemented yet for Survey ID: ${survey.surveyID}`)}
-                      className="ml-2 px-4 py-2 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 focus:outline-none"
-                      hidden = {isAdmin}
-                    >
-                      Join Survey
                     </button>
                   </td>
 
