@@ -189,6 +189,8 @@ const ResponseList = () => {
                   <td className="px-4 py-2">{response.optionID}</td>
                   <td className="px-4 py-2">{response.responseText}</td>
                   <td className="px-4 py-2 space-x-2">
+                  <button onClick={() => handleDetailButton(response.responseID)} className="px-4 py-2 bg-green-500 text-white rounded hover:bg-blue-600"
+                      >Detail</button>
                     <button onClick={() => handleUpdateButton(response.responseID)} className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
                       hidden={isStudent}
                       >Update</button>

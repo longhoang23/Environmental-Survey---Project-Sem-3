@@ -51,8 +51,6 @@ const ParticipationList = () => {
       }
     }
   };
-  const userRole = JSON.parse(localStorage.getItem("user")).role;
-  const isStudent = userRole == 3;
 
   useEffect(() => {
     const fetchParticipations = async () => {
